@@ -1406,7 +1406,7 @@ if (lageCode === "PNP") {
 
     else {
       category = "Übersteuernd transformierend";
-      effect = "Deine Wirkung ist extrem stark – du dominierst die Entwicklung vollständig.";
+      effect = "Deine Wirkung ist extrem stark, du dominierst die Entwicklung vollständig.";
     }
   }
 
@@ -1461,7 +1461,7 @@ if (lageCode === "PNN") {
       effect = "Du erzeugst innere Unruhe, obwohl keine echte Spannung vorhanden ist.";
     } else {
       category = "Passiv ausgeglichen";
-      effect = "Die Situation ist stabil – aber du greifst nicht ein.";
+      effect = "Die Situation ist stabil, aber du greifst nicht ein.";
     }
   }
 
@@ -1684,7 +1684,7 @@ if (lageCode === "NPN") {
 
     else if (s <= 29) {
       category = "Stabil ohne Einfluss";
-      effect = "Die Realität bleibt gut – aber nicht durch dich.";
+      effect = "Die Realität bleibt gut, aber nicht durch dich.";
     }
 
     else if (s <= 49) {
@@ -1858,7 +1858,7 @@ if (lageCode === "NNN") {
       effect = "Du hältst eine negative Situation aufrecht, erzeugst aber gleichzeitig innere Unruhe.";
     } else {
       category = "Stabil negativ passiv";
-      effect = "Die negative Situation bleibt bestehen – ohne dass du aktiv eingreifst.";
+      effect = "Die negative Situation bleibt bestehen, ohne dass du aktiv eingreifst.";
     }
   }
 
@@ -1958,7 +1958,7 @@ if (lageCode === "P0P") {
       effect = "Du setzt viel Energie ein, obwohl keine klare Richtung erforderlich ist.";
     } else {
       category = "Neutral stabil";
-      effect = "Es besteht keine klare Spannung – du hältst die Situation ruhig.";
+      effect = "Es besteht keine klare Spannung, du hältst die Situation ruhig.";
     }
 
   }
@@ -2154,7 +2154,7 @@ if (lageCode === "PP0") {
 
         if (s <= 1) {
             category = "Leicht unter Anspruch";
-            effect = "Die Realität ist besser als dein Anspruch – du nutzt sie kaum.";
+            effect = "Die Realität ist besser als dein Anspruch, du nutzt sie kaum.";
         }
         else if (s <= 2) {
             category = "Passiv in guter Lage";
@@ -2196,8 +2196,6 @@ if (lageCode === "PP0") {
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-
-
 
 
 
@@ -2274,13 +2272,13 @@ lageText = "Ideal: positiv, Realität: negativ, Rückgrat: neutral";
 
 if (delta <= 2) {
     category = "Minimal gelähmt";
-    effect = "Ein positives Ideal trifft auf leichte Belastung – ohne Rückgrat entsteht kaum Bewegung.";
+    effect = "Ein positives Ideal trifft auf leichte Belastung, ohne Rückgrat entsteht kaum Bewegung.";
 } else if (delta <= 4) {
     category = "Leicht gelähmt";
     effect = "Du siehst, was richtig wäre, kannst es aber unter leichtem Druck nicht umsetzen.";
 } else if (delta <= 6) {
     category = "Gelähmt";
-    effect = "Positives Ideal und negative Realität erzeugen Spannung – ohne Rückgrat bleibt sie ungelöst.";
+    effect = "Positives Ideal und negative Realität erzeugen Spannung, ohne Rückgrat bleibt sie ungelöst.";
 } else if (delta <= 8) {
     category = "Spürbar gelähmt";
     effect = "Der Druck der negativen Realität überwiegt – dein positives Ideal kommt nicht zum Tragen.";
@@ -2289,13 +2287,13 @@ if (delta <= 2) {
     effect = "Du weißt, was zu tun wäre – aber ohne Rückgrat bleibst du unter Druck handlungsunfähig.";
 } else if (delta <= 14) {
     category = "Stark gelähmt";
-    effect = "Die Spannung zwischen positivem Ideal und negativer Realität ist hoch – ohne Rückgrat keine Auflösung.";
+    effect = "Die Spannung zwischen positivem Ideal und negativer Realität ist hoch, ohne Rückgrat keine Auflösung.";
 } else if (delta <= 18) {
     category = "Massiv gelähmt";
-    effect = "Ein starkes positives Ideal trifft auf schwere Belastung – ohne Rückgrat ist keine Wirkung möglich.";
+    effect = "Ein starkes positives Ideal trifft auf schwere Belastung, ohne Rückgrat ist keine Wirkung möglich.";
 } else {
     category = "Vollständig gelähmt";
-    effect = "Maximale Spannung zwischen Ideal und Realität – ohne Rückgrat ist jede Handlung blockiert.";
+    effect = "Maximale Spannung zwischen Ideal und Realität, ohne Rückgrat ist jede Handlung blockiert.";
 }
 }
 
@@ -2383,7 +2381,7 @@ if (lageCode === "0PP") {
     effect = "Du überprägst eine positive Lage mit sehr viel Einfluss.";
   } else {
     category = "Überdreht verstärkend";
-    effect = "Du verstärkst die Situation maximal – die Balance gerät unter Druck.";
+    effect = "Du verstärkst die Situation maximal, die Balance gerät unter Druck.";
   }
 }
 
@@ -2414,7 +2412,7 @@ if (lageCode === "0PN") {
       effect = "Du bringst Unsicherheit in eine eigentlich stabile Situation.";
     } else {
       category = "Passiv stabil";
-      effect = "Die positive Lage bleibt bestehen – ohne dein aktives Zutun.";
+      effect = "Die positive Lage bleibt bestehen, ohne dein aktives Zutun.";
     }
 
   }
@@ -2484,7 +2482,7 @@ const kraft = Math.abs(G);
 
 if (kraft <= 1) {
     category = "Neutral passiv";
-    effect = "Es entsteht weder Spannung noch Bewegung – du bleibst vollständig inaktiv.";
+    effect = "Es entsteht weder Spannung noch Bewegung, du bleibst vollständig inaktiv.";
 
 } else if (kraft <= 2) {
     category = "Minimal aktiv";
@@ -2512,7 +2510,7 @@ if (kraft <= 1) {
 
 } else {
     category = "Überaktiv ungerichtet";
-    effect = "Du setzt maximale Energie ein, ohne klare Richtung – Aktivität ohne Ziel.";
+    effect = "Du setzt maximale Energie ein, ohne klare Richtung, Aktivität ohne Ziel.";
 }
 
 }
@@ -2547,7 +2545,7 @@ const kraft = Math.abs(G);
 
 if (kraft <= 1) {
     category = "Neutral passiv";
-    effect = "Es entsteht weder Spannung noch Störung – du bleibst vollständig neutral.";
+    effect = "Es entsteht weder Spannung noch Störung, du bleibst vollständig neutral.";
 
 } else if (kraft <= 2) {
     category = "Minimal störend";
@@ -2575,7 +2573,7 @@ if (kraft <= 1) {
 
 } else {
     category = "Systemstörend";
-    effect = "Du wirkst massiv störend – ohne Anlass und ohne konstruktive Richtung.";
+    effect = "Du wirkst massiv störend, ohne Anlass und ohne konstruktive Richtung.";
 }
 
 }
@@ -2876,7 +2874,7 @@ const delta = Math.abs(I);   // 1 bis 10
 
 if (delta <= 1) {
     category = "Minimal negativ ohne Wirkung";
-    effect = "Eine kaum merkliche negative Tendenz ist vorhanden – ohne jeden Einfluss nach außen.";
+    effect = "Eine kaum merkliche negative Tendenz ist vorhanden, ohne jeden Einfluss nach außen.";
 } else if (delta <= 2) {
     category = "Leicht negativ ohne Wirkung";
     effect = "Eine leichte negative Ausrichtung ist angedeutet, bleibt aber vollständig wirkungslos.";
@@ -2897,7 +2895,7 @@ if (delta <= 1) {
     effect = "Ein sehr starkes negatives Ideal bleibt ohne Rückgrat vollständig im Verborgenen.";
 } else {
     category = "Maximal negativ ohne Wirkung";
-    effect = "Maximales negatives Ideal trifft auf fehlendes Rückgrat – keine Wirkung, aber höchste innere Spannung.";
+    effect = "Maximales negatives Ideal trifft auf fehlendes Rückgrat, keine Wirkung, aber höchste innere Spannung.";
 }
 }
 
@@ -2935,13 +2933,13 @@ if (s <= 4) {
     effect = "Negatives Ideal und fehlendes Rückgrat erzeugen starke innere Zerrissenheit.";
 } else if (s <= 64) {
     category = "Stark widersprüchlich";
-    effect = "Eine starke negative Ausrichtung bleibt blockiert – die innere Belastung ist hoch.";
+    effect = "Eine starke negative Ausrichtung bleibt blockiert, die innere Belastung ist hoch.";
 } else if (s <= 79) {
     category = "Massiv widersprüchlich";
-    effect = "Starkes negatives Ideal trifft auf völligen Rückgrat-Ausfall – dauerhaft belastend.";
+    effect = "Starkes negatives Ideal trifft auf völligen Rückgrat-Ausfall, dauerhaft belastend.";
 } else {
     category = "Vollständig blockiert";
-    effect = "Maximaler innerer Widerspruch ohne jede Auflösung – höchste innere Spannung.";
+    effect = "Maximaler innerer Widerspruch ohne jede Auflösung, höchste innere Spannung.";
 }
 }
 
@@ -2964,7 +2962,7 @@ if (lageCode === "000") {
   if (spannung === 0) {
 
     category = "Neutraler Nullzustand";
-    effect = "Es besteht weder Anspruch noch Druck noch Handlung – die Situation ist vollständig statisch.";
+    effect = "Es besteht weder Anspruch noch Druck noch Handlung, die Situation ist vollständig statisch.";
 
   }
 
@@ -2996,13 +2994,13 @@ const d = Math.abs(spannung);
 
 if (spannung === 0) {
     category = "Stabil negativ";
-    effect = "Ideal und Realität sind gleich negativ – die Lage bleibt ohne Rückgrat unverändert stehen.";
+    effect = "Ideal und Realität sind gleich negativ, die Lage bleibt ohne Rückgrat unverändert stehen.";
 
 } else if (spannung < 0) {
     // Realität weniger negativ als Ideal
     if (d <= 1) {
         category = "Minimal besser als erwartet";
-        effect = "Die Realität ist leicht weniger negativ als dein Ideal – kaum spürbar.";
+        effect = "Die Realität ist leicht weniger negativ als dein Ideal, kaum spürbar.";
     } else if (d <= 2) {
         category = "Leicht besser als erwartet";
         effect = "Die Realität bleibt etwas weniger negativ als deine Ausrichtung.";
@@ -3014,44 +3012,44 @@ if (spannung === 0) {
         effect = "Die Realität weicht klar nach oben von deiner negativen Ausrichtung ab.";
     } else if (d <= 6) {
         category = "Stark besser als erwartet";
-        effect = "Die Realität ist deutlich weniger negativ als dein Ideal – ohne Rückgrat bleibt das ungenutzt.";
+        effect = "Die Realität ist deutlich weniger negativ als dein Ideal, ohne Rückgrat bleibt das ungenutzt.";
     } else if (d <= 7) {
         category = "Sehr stark besser als erwartet";
-        effect = "Die Situation liegt weit über deinem negativen Maßstab – du erkennst es nicht.";
+        effect = "Die Situation liegt weit über deinem negativen Maßstab, du erkennst es nicht.";
     } else if (d <= 8) {
         category = "Massiv besser als erwartet";
-        effect = "Die Realität ist massiv weniger negativ als dein Ideal – ein ungenutzter Spielraum.";
+        effect = "Die Realität ist massiv weniger negativ als dein Ideal, ein ungenutzter Spielraum.";
     } else {
         category = "Maximal besser als erwartet";
-        effect = "Maximale Abweichung – die Realität ist weit weniger negativ als deine Ausrichtung, bleibt aber ohne Reaktion.";
+        effect = "Maximale Abweichung, die Realität ist weit weniger negativ als deine Ausrichtung, bleibt aber ohne Reaktion.";
     }
 
 } else {
     // Realität negativer als Ideal
     if (d <= 1) {
         category = "Minimal schlechter als erwartet";
-        effect = "Die Realität ist leicht negativer als dein Ideal – kaum spürbar.";
+        effect = "Die Realität ist leicht negativer als dein Ideal, kaum spürbar.";
     } else if (d <= 2) {
         category = "Leicht schlechter als erwartet";
         effect = "Die Realität ist etwas negativer als deine Ausrichtung.";
     } else if (d <= 4) {
         category = "Spürbar schlechter als erwartet";
-        effect = "Die Situation ist erkennbar negativer als dein Ideal – ohne Rückgrat bleibt das unbearbeitet.";
+        effect = "Die Situation ist erkennbar negativer als dein Ideal, ohne Rückgrat bleibt das unbearbeitet.";
     } else if (d <= 5) {
         category = "Deutlich schlechter als erwartet";
         effect = "Die Realität weicht klar nach unten von deiner Ausrichtung ab.";
     } else if (d <= 6) {
         category = "Stark schlechter als erwartet";
-        effect = "Die Situation ist deutlich negativer als dein Ideal – die Lage verschlechtert sich ohne Reaktion.";
+        effect = "Die Situation ist deutlich negativer als dein Ideal, die Lage verschlechtert sich ohne Reaktion.";
     } else if (d <= 7) {
         category = "Sehr stark schlechter als erwartet";
-        effect = "Die Realität liegt weit unter deinem Maßstab – ohne Rückgrat bleibt das unkorrigiert.";
+        effect = "Die Realität liegt weit unter deinem Maßstab, ohne Rückgrat bleibt das unkorrigiert.";
     } else if (d <= 8) {
         category = "Massiv schlechter als erwartet";
-        effect = "Die Realität ist massiv negativer als dein Ideal – ein unkontrollierter Einbruch.";
+        effect = "Die Realität ist massiv negativer als dein Ideal, ein unkontrollierter Einbruch.";
     } else {
         category = "Maximal schlechter als erwartet";
-        effect = "Maximale negative Abweichung – die Realität ist weit negativer als deine Ausrichtung und bleibt ohne jede Reaktion.";
+        effect = "Maximale negative Abweichung, die Realität ist weit negativer als deine Ausrichtung und bleibt ohne jede Reaktion.";
     }
 }
 }
