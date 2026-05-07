@@ -1639,8 +1639,6 @@ if (lageCode === "NPP") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
-
-
 if (lageCode === "NPN") {
 
   const spannung = I - R;
@@ -1648,88 +1646,44 @@ if (lageCode === "NPN") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  // ============================
-  // 1. BALANCE
-  // ============================
-  if (spannung === 0) {
-
-    if (kraft >= 8) {
-      category = "Instabil stabil";
-      effect = "Du bringst Unruhe in eine eigentlich stabile Situation.";
-    } else {
-      category = "Passiv stabil";
-      effect = "Die Lage ist gut – aber du nutzt sie nicht aktiv.";
-    }
-  }
-
-  // ============================
-  // 2. PASSIVITÄT / UNTERGRABUNG
-  // ============================
-  else if (spannung < 0) {
-
-    if (s <= 4) {
-      category = "Leicht passiv";
-      effect = "Du lässt eine gute Situation einfach laufen, ohne Einfluss zu nehmen.";
-    }
-
-    else if (s <= 9) {
-      category = "Passiv bremsend";
-      effect = "Du nutzt die gute Lage nicht und bremst Entwicklung leicht aus.";
-    }
-
-    else if (s <= 14) {
-      category = "Passiv untergrabend";
-      effect = "Du schwächst die positive Dynamik durch Untätigkeit.";
-    }
-
-    else if (s <= 29) {
-      category = "Stabil ohne Einfluss";
-      effect = "Die Realität bleibt gut, aber nicht durch dich.";
-    }
-
-    else if (s <= 49) {
-      category = "Deutlich passiv";
-      effect = "Du hältst dich zurück, obwohl du Einfluss nehmen könntest.";
-    }
-
-    else if (s <= 64) {
-      category = "Träge stabil";
-      effect = "Du verhinderst Weiterentwicklung durch Passivität.";
-    }
-
-    else if (s <= 79) {
-      category = "Blockierend passiv";
-      effect = "Du hältst die Situation fest und lässt keine Entwicklung zu.";
-    }
-
-    else {
-      category = "Verdeckte Blockade";
-      effect = "Du blockierst Entwicklung durch konsequentes Nicht-Handeln.";
-    }
-  }
-
-  // ============================
-  // 3. FEHLFOKUS
-  // ============================
-  else {
-
-    if (s <= 10) {
-      category = "Leicht fehlgesteuert";
-      effect = "Du setzt Energie ein, aber nicht sinnvoll.";
-    }
-
-    else if (s <= 30) {
-      category = "Fehlgesteuert";
-      effect = "Du entfernst dich von einer eigentlich guten Lage.";
-    }
-
-    else {
-      category = "Stark fehlgesteuert";
-      effect = "Du wirkst gegen eine funktionierende Realität, trotz schwachem Rückgrat.";
-    }
-  }
-
   lageText = "Ideal: negativ, Realität: positiv, Rückgrat: negativ";
+
+  if (s <= 4) {
+    category = "Minimal passiv";
+    effect = "Du lässt eine gute Situation laufen, ohne Einfluss zu nehmen.";
+  }
+  else if (s <= 9) {
+    category = "Leicht passiv bremsend";
+    effect = "Du nutzt die gute Lage nicht und bremst Entwicklung leicht aus.";
+  }
+  else if (s <= 14) {
+    category = "Passiv untergrabend";
+    effect = "Du schwächst die positive Dynamik durch Untätigkeit.";
+  }
+  else if (s <= 29) {
+    category = "Stabil ohne Einfluss";
+    effect = "Die Realität bleibt gut – aber nicht durch dich.";
+  }
+  else if (s <= 49) {
+    category = "Deutlich passiv";
+    effect = "Du hältst dich zurück, obwohl du Einfluss nehmen könntest.";
+  }
+  else if (s <= 79) {
+    category = "Träge blockierend";
+    effect = "Du verhinderst Weiterentwicklung durch konsequente Passivität.";
+  }
+  else if (s <= 119) {
+    category = "Stark blockierend";
+    effect = "Du hältst die Situation fest und lässt keine Entwicklung zu.";
+  }
+  else if (s <= 159) {
+    category = "Massiv blockierend";
+    effect = "Du blockierst Entwicklung durch maximales Nicht-Handeln.";
+  }
+  else {
+    category = "Vollständige Blockade";
+    effect = "Du untergräbst aktiv jede positive Entwicklung durch konsequentes Nicht-Handeln.";
+  }
 }
 
 
@@ -2249,17 +2203,6 @@ if (lageCode === "P00") {
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-
-
-
-
-
-
-//.............................................................................
-//.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-
 
 
 
@@ -3290,9 +3233,6 @@ if (lageCode === "PPP") {
 }
 
 
-
-
-
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
@@ -3477,7 +3417,7 @@ if (lageCode === "PPN") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-
+	
 
 if (lageCode === "PNP") {
 
@@ -3861,6 +3801,9 @@ else if (lageCode === "PNN") {
 
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 else if (lageCode === "NPP") {
@@ -4045,184 +3988,107 @@ else if (lageCode === "NPP") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
+if (lageCode === "NPN") {
 
-else if (lageCode === "NPN") {
+  let s = Math.abs(H);
+  const kraft = Math.abs(G);
 
-    let s = Math.abs(H);
-
-    if (H < 0) {
-
-        // Richtung 1:
-        // Negatives Ideal + positive Realität + schwaches Rückgrat
-        // → Du untergräbst die gute Lage durch Passivität
-
-        if (s <= 4) {
-            if (intensitaet === "leicht") {
-                deutung = "Du lässt eine gute Situation laufen, ohne aktiv Einfluss zu nehmen.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Du nutzt die stabile Lage nicht und bleibst passiv, obwohl Handlung möglich wäre.";
-            } else {
-                deutung = "Die positive Situation bleibt bestehen, wird aber von dir nicht getragen.";
-            }
-        }
-
-        else if (s <= 9) {
-            if (intensitaet === "leicht") {
-                deutung = "Du bleibst zurückhaltend und nutzt vorhandene Chancen nicht.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Deine Passivität beginnt, die Entwicklung leicht auszubremsen.";
-            } else {
-                deutung = "Die gute Dynamik wird durch dein Nicht-Handeln spürbar gebremst.";
-            }
-        }
-
-        else if (s <= 14) {
-            if (intensitaet === "leicht") {
-                deutung = "Du greifst nicht ein und schwächst damit indirekt die positive Entwicklung.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein Verhalten untergräbt die vorhandene Dynamik durch Untätigkeit.";
-            } else {
-                deutung = "Die positive Lage verliert durch dein Nicht-Handeln an Stabilität.";
-            }
-        }
-
-        else if (s <= 29) {
-            if (intensitaet === "leicht") {
-                deutung = "Die Situation bleibt stabil, aber nicht durch deinen Beitrag.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Du hältst dich zurück und überlässt die Entwicklung anderen.";
-            } else {
-                deutung = "Die positive Realität besteht – aber du trägst nichts zu ihr bei.";
-            }
-        }
-
-        else if (s <= 49) {
-            if (intensitaet === "leicht") {
-                deutung = "Du bleibst deutlich passiv, obwohl du Einfluss nehmen könntest.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein Rückzug schwächt die Entwicklung zunehmend.";
-            } else {
-                deutung = "Die Situation verliert durch deine Passivität klar an Fortschritt.";
-            }
-        }
-
-        else if (s <= 64) {
-            if (intensitaet === "leicht") {
-                deutung = "Du hältst dich konstant zurück und verhinderst Entwicklung.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Deine Passivität stabilisiert Stillstand statt Fortschritt.";
-            } else {
-                deutung = "Du blockierst Entwicklung durch konsequentes Nicht-Handeln.";
-            }
-        }
-
-        else if (s <= 79) {
-            if (intensitaet === "leicht") {
-                deutung = "Du hältst die Situation fest, ohne sie weiterzuentwickeln.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Entwicklung wird durch dein Verhalten deutlich gebremst.";
-            } else {
-                deutung = "Die Situation kippt durch Stillstand und fehlenden Impuls.";
-            }
-        }
-
-        else {
-            if (intensitaet === "leicht") {
-                deutung = "Du ziehst dich vollständig zurück und überlässt alles dem Zufall.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein konsequentes Nicht-Handeln blockiert jede Weiterentwicklung.";
-            } else {
-                deutung = "Du untergräbst aktiv Fortschritt, indem du bewusst nicht handelst.";
-            }
-        }
-
+  if (s <= 4) {
+    if (intensitaet === "leicht") {
+      deutung = "Du lässt eine gute Situation einfach laufen. Dein negatives Ideal nimmt sie nicht wahr, du nutzt sie weder aktiv noch störst du sie.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Die positive Realität bleibt bestehen, wird aber nicht genutzt. Dein negatives Ideal verhindert, dass du sie als Chance siehst.";
     } else {
-
-        // Richtung 2:
-        // Fehlfokus (schwaches Rückgrat + falsche Ausrichtung)
-
-        if (s <= 4) {
-            if (intensitaet === "leicht") {
-                deutung = "Du setzt Energie ein, aber nicht in die richtige Richtung.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein Einsatz wirkt leicht fehlgeleitet und ohne klare Wirkung.";
-            } else {
-                deutung = "Du arbeitest an Dingen vorbei, die eigentlich stabil sind.";
-            }
-        }
-
-        else if (s <= 9) {
-            if (intensitaet === "leicht") {
-                deutung = "Du verlierst leicht den Bezug zur funktionierenden Realität.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein Handeln entfernt dich von einer eigentlich guten Situation.";
-            } else {
-                deutung = "Du schwächst die Stabilität durch falschen Fokus.";
-            }
-        }
-
-        else if (s <= 14) {
-            if (intensitaet === "leicht") {
-                deutung = "Du gehst erste Schritte in eine unpassende Richtung.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein Verhalten entfernt dich klar von der stabilen Lage.";
-            } else {
-                deutung = "Du arbeitest gegen die vorhandene Stabilität.";
-            }
-        }
-
-        else if (s <= 29) {
-            if (intensitaet === "leicht") {
-                deutung = "Du bewegst dich spürbar von der guten Ausgangslage weg.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Du verlässt die stabile Basis zunehmend.";
-            } else {
-                deutung = "Die funktionierende Realität wird durch dein Verhalten geschwächt.";
-            }
-        }
-
-        else if (s <= 49) {
-            if (intensitaet === "leicht") {
-                deutung = "Du entfernst dich deutlich von einer guten Situation.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein Verhalten wirkt klar gegen die vorhandene Stabilität.";
-            } else {
-                deutung = "Du schwächst die positive Lage durch Fehlsteuerung.";
-            }
-        }
-
-        else if (s <= 64) {
-            if (intensitaet === "leicht") {
-                deutung = "Du stabilisierst eine falsche Richtung.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Du entfernst dich bewusst von der funktionierenden Realität.";
-            } else {
-                deutung = "Dein Verhalten wirkt deutlich gegen die stabile Grundlage.";
-            }
-        }
-
-        else if (s <= 79) {
-            if (intensitaet === "leicht") {
-                deutung = "Du hältst an einer falschen Richtung fest.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Du verstärkst die Abweichung von der Realität.";
-            } else {
-                deutung = "Du entwickelst dich aktiv in eine negative Richtung.";
-            }
-        }
-
-        else {
-            if (intensitaet === "leicht") {
-                deutung = "Du entfernst dich vollständig von der stabilen Basis.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Dein Verhalten wirkt massiv gegen die Realität.";
-            } else {
-                deutung = "Du arbeitest konsequent gegen eine funktionierende Situation.";
-            }
-        }
+      deutung = "Trotz starkem negativem Rückgrat bleibt die gute Lage zunächst unberührt. Aber die Passivität beginnt zu wirken.";
     }
+  }
+
+  else if (s <= 9) {
+    if (intensitaet === "leicht") {
+      deutung = "Du bremst die gute Entwicklung leicht aus. Dein negatives Ideal verhindert, dass du die positive Realität aktiv trägst.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Die Situation verliert erste Dynamik durch deine Zurückhaltung. Du siehst das Gute, nutzt es aber nicht.";
+    } else {
+      deutung = "Dein negatives Rückgrat beginnt spürbar, die positive Realität zu schwächen.";
+    }
+  }
+
+  else if (s <= 14) {
+    if (intensitaet === "leicht") {
+      deutung = "Die positive Dynamik wird durch dein Nicht-Handeln geschwächt. Du weißt, was möglich wäre – tust aber nichts.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Dein negatives Ideal und dein fehlendes Rückgrat zusammen untergraben eine eigentlich gute Lage.";
+    } else {
+      deutung = "Du schwächst die positive Situation durch Passivität und negative Grundausrichtung erkennbar.";
+    }
+  }
+
+  else if (s <= 29) {
+    if (intensitaet === "leicht") {
+      deutung = "Die gute Realität bleibt noch stabil, wird aber nicht weiterentwickelt. Du lässt sie stehen, ohne etwas beizutragen.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Du siehst die gute Lage – aber dein negatives Ideal verhindert, dass du etwas damit anfängst. Die Spannung wächst still.";
+    } else {
+      deutung = "Dein Rückgrat zieht gegen die positive Realität. Die Lage bleibt gut, aber nur solange nichts Äußeres sie herausfordert.";
+    }
+  }
+
+  else if (s <= 49) {
+    if (intensitaet === "leicht") {
+      deutung = "Du hältst dich deutlich zurück. Die positive Realität verliert an Wirkung, weil niemand sie trägt.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Dein negatives Ideal und dein Rückgrat zusammen verhindern, dass du etwas Sinnvolles aus der guten Lage machst.";
+    } else {
+      deutung = "Die Situation wird merklich geschwächt. Du nutzt weder die Realität noch dein Rückgrat in eine positive Richtung.";
+    }
+  }
+
+  else if (s <= 79) {
+    if (intensitaet === "leicht") {
+      deutung = "Du blockierst Weiterentwicklung konsequent. Die gute Realität verpufft durch deine Passivität.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Dein negatives Ideal und dein Rückgrat ziehen gemeinsam gegen eine eigentlich funktionierende Lage.";
+    } else {
+      deutung = "Du untergräbst die positive Dynamik aktiv. Die Lage verliert zunehmend an Stabilität.";
+    }
+  }
+
+  else if (s <= 119) {
+    if (intensitaet === "leicht") {
+      deutung = "Die positive Realität hält sich noch, aber kaum. Du blockierst jeden Impuls zur Weiterentwicklung.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Die gute Lage wird durch dein Verhalten zunehmend ausgehöhlt. Das Potenzial verpufft ohne Nutzung.";
+    } else {
+      deutung = "Dein starkes negatives Rückgrat arbeitet aktiv gegen eine eigentlich funktionierende Lage. Du dominierst die Situation, aber in die falsche Richtung. Die positive Realität verliert zunehmend an Boden.";
+    }
+  }
+
+  else if (s <= 159) {
+    if (intensitaet === "leicht") {
+      deutung = "Die positive Realität wird durch deine Haltung massiv geschwächt. Kaum noch Raum für Entwicklung.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Du blockierst eine eigentlich gute Lage fast vollständig. Dein negatives Ideal und Rückgrat wirken gemeinsam zerstörerisch.";
+    } else {
+      deutung = "Maximale Gegenwirkung gegen eine positive Realität. Die Situation kippt trotz guter Ausgangslage.";
+    }
+  }
+
+  else {
+    if (intensitaet === "leicht") {
+      deutung = "Vollständige Blockade. Eine maximal positive Realität trifft auf maximales negatives Ideal und Rückgrat, kein Potenzial wird genutzt.";
+    } else if (intensitaet === "mittel") {
+      deutung = "Du unterdrückst eine gute Lage vollständig. Die Spannung zwischen Realität und deiner Haltung ist auf einem Höchststand.";
+    } else {
+      deutung = "Maximale Gegenwirkung. Du arbeitest mit vollem Einsatz gegen eine eigentlich starke Realität. Das ist die stärkste Form von Selbstsabotage.";
+    }
+  }
 }
 
+
+
+	
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
