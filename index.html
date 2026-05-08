@@ -1138,7 +1138,7 @@ let effect = "";
       effect = "Du setzt viel Energie ein, obwohl Ideal und Realität bereits übereinstimmen.";
     } else {
       category = "Stabil ausgeglichen";
-      effect = "Ideal und Realität sind im Gleichgewicht – die Situation trägt sich stabil.";
+      effect = "Ideal und Realität sind im Gleichgewicht, die Situation trägt sich stabil.";
     }
   }
 
@@ -1188,11 +1188,11 @@ let effect = "";
 
     if (s <= 4) {
       category = "Minimal unterfordert";
-      effect = "Die Realität übertrifft dein Ideal leicht – erstes ungenutztes Potenzial entsteht.";
+      effect = "Die Realität übertrifft dein Ideal leicht. Erstes ungenutztes Potenzial entsteht.";
     }
     else if (s <= 9) {
       category = "Leicht unterfordert";
-      effect = "Dein Anspruch bleibt hinter der Realität – du schöpfst deine Möglichkeiten nicht aus.";
+      effect = "Dein Anspruch bleibt hinter der Realität. Du schöpfst deine Möglichkeiten nicht aus.";
     }
     else if (s <= 14) {
       category = "Unterfordert";
@@ -1200,7 +1200,7 @@ let effect = "";
     }
     else if (s <= 29) {
       category = "Spürbar unterfordert";
-      effect = "Die gute Lage wird nicht bewusst geführt – du bleibst klar unter deinen Möglichkeiten.";
+      effect = "Die gute Lage wird nicht bewusst geführt. Du bleibst klar unter deinen Möglichkeiten.";
     }
     else if (s <= 49) {
       category = "Deutlich unterfordert";
@@ -1216,7 +1216,7 @@ let effect = "";
     }
     else {
       category = "Vollständig unterfordert";
-      effect = "Maximale Voraussetzungen treffen auf einen zu niedrigen Anspruch – das Potenzial bleibt vollständig liegen.";
+      effect = "Maximale Voraussetzungen treffen auf einen zu niedrigen Anspruch. Das Potenzial bleibt vollständig liegen.";
     }
   }
 
@@ -3069,7 +3069,7 @@ if (lageCode === "PPP") {
 
     if (s <= 4) {
       if (intensitaet === "leicht") {
-        deutung = "Du gehst den ersten Schritt vom Beobachter zum Gestalter. Dein Verhalten beginnt, eine gute Situation zu tragen – noch zurückhaltend, aber spürbar.";
+        deutung = "Du gehst den ersten Schritt vom Beobachter zum Gestalter. Dein Verhalten beginnt, eine gute Situation zu tragen, noch zurückhaltend, aber spürbar.";
       } else if (intensitaet === "mittel") {
         deutung = "Du unterstützt die gute Lage bewusst und bringst erste Stabilität hinein.";
       } else {
@@ -3143,7 +3143,7 @@ if (lageCode === "PPP") {
       } else if (intensitaet === "mittel") {
         deutung = "Du bestimmst die Entwicklung maßgeblich und lässt keinen Spielraum für andere Richtungen.";
       } else {
-        deutung = "Du dominierst die Entwicklung vollständig. Die Situation trägt deine Handschrift – auf höchstem Niveau.";
+        deutung = "Du dominierst die Entwicklung vollständig. Die Situation trägt deine Handschrift auf höchstem Niveau.";
       }
     }
   }
@@ -3155,11 +3155,11 @@ if (lageCode === "PPP") {
 
     if (s <= 4) {
       if (intensitaet === "leicht") {
-        deutung = "Deine Realität übertrifft dein Ideal leicht. Du merkst es kaum – aber erstes Potenzial bleibt liegen.";
+        deutung = "Deine Realität übertrifft dein Ideal leicht. Du merkst es kaum, aber erstes Potenzial bleibt liegen.";
       } else if (intensitaet === "mittel") {
-        deutung = "Die Lage übertrifft deinen Anspruch leicht. Du hast das Rückgrat – aber setzt es noch nicht für die volle Entwicklung ein.";
+        deutung = "Die Lage übertrifft deinen Anspruch leicht. Du hast das Rückgrat, aber setzt es noch nicht für die volle Entwicklung ein.";
       } else {
-        deutung = "Trotz starkem Rückgrat bleibt dein Ideal knapp hinter der Realität. Die Energie ist da – die Richtung noch nicht klar genug.";
+        deutung = "Trotz starkem Rückgrat bleibt dein Ideal knapp hinter der Realität. Die Energie ist da. Die Richtung noch nicht klar genug.";
       }
     }
 
@@ -3175,7 +3175,7 @@ if (lageCode === "PPP") {
 
     else if (s <= 14) {
       if (intensitaet === "leicht") {
-        deutung = "Du bleibst unter deinem eigentlichen Anspruch. Die Lage gäbe mehr her – du entwickelst sie nicht weiter.";
+        deutung = "Du bleibst unter deinem eigentlichen Anspruch. Die Lage gäbe mehr her. Du entwickelst sie nicht weiter.";
       } else if (intensitaet === "mittel") {
         deutung = "Die Realität trägt mehr als dein Ideal fordert. Ein höherer Anspruch würde klar mehr bewegen.";
       } else {
@@ -3185,9 +3185,9 @@ if (lageCode === "PPP") {
 
     else if (s <= 29) {
       if (intensitaet === "leicht") {
-        deutung = "Realität und Rückgrat wären eine starke Basis – dein Ideal bleibt dahinter zurück.";
+        deutung = "Realität und Rückgrat wären eine starke Basis. Dein Ideal bleibt dahinter zurück.";
       } else if (intensitaet === "mittel") {
-        deutung = "Die Situation bietet mehr als du von dir verlangst. Du hast Haltung – aber zu wenig Anspruch an dich selbst.";
+        deutung = "Die Situation bietet mehr als du von dir verlangst. Du hast Haltung, aber zu wenig Anspruch an dich selbst.";
       } else {
         deutung = "Gute Realität und starkes Rückgrat werden durch ein zu niedriges Ideal gebremst.";
       }
@@ -3195,17 +3195,17 @@ if (lageCode === "PPP") {
 
     else if (s <= 49) {
       if (intensitaet === "leicht") {
-        deutung = "Du läufst unter Kapazität – nicht wegen der Realität, sondern wegen deines Anspruchs.";
+        deutung = "Du läufst unter Kapazität. Nicht wegen der Realität, sondern wegen deines Anspruchs.";
       } else if (intensitaet === "mittel") {
-        deutung = "Rückgrat und gute Bedingungen sind vorhanden – aber dein Ideal begrenzt, was du daraus machst.";
+        deutung = "Rückgrat und gute Bedingungen sind vorhanden, aber dein Ideal begrenzt, was du daraus machst.";
       } else {
-        deutung = "Du könntest die Situation deutlich weiterentwickeln – dein Ideal lässt es nicht zu.";
+        deutung = "Du könntest die Situation deutlich weiterentwickeln. Dein Ideal lässt es nicht zu.";
       }
     }
 
     else if (s <= 64) {
       if (intensitaet === "leicht") {
-        deutung = "Realität und Rückgrat wären eine starke Kombination – dein Ideal nutzt sie nicht.";
+        deutung = "Realität und Rückgrat wären eine starke Kombination. Dein Ideal nutzt sie nicht.";
       } else if (intensitaet === "mittel") {
         deutung = "Du verlangst weniger von dir als die Situation erlaubt. Das ist eine Form von Selbstbeschränkung.";
       } else {
@@ -3215,21 +3215,21 @@ if (lageCode === "PPP") {
 
     else if (s <= 79) {
       if (intensitaet === "leicht") {
-        deutung = "Ein großer ungenutzter Spielraum entsteht – dein Ideal reicht nicht, um ihn zu füllen.";
+        deutung = "Ein großer ungenutzter Spielraum entsteht. Dein Ideal reicht nicht, um ihn zu füllen.";
       } else if (intensitaet === "mittel") {
-        deutung = "Rückgrat und Realität sind stark – aber dein Ideal hält nicht mit. Eine tiefe Form von Unterforderung.";
+        deutung = "Rückgrat und Realität sind stark, aber dein Ideal hält nicht mit. Eine tiefe Form von Unterforderung.";
       } else {
-        deutung = "Du verschenkst dein volles Potenzial – nicht aus Schwäche, sondern aus zu niedrigem Anspruch.";
+        deutung = "Du verschenkst dein volles Potenzial. Nicht aus Schwäche, sondern aus zu niedrigem Anspruch.";
       }
     }
 
     else {
       if (intensitaet === "leicht") {
-        deutung = "Maximale Voraussetzungen – aber dein Ideal bleibt weit darunter. Das Potenzial bleibt vollständig ungenutzt.";
+        deutung = "Maximale Voraussetzungen, aber dein Ideal bleibt weit darunter. Das Potenzial bleibt vollständig ungenutzt.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du hast alles was nötig wäre – aber dein Anspruch an dich selbst reicht nicht. Die stärkste Form von Selbstbeschränkung.";
+        deutung = "Du hast alles was nötig wäre, aber dein Anspruch an dich selbst reicht nicht. Die stärkste Form von Selbstbeschränkung.";
       } else {
-        deutung = "Maximales Rückgrat, maximale Realität – aber dein Ideal verschenkt alles davon. Diese Lage verlangt eine ehrliche Frage: Was willst du wirklich?";
+        deutung = "Maximales Rückgrat, maximale Realität, aber dein Ideal verschenkt alles davon. Diese Lage verlangt eine ehrliche Frage: Was willst du wirklich?";
       }
     }
   }
@@ -3254,7 +3254,7 @@ if (lageCode === "PPN") {
     if (kraft >= 8) {
       deutung = "Du bringst Unruhe in eine stabile Lage. Ideal und Realität passen zusammen, aber dein negatives Rückgrat erzeugt unnötige Spannung.";
     } else {
-      deutung = "Die Lage ist gut und stabil. Du greifst nicht ein – weder fördernd noch störend. Die Situation trägt sich selbst.";
+      deutung = "Die Lage ist gut und stabil. Du greifst nicht ein, weder fördernd noch störend. Die Situation trägt sich selbst.";
     }
   }
 
