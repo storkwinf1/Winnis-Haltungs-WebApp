@@ -7770,5 +7770,60 @@ function toggleEinsatz() {
 }
 </script>
 
+
+
+
+<script>
+/* PDF-Button – eigenständiger Block */
+(function(){
+  function doPdf(){
+    var datumEl = document.getElementById('datum');
+    if(datumEl){
+      var now = new Date().toLocaleString('de-DE',{timeZone:'Europe/Berlin'});
+      datumEl.textContent = "Verfasst am: " + now;
+    }
+    var element = document.getElementById('exportArea');
+    var titleEl = document.getElementById('sessionTitle');
+    var base = (titleEl && titleEl.value ? titleEl.value : 'haltungsergebnis').replace(/[^\w\-]+/g,'_');
+    var opt = {
+      margin: 0.4,
+      filename: base + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, scrollY: 0, backgroundColor: '#ffffff' },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['css','legacy'], avoid: ['.card','.info','.meter','.row'] }
+    };
+    if(typeof html2pdf !== 'undefined'){
+      html2pdf().set(opt).from(element).save();
+      return;
+    }
+    var s = document.createElement('script');
+s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+    s.onload = function(){ html2pdf().set(opt).from(element).save(); };
+    s.onerror = function(){ window.print(); };
+    document.head.appendChild(s);
+  }
+
+  var btn = document.getElementById('pdfBtn');
+  if(btn){
+    btn.addEventListener('click', doPdf);
+  }
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 </body>
 </html>
