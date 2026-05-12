@@ -298,7 +298,7 @@ button[type="submit"]{ /* ensure no implicit submit behavior */ }
   <br/><br/>
   Als Maschinenbauingenieur habe ich diesen Moment oft erlebt, bei mir und bei anderen. Und ich habe festgestellt: Die, die standhalten, sind nicht die Klügsten. Sie sind die, die sich selbst kennen.
    <br/><br/>
-Ein persönliches Frühwarnsystem für Haltung unter Druck.</strong>
+Ein persönliches Frühwarnsystem für innere Spannung unter Druck.</strong>
 <br/><br/>
 
  <strong style="font-style:normal;
@@ -1439,98 +1439,54 @@ if (lageCode === "PNP") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
+/* =========================================================
+     PNN   PNN  PNN
+  ========================================================= */
 
 
-if (lageCode === "PNN") {
-
-  const spannung = I - R;
-  const H = spannung * G;
-  const s = Math.abs(H);
-  const kraft = Math.abs(G);
-
-  // ============================
-  // 1. BALANCE
-  // ============================
-  if (spannung === 0) {
-
-    if (kraft >= 8) {
-      category = "Instabil ausgeglichen";
-      effect = "Du erzeugst innere Unruhe, obwohl keine echte Spannung vorhanden ist.";
-    } else {
-      category = "Passiv ausgeglichen";
-      effect = "Die Situation ist stabil, aber du greifst nicht ein.";
-    }
-  }
-
-  // ============================
-  // 2. BLOCKADE / VERMEIDUNG
-  // ============================
-  else if (spannung > 0) {
+else if (spannung > 0) {
 
     if (s <= 4) {
       category = "Leicht vermeidend";
       effect = "Du erkennst die negative Realität, weichst ihr aber noch leicht aus.";
     }
-
     else if (s <= 9) {
       category = "Vermeidend bremsend";
       effect = "Du zögerst und gehst nicht aktiv gegen die negative Situation vor.";
     }
-
     else if (s <= 14) {
       category = "Passiv blockierend";
       effect = "Du weißt, was zu tun wäre, setzt es aber nicht um.";
     }
-
     else if (s <= 29) {
       category = "Blockiert";
       effect = "Du bleibst hinter deinem Anspruch zurück und gehst nicht ins Handeln.";
     }
-
     else if (s <= 49) {
       category = "Stark blockiert";
       effect = "Du verhinderst aktiv, dass sich die Situation verbessert.";
     }
-
     else if (s <= 64) {
       category = "Deutlich selbstschwächend";
       effect = "Du stabilisierst die negative Realität durch dein Verhalten.";
     }
-
     else if (s <= 79) {
       category = "Massiv blockierend";
       effect = "Du hältst dich konsequent zurück und lässt die Situation kippen.";
     }
-
+    else if (s <= 119) {
+      category = "Stark selbstsabotierend";
+      effect = "Du arbeitest konsequent gegen deine eigene positive Ausrichtung.";
+    }
+    else if (s <= 159) {
+      category = "Massiv selbstsabotierend";
+      effect = "Du zerstörst aktiv jeden Ansatz zur Verbesserung.";
+    }
     else {
-      category = "Selbstsabotage";
-      effect = "Du arbeitest aktiv gegen deine eigene positive Ausrichtung.";
+      category = "Vollständige Selbstsabotage";
+      effect = "Du arbeitest maximal gegen dich selbst – kein Fortschritt ist möglich.";
     }
   }
-
-  // ============================
-  // 3. FEHLFOKUS / AUSWEICHEN
-  // ============================
-  else {
-
-    if (s <= 10) {
-      category = "Leicht fehlgeleitet";
-      effect = "Du weichst dem eigentlichen Problem leicht aus.";
-    }
-
-    else if (s <= 30) {
-      category = "Fehlgeleitet";
-      effect = "Du gehst an der eigentlichen Situation vorbei.";
-    }
-
-    else {
-      category = "Stark fehlgeleitet";
-      effect = "Du entfernst dich aktiv von einer möglichen Verbesserung.";
-    }
-  }
-
-  lageText = "Ideal: positiv, Realität: negativ, Rückgrat: negativ";
-}
 
 
 //.............................................................................
@@ -3618,186 +3574,108 @@ if (lageCode === "PNP") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
+	
+/* =========================================================
+     PNN   PNN  PNN
+  ========================================================= */
 
 
-else if (lageCode === "PNN") {
+if (H < 0) {
 
-    let s = Math.abs(H);
-
-    if (H < 0) {
-
-        // Richtung 1:
-        // Positives Ideal ist da, aber Realität + negatives Rückgrat drücken nach unten
-        // → Selbstsabotage / Zusammenbruch
-
-        if (s <= 4) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Grundrichtung bleibt noch erkennbar, wird aber bereits leicht geschwächt.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die gute innere Ausrichtung gerät unter Druck und beginnt spürbar zu wanken.";
-            } else {
-                deutung = "Die positive Linie ist sichtbar, wird aber früh destabilisiert.";
-            }
+    if (s <= 4) {
+        if (intensitaet === "leicht") {
+            deutung = "Die positive Grundrichtung bleibt noch erkennbar, wird aber bereits leicht geschwächt.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die gute innere Ausrichtung gerät unter Druck und beginnt spürbar zu wanken.";
+        } else {
+            deutung = "Die positive Linie ist sichtbar, wird aber früh destabilisiert.";
         }
-
-        else if (s <= 9) {
-            if (intensitaet === "leicht") {
-                deutung = "Die Haltung beginnt auszuweichen und verliert erste Klarheit.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die innere Richtung bleibt zwar positiv, wird aber unsicher und instabil.";
-            } else {
-                deutung = "Die konstruktive Linie weicht spürbar zurück.";
-            }
+    }
+    else if (s <= 9) {
+        if (intensitaet === "leicht") {
+            deutung = "Die Haltung beginnt auszuweichen und verliert erste Klarheit.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die innere Richtung bleibt zwar positiv, wird aber unsicher und instabil.";
+        } else {
+            deutung = "Die konstruktive Linie weicht spürbar zurück.";
         }
-
-        else if (s <= 14) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Haltung wird instabil und verliert Tragfähigkeit.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die gute Richtung verliert deutlich an Stabilität.";
-            } else {
-                deutung = "Die ursprünglich gute Haltung bricht sichtbar an Stabilität ein.";
-            }
+    }
+    else if (s <= 14) {
+        if (intensitaet === "leicht") {
+            deutung = "Die positive Haltung wird instabil und verliert Tragfähigkeit.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die gute Richtung verliert deutlich an Stabilität.";
+        } else {
+            deutung = "Die ursprünglich gute Haltung bricht sichtbar an Stabilität ein.";
         }
-
-        else if (s <= 29) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Ausrichtung kippt und beginnt sich gegen sich selbst zu richten.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die innere Linie bricht zunehmend auf und wird widersprüchlich.";
-            } else {
-                deutung = "Die positive Haltung verliert ihre steuernde Kraft.";
-            }
+    }
+    else if (s <= 29) {
+        if (intensitaet === "leicht") {
+            deutung = "Die positive Ausrichtung kippt und beginnt sich gegen sich selbst zu richten.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die innere Linie bricht zunehmend auf und wird widersprüchlich.";
+        } else {
+            deutung = "Die positive Haltung verliert ihre steuernde Kraft.";
         }
-
-        else if (s <= 49) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Richtung bleibt noch vorhanden, kann sich aber kaum behaupten.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die innere Linie wird zunehmend blockiert.";
-            } else {
-                deutung = "Die positive Haltung bricht weitgehend ein.";
-            }
+    }
+    else if (s <= 49) {
+        if (intensitaet === "leicht") {
+            deutung = "Die positive Richtung bleibt noch vorhanden, kann sich aber kaum behaupten.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die innere Linie wird zunehmend blockiert.";
+        } else {
+            deutung = "Die positive Haltung bricht weitgehend ein.";
         }
-
-        else if (s <= 64) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Haltung ist stark blockiert.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Haltung verliert ihren handlungsfähigen Kern.";
-            } else {
-                deutung = "Die positive Wirkung kann kaum noch greifen.";
-            }
+    }
+    else if (s <= 64) {
+        if (intensitaet === "leicht") {
+            deutung = "Die positive Haltung ist stark blockiert.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die Haltung verliert ihren handlungsfähigen Kern.";
+        } else {
+            deutung = "Die positive Wirkung kann kaum noch greifen.";
         }
-
-        else if (s <= 79) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Richtung wird stark zurückgedrängt.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die innere Haltung wird weitgehend verdrängt.";
-            } else {
-                deutung = "Die positive Ausrichtung verliert fast vollständig ihre Wirkung.";
-            }
+    }
+    else if (s <= 79) {
+        if (intensitaet === "leicht") {
+            deutung = "Die positive Richtung wird stark zurückgedrängt.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die innere Haltung wird weitgehend verdrängt.";
+        } else {
+            deutung = "Die positive Ausrichtung verliert fast vollständig ihre Wirkung.";
         }
-
-        else {
-            if (intensitaet === "leicht") {
-                deutung = "Die Haltung ist fast kollabiert.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die positive Grundrichtung ist nahezu zusammengebrochen.";
-            } else {
-                deutung = "Die Haltung kollabiert vollständig und verliert jede tragende Kraft.";
-            }
+    }
+    else if (s <= 119) {
+        if (intensitaet === "leicht") {
+            deutung = "Die Haltung ist fast kollabiert. Der positive Kern ist kaum noch spürbar.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die positive Grundrichtung ist nahezu zusammengebrochen – nur noch Reste sind erkennbar.";
+        } else {
+            deutung = "Die Haltung kollabiert weitgehend. Die positive Wirkung ist fast vollständig verloren.";
         }
-
-    } else {
-
-        // Richtung 2:
-        // Trotz negativer Tendenz bleibt Restwirkung bestehen
-        // → fragile Stabilität / Selbstschwächung
-
-        if (s <= 4) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Richtung bleibt erkennbar, ist aber bereits fragil.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die gute Linie bleibt bestehen, wirkt aber schwach.";
-            } else {
-                deutung = "Die Haltung ist vorhanden, aber instabil.";
-            }
+    }
+    else if (s <= 159) {
+        if (intensitaet === "leicht") {
+            deutung = "Die Haltung ist vollständig kollabiert. Kein positiver Kern ist mehr spürbar.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die positive Grundrichtung ist zusammengebrochen – keine Wirkung mehr erkennbar.";
+        } else {
+            deutung = "Die Haltung kollabiert vollständig und verliert jede tragende Kraft.";
         }
-
-        else if (s <= 9) {
-            if (intensitaet === "leicht") {
-                deutung = "Die positive Richtung hält sich noch.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Haltung bleibt bestehen, wird aber unsicher.";
-            } else {
-                deutung = "Die Ausrichtung ist brüchig.";
-            }
-        }
-
-        else if (s <= 14) {
-            if (intensitaet === "leicht") {
-                deutung = "Die Haltung zeigt nur noch begrenzte Stabilität.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Linie wirkt zunehmend brüchig.";
-            } else {
-                deutung = "Die Stabilität geht deutlich verloren.";
-            }
-        }
-
-        else if (s <= 29) {
-            if (intensitaet === "leicht") {
-                deutung = "Die Richtung bleibt, wird aber schwer tragfähig.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Haltung kann kaum noch nach außen wirken.";
-            } else {
-                deutung = "Die Durchsetzungskraft geht verloren.";
-            }
-        }
-
-        else if (s <= 49) {
-            if (intensitaet === "leicht") {
-                deutung = "Die Haltung hält teilweise stand.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Wirkung nimmt deutlich ab.";
-            } else {
-                deutung = "Die Haltung kann sich kaum noch durchsetzen.";
-            }
-        }
-
-        else if (s <= 64) {
-            if (intensitaet === "leicht") {
-                deutung = "Die Stabilität ist stark eingeschränkt.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Haltung wird blockiert.";
-            } else {
-                deutung = "Die tragende Wirkung geht verloren.";
-            }
-        }
-
-        else if (s <= 79) {
-            if (intensitaet === "leicht") {
-                deutung = "Die Wirkung ist nur noch schwach vorhanden.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Stabilität ist kaum noch vorhanden.";
-            } else {
-                deutung = "Die Haltung kippt immer wieder zurück.";
-            }
-        }
-
-        else {
-            if (intensitaet === "leicht") {
-                deutung = "Die Überzeugung ist nur noch schwach vorhanden.";
-            } else if (intensitaet === "mittel") {
-                deutung = "Die Haltung kann kaum noch getragen werden.";
-            } else {
-                deutung = "Die innere Stabilität geht nahezu vollständig verloren.";
-            }
+    }
+    else {
+        if (intensitaet === "leicht") {
+            deutung = "Maximaler Kollaps. Die Haltung ist vollständig aufgelöst – keine Wirkung mehr möglich.";
+        } else if (intensitaet === "mittel") {
+            deutung = "Die positive Grundrichtung ist maximal zusammengebrochen. Dieser Zustand verlangt eine Entscheidung.";
+        } else {
+            deutung = "Vollständige Auflösung der Haltung. Maximale Selbstsabotage ohne jeden positiven Rest.";
         }
     }
 }
 
+
+	
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
