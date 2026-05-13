@@ -7391,11 +7391,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-
-
 <script>
 (function(){
 
@@ -7693,14 +7688,208 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
 </script>
 
 
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 
+<script>
+/* ===== Was jetzt? Button ===== */
+(function(){
+
+  const empfehlungen = {
+
+
+  // PPP
+  "PPP_hoch": "Du spürst Klarheit, Energie und Richtung gleichzeitig. Die innere Spannung ist gering und du kannst aktuell konstruktiv gestalten. Nutze die stabile Phase bewusst. Sie bleibt nicht automatisch dauerhaft bestehen.",
+  "PPP_mittel": "Du bist grundsätzlich stabil, merkst aber erste innere Reibung. Die Situation funktioniert noch gut, braucht aber Aufmerksamkeit. Bleib bewusst bei deinem Kurs, bevor unnötiger Druck entsteht.",
+  "PPP_gering": "Die Lage wirkt ruhig und stabil. Gerade deshalb übersieht man leicht, was langfristig wichtig bleibt. Nutze die Ruhe für bewusste kleine Schritte.",
+
+  // PPN
+  "PPN_hoch": "Ein Teil von dir weiß genau, was richtig wäre — aber du kommst nicht ins Handeln. Dadurch entsteht starke innere Spannung. Wichtig ist jetzt nicht Perfektion, sondern ein erster ehrlicher Schritt.",
+  "PPN_mittel": "Du spürst, dass du dich innerlich ausbremst. Die Spannung entsteht weniger durch die Situation als durch das Zögern. Fang klein an, aber komm wieder in Bewegung.",
+  "PPN_gering": "Noch ist die Spannung gering, aber du weichst wichtigen Entscheidungen eher aus. Dadurch bleibt innerlich etwas offen. Ein kleiner konkreter Schritt reicht fürs Erste.",
+
+  // PNP
+  "PNP_hoch": "Die Lage kostet Kraft, trotzdem hältst du deinen Kurs. Nach außen wirkst du stabil, innerlich trägst du aber weiterhin Spannung. Vermeide zusätzlichen Druck, bevor sich die Spannung abbauen konnte.",
+  "PNP_mittel": "Du stehst unter Belastung, funktionierst aber weiterhin zuverlässig. Die Situation arbeitet innerlich noch nach. Achte darauf, nicht dauerhaft im Belastungsmodus zu bleiben.",
+  "PNP_gering": "Die Spannung ist spürbar, aber aktuell noch gut tragbar. Du bleibst handlungsfähig und klar. Nutze bewusst kleine Erholungsphasen.",
+
+  // PNN
+  "PNN_hoch": "Du weißt eigentlich, was richtig wäre — ziehst dich aber zunehmend zurück. Dadurch wächst die innere Spannung weiter an. Der wichtigste Schritt ist Ehrlichkeit dir selbst gegenüber.",
+  "PNN_mittel": "Die Situation belastet dich und gleichzeitig fehlt die Energie zum Handeln. Dadurch entsteht ein Gefühl von innerem Feststecken. Suche zuerst Stabilität statt sofortiger Perfektion.",
+  "PNN_gering": "Noch wirkt die Spannung klein, aber innerlich beginnt Rückzug. Wenn das länger anhält, wird Handlung immer schwerer. Sprich offen aus, was dich gerade blockiert.",
+
+  // PP0
+  "PP0_hoch": "Du erkennst viele Möglichkeiten, kommst aber noch nicht wirklich ins Handeln. Dadurch bleibt hohe innere Spannung bestehen. Wähle einen einzigen konkreten nächsten Schritt.",
+  "PP0_mittel": "Du spürst Potenzial, aber die Richtung bleibt noch unscharf. Die Spannung entsteht durch fehlende Umsetzung. Struktur hilft jetzt mehr als Motivation.",
+  "PP0_gering": "Die Lage ist grundsätzlich offen und ruhig. Trotzdem fehlt noch ein klarer Impuls nach vorne. Ein kleines Ziel für heute reicht völlig aus.",
+
+  // PN0
+  "PN0_hoch": "Die Situation belastet dich deutlich und gleichzeitig fehlt eine klare Reaktion. Dadurch bleibt die Spannung dauerhaft aktiv. Der erste Schritt ist, das Problem klar zu benennen.",
+  "PN0_mittel": "Du merkst, dass dich etwas innerlich beschäftigt, ohne dass du aktiv gegensteuerst. Dadurch zieht die Belastung unnötig Energie. Klarheit entlastet oft stärker als Grübeln.",
+  "PN0_gering": "Die Spannung ist noch leicht, aber innerlich spürbar. Wenn nichts verändert wird, kann sie langsam wachsen. Ein ehrliches Gespräch mit dir selbst hilft oft schon weiter.",
+
+  // P0P
+  "P0P_hoch": "Du hast Energie, Klarheit und Rückgrat. Die Situation wirkt offen und gestaltbar. Nutze die Phase aktiv, statt nur auf den perfekten Moment zu warten.",
+  "P0P_mittel": "Du wirkst stabil und grundsätzlich handlungsfähig. Die Lage braucht jetzt eher Richtung als Kraft. Ein klarer Fokus bringt Bewegung hinein.",
+  "P0P_gering": "Die Spannung ist niedrig und du hast gute Voraussetzungen. Dadurch entsteht Raum für bewusste Entscheidungen. Auch kleine Schritte dürfen jetzt zählen.",
+
+  // P0N
+  "P0N_hoch": "Du hast grundsätzlich gute Voraussetzungen, arbeitest innerlich aber gegen dich selbst. Dadurch entsteht unnötige Reibung. Frag dich ehrlich, was dich wirklich zurückhält.",
+  "P0N_mittel": "Die Lage wäre eigentlich tragbar, trotzdem fehlt innerlich Stabilität. Dadurch bleibt vieles liegen. Versuche zuerst innere Ordnung statt äußeren Druck aufzubauen.",
+  "P0N_gering": "Noch wirkt die Gegenbewegung klein, aber sie kostet bereits Energie. Die Spannung ist eher unterschwellig. Achte darauf, dich nicht dauerhaft selbst auszubremsen.",
+
+  // P00
+  "P00_hoch": "Du hast Möglichkeiten und Potenzial, aber noch keine klare Richtung. Dadurch entsteht innere Unruhe trotz stabiler Lage. Frag dich bewusst, was dir wirklich wichtig ist.",
+  "P00_mittel": "Die Situation wirkt offen, aber noch unklar. Es fehlt weniger Kraft als Orientierung. Ein bewusst gesetztes Ziel bringt Struktur hinein.",
+  "P00_gering": "Die Lage ist ruhig, aber noch ohne klare Richtung. Dadurch entsteht leicht Stillstand. Ein kleiner bewusster Impuls reicht oft schon aus.",
+
+  // NPP
+  "NPP_hoch": "Du setzt viel Energie für etwas ein, das langfristig eher schadet als aufbaut. Dadurch entsteht starke Spannung trotz Handlungskraft. Prüfe ehrlich, wohin deine Kraft wirklich führt.",
+  "NPP_mittel": "Du funktionierst stark, aber innerlich passt die Richtung nicht ganz zu dir. Dadurch bleibt unterschwellige Spannung bestehen. Hinterfrage dein eigentliches Ziel.",
+  "NPP_gering": "Die Spannung ist noch klein, aber die Richtung wirkt nicht wirklich stimmig. Dadurch entsteht langfristig innere Distanz. Nutze die frühe Phase zur Kurskorrektur.",
+
+  // NNP
+  "NNP_hoch": "Die Situation zieht stark nach unten, trotzdem kämpfst du weiter dagegen an. Das kostet dauerhaft sehr viel Kraft. Hol dir Unterstützung, bevor die Belastung zu groß wird.",
+  "NNP_mittel": "Du versuchst gegenzuhalten, obwohl die Lage dich bereits stark belastet. Dadurch entsteht dauerhafte Erschöpfung. Nicht alles musst du allein tragen.",
+  "NNP_gering": "Noch hältst du die Situation kontrollierbar. Trotzdem ist die Negativspirale bereits spürbar. Unterbrich sie frühzeitig, bevor sie stärker wird.",
+
+  // NNN
+  "NNN_hoch": "Innere Spannung, belastende Realität und destruktive Gegenbewegung verstärken sich gegenseitig. Dadurch entsteht starke innere Instabilität. Jetzt ist Unterstützung wichtiger als weiterer Druck.",
+  "NNN_mittel": "Die Situation belastet dich deutlich und du verlierst zunehmend Orientierung. Dadurch wächst das Gefühl innerer Schwere. Sprich offen mit jemandem, dem du vertraust.",
+  "NNN_gering": "Die Negativtendenz ist bereits spürbar, auch wenn sie noch klein wirkt. Wird sie ignoriert, kann sie sich langsam verstärken. Ein früher Richtungswechsel hilft jetzt am meisten.",
+
+  // NN0
+  "NN0_hoch": "Die Belastung ist hoch, aber es fehlt aktuell eine klare Gegenreaktion. Dadurch bleibt die Spannung dauerhaft aktiv. Der erste Schritt ist Stabilisierung, nicht Selbstverurteilung.",
+  "NN0_mittel": "Du spürst die Belastung deutlich, kommst aber innerlich kaum in Bewegung. Dadurch entsteht das Gefühl von Feststecken. Suche zuerst kleine realistische Veränderungen.",
+  "NN0_gering": "Noch wirkt die Situation kontrollierbar, aber innerlich fehlt Bewegung. Dadurch bleibt die Spannung bestehen. Ein kleiner ehrlicher Schritt kann viel verändern.",
+
+  // N0P
+  "N0P_hoch": "Du hast Kraft und Rückgrat, richtest sie aber aktuell in eine belastende Richtung. Dadurch entsteht starke innere Reibung. Nutze deine Energie bewusster und klarer.",
+  "N0P_mittel": "Du funktionierst stark, aber innerlich passt die Richtung nicht vollständig zu dir. Dadurch bleibt Spannung bestehen, obwohl vieles läuft. Prüfe ehrlich, ob dein Kurs noch stimmig ist.",
+  "N0P_gering": "Die Gegenbewegung ist noch klein, aber bereits spürbar. Innerlich entsteht leichte Distanz zur eigenen Richtung. Frühes Nachjustieren verhindert spätere Konflikte.",
+
+  // N0N
+  "N0N_hoch": "Du merkst selbst, dass etwas innerlich nicht stimmt. Die Spannung wächst, obwohl nach außen vielleicht noch Ruhe sichtbar ist. Jetzt braucht es Ehrlichkeit statt Verdrängung.",
+  "N0N_mittel": "Die innere Spannung ist deutlich spürbar, auch wenn die Situation äußerlich ruhig wirkt. Dadurch entsteht unterschwellige Belastung. Nimm dir bewusst Zeit zur ehrlichen Reflexion.",
+  "N0N_gering": "Noch ist vieles leise und schwer greifbar. Trotzdem merkst du innerlich bereits erste Reibung. Ignoriere diese kleinen Signale nicht dauerhaft.",
+
+  // N00
+  "N00_hoch": "Du merkst deutlich, dass die aktuelle Richtung nicht wirklich zu dir passt. Dadurch entsteht starke innere Spannung trotz äußerer Ruhe. Jetzt ist ein bewusster Neustart wichtiger als weiteres Funktionieren.",
+  "N00_mittel": "Die Situation wirkt ruhig, aber innerlich fehlt echte Stimmigkeit. Dadurch bleibt unterschwellige Unruhe bestehen. Nutze den Moment zur ehrlichen Neuorientierung.",
+  "N00_gering": "Die Spannung ist noch gering, aber die Richtung fühlt sich nicht ganz richtig an. Dadurch entsteht langsam innere Distanz. Ein kleiner Kurswechsel reicht oft frühzeitig aus.",
+
+  // 0PP
+  "0PP_hoch": "Du hast viel Energie und gute Voraussetzungen, aber noch kein klares Ideal. Dadurch entsteht Spannung durch fehlende Richtung. Nutze die Kraft bewusst statt zufällig.",
+  "0PP_mittel": "Die Lage wirkt stabil und tragfähig, aber innerlich fehlt noch Fokus. Dadurch bleibt Potenzial ungenutzt. Frag dich ehrlich, wofür du deine Kraft einsetzen willst.",
+  "0PP_gering": "Die Spannung ist niedrig und vieles wäre möglich. Gerade deshalb entsteht leicht Orientierungslosigkeit. Ein klares persönliches Ziel hilft jetzt mehr als Tempo.",
+
+  // 0PN
+  "0PN_hoch": "Du hast gute Bedingungen, bremst dich innerlich aber selbst aus. Dadurch entsteht unnötige Spannung trotz stabiler Lage. Die wichtigste Frage lautet: Was hält dich wirklich zurück?",
+  "0PN_mittel": "Die Situation wäre eigentlich tragbar, trotzdem fehlt innere Bewegung. Dadurch entsteht Stillstand trotz Möglichkeiten. Suche zuerst Klarheit statt zusätzlichen Druck.",
+  "0PN_gering": "Noch wirkt die Gegenbewegung klein, aber sie kostet bereits Energie. Die Spannung bleibt unterschwellig bestehen. Ein ehrlicher Blick auf deine Bremsen hilft jetzt weiter.",
+
+  // 0P0
+  "0P0_hoch": "Du hast Kraft und Möglichkeiten, aber noch keine klare Richtung. Dadurch entsteht innere Unruhe trotz guter Voraussetzungen. Lenke deine Energie bewusst auf ein konkretes Ziel.",
+  "0P0_mittel": "Die Lage ist stabil, aber noch offen. Es fehlt weniger Kraft als Orientierung. Eine klare Priorität bringt Ruhe hinein.",
+  "0P0_gering": "Wenig Spannung, gute Voraussetzungen und viel Spielraum. Jetzt geht es weniger ums Kämpfen als ums bewusste Gestalten. Ein kleiner Schritt reicht völlig aus.",
 
 
 
+    // 0NP
+    "0NP_hoch":   "Die Realität belastet dich, trotzdem kämpfst du aktiv dagegen an. Das kostet dauerhaft viel Energie. Achte darauf, nicht nur zu funktionieren.",
+    "0NP_mittel": "Du hältst die Situation noch aktiv zusammen, obwohl sie Kraft kostet. Dadurch bleibt innere Spannung bestehen. Plane bewusst Entlastung ein.",
+    "0NP_gering": "Die Belastung ist aktuell noch tragbar und du bleibst handlungsfähig. Trotzdem arbeitet die Situation innerlich nach. Kleine Erholungsphasen helfen mehr als Ignorieren.",
+
+    // 0NN
+    "0NN_hoch":   "Belastung und innere Gegenbewegung verstärken sich gegenseitig. Dadurch entsteht starke innere Schwere. Jetzt braucht es Unterstützung statt weiteren Druck.",
+    "0NN_mittel": "Die Situation kostet Kraft und gleichzeitig fehlt innere Stabilität. Dadurch wächst das Gefühl von Überforderung. Konzentriere dich auf kleine sichere Schritte.",
+    "0NN_gering": "Die Negativtendenz ist noch leicht, aber bereits spürbar. Wird sie ignoriert, kann sie stärker werden. Unterbrich die Spirale möglichst früh.",
+
+    // 0N0
+    "0N0_hoch":   "Die Belastung ist deutlich vorhanden, aber es fehlt aktuell klare Bewegung. Dadurch bleibt die Spannung dauerhaft aktiv. Der erste Schritt ist ehrliche Bestandsaufnahme.",
+    "0N0_mittel": "Du funktionierst noch, obwohl die Situation innerlich Kraft zieht. Dadurch entsteht schleichende Erschöpfung. Suche zuerst Stabilität statt Tempo.",
+    "0N0_gering": "Noch ist die Belastung eher unterschwellig. Trotzdem bleibt innerlich etwas offen. Ein kleines bewusstes Gegensteuern hilft frühzeitig.",
 
 
+    // 00P
+    "00P_hoch":   "Du hast viel Energie und Durchhaltevermögen, aber noch keine klare Richtung. Dadurch entsteht Spannung trotz Handlungskraft. Frag dich bewusst, wofür du deine Kraft einsetzen willst.",
+    "00P_mittel": "Du funktionierst und bleibst aktiv, aber innerlich fehlt noch Fokus. Dadurch bleibt die Energie ungerichtet. Ein klares Ideal bringt Ruhe und Struktur hinein.",
+    "00P_gering": "Die Spannung ist niedrig und du bleibst handlungsfähig. Jetzt geht es weniger um Kampf als um bewusste Ausrichtung. Schon kleine Entscheidungen schaffen Richtung.",
+
+    // 00N
+    "00N_hoch":   "Es fehlt aktuell sowohl Richtung als auch innere Stabilität. Dadurch entsteht starke Orientierungslosigkeit. Hol dir Unterstützung und reduziere zusätzlichen Druck.",
+    "00N_mittel": "Die Lage wirkt diffus und innerlich fehlt klare Stabilität. Dadurch entsteht leicht Stillstand. Suche zuerst kleine sichere Orientierungspunkte.",
+    "00N_gering": "Noch wirkt vieles ruhig, aber innerlich fehlt Klarheit. Dadurch entsteht schleichende Unsicherheit. Nimm dir Zeit herauszufinden, was dir wirklich wichtig ist.",
+
+    // 000
+    "000_gering": "Aktuell fehlt sowohl klare Richtung als auch spürbare Bewegung. Dadurch entsteht Stillstand statt Entwicklung. Die wichtigste Frage lautet jetzt: Was willst du wirklich?",
+
+  };
+
+
+  function getEmpfehlung(lageCode, spannung) {
+    const sp = Math.abs(spannung);
+    const niveau = sp >= 8 ? "hoch" : sp >= 4 ? "mittel" : "gering";
+    const key = lageCode + "_" + niveau;
+    return empfehlungen[key] || empfehlungen[lageCode + "_mittel"] || "Nimm dir einen Moment – und sei ehrlich mit dir selbst.";
+  }
+
+  // Button erstellen
+  const btn = document.createElement('button');
+  btn.id = "wasJetztBtn";
+  btn.textContent = "💡 Was jetzt?";
+  btn.style.cssText = "width:100%;padding:14px;margin-top:8px;background:#f59e0b;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;";
+
+  // Ausgabe-Box erstellen
+  const box = document.createElement('div');
+  box.id = "wasJetztBox";
+  box.style.cssText = "display:none;margin-top:8px;padding:14px 16px;background:#fffbeb;border-left:4px solid #f59e0b;border-radius:10px;font-size:0.95rem;color:#92400e;line-height:1.6;";
+
+  // Nach Zurücksetzen-Button einfügen
+  const resetBtn = document.getElementById('reset');
+  if(resetBtn && resetBtn.parentNode) 
+
+
+{
+ resetBtn.parentNode.appendChild(btn);
+resetBtn.parentNode.appendChild(box);
+ }
+
+
+  // Klick-Event
+  btn.addEventListener('click', function(){
+    const I = parseInt(document.getElementById('ideal').value) || 0;
+    const R = parseInt(document.getElementById('real').value) || 0;
+    const G = parseInt(document.getElementById('ruck').value) || 0;
+
+    function signCode(v){ return v > 0 ? 'P' : v < 0 ? 'N' : '0'; }
+    const lageCode = signCode(I) + signCode(R) + signCode(G);
+    const spannung = I - R;
+
+    const text = getEmpfehlung(lageCode, spannung);
+
+    box.textContent = text;
+    box.style.display = 'block';
+
+    // Nach 8 Sekunden ausblenden
+    setTimeout(()=>{ box.style.display = 'none'; }, 8000);
+  });
+
+})();
+</script>
+
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 
