@@ -1439,10 +1439,31 @@ if (lageCode === "PNP") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
-/* =========================================================
-     PNN   PNN  PNN
-  ========================================================= */
+if (lageCode === "PNN") {
 
+  const spannung = I - R;
+  const H = spannung * G;
+  const s = Math.abs(H);
+  const kraft = Math.abs(G);
+
+  // ============================
+  // 1. BALANCE
+  // ============================
+  if (spannung === 0) {
+
+    if (kraft >= 8) {
+      category = "Übersteuernd stabil";
+      effect = "Du setzt viel Energie ein, obwohl kein echter Konflikt besteht.";
+    } else {
+      category = "Stabil ausgeglichen";
+      effect = "Du hältst die Situation stabil, obwohl sie keine Spannung aufweist.";
+    }
+  }
+
+  // ============================
+  // 2. GEGENKRAFT / AUFBAU
+  // ============================
+	
 
 else if (spannung > 0) {
 
