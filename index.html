@@ -538,7 +538,7 @@ Diese Formel ist kein Denkspiel. Sie zeigt dir, wo du dir selbst ausweichst.
 </section>
 <section class="card" style="text-align:center">
 <div style="font-size:13px;color:#334155">🖋️ Winni Stork; D-35287 Amöneburg</div>
-<div style="margin-top:8px;font-size:12px;color:#475569">© 05/2026; V7.1) Winni Stork – Alle Rechte vorbehalten. Diese Anwendungen sowie die Inhalte (Ich - Ehrlichkeitssystem - Konzept, Skalen, Beschreibungen und Beispiele) sind urheberrechtlich geschützt. Jede Vervielfältigung oder Weitergabe nur mit ausdrücklicher Genehmigung.</div>
+<div style="margin-top:8px;font-size:12px;color:#475569">© 05/2026; V7.2) Winni Stork – Alle Rechte vorbehalten. Diese Anwendungen sowie die Inhalte (Ich - Ehrlichkeitssystem - Konzept, Skalen, Beschreibungen und Beispiele) sind urheberrechtlich geschützt. Jede Vervielfältigung oder Weitergabe nur mit ausdrücklicher Genehmigung.</div>
 
 <p>📩 Für persönliche Rückfragen oder Austausch: mailto: winni@stork-amoeneburg.de</a></p>
 
@@ -7906,6 +7906,137 @@ resetBtn.parentNode.appendChild(box);
 </script>
 
 
+
+	
+
+<!-- SPANNUNGSVERLAUF -->
+<div id="spannungsverlaufBox" style="
+  margin:20px auto;
+  max-width:600px;
+  padding:15px;
+  border-radius:12px;
+  background:#f4f7fb;
+  border:1px solid #d6dde8;
+">
+  <h3 style="margin-top:0;">📈 Spannungsverlauf</h3>
+  <div id="spannungsverlaufContent" style="
+    font-size:14px;
+    line-height:1.6;
+    color:#333;
+  ">Noch keine Spannungsverläufe gespeichert.</div>
+  <button onclick="speichereSpannungsverlauf()" style="
+    margin-top:10px;
+    padding:8px 16px;
+    background:#0ea5e9;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:0.9rem;
+  ">📊 Verlauf speichern</button>
+  <button onclick="loescheVerlauf()" style="
+    margin-top:10px;
+    margin-left:8px;
+    padding:8px 16px;
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:0.9rem;
+  ">🗑️ Verlauf löschen</button>
+</div>
+
+<script>
+(function(){
+
+  function ladeVerlauf() {
+    try {
+      return JSON.parse(localStorage.getItem('haltungsVerlauf') || '[]');
+    } catch(e) { return []; }
+  }
+
+  function speichereVerlauf(daten) {
+    try {
+      localStorage.setItem('haltungsVerlauf', JSON.stringify(daten));
+    } catch(e) {
+      alert('Speichern nicht möglich.');
+    }
+  }
+
+  function renderVerlauf() {
+    const container = document.getElementById('spannungsverlaufContent');
+    if(!container) return;
+    const daten = ladeVerlauf();
+    if(daten.length === 0) {
+      container.innerHTML = 'Noch keine Spannungsverläufe gespeichert.';
+      return;
+    }
+    container.innerHTML = daten.map((e, i) => {
+      let trend = '';
+      if(i < daten.length - 1) {
+        const vorher = daten[i+1].spannung;
+        if(e.spannung > vorher)
+          trend = ' <span style="color:#ef4444;">↑ Spannung gestiegen</span>';
+        else if(e.spannung < vorher)
+          trend = ' <span style="color:#16a34a;">↓ Spannung gesunken</span>';
+        else
+          trend = ' <span style="color:#6b7280;">→ Unverändert</span>';
+      }
+      return `
+        <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ccc;">
+          <strong>${e.datum}</strong><br>
+          Spannung: <strong>${e.spannung}</strong>${trend}<br>
+          Haltungswert: <strong>${e.haltung}</strong><br>
+          Lage: <strong>${e.lage}</strong><br>
+          ${e.status}
+
+          ${e.szenario ? `<br><em style="color:#6b7280;font-size:0.88rem;">📝 ${e.szenario}</em>` : ''}
+    
+    </div>
+      `;
+    }).join('');
+  }
+
+  window.speichereSpannungsverlauf = function() {
+    const I = parseInt((document.getElementById('ideal')||{}).value) || 0;
+    const R = parseInt((document.getElementById('real')||{}).value)  || 0;
+    const G = parseInt((document.getElementById('ruck')||{}).value)  || 0;
+    const sc = v => v>0?'P':v<0?'N':'0';
+    const lage     = sc(I)+sc(R)+sc(G);
+    const spannung = Math.abs(I-R);
+    const haltung  = (I-R)*G;
+    const jetzt    = new Date();
+    const datum    = jetzt.toLocaleDateString('de-DE')+' / '+
+                     jetzt.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+
+const notesDiv = document.getElementById('notes');
+const szenario = (notesDiv ? (notesDiv.value || notesDiv.innerText || '') : '').trim().substring(0,300);
+
+ let status = '';
+    if(spannung >= 8)      status = '🔴 Hohe Aktivierung';
+    else if(spannung >= 4) status = '🟠 Mittlere Spannung';
+    else                   status = '🟢 Stabilisierung';
+    const daten = ladeVerlauf();
+
+
+    daten.unshift({ datum, spannung, haltung, lage, status, szenario });
+  
+
+  if(daten.length > 5) daten.pop();
+    speichereVerlauf(daten);
+    renderVerlauf();
+  };
+
+  window.loescheVerlauf = function() {
+    try { localStorage.removeItem('haltungsVerlauf'); } catch(e) {}
+    renderVerlauf();
+  };
+
+  renderVerlauf();
+
+})();
+</script>
 
 
 	
