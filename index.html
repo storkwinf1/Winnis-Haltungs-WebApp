@@ -7872,11 +7872,17 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
 
 
 {
- resetBtn.parentNode.appendChild(btn);
-resetBtn.parentNode.appendChild(box);
- }
+  const deutungEl = document.getElementById('deutung');
+  if(deutungEl && deutungEl.parentNode) {
+    deutungEl.parentNode.insertBefore(btn, deutungEl.nextSibling);
+    deutungEl.parentNode.insertBefore(box, btn.nextSibling);
+  } else {
+    resetBtn.parentNode.appendChild(btn);
+    resetBtn.parentNode.appendChild(box);
+  }
+}
 
-
+	
   // Klick-Event
   btn.addEventListener('click', function(){
     const I = parseInt(document.getElementById('ideal').value) || 0;
