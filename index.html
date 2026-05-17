@@ -7906,9 +7906,6 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
 </script>
 
 
-
-	
-
 <!-- SPANNUNGSVERLAUF -->
 <div id="spannungsverlaufBox" style="
   margin:20px auto;
@@ -7984,7 +7981,12 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
           trend = ' <span style="color:#6b7280;">→ Unverändert</span>';
       }
       return `
-        <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ccc;">
+ <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ccc;position:relative;">
+ 
+ <strong>${e.datum}</strong><br>
+ 
+ 
+          <button onclick="loescheEintrag(${i})" style="position:absolute;top:0;right:0;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:3px 8px;font-size:0.78rem;cursor:pointer;">🗑️</button>       
           <strong>${e.datum}</strong><br>
           Spannung: <strong>${e.spannung}</strong>${trend}<br>
           Haltungswert: <strong>${e.haltung}</strong><br>
@@ -7995,8 +7997,18 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
     
     </div>
       `;
+      
     }).join('');
   }
+
+
+
+window.loescheEintrag = function(index) {
+    const daten = ladeVerlauf();
+    daten.splice(index, 1);
+    speichereVerlauf(daten);
+    renderVerlauf();
+  };
 
   window.speichereSpannungsverlauf = function() {
     const I = parseInt((document.getElementById('ideal')||{}).value) || 0;
@@ -8037,8 +8049,7 @@ const szenario = (notesDiv ? (notesDiv.value || notesDiv.innerText || '') : '').
 
 })();
 </script>
-
-
+	
 	
 </body>
 </html>
