@@ -6117,6 +6117,97 @@ Wenn mehrere Szenarien dieselbe Spannung tragen (z. B. Kontrolle, Pflicht, Über
   </a>.
 
 
+
+
+
+
+
+
+
+
+	
+</p>
+<button id="toggleEinsatzbereiche" style="display:none;">
+
+
+<button onclick="toggleEinsatz()" 
+style="margin:20px auto; display:block; font-size:1.1em; padding:10px 20px; border-radius:6px; background-color:#d33; color:white; border:none; cursor:pointer;">
+Einsatzbereiche anzeigen
+</button>
+
+<div id="einsatzBox" style="display:none; max-width:800px; margin:20px auto; padding:20px; border:1px solid #ccc; border-radius:8px; background-color:#f9f9f9; font-family:sans-serif;">
+
+
+
+<h2>🛠️ Praktische Anwendungsfelder der Haltungsformel</h2>
+<ul>
+<strong>💼 Beruf &amp; Führung</strong>
+<li>Entscheidungssituationen mit ethischer Komponente (z. B. Kündigung, Projektpriorisierung)</li>
+<li>Umgang mit Zielkonflikten im Team</li>
+<li>Bewertung von Führungsverhalten (eigene oder fremde Haltung)</li>
+<hr/>
+<strong>🧠 Coaching &amp; Mentoring</strong>
+<li>Reflexion von Rollenbildern und Erwartungen</li>
+<li>Unterstützung bei Werteklärung</li>
+<li>Vorbereitung auf schwierige Gespräche</li>
+<hr/>
+<strong>🔄 Veränderung &amp; Übergänge</strong>
+<li>Neuorientierung im Beruf oder Privatleben</li>
+<li>Umgang mit Burnout-Gefahr oder Sinnkrisen</li>
+<li>Standortbestimmung bei Karriereentscheidungen</li>
+<hr/>
+<strong>⚖️ Konflikte &amp; Verantwortung</strong>
+<li>Einschätzung von Zivilcourage oder moralischem Mut</li>
+<li>Analyse von Verhalten in kritischen Situationen</li>
+<li>Bewertung von Haltung in gesellschaftlichen Debatten</li>
+<hr/>
+<strong>🧭 Persönliche Entwicklung</strong>
+<li>Selbstreflexion zur Stärkung der inneren Klarheit</li>
+<li>Erkennen von Mustern im eigenen Verhalten</li>
+<li>Förderung von Integrität und Authentizität</li>
+</ul>
+<hr/>
+<hr/>
+<hr/>
+<h3>⚠️ Wo die Haltungsformel nicht geeignet ist:
+<ul>
+Die Haltungsformel ist ein Spiegel für die eigene Reflexion – kein Allheilmittel. Es gibt Situationen, in denen sie nicht passt:
+</ul></h3>
+<ul>
+<li>1. Akute Krisen – Bei Depression, Angst oder Suizidgedanken braucht es professionelle Hilfe, nicht die Formel.</li>
+<li>2. Andere bewerten – Sie ist für deine Haltung, nicht um Kollegen, Partner oder Politiker abzustempeln.</li>
+<li>3. Rein technische Fragen – Für Schraubengröße, Statik oder Normen hilft Fachwissen, nicht die Formel.</li>
+<li>4. Ohne echte Reflexion – Wer nur eine Bestätigung oder Ausrede sucht, nutzt das Werkzeug falsch.</li>
+<li>5. Starres Urteil – Die Skalen sind Orientierung, keine absolute Wahrheit. Sie zeigen eine Momentaufnahme, keinen endgültigen Stempel.</li>
+<hr/>
+📌 Merke: Die Formel hilft dir, dich selbst besser zu verstehen – sie ersetzt weder Fachwissen noch Verantwortung noch Therapie.
+
+</div>
+
+</ul>
+</div>
+<script>
+document.getElementById("toggleEinsatzbereiche").addEventListener("click", function() {
+    var section = document.getElementById("einsatzbereiche");
+    if (section.style.display === "none") {
+        section.style.display = "block";
+        this.textContent = "Einsatzbereiche ausblenden";
+    } else {
+        section.style.display = "none";
+        this.textContent = "Einsatzbereiche anzeigen";
+    }
+});
+
+
+
+
+
+
+
+	
+
+
+
 	
 
 
@@ -6469,10 +6560,6 @@ Wie ist die Realität? ______<br/>
 Wie viel Rückgrat hast du? ______<br/>
 
 Haltung = (Ideal – Realität) × Rückgrat = ______<br/>
-
-
-
-
 
 
 
@@ -7917,7 +8004,9 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
  <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ccc;position:relative;">
  
 
- 
+
+<strong>${e.datum}</strong><br>
+
           <button onclick="loescheEintrag(${i})" style="position:absolute;top:0;right:0;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:3px 8px;font-size:0.78rem;cursor:pointer;">🗑️</button>       
           <strong>${e.datum}</strong><br>
           Spannung: <strong>${e.spannung}</strong>${trend}<br>
