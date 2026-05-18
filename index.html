@@ -7988,8 +7988,10 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
  <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ccc;position:relative;">
 
 
+ <button onclick="loescheEintrag(${i})" style="position:absolute;top:0;right:0;width:auto;display:inline-block;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:3px 8px;font-size:0.78rem;cursor:pointer;">🗑️</button> 
 
-          <button onclick="loescheEintrag(${i})" style="position:absolute;top:0;right:0;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:3px 8px;font-size:0.78rem;cursor:pointer;">🗑️</button>       
+
+		 
           <strong>${e.datum}</strong><br>
           Spannung: <strong>${e.spannung}</strong>${trend}<br>
           Haltungswert: <strong>${e.haltung}</strong><br>
@@ -8021,13 +8023,35 @@ window.loescheEintrag = function(index) {
     const lage     = sc(I)+sc(R)+sc(G);
     const spannung = Math.abs(I-R);
     const haltung  = (I-R)*G;
-    const jetzt    = new Date();
-    const datum    = jetzt.toLocaleDateString('de-DE')+' / '+
-                     jetzt.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+
+
+
+	  
+	  
+   const jetzt = new Date();
+
+const datum =
+  jetzt.getDate() + "." +
+  (jetzt.getMonth()+1) + "." +
+  jetzt.getFullYear() + " / " +
+  String(jetzt.getHours()).padStart(2,'0') + ":" +
+  String(jetzt.getMinutes()).padStart(2,'0');
+
+ 
+let szenario = "";
 
 const notesDiv = document.getElementById('notes');
-const szenario = (notesDiv ? (notesDiv.value || notesDiv.innerText || '') : '').trim().substring(0,300);
 
+if(notesDiv){
+  szenario = notesDiv.innerText.trim().substring(0,300);
+}
+
+
+
+	  
+
+	  
+	  
  let status = '';
     if(spannung >= 8)      status = '🔴 Hohe Aktivierung';
     else if(spannung >= 4) status = '🟠 Mittlere Spannung';
