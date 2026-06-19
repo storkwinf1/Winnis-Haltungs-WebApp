@@ -9304,6 +9304,57 @@ if(notesDiv){
 })();
 </script>
 	
+
+
+	
+
+<style>
+#digitalClock{
+  position:fixed;
+  top:10px;
+  right:12px;
+  z-index:500;
+  font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.04em;
+  color:#fff;
+  background:rgba(0,0,0,.28);
+  padding:6px 12px;
+  border-radius:999px;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  pointer-events:none;
+  user-select:none;
+}
+@media (max-width:640px){
+  #digitalClock{font-size:12px;padding:5px 10px;top:8px;right:8px}
+}
+@media print{
+  #digitalClock{display:none!important}
+}
+</style>
+
+<div id="digitalClock">--:--:--</div>
+
+<script>
+(function(){
+  function tick(){
+    const el = document.getElementById('digitalClock');
+    if(!el) return;
+    const n = new Date();
+    const h = String(n.getHours()).padStart(2,'0');
+    const m = String(n.getMinutes()).padStart(2,'0');
+    const s = String(n.getSeconds()).padStart(2,'0');
+    el.textContent = h+':'+m+':'+s;
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+
+
 	
 </body>
 </html>
