@@ -9326,32 +9326,50 @@ if(notesDiv){
   -webkit-backdrop-filter:blur(4px);
   pointer-events:none;
   user-select:none;
+  text-align:right;
+  line-height:1.4;
+}
+#digitalClock .clock-date{
+  display:block;
+  font-size:10px;
+  font-weight:500;
+  opacity:.75;
+  letter-spacing:.02em;
 }
 @media (max-width:640px){
   #digitalClock{font-size:12px;padding:5px 10px;top:8px;right:8px}
+  #digitalClock .clock-date{font-size:9px}
 }
 @media print{
   #digitalClock{display:none!important}
 }
 </style>
 
-<div id="digitalClock">--:--:--</div>
+<div id="digitalClock">
+  --:--:--
+  <span class="clock-date" id="digitalClockDate">–</span>
+</div>
 
 <script>
 (function(){
   function tick(){
     const el = document.getElementById('digitalClock');
+    const dateEl = document.getElementById('digitalClockDate');
     if(!el) return;
     const n = new Date();
     const h = String(n.getHours()).padStart(2,'0');
     const m = String(n.getMinutes()).padStart(2,'0');
     const s = String(n.getSeconds()).padStart(2,'0');
-    el.textContent = h+':'+m+':'+s;
+    el.childNodes[0].textContent = h+':'+m+':'+s+' ';
+    if(dateEl){
+      dateEl.textContent = n.toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric'});
+    }
   }
   tick();
   setInterval(tick, 1000);
 })();
 </script>
+
 
 
 
