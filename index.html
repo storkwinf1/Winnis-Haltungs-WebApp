@@ -9345,7 +9345,1037 @@ if(notesDiv){
 	
 
 
-	
+
+
+/* ================= Zu deinem Szenario ================= */
+
+
+<!--
+  SZENARIO-ZUSATZ SYSTEM
+  Eigenständiger Block, hängt sich an bestehenden "Was jetzt?"-Button.
+  Direkt vor </body> einfügen. Erweiterbar durch neue Themen-Objekte unten.
+-->
+<script>
+(function(){
+
+  /* =========================================================
+     THEMEN-DATENBANK
+     Jedes Thema braucht: name, woerter[], lagen{27 Einträge}
+     Neues Thema = neues Objekt in szenarioThemen[] anhängen.
+     ========================================================= */
+
+  const szenarioThemen = [
+
+    {
+      name: "Reklamation/Konsum",
+      woerter: ["lieferun","reklamati","beschädi","mange","bezug","muste","war","bestellun","versan","rücksendu","garant"],
+      lagen: {
+        "PPP": "Du erkennst den Mangel klar, die Lage ist günstig und du hast die Kraft zu handeln. Reklamiere jetzt, schriftlich und mit Belegen, die Bedingungen sind gut für dich.",
+        "PPN": "Du siehst den Mangel und die Lage spricht für dich, aber du zögerst, dich zu wehren. Genau jetzt würde eine kurze, sachliche Reklamation reichen.",
+        "PP0": "Mangel erkannt, Lage spricht für dich – aber du bist unentschlossen, ob du reagieren sollst. Ein erster Schritt: die Reklamation einfach formulieren, abschicken kannst du später.",
+        "PNP": "Die Lage ist schwierig (z.B. Frist läuft, Verkäufer mauert), aber du hast die Kraft durchzuhalten. Sichere Beweise, setze eine klare Frist. Dein Rückgrat trägt dich durch den Widerstand.",
+        "PNN": "Du weißt, dass du im Recht bist, aber die Situation zermürbt dich und du hast keine Kraft mehr zu kämpfen. Hol dir Unterstützung – z.B. Verbraucherzentrale – statt allein durchzuhalten.",
+        "PN0": "Du erkennst den Mangel, die Lage ist schwierig, und du bist noch unentschlossen. Der erste Schritt ist oft nur, die Reklamationsmail überhaupt abzuschicken.",
+        "P0P": "Du hast ein klares Ideal (korrekte Lieferung), die Lage ist neutral, und du hast Kraft. Nutze sie, um die Sache aktiv zu klären, statt abzuwarten.",
+        "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie, dich zu kümmern. Ein kleiner Schritt reicht: Foto machen, Beleg sichern, mehr nicht heute.",
+        "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: die Fakten kurz notieren.",
+        "NPP": "Du bist unsicher, ob die Reklamation gerechtfertigt ist, aber die Lage spricht objektiv für dich und du hast Kraft. Prüfe die Fakten nüchtern – oft ist der Zweifel unbegründet.",
+        "NPN": "Die Lage spricht für dich, aber du traust dich nicht zu reklamieren und zweifelst an deinem Recht dazu. Frag dich: Würde ich das auch für einen Freund einfordern?",
+        "NP0": "Die Lage spricht für dich, du bist aber unentschlossen, ob du wirklich reklamieren willst. Erlaube dir, in Ruhe zu prüfen, bevor du handelst.",
+        "NNP": "Du zweifelst an deinem Anspruch, die Lage ist auch schwierig – aber du hast Kraft, die du gerade falsch einsetzt. Bevor du kämpfst: kläre erst ehrlich, ob die Reklamation wirklich berechtigt ist.",
+        "NNN": "Mangel, Zweifel und Erschöpfung kommen zusammen. Das ist kein guter Moment für eine Entscheidung. Warte einen Tag, bevor du reagierst oder aufgibst.",
+        "NN0": "Du bist unsicher, ob die Reklamation berechtigt ist, die Lage ist schwierig, und du bist unentschlossen. Sammle erst die Fakten, bevor du eine Richtung wählst.",
+        "N0P": "Du zweifelst an deinem Anspruch, hast aber Kraft. Nutze sie, um die Sache sachlich zu prüfen statt impulsiv zu handeln.",
+        "N0N": "Du zweifelst und hast keine Energie. Das ist okay. Leg die Sache für heute beiseite und kehre morgen mit klarerem Kopf zurück.",
+        "N00": "Unsicherheit auf allen Ebenen. Der erste Schritt ist, dir selbst ehrlich die Frage zu stellen: Was würde mir helfen, das klarer zu sehen?",
+        "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht für dich und du hast Kraft. Nutze die günstige Gelegenheit – auch ohne große Überzeugung kann eine Reklamation sich lohnen.",
+        "0PN": "Die Lage spricht für dich, aber dir fehlt der Antrieb. Manchmal reicht ein einziger Satz an den Kundenservice – mehr Aufwand ist oft gar nicht nötig.",
+        "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob eine Reklamation den Aufwand wert wäre.",
+        "0NP": "Du bist unentschieden, die Lage ist schwierig, aber du hast Kraft. Frag dich zuerst: Ist mir das Thema überhaupt wichtig genug?",
+        "0NN": "Weder klare Haltung noch Energie, dazu eine schwierige Lage. Das ist ein guter Moment, die Sache einfach ruhen zu lassen.",
+        "0N0": "Unentschieden und kraftlos in einer schwierigen Lage – nichts spricht dafür, jetzt zu handeln. Das darf auch so bleiben.",
+        "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst eine Meinung zu bilden, bevor du handelst.",
+        "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln – warte ab, bis sich die Lage oder deine Energie ändert.",
+        "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung. Nicht jede Situation verlangt sofortiges Handeln."
+      }
+    }
+
+,{
+  name: "Beruf/Vorgesetzte",
+  woerter: ["chef","vorgesetzt","kolleg","projek","meetin","kündigu","gehal","beförderu","tea","abteilu","beru"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft zu handeln. Sprich das Thema jetzt direkt an – die Bedingungen sind gut für dich.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht für dich – aber du zögerst, das Gespräch zu suchen. Ein kurzer, konkreter erster Satz reicht oft schon.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen, ob du den Schritt gehst. Formuliere dir erstmal in Ruhe, was du sagen würdest.",
+    "PNP": "Die Lage ist schwierig (z.B. Widerstand, Zeitdruck), aber du hast die Kraft durchzuhalten. Bereite das Gespräch konkret vor, benenne eine klare Forderung – dein Rückgrat trägt dich durch.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt gerade die Kraft zu kämpfen. Hol dir Rückhalt – Kollegen, Betriebsrat oder eine vertraute Person – statt allein durchzuhalten.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist schwierig, und du bist noch unentschlossen. Der erste Schritt ist oft nur, einen Gesprächstermin überhaupt anzufragen.",
+    "P0P": "Du hast ein klares Ideal, die Lage ist neutral, und du hast Kraft. Nutze sie, um das Gespräch aktiv zu suchen, statt auf die richtige Gelegenheit zu warten.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie, dich zu kümmern. Ein kleiner Schritt reicht: die wichtigsten Punkte kurz notieren – mehr nicht heute.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: dir selbst aufschreiben, worum es eigentlich geht.",
+    "NPP": "Du bist unsicher, ob dein Anliegen berechtigt ist, aber die Lage spricht objektiv für dich und du hast Kraft. Prüfe nüchtern: Was würde ein Kollege in deiner Position fordern?",
+    "NPN": "Die Lage spricht für dich, aber du traust dich nicht, das Thema anzusprechen, und zweifelst an deinem Anspruch. Frag dich: Würde ich das auch für einen Kollegen einfordern?",
+    "NP0": "Die Lage spricht für dich, du bist aber unentschlossen, ob du wirklich das Gespräch suchen willst. Erlaube dir, in Ruhe zu prüfen, was du wirklich willst.",
+    "NNP": "Du zweifelst an deinem Anspruch, die Lage ist auch schwierig, aber du hast Kraft, die du gerade falsch einsetzt. Bevor du handelst: kläre erst ehrlich, ob dein Anliegen wirklich berechtigt ist.",
+    "NNN": "Zweifel, schwierige Lage und Erschöpfung kommen zusammen. Das ist kein guter Moment für eine wichtige Entscheidung – warte, bis du klarer denken kannst.",
+    "NN0": "Du bist unsicher, ob dein Anliegen berechtigt ist, die Lage ist schwierig, und du bist unentschlossen. Sammle erst Fakten und Beispiele, bevor du eine Richtung wählst.",
+    "N0P": "Du zweifelst an deinem Anspruch, hast aber Kraft. Nutze sie, um die Situation sachlich zu prüfen statt impulsiv zu reagieren.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist okay – leg das Thema für heute beiseite und kehre morgen mit klarerem Kopf zurück.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst die Frage zu stellen: Was würde mir helfen, das klarer zu sehen?",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht für dich und du hast Kraft. Nutze die günstige Gelegenheit – auch ohne große Überzeugung kann das Gespräch sich lohnen.",
+    "0PN": "Die Lage spricht für dich, aber dir fehlt der Antrieb. Manchmal reicht ein kurzer Hinweis im Vorbeigehen – mehr Aufwand ist oft gar nicht nötig.",
+    "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob ein Gespräch den Aufwand wert wäre.",
+    "0NP": "Du bist unentschieden, die Lage ist schwierig, aber du hast Kraft. Frag dich zuerst: Ist mir das Thema überhaupt wichtig genug, um jetzt zu handeln?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine schwierige Lage. Das ist ein guter Moment, das Thema einfach ruhen zu lassen.",
+    "0N0": "Unentschieden und kraftlos in einer schwierigen Lage. Nichts spricht dafür, jetzt zu handeln. Das darf auch so bleiben.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst eine Meinung zu bilden, bevor du handelst.",
+    "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln. Warte ab, bis sich die Lage oder deine Energie ändert.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung. Nicht jedes Thema verlangt sofortiges Handeln."
+  }
+}
+
+,{
+  name: "Familie/Partnerschaft",
+  woerter: ["partn","ehe","famil","kinde","stre","trennu","elte","beziehu","se","gel","hau"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft, es anzusprechen. Sag es jetzt, offen und direkt, der Moment passt.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht dafür – aber du scheust das Gespräch. Ein einziger ehrlicher Satz kann oft mehr bewegen als du denkst.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen, ob du den Schritt gehst. Formuliere dir erst in Ruhe, was du eigentlich sagen willst.",
+    "PNP": "Die Lage ist angespannt, aber du hast die Kraft, dabei zu bleiben. Wähle einen ruhigen Moment, sprich konkret aus, was dich bewegt – dein Rückgrat trägt das Gespräch.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt die Kraft. Hol dir Unterstützung – ein Gespräch mit einer vertrauten Person oder professionelle Beratung – statt allein durchzuhalten.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist angespannt, und du bist noch unentschlossen. Der erste Schritt ist oft nur, den Wunsch nach einem Gespräch überhaupt zu äußern.",
+    "P0P": "Du hast eine klare Vorstellung, die Lage ist neutral, und du hast Kraft. Nutze sie, um das Gespräch aktiv zu suchen, statt auf den perfekten Moment zu warten.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie. Ein kleiner Schritt reicht: dir selbst aufschreiben, was du wirklich sagen möchtest – mehr nicht heute.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: dir selbst klar werden, was dich eigentlich beschäftigt.",
+    "NPP": "Du bist unsicher, ob dein Empfinden berechtigt ist, aber die Lage spricht objektiv für dich und du hast Kraft. Prüfe ehrlich: Würdest du einer dir nahestehenden Person dasselbe raten?",
+    "NPN": "Die Lage spricht für dich, aber du traust dich nicht, das anzusprechen, und zweifelst an deinem Empfinden. Frag dich: Was würde passieren, wenn ich es trotzdem sage?",
+    "NP0": "Die Lage spricht für dich, du bist aber unentschlossen, ob du das Gespräch wirklich suchen willst. Erlaube dir, in Ruhe zu prüfen, was du wirklich brauchst.",
+    "NNP": "Du zweifelst an deinem Empfinden, die Lage ist auch angespannt, aber du hast Kraft, die du gerade falsch einsetzt. Bevor du reagierst: kläre erst ehrlich mit dir selbst, worum es wirklich geht.",
+    "NNN": "Zweifel, Anspannung und Erschöpfung kommen zusammen. Das ist kein guter Moment für eine wichtige Aussprache. Gönn dir und der Beziehung eine Pause, bevor ihr sprecht.",
+    "NN0": "Du bist unsicher, ob dein Empfinden berechtigt ist, die Lage ist angespannt, und du bist unentschlossen. Nimm dir Zeit, bevor du eine Richtung wählst.",
+    "N0P": "Du zweifelst an deinem Empfinden, hast aber Kraft. Nutze sie, um die Situation in Ruhe zu reflektieren statt impulsiv zu reagieren.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist okay – leg das Thema für heute beiseite und kehre mit klarerem Kopf zurück.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst die Frage zu stellen: Was beschäftigt mich daran eigentlich am meisten?",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht für dich und du hast Kraft. Nutze die günstige Gelegenheit – auch ohne große Klarheit kann das Gespräch helfen.",
+    "0PN": "Die Lage spricht für dich, aber dir fehlt der Antrieb. Manchmal reicht ein kurzer, einfacher Satz – mehr Aufwand ist oft gar nicht nötig.",
+    "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob ein Gespräch dir guttun würde.",
+    "0NP": "Du bist unentschieden, die Lage ist angespannt, aber du hast Kraft. Frag dich zuerst: Ist mir das Thema wichtig genug, um jetzt zu sprechen?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine angespannte Lage. Das ist ein guter Moment, das Thema einfach ruhen zu lassen.",
+    "0N0": "Unentschieden und kraftlos in einer angespannten Lage – nichts spricht dafür, jetzt zu sprechen. Das darf auch so bleiben.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst klar zu werden, bevor du sprichst.",
+    "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln – warte ab, bis sich die Lage oder deine Energie ändert.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung. Nicht jedes Thema verlangt sofortiges Sprechen."
+  }
+}
+
+
+,{
+  name: "Gesundheit",
+  woerter: ["gesundhe","krankhe","arz","diagno","schmerze","erschöpfu","burno","fiebe","huste","operat"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft zu handeln. Vereinbare jetzt den Termin oder geh den nächsten Schritt – die Bedingungen sind gut für dich.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht dafür – aber du zögerst, dich darum zu kümmern. Ein erster kleiner Schritt reicht: den Anruf machen, mehr nicht.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen, ob du handelst. Schreib dir auf, was du eigentlich tun müsstest – der Rest kommt später.",
+    "PNP": "Die Lage ist belastend, aber du hast die Kraft durchzuhalten. Hol dir eine fachliche Einschätzung, bleib am Thema dran – dein Rückgrat trägt dich durch die Anstrengung.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt die Kraft. Genau jetzt zählt nicht Durchhalten, sondern Hilfe annehmen – sprich mit jemandem, der dich unterstützen kann.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist belastend, und du bist noch unentschlossen. Der erste Schritt ist oft nur, den Termin überhaupt zu vereinbaren.",
+    "P0P": "Du hast eine klare Vorstellung, die Lage ist neutral, und du hast Kraft. Nutze sie, um aktiv zu werden, statt abzuwarten, bis sich etwas ändert.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie. Ein kleiner Schritt reicht: die wichtigsten Symptome oder Fragen kurz notieren – mehr nicht heute.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: dir selbst ehrlich aufschreiben, was dich beschäftigt.",
+    "NPP": "Du bist unsicher, ob deine Sorge berechtigt ist, aber die Lage spricht objektiv dafür und du hast Kraft. Eine fachliche Einschätzung kann hier mehr Klarheit bringen als langes Abwägen.",
+    "NPN": "Die Lage spricht dafür zu handeln, aber du traust dich nicht und zweifelst, ob deine Sorge berechtigt ist. Im Zweifel gilt: lieber einmal zu viel abklären als zu wenig.",
+    "NP0": "Die Lage spricht dafür, du bist aber unentschlossen, ob du wirklich aktiv werden willst. Erlaube dir, in Ruhe zu prüfen, was du wirklich brauchst.",
+    "NNP": "Du zweifelst an deiner Einschätzung, die Lage ist auch belastend – aber du hast Kraft, die du gerade falsch einsetzt. Bevor du weitermachst wie bisher: hol dir eine fachliche Einschätzung statt allein zu rätseln.",
+    "NNN": "Zweifel, Belastung und Erschöpfung kommen zusammen. Das ist kein Moment zum Aushalten – sprich mit einer Fachperson, das ist hier wichtiger als reine Selbstreflexion.",
+    "NN0": "Du bist unsicher, ob deine Sorge berechtigt ist, die Lage ist belastend, und du bist unentschlossen. Eine erste fachliche Einschätzung kann diese Unsicherheit auflösen.",
+    "N0P": "Du zweifelst an deiner Einschätzung, hast aber Kraft. Nutze sie, um die Situation klären zu lassen statt sie zu verdrängen.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist ein Warnsignal, kein Grund zum Abwarten – so wenig Energie kann selbst Teil des Problems sein.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst zuzugestehen, dass es sich lohnt, das abklären zu lassen.",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht dafür und du hast Kraft. Nutze die Energie für einen Check – auch ohne klares Gefühl kann das sinnvoll sein.",
+    "0PN": "Die Lage spricht dafür, aber dir fehlt der Antrieb. Manchmal reicht ein einziger Anruf, um den ersten Schritt zu machen.",
+    "0P0": "Neutrale Haltung, aber die Lage spricht dafür, sich zu kümmern. Es lohnt sich, kurz zu prüfen, ob ein Termin sinnvoll wäre.",
+    "0NP": "Du bist unentschieden, die Lage ist belastend, aber du hast Kraft. Frag dich zuerst: Was würde mir helfen, das ernst zu nehmen?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine belastende Lage. Genau das ist ein Signal, sich nicht allein damit zu lassen – sprich mit jemandem.",
+    "0N0": "Unentschieden und kraftlos in einer belastenden Lage. Auch kleine Schritte zählen – ein Gespräch mit einer vertrauten Person kann schon helfen.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir Klarheit zu verschaffen, bevor du entscheidest.",
+    "00N": "Neutral und kraftlos. Auch wenn kein akuter Druck besteht, ist Erschöpfung selbst oft ein Thema, das Beachtung verdient.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung. Nutze die Ruhe, um auf dich zu achten, bevor sich etwas ändert."
+  }
+}
+
+
+,{
+  name: "Finanzen",
+  woerter: ["gel","finanz","schuld","investitn","kredi","rechnu"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft zu handeln. Triff die Entscheidung jetzt – die Bedingungen sprechen für dich.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht dafür – aber du zögerst zu handeln. Ein kleiner erster Schritt reicht: die Zahlen einmal schwarz auf weiß aufschreiben.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen. Schlaf eine Nacht darüber, dann entscheide bewusst.",
+    "PNP": "Die Lage ist angespannt (z.B. Druck, Unsicherheit), aber du hast die Kraft, besonnen zu bleiben. Hol dir wenn nötig eine zweite Meinung, bevor du handelst – dein Rückgrat schützt dich vor Übereile.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt die Kraft, dich zu kümmern. Genau bei Finanzen gilt: lieber jetzt fachlichen Rat holen als allein weiterzumachen.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist angespannt, und du bist noch unentschlossen. Der erste Schritt ist oft nur, die offene Frage überhaupt zu klären – z.B. bei der Bank oder Schuldnerberatung anzurufen.",
+    "P0P": "Du hast eine klare Vorstellung, die Lage ist neutral, und du hast Kraft. Nutze sie, um aktiv zu planen, statt abzuwarten.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie. Ein kleiner Schritt reicht: die wichtigsten Zahlen notieren – mehr nicht heute.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: einen Überblick über die aktuelle Situation verschaffen.",
+    "NPP": "Du bist unsicher, ob deine Entscheidung richtig ist, aber die Lage spricht objektiv dafür und du hast Kraft. Prüfe die Fakten nüchtern, bevor du dem Zweifel zu viel Raum gibst.",
+    "NPN": "Die Lage spricht dafür zu handeln, aber du traust dich nicht und zweifelst an deiner Einschätzung. Eine zweite, neutrale Meinung kann hier helfen, Klarheit zu schaffen.",
+    "NP0": "Die Lage spricht dafür, du bist aber unentschlossen, ob du wirklich handeln willst. Erlaube dir, in Ruhe zu prüfen, bevor du dich festlegst.",
+    "NNP": "Du zweifelst an deiner Entscheidung, die Lage ist auch angespannt – aber du hast Kraft, die du gerade falsch einsetzt. Bevor du handelst: kläre erst sachlich, was die Lage wirklich hergibt.",
+    "NNN": "Zweifel, Anspannung und Erschöpfung kommen zusammen. Das ist kein guter Moment für finanzielle Entscheidungen – warte, bis du wieder klarer denken kannst, oder hol dir Unterstützung.",
+    "NN0": "Du bist unsicher, ob deine Einschätzung stimmt, die Lage ist angespannt, und du bist unentschlossen. Sammle erst die Fakten, bevor du eine Richtung wählst.",
+    "N0P": "Du zweifelst an deiner Einschätzung, hast aber Kraft. Nutze sie, um die Situation sachlich zu prüfen statt impulsiv zu handeln.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist ein klares Signal, jetzt keine größere finanzielle Entscheidung zu treffen.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst die Frage zu stellen: Was würde mir helfen, das klarer zu sehen?",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht dafür und du hast Kraft. Nutze die günstige Gelegenheit, auch ohne große Überzeugung.",
+    "0PN": "Die Lage spricht dafür, aber dir fehlt der Antrieb. Manchmal reicht ein kurzer Blick in die Kontoauszüge, um den ersten Schritt zu machen.",
+    "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob jetzt ein guter Moment für eine Entscheidung wäre.",
+    "0NP": "Du bist unentschieden, die Lage ist angespannt, aber du hast Kraft. Frag dich zuerst: Wie dringend ist das Thema wirklich?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine angespannte Lage. Das ist kein guter Moment für eine Entscheidung – warte ab oder hol dir Rat.",
+    "0N0": "Unentschieden und kraftlos in einer angespannten Lage – nichts spricht dafür, jetzt zu entscheiden. Das darf auch so bleiben.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst eine Meinung zu bilden, bevor du handelst.",
+    "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln – warte ab, bis sich die Lage oder deine Energie ändert.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung. Nicht jede finanzielle Frage verlangt sofortiges Handeln."
+  }
+}
+
+,{
+  name: "Wohnen/Umzug",
+  woerter: ["wohnu","miet","umzug","vermiet","nachba","kündi"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft zu handeln. Sprich es jetzt direkt an oder triff die Entscheidung – die Bedingungen sind gut für dich.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht dafür – aber du zögerst zu handeln. Ein kurzer schriftlicher Hinweis an Vermieter oder Nachbarn reicht oft schon als erster Schritt.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen. Formuliere dir erst in Ruhe, was du eigentlich willst – der Rest kommt später.",
+    "PNP": "Die Lage ist angespannt (z.B. Konflikt, Unsicherheit), aber du hast die Kraft durchzuhalten. Dokumentiere die Situation schriftlich, bleib sachlich – dein Rückgrat trägt dich durch.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt die Kraft. Hol dir Unterstützung – Mieterverein oder eine vertraute Person – statt allein durchzuhalten.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist angespannt, und du bist noch unentschlossen. Der erste Schritt ist oft nur, die Sache schriftlich festzuhalten.",
+    "P0P": "Du hast eine klare Vorstellung, die Lage ist neutral, und du hast Kraft. Nutze sie, um aktiv zu werden, statt abzuwarten.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie. Ein kleiner Schritt reicht: die wichtigsten Punkte kurz notieren – mehr nicht heute.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: dir selbst klar werden, worum es eigentlich geht.",
+    "NPP": "Du bist unsicher, ob dein Anliegen berechtigt ist, aber die Lage spricht objektiv dafür und du hast Kraft. Prüfe die Fakten – z.B. den Mietvertrag – nüchtern, bevor du dem Zweifel zu viel Raum gibst.",
+    "NPN": "Die Lage spricht dafür zu handeln, aber du traust dich nicht und zweifelst an deinem Anspruch. Eine kurze Rechtsberatung kann hier oft schnell Klarheit schaffen.",
+    "NP0": "Die Lage spricht dafür, du bist aber unentschlossen, ob du wirklich handeln willst. Erlaube dir, in Ruhe zu prüfen, was du wirklich brauchst.",
+    "NNP": "Du zweifelst an deinem Anspruch, die Lage ist auch angespannt – aber du hast Kraft, die du gerade falsch einsetzt. Bevor du handelst: kläre erst, ob dein Anliegen wirklich berechtigt ist.",
+    "NNN": "Zweifel, Anspannung und Erschöpfung kommen zusammen. Das ist kein guter Moment für eine wichtige Entscheidung – hol dir Rat, bevor du reagierst.",
+    "NN0": "Du bist unsicher, ob dein Anliegen berechtigt ist, die Lage ist angespannt, und du bist unentschlossen. Sammle erst Fakten, bevor du eine Richtung wählst.",
+    "N0P": "Du zweifelst an deinem Anspruch, hast aber Kraft. Nutze sie, um die Situation sachlich prüfen zu lassen statt impulsiv zu reagieren.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist okay – leg das Thema für heute beiseite und kehre mit klarerem Kopf zurück.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst klarzuwerden, was dich daran eigentlich am meisten stört.",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht dafür und du hast Kraft. Nutze die günstige Gelegenheit, auch ohne große Überzeugung.",
+    "0PN": "Die Lage spricht dafür, aber dir fehlt der Antrieb. Manchmal reicht eine kurze Nachricht, um den ersten Schritt zu machen.",
+    "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob ein Schritt jetzt sinnvoll wäre.",
+    "0NP": "Du bist unentschieden, die Lage ist angespannt, aber du hast Kraft. Frag dich zuerst: Ist mir das Thema wichtig genug, um jetzt zu handeln?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine angespannte Lage. Das ist ein guter Moment, das Thema ruhen zu lassen.",
+    "0N0": "Unentschieden und kraftlos in einer angespannten Lage – nichts spricht dafür, jetzt zu handeln. Das darf auch so bleiben.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst eine Meinung zu bilden.",
+    "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln – warte ab, bis sich die Lage oder deine Energie ändert.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung – nicht jedes Wohnthema verlangt sofortiges Handeln."
+  }
+}
+
+
+,{
+  name: "Ausbildung/Studium",
+  woerter: ["studi","prüf","ausbildu","abschlu","studienwah","abbruc","not"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft zu handeln. Geh den nächsten Schritt jetzt – die Bedingungen sprechen für dich.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht dafür – aber du zögerst. Ein kleiner erster Schritt reicht: das Gespräch mit einem Dozenten oder Berater suchen.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen. Schreib dir auf, was dich eigentlich zögern lässt.",
+    "PNP": "Die Lage ist anspruchsvoll (Prüfungsdruck, Unsicherheit), aber du hast die Kraft durchzuhalten. Strukturiere dir den nächsten Schritt konkret – dein Rückgrat trägt dich durch.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt die Kraft. Hol dir Unterstützung – Studienberatung oder eine vertraute Person – statt allein durchzuhalten.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist anspruchsvoll, und du bist noch unentschlossen. Der erste Schritt ist oft nur, eine Beratungsstelle überhaupt zu kontaktieren.",
+    "P0P": "Du hast eine klare Vorstellung, die Lage ist neutral, und du hast Kraft. Nutze sie, um aktiv zu planen, statt abzuwarten.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie. Ein kleiner Schritt reicht: die nächsten Aufgaben kurz notieren – mehr nicht heute.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: dir selbst klar werden, was du wirklich willst.",
+    "NPP": "Du bist unsicher, ob dein Weg der richtige ist, aber die Lage spricht objektiv dafür und du hast Kraft. Prüfe nüchtern: Was spricht wirklich gegen den Weg, den du eingeschlagen hast?",
+    "NPN": "Die Lage spricht dafür weiterzumachen, aber du zweifelst an dir und traust dich nicht, das auszusprechen. Ein Gespräch mit jemandem außerhalb der Situation kann helfen, das einzuordnen.",
+    "NP0": "Die Lage spricht dafür, du bist aber unentschlossen, ob du wirklich weitermachen willst. Erlaube dir, in Ruhe zu prüfen, was du wirklich brauchst.",
+    "NNP": "Du zweifelst an deinem Weg, die Lage ist auch anspruchsvoll – aber du hast Kraft, die du gerade falsch einsetzt. Bevor du weitermachst: kläre erst ehrlich, ob das wirklich dein Weg ist.",
+    "NNN": "Zweifel, Druck und Erschöpfung kommen zusammen. Das ist kein guter Moment für eine endgültige Entscheidung – hol dir Beratung, bevor du abbrichst oder weitermachst.",
+    "NN0": "Du bist unsicher, ob dein Weg richtig ist, die Lage ist anspruchsvoll, und du bist unentschlossen. Sammle erst Informationen, bevor du eine Richtung wählst.",
+    "N0P": "Du zweifelst an deinem Weg, hast aber Kraft. Nutze sie, um die Situation sachlich zu prüfen statt impulsiv abzubrechen.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist ein Warnsignal – nimm es ernst, statt dich allein durchzukämpfen.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst die Frage zu stellen: Was würde mir helfen, das klarer zu sehen?",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht dafür und du hast Kraft. Nutze die günstige Gelegenheit, auch ohne klare Überzeugung.",
+    "0PN": "Die Lage spricht dafür, aber dir fehlt der Antrieb. Manchmal reicht ein kleiner Schritt, um wieder ins Tun zu kommen.",
+    "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob jetzt ein guter Moment für den nächsten Schritt wäre.",
+    "0NP": "Du bist unentschieden, die Lage ist anspruchsvoll, aber du hast Kraft. Frag dich zuerst: Ist mir dieser Weg überhaupt noch wichtig?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine anspruchsvolle Lage. Das ist ein guter Moment, eine Pause einzulegen, bevor du weiter entscheidest.",
+    "0N0": "Unentschieden und kraftlos in einer anspruchsvollen Lage – nichts spricht dafür, jetzt zu entscheiden. Das darf auch so bleiben.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst eine Meinung zu bilden.",
+    "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln – warte ab, bis sich die Lage oder deine Energie ändert.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung – nicht jede Bildungsfrage verlangt sofortiges Handeln."
+  }
+}
+
+,{
+  name: "Selbstständigkeit/Unternehmertum",
+  woerter: ["selbstständ","gründ","geschäft","kund","auftra","risik","unterneh"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft zu handeln. Geh den Schritt jetzt – die Bedingungen sprechen für dich.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht dafür – aber du zögerst. Ein kleiner erster Schritt reicht: ein Angebot formulieren oder ein Gespräch suchen.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen. Schreib dir den nächsten konkreten Schritt auf – mehr nicht heute.",
+    "PNP": "Die Lage ist riskant oder unsicher, aber du hast die Kraft durchzuhalten. Kalkuliere bewusst, hol dir wenn nötig fachlichen Rat – dein Rückgrat trägt dich durch die Unsicherheit.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt die Kraft. Hol dir Unterstützung – Mentor, Berater oder Austausch mit anderen Gründern – statt allein durchzuhalten.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist riskant, und du bist noch unentschlossen. Der erste Schritt ist oft nur, die Idee überhaupt jemandem vorzustellen.",
+    "P0P": "Du hast eine klare Vorstellung, die Lage ist neutral, und du hast Kraft. Nutze sie, um aktiv zu werden, statt auf den perfekten Moment zu warten.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie. Ein kleiner Schritt reicht: die Idee kurz skizzieren – mehr nicht heute.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: dir selbst klar werden, was du wirklich willst.",
+    "NPP": "Du bist unsicher, ob die Idee tragfähig ist, aber die Lage spricht objektiv dafür und du hast Kraft. Prüfe die Fakten nüchtern, bevor du dem Zweifel zu viel Raum gibst.",
+    "NPN": "Die Lage spricht dafür weiterzumachen, aber du zweifelst an dir und traust dich nicht. Ein Austausch mit jemandem, der Erfahrung hat, kann hier viel Klarheit bringen.",
+    "NP0": "Die Lage spricht dafür, du bist aber unentschlossen, ob du wirklich weitermachen willst. Erlaube dir, in Ruhe zu prüfen, was du wirklich willst.",
+    "NNP": "Du zweifelst an der Idee, die Lage ist auch riskant – aber du hast Kraft, die du gerade falsch einsetzt. Bevor du investierst: kläre erst ehrlich, ob die Idee wirklich trägt.",
+    "NNN": "Zweifel, Risiko und Erschöpfung kommen zusammen. Das ist kein guter Moment für eine große Entscheidung – hol dir Rat, bevor du investierst oder aufgibst.",
+    "NN0": "Du bist unsicher, ob die Idee trägt, die Lage ist riskant, und du bist unentschlossen. Sammle erst Fakten und Feedback, bevor du eine Richtung wählst.",
+    "N0P": "Du zweifelst an der Idee, hast aber Kraft. Nutze sie, um die Sache sachlich zu prüfen statt impulsiv zu handeln.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist okay – leg das Thema für heute beiseite und kehre mit klarerem Kopf zurück.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst die Frage zu stellen: Was würde mir helfen, das klarer zu sehen?",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht dafür und du hast Kraft. Nutze die günstige Gelegenheit, auch ohne große Überzeugung.",
+    "0PN": "Die Lage spricht dafür, aber dir fehlt der Antrieb. Manchmal reicht ein kleiner Schritt, um wieder ins Tun zu kommen.",
+    "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob jetzt ein guter Moment für den nächsten Schritt wäre.",
+    "0NP": "Du bist unentschieden, die Lage ist riskant, aber du hast Kraft. Frag dich zuerst: Wie wichtig ist mir die Idee wirklich?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine riskante Lage. Das ist ein guter Moment, das Thema ruhen zu lassen.",
+    "0N0": "Unentschieden und kraftlos in einer riskanten Lage – nichts spricht dafür, jetzt zu entscheiden. Das darf auch so bleiben.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst eine Meinung zu bilden.",
+    "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln – warte ab, bis sich die Lage oder deine Energie ändert.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung – nicht jede unternehmerische Frage verlangt sofortiges Handeln."
+  }
+}
+
+
+
+,{
+  name: "Freundschaft",
+  woerter: ["freun","freundscha","vertraue","enttäuschu","verra","kumpe","freundi","se","gewal"],
+  lagen: {
+    "PPP": "Du weißt klar, was richtig wäre, die Lage ist günstig und du hast die Kraft, es anzusprechen. Sag es jetzt – offen und direkt, der Moment passt.",
+    "PPN": "Du erkennst klar, was nötig wäre, und die Lage spricht dafür – aber du scheust das Gespräch. Ein einziger ehrlicher Satz kann die Freundschaft oft mehr stärken als Schweigen.",
+    "PP0": "Du hast eine klare Vorstellung und die Lage ist günstig – aber du bist unentschlossen. Formuliere dir erst in Ruhe, was du eigentlich sagen willst.",
+    "PNP": "Die Lage ist angespannt, aber du hast die Kraft, dabei zu bleiben. Sprich konkret aus, was dich bewegt – dein Rückgrat trägt das Gespräch, auch wenn es unangenehm wird.",
+    "PNN": "Du weißt, was richtig wäre, aber die Situation erschöpft dich und dir fehlt die Kraft. Hol dir eine Außenperspektive – eine andere vertraute Person – bevor du allein weitergrübelst.",
+    "PN0": "Du erkennst, was nötig wäre, die Lage ist angespannt, und du bist noch unentschlossen. Der erste Schritt ist oft nur, den Wunsch nach einem Gespräch zu äußern.",
+    "P0P": "Du hast eine klare Vorstellung, die Lage ist neutral, und du hast Kraft. Nutze sie, um das Gespräch aktiv zu suchen, statt auf den perfekten Moment zu warten.",
+    "P0N": "Du weißt, was richtig wäre, aber dir fehlt gerade die Energie. Ein kleiner Schritt reicht: dir selbst klarwerden, was dich eigentlich stört.",
+    "P00": "Du hast ein klares Ideal, aber weder Lageeinschätzung noch Energie sind eindeutig. Fang mit dem Einfachsten an: dir selbst aufschreiben, worum es wirklich geht.",
+    "NPP": "Du bist unsicher, ob dein Ärger berechtigt ist, aber die Lage spricht objektiv dafür und du hast Kraft. Prüfe ehrlich: Würdest du das auch einem anderen Freund so durchgehen lassen?",
+    "NPN": "Die Lage spricht dafür, das anzusprechen, aber du traust dich nicht und zweifelst an deinem Ärger. Frag dich: Was würde passieren, wenn ich es trotzdem sage?",
+    "NP0": "Die Lage spricht dafür, du bist aber unentschlossen, ob du das Gespräch wirklich suchen willst. Erlaube dir, in Ruhe zu prüfen, was du wirklich brauchst.",
+    "NNP": "Du zweifelst an deinem Ärger, die Lage ist auch angespannt – aber du hast Kraft, die du gerade falsch einsetzt. Bevor du reagierst: kläre erst ehrlich mit dir selbst, worum es wirklich geht.",
+    "NNN": "Zweifel, Anspannung und Erschöpfung kommen zusammen. Das ist kein guter Moment für eine wichtige Aussprache – gönn dir und der Freundschaft eine Pause.",
+    "NN0": "Du bist unsicher, ob dein Ärger berechtigt ist, die Lage ist angespannt, und du bist unentschlossen. Nimm dir Zeit, bevor du eine Richtung wählst.",
+    "N0P": "Du zweifelst an deinem Ärger, hast aber Kraft. Nutze sie, um die Situation in Ruhe zu reflektieren statt impulsiv zu reagieren.",
+    "N0N": "Du zweifelst und hast keine Energie. Das ist okay – leg das Thema für heute beiseite und kehre mit klarerem Kopf zurück.",
+    "N00": "Unsicherheit auf allen Ebenen. Der erste ehrliche Schritt ist, dir selbst die Frage zu stellen: Was beschäftigt mich daran eigentlich am meisten?",
+    "0PP": "Du hast keine starke Meinung dazu, aber die Lage spricht dafür und du hast Kraft. Nutze die günstige Gelegenheit – auch ohne große Klarheit kann das Gespräch helfen.",
+    "0PN": "Die Lage spricht dafür, aber dir fehlt der Antrieb. Manchmal reicht ein kurzer, einfacher Satz – mehr Aufwand ist oft gar nicht nötig.",
+    "0P0": "Neutrale Haltung, aber günstige Lage. Es lohnt sich, kurz zu prüfen, ob ein Gespräch dir guttun würde.",
+    "0NP": "Du bist unentschieden, die Lage ist angespannt, aber du hast Kraft. Frag dich zuerst: Ist mir diese Freundschaft wichtig genug, um jetzt zu sprechen?",
+    "0NN": "Weder klare Haltung noch Energie, dazu eine angespannte Lage. Das ist ein guter Moment, das Thema einfach ruhen zu lassen.",
+    "0N0": "Unentschieden und kraftlos in einer angespannten Lage – nichts spricht dafür, jetzt zu sprechen. Das darf auch so bleiben.",
+    "00P": "Keine klare Haltung, neutrale Lage, aber Energie vorhanden. Nutze die Energie, um dir erst klar zu werden, bevor du sprichst.",
+    "00N": "Neutral und kraftlos. Es gibt keinen Druck zu handeln – warte ab, bis sich die Lage oder deine Energie ändert.",
+    "000": "Alles im Gleichgewicht, kein erkennbarer Handlungsdruck. Das ist in Ordnung – nicht jedes Thema verlangt sofortiges Sprechen."
+  }
+}
+
+
+,{
+  name: "Ehrenamt/Engagement",
+  woerter: ["ehrenam","verei","engageme","vorstan","freiwill"],
+  lagen: {
+    "PPP": "Die Gelegenheit ist günstig, dein Ziel ist klar, und du hast den Schwung dafür. Übernimm die Aufgabe – jetzt ist genau der richtige Moment.",
+    "PPN": "Du siehst genau, was gebraucht würde, scheust aber den nächsten Schritt. Manchmal reicht es, sich einfach in der nächsten Sitzung zu melden.",
+    "PP0": "Klare Idee, gute Gelegenheit – aber noch keine Entschlossenheit. Halte fest, was du eigentlich beitragen willst, der Rest findet sich.",
+    "PNP": "Es läuft gerade zäh im Verein, aber du bleibst dran. Setz dir bewusste Grenzen statt alles allein zu stemmen – das hält dich länger durch als reines Durchbeißen.",
+    "PNN": "Engagement, das auslaugt, ist kein Zeichen von Versagen, sondern ein Signal. Gib eine Aufgabe ab, bevor du ganz ausbrennst.",
+    "PN0": "Du spürst, dass etwas nicht stimmt, weißt aber noch nicht, was du tun sollst. Sprich es einfach im Vorstand an – das klärt mehr als langes Grübeln.",
+    "P0P": "Neutrale Lage, aber du hast Antrieb. Bring dich aktiv ein, statt auf den perfekten Anlass zu warten.",
+    "P0N": "Die Energie fehlt gerade, das Ziel bleibt aber klar. Erlaub dir eine Pause, bevor du dich wieder einbringst.",
+    "P00": "Weder Lage noch Energie sind eindeutig – nur dein Ideal steht fest. Schreib dir auf, worum es dir eigentlich geht.",
+    "NPP": "Du zweifelst, ob sich dein Einsatz noch lohnt, obwohl die Umstände dafürsprechen. Frag dich ehrlich, was genau dich stört – meist ist es konkreter als gedacht.",
+    "NPN": "Die Lage spricht fürs Weitermachen, aber innerlich ziehst du dich zurück. Ein offenes Gespräch im Verein bringt oft mehr Klarheit als das eigene Grübeln.",
+    "NP0": "Gute Bedingungen, aber du bist unschlüssig, ob du weitermachen willst. Gib dir Zeit für diese Entscheidung – sie muss nicht heute fallen.",
+    "NNP": "Du zweifelst am Sinn, die Lage ist mühsam, doch deine Energie ist hoch. Bevor du weiterkämpfst: prüfe, ob das wirklich noch dein Anliegen ist.",
+    "NNN": "Zweifel, Mühsal und Erschöpfung – keine gute Kombination für eine endgültige Entscheidung. Sprich mit jemandem aus dem Verein, bevor du aufhörst.",
+    "NN0": "Unklarheit auf mehreren Ebenen zugleich. Verschaff dir erst Überblick, bevor du eine Richtung festlegst.",
+    "N0P": "Der Sinn ist fraglich, die Kraft aber da. Nutze sie für eine nüchterne Bestandsaufnahme statt für einen spontanen Ausstieg.",
+    "N0N": "Zweifel und Leere zugleich – ein klares Zeichen, kürzerzutreten statt weiterzumachen wie bisher.",
+    "N00": "Diffuse Lage rundum. Die erste ehrliche Frage: Gibt dir das Engagement noch etwas zurück?",
+    "0PP": "Keine feste Meinung, aber günstige Umstände und Energie. Auch ohne große Überzeugung kann sich der Einsatz jetzt lohnen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Eine kleine Aufgabe reicht oft, um wieder reinzukommen.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein kurzer Check, ob sich mehr Engagement lohnt, kann nicht schaden.",
+    "0NP": "Unentschlossen in schwieriger Lage, aber mit Energie ausgestattet. Frag dich zuerst, ob dir das überhaupt noch wichtig ist.",
+    "0NN": "Weder Haltung noch Kraft, dazu eine mühsame Lage. Genau jetzt ist eine Pause die ehrlichste Option.",
+    "0N0": "Kraftlos und unentschlossen in schwierigen Zeiten – nichts spricht für eine Entscheidung heute.",
+    "00P": "Keine klare Linie, aber Energie ist da. Nutze sie, um dir erst eine Meinung zu bilden.",
+    "00N": "Neutral und müde zugleich. Kein Grund zur Eile – warte einfach ab.",
+    "000": "Ruhige, ausgeglichene Lage. Nicht jedes Engagement verlangt sofortiges Handeln."
+  }
+}
+
+
+,{
+  name: "Soziale Medien/Online-Konflikte",
+  woerter: ["onli","socia","komment","pos","interne","mobbi"],
+  lagen: {
+    "PPP": "Die Umstände sind günstig, deine Haltung klar – reagiere sachlich, wenn du es für richtig hältst.",
+    "PPN": "Klare Sicht, gute Lage – aber du zögerst zu antworten. Ein ruhiger Kommentar oder eine Meldung reicht oft völlig aus.",
+    "PP0": "Du weißt, was du sagen würdest, bist aber unschlüssig, ob du es tust. Eile ist hier selten nötig.",
+    "PNP": "Es wird hitzig im Netz, aber du bleibst besonnen. Antworte sachlich oder schweige – beides zeigt Haltung, kein Gegenangriff.",
+    "PNN": "Die Diskussion zehrt an dir. Eine Bildschirmpause hilft hier mehr als eine weitere Antwort.",
+    "PN0": "Du siehst klar, was nötig wäre, zögerst aber. Erst durchatmen, dann reagieren – nicht umgekehrt.",
+    "P0P": "Neutrale Lage, aber Energie vorhanden. Beziehe Stellung, wenn dir das Thema wirklich wichtig ist.",
+    "P0N": "Klares Ideal, aber gerade keine Kraft. Eine Antwort kann auch morgen noch geschrieben werden.",
+    "P00": "Nur dein Standpunkt ist klar, der Rest offen. Frag dich zuerst, ob es das wirklich wert ist.",
+    "NPP": "Zweifel an der eigenen Reaktion, trotz guter Lage und Energie. Eine Nacht Abstand schadet selten.",
+    "NPN": "Die Lage spräche fürs Reagieren, doch du zweifelst. Du musst online nicht jede Meinung verteidigen.",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit. Auch Nicht-Reagieren ist eine gültige Entscheidung.",
+    "NNP": "Zweifel und Anspannung treffen auf viel Energie, die hier leicht fehlgeleitet wird. Leg das Handy weg, bevor du etwas Unüberlegtes schreibst.",
+    "NNN": "Zweifel, Hitze und Erschöpfung gleichzeitig – ein klares Zeichen, die App jetzt zu schließen.",
+    "NN0": "Unsicherheit und Anspannung ohne klare Richtung. Eine Pause klärt mehr als sofortiges Handeln.",
+    "N0P": "Zweifel trotz vorhandener Energie. Investiere sie lieber woanders als in diesen Streit.",
+    "N0N": "Zweifel und Erschöpfung zugleich. Lass das Thema heute einfach ruhen.",
+    "N00": "Diffuse Gemengelage. Die ehrlichste Frage: Brauche ich das gerade wirklich?",
+    "0PP": "Keine feste Meinung, aber günstige Lage und Energie. Reagieren ist trotzdem keine Pflicht.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt – ein guter Grund, es einfach zu lassen.",
+    "0P0": "Alles neutral. Online-Konflikte dürfen getrost weiterziehen.",
+    "0NP": "Unentschlossen trotz Energie in angespannter Lage. Frag dich, ob es dir das wert ist.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Spannung im Netz. App schließen ist hier die beste Reaktion.",
+    "0N0": "Kraftlos und unentschlossen in hitziger Stimmung. Nichts spricht für eine Reaktion jetzt.",
+    "00P": "Keine Linie, aber Energie vorhanden. Setz sie lieber für etwas Sinnvolleres ein.",
+    "00N": "Neutral und müde. Kein Grund zu reagieren.",
+    "000": "Ruhige Lage ohne Handlungsdruck. Online-Konflikte verlangen selten sofortiges Handeln."
+  }
+}
+
+,{
+  name: "Nachbarschaft",
+  woerter: ["nachba","lär","grenz","gemeinscha","hausordnu","grundst","baum"],
+  lagen: {
+    "PPP": "Gute Gelegenheit, klare Haltung – sprich es freundlich und direkt an.",
+    "PPN": "Du weißt, was zu sagen wäre, scheust aber das Gespräch. Ein kurzer, freundlicher Hinweis reicht meist völlig.",
+    "PP0": "Klare Vorstellung, gute Lage – aber Zögern. Überlege dir in Ruhe die Formulierung, der Rest ergibt sich.",
+    "PNP": "Die Stimmung ist angespannt, du bleibst trotzdem dran. Sachlichkeit und nötigenfalls Dokumentation tragen dich durch den Konflikt.",
+    "PNN": "Die Situation zermürbt dich. Zieh die Hausverwaltung hinzu, statt allein weiterzukämpfen.",
+    "PN0": "Du erkennst das Problem, zögerst aber zu handeln. Das Gespräch suchen, bevor es eskaliert, ist der nächste sinnvolle Schritt.",
+    "P0P": "Neutrale Lage, aber Energie da. Sprich das Anliegen aktiv an, statt zu warten.",
+    "P0N": "Klares Ideal, wenig Kraft gerade. Notiere dir die wichtigsten Punkte, mehr braucht es heute nicht.",
+    "P00": "Nur deine Vorstellung steht fest, alles andere ist offen. Werde dir erst klar, was dich wirklich stört.",
+    "NPP": "Du zweifelst am eigenen Ärger, obwohl die Umstände dafürsprechen. Prüfe, ob das Anliegen wirklich so groß ist, wie es sich anfühlt.",
+    "NPN": "Die Lage spräche fürs Ansprechen, du traust dich aber nicht. Würdest du das auch für einen Freund einfordern?",
+    "NP0": "Gute Bedingungen, aber innere Unentschlossenheit. Gib dir Zeit, bevor du reagierst.",
+    "NNP": "Zweifel und Anspannung treffen auf Energie, die gerade falsch eingesetzt wird. Kläre erst, ob es wirklich um die Sache geht.",
+    "NNN": "Zweifel, Spannung und Erschöpfung zugleich. Warte, bis du ruhiger bist, bevor du das Gespräch suchst.",
+    "NN0": "Unsicherheit und Anspannung ohne klare Richtung. Verschaff dir erst Überblick.",
+    "N0P": "Zweifel trotz Energie. Betrachte die Lage sachlich, statt impulsiv zu reagieren.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Lass das Thema heute ruhen.",
+    "N00": "Diffuse Gemengelage. Die ehrliche Frage zuerst: Was stört mich daran wirklich?",
+    "0PP": "Keine feste Meinung, aber gute Lage und Energie. Auch ohne große Überzeugung kann sich ein Gespräch lohnen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein kurzer, freundlicher Hinweis kostet wenig.",
+    "0P0": "Alles neutral, aber günstige Gelegenheit. Ein Gespräch zu prüfen, schadet nicht.",
+    "0NP": "Unentschlossen in angespannter Lage, aber mit Energie. Frag dich, ob es dir das wert ist.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Spannung. Lass das Thema ruhen.",
+    "0N0": "Kraftlos und unentschlossen in schwieriger Lage. Nichts spricht für eine Entscheidung jetzt.",
+    "00P": "Keine Linie, aber Energie vorhanden. Bilde dir erst eine Meinung.",
+    "00N": "Neutral und müde. Kein Grund zur Eile.",
+    "000": "Ruhige, ausgeglichene Lage ohne Handlungsdruck."
+  }
+}
+
+
+
+,{
+  name: "Karriereentscheidung",
+  woerter: ["job","stell","bewerbu","kündigun","branch","wechse","entfernu"],
+  lagen: {
+    "PPP": "Gute Gelegenheit, klare Richtung – triff die Entscheidung jetzt.",
+    "PPN": "Du weißt, wohin es gehen soll, zögerst aber den Schritt zu gehen. Lebenslauf aktualisieren oder ein Gespräch suchen reicht als Anfang.",
+    "PP0": "Klare Vorstellung, gute Umstände – aber Unentschlossenheit. Halte den nächsten konkreten Schritt schriftlich fest.",
+    "PNP": "Die Branche oder Lage ist unsicher, du bleibst trotzdem dran. Informiere dich weiter, bleib am Ball – das trägt dich durch die Unsicherheit.",
+    "PNN": "Die Unsicherheit zehrt an dir. Hol dir Beratung statt allein zu grübeln.",
+    "PN0": "Du siehst, was nötig wäre, schwankst aber. Sich unverbindlich umzusehen, ohne sich festzulegen, ist ein guter erster Schritt.",
+    "P0P": "Neutrale Lage, aber Energie da. Nutze sie, um aktiv zu werden, statt auf den perfekten Moment zu warten.",
+    "P0N": "Klares Ideal, gerade wenig Kraft. Halte die Ausgangslage kurz schriftlich fest, mehr nicht heute.",
+    "P00": "Nur dein Ziel steht fest, der Rest ist offen. Werde dir klar, was du wirklich willst.",
+    "NPP": "Du zweifelst am Wechsel, obwohl die Umstände dafürsprechen. Prüfe nüchtern, was wirklich dagegen spricht.",
+    "NPN": "Die Lage spräche dafür, du traust dich aber nicht. Ein Gespräch außerhalb der Situation kann hier Klarheit bringen.",
+    "NP0": "Gute Bedingungen, aber innere Unentschlossenheit. Gib dir Zeit für diese Entscheidung.",
+    "NNP": "Zweifel und Unsicherheit treffen auf viel Energie. Kläre erst ehrlich, ob das wirklich dein Weg ist, bevor du handelst.",
+    "NNN": "Zweifel, Unsicherheit und Erschöpfung zugleich – kein Moment für eine endgültige Entscheidung. Hol dir Rat, bevor du kündigst.",
+    "NN0": "Unklarheit auf mehreren Ebenen. Sammle erst Informationen, bevor du dich festlegst.",
+    "N0P": "Zweifel trotz Energie. Prüfe die Situation sachlich, statt impulsiv zu kündigen.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Lass die Entscheidung für heute liegen.",
+    "N00": "Diffuse Lage rundum. Die erste ehrliche Frage: Was würde mir helfen, klarer zu sehen?",
+    "0PP": "Keine feste Meinung, aber gute Umstände und Energie. Auch ohne klare Überzeugung kann sich der Schritt lohnen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein kleiner Schritt reicht, um wieder ins Tun zu kommen.",
+    "0P0": "Alles neutral, aber günstige Gelegenheit. Ein kurzer Check, ob jetzt der Moment ist, schadet nicht.",
+    "0NP": "Unentschlossen in unsicherer Lage, aber mit Energie. Frag dich, wie wichtig dir der Wechsel wirklich ist.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Unsicherheit. Lass die Entscheidung ruhen.",
+    "0N0": "Kraftlos und unentschlossen in unsicherer Lage. Nichts spricht für eine Entscheidung jetzt.",
+    "00P": "Keine Linie, aber Energie vorhanden. Bilde dir erst eine Meinung.",
+    "00N": "Neutral und müde. Kein Grund zur Eile.",
+    "000": "Ruhige Lage ohne Handlungsdruck. Nicht jede Karrierefrage verlangt sofortiges Handeln."
+  }
+}
+
+,{
+  name: "Gerechtigkeit/Moral",
+  woerter: ["ungerech","fai","mora","ethi","gewiss","gerechtigk"],
+  lagen: {
+    "PPP": "Gute Gelegenheit, klare Überzeugung – steh jetzt dafür ein.",
+    "PPN": "Du weißt, was richtig wäre, zögerst aber, dich zu zeigen. Ein klarer Satz reicht oft, um Haltung sichtbar zu machen.",
+    "PP0": "Klare moralische Vorstellung, gute Lage – aber Unentschlossenheit. Formuliere dir erst, wofür du eigentlich stehen willst.",
+    "PNP": "Es gibt Widerstand, du bleibst trotzdem bei deiner Position. Das auszuhalten, auch wenn es unbequem ist, ist genau das, was zählt.",
+    "PNN": "Für deine Überzeugung einzustehen kostet gerade viel Kraft. Such dir Verbündete, statt allein zu kämpfen.",
+    "PN0": "Du siehst, was richtig wäre, schwankst aber. Mach dir die eigene Position zuerst für dich selbst klar.",
+    "P0P": "Neutrale Lage, aber Energie vorhanden. Beziehe aktiv Position.",
+    "P0N": "Klares Ideal, gerade wenig Kraft. Halte fest, warum dir das wichtig ist – das reicht für heute.",
+    "P00": "Nur deine Überzeugung steht fest, der Rest ist offen. Schreib dir auf, worum es eigentlich geht.",
+    "NPP": "Du zweifelst an deiner Sicht, obwohl die Umstände dafürsprechen. Prüfe, was wirklich dagegen spricht.",
+    "NPN": "Die Lage spräche dafür, Position zu beziehen, du traust dich aber nicht. Was würde passieren, wenn du es trotzdem sagst?",
+    "NP0": "Gute Bedingungen, aber innere Unentschlossenheit. Gib dir Zeit, herauszufinden, was du wirklich denkst.",
+    "NNP": "Zweifel und Schwierigkeit treffen auf viel Energie. Kläre erst ehrlich, was du für richtig hältst, bevor du dich äußerst.",
+    "NNN": "Zweifel, Schwierigkeit und Erschöpfung zugleich – kein Moment für eine öffentliche Positionierung. Erst mit dir selbst klären.",
+    "NN0": "Unklarheit auf mehreren Ebenen. Sammle erst Argumente, bevor du dich festlegst.",
+    "N0P": "Zweifel trotz Energie. Durchdenke die Frage sachlich, statt impulsiv zu reagieren.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Leg das Thema für heute beiseite.",
+    "N00": "Diffuse Gemengelage. Die erste ehrliche Frage: Was halte ich wirklich für richtig?",
+    "0PP": "Keine feste Meinung, aber gute Lage und Energie. Auch ohne klare Überzeugung kann sich die Gelegenheit lohnen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein kurzer Satz reicht, um Position zu zeigen.",
+    "0P0": "Alles neutral, aber günstige Gelegenheit. Prüf kurz, ob dir das Thema wichtig genug ist.",
+    "0NP": "Unentschlossen in schwieriger Lage, aber mit Energie. Frag dich, ob du dich wirklich positionieren willst.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Schwierigkeit. Lass das Thema ruhen.",
+    "0N0": "Kraftlos und unentschlossen in schwieriger Lage. Nichts spricht für eine Entscheidung jetzt.",
+    "00P": "Keine Linie, aber Energie vorhanden. Bilde dir erst eine Meinung.",
+    "00N": "Neutral und müde. Kein Grund zur Eile.",
+    "000": "Ruhige Lage ohne Handlungsdruck. Nicht jede moralische Frage verlangt sofortiges Handeln."
+  }
+}
+
+
+,{
+  name: "Selbstwert/Identität",
+  woerter: ["selbstw","selbstbewus","identit","wer bin ich","minderwer"],
+  lagen: {
+    "PPP": "Du spürst klar, wer du sein willst, die Umstände tragen dich, und du hast die Kraft, danach zu leben. Genau jetzt lohnt es sich, diesem Bild treu zu bleiben.",
+    "PPN": "Du weißt, wer du sein möchtest, traust dich aber nicht, danach zu handeln. Ein kleiner Akt der Selbstbehauptung heute kann mehr bewirken als gedacht.",
+    "PP0": "Das Bild von dir selbst ist klar, die Umstände passen – aber du zögerst, es zu leben. Lass dir Zeit, ohne dich dafür zu verurteilen.",
+    "PNP": "Die Umstände stellen dich infrage, doch du hältst an dir fest. Genau das ist gelebte Selbstachtung – auch wenn niemand sonst sie gerade bestätigt.",
+    "PNN": "Du weißt, wer du sein willst, aber gerade fehlt dir die Kraft, dafür einzustehen. Sei nachsichtig mit dir – Selbstwert wächst nicht unter Druck.",
+    "PN0": "Dein Bild von dir ist klar, die Lage schwierig, und du schwankst. Erlaub dir, langsam wieder Boden zu finden, statt sofort zu reagieren.",
+    "P0P": "Neutrale Lage, aber innere Kraft vorhanden. Nutze sie, um dich bewusst so zu zeigen, wie du wirklich bist.",
+    "P0N": "Du weißt, wer du sein willst, aber dir fehlt die Energie, das zu leben. Heute reicht es, einfach da zu sein – mehr nicht.",
+    "P00": "Nur dein inneres Bild ist klar, alles andere offen. Frag dich, was dieses Bild eigentlich braucht, um sich zu zeigen.",
+    "NPP": "Du zweifelst an dir selbst, obwohl vieles für dich spricht und du Kraft hast. Prüfe, ob dieser Zweifel wirklich dir gehört oder von außen kommt.",
+    "NPN": "Die Umstände sprechen für dich, aber innerlich machst du dich klein. Frag dich: Würdest du das auch über einen anderen Menschen denken?",
+    "NP0": "Gute Bedingungen, aber Unsicherheit darüber, wer du sein willst. Das ist kein Versagen – Identität darf sich entwickeln.",
+    "NNP": "Selbstzweifel und schwierige Umstände treffen auf viel Energie, die sich gerade gegen dich richtet. Wende sie stattdessen ins Verstehen, nicht ins Verurteilen.",
+    "NNN": "Zweifel, Schwierigkeit und Erschöpfung zugleich. Das ist kein Moment für Selbstkritik – so wenig wie möglich heute von dir verlangen reicht.",
+    "NN0": "Unsicherheit über dich selbst in einer schwierigen Lage. Nichts muss heute geklärt werden – Selbstbild braucht Zeit.",
+    "N0P": "Zweifel an dir selbst, aber Kraft vorhanden. Nutze sie, um dir selbst zuzuhören, statt dich zu bewerten.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Lass diese Frage heute liegen – sie läuft dir nicht davon.",
+    "N00": "Diffuse Unsicherheit über dich selbst. Die erste ehrliche Frage: Was würde mir helfen, mich klarer zu spüren?",
+    "0PP": "Kein festes Selbstbild gerade, aber gute Umstände und Energie. Probiere einfach aus, was sich richtig anfühlt.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Auch kleine Schritte zur Selbstfürsorge zählen.",
+    "0P0": "Neutral in allem, aber günstige Lage. Es lohnt sich, kurz innezuhalten und zu spüren, wo du gerade stehst.",
+    "0NP": "Unklares Selbstbild in schwieriger Lage, aber mit Energie. Frag dich, was dir gerade am meisten fehlt.",
+    "0NN": "Weder Klarheit über dich noch Kraft, dazu schwierige Umstände. Genau jetzt ist Ausruhen die ehrlichste Option.",
+    "0N0": "Kraftlos und unklar in schwieriger Lage. Nichts muss heute entschieden werden.",
+    "00P": "Kein festes Bild, aber Energie da. Nutze sie, um dich selbst besser kennenzulernen.",
+    "00N": "Neutral und müde. Kein Druck, sich heute zu definieren.",
+    "000": "Ruhige, ausgeglichene Lage. Auch Identität darf sich in Ruhe entwickeln."
+  }
+}
+
+
+,{
+  name: "Sucht/Abhängigkeit",
+  woerter: ["such","abhäng","alkoh","kontroll","rückfa","drog","rauch","stof"],
+  lagen: {
+    "PPP": "Du weißt klar, was dir guttäte, die Umstände unterstützen dich, und du hast Kraft. Nutze diesen Moment, um den nächsten Schritt zu gehen.",
+    "PPN": "Du erkennst, was nötig wäre, traust dich aber nicht. Ein offenes Gespräch mit jemandem ist oft der schwerste, aber wichtigste erste Schritt.",
+    "PP0": "Klare Einsicht, günstige Lage – aber Zögern. Das ist menschlich, besonders bei diesem Thema. Sprich mit jemandem, bevor du allein entscheidest.",
+    "PNP": "Die Umstände sind schwierig, du hältst trotzdem an deinem Vorsatz fest. Genau das zählt – auch kleine Erfolge sind echte Erfolge.",
+    "PNN": "Du weißt, was richtig wäre, aber die Erschöpfung ist groß. Hier ist professionelle Hilfe kein Zeichen von Schwäche, sondern der klügste Schritt.",
+    "PN0": "Du siehst das Problem, schwankst aber, was du tun sollst. Ein Anruf bei einer Beratungsstelle kostet wenig und kann viel verändern.",
+    "P0P": "Neutrale Lage, aber innere Kraft vorhanden. Nutze sie, um aktiv Unterstützung zu suchen.",
+    "P0N": "Klares Ideal, gerade wenig Energie. Auch ein kleiner Schritt – ein Gespräch, ein Anruf – zählt heute schon.",
+    "P00": "Nur dein Wunsch nach Veränderung ist klar, alles andere offen. Sprich mit jemandem, der zuhört, ohne zu urteilen.",
+    "NPP": "Du zweifelst, ob das Problem wirklich so ernst ist, obwohl vieles dafürspricht und du Kraft hast. Genau dieser Zweifel verdient eine ehrliche, fachliche Einschätzung.",
+    "NPN": "Die Umstände sprechen für eine Veränderung, aber du traust dich nicht, das zuzugeben. Niemand muss das allein durchstehen.",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit darüber, ob du handeln willst. Erlaub dir, dir selbst gegenüber ehrlich zu sein.",
+    "NNP": "Zweifel und schwierige Lage treffen auf Energie, die sich oft gegen dich selbst richtet. Hol dir jetzt fachliche Unterstützung, statt allein weiterzukämpfen.",
+    "NNN": "Zweifel, Schwierigkeit und Erschöpfung zugleich – das ist ein ernstes Signal. Wende dich an eine Beratungsstelle, bevor sich die Lage weiter verschärft.",
+    "NN0": "Unsicherheit über das Ausmaß des Problems in schwieriger Lage. Eine fachliche Einschätzung kann hier mehr klären als jede Selbstreflexion.",
+    "N0P": "Zweifel trotz vorhandener Kraft. Nutze sie, um dir Klarheit von außen zu holen.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Das ist genau der Moment, in dem Hilfe am dringendsten gebraucht wird.",
+    "N00": "Diffuse Lage, schwer einzuschätzen. Sprich mit jemandem – Familie, Freund oder Fachstelle – bevor du allein weitermachst.",
+    "0PP": "Kein festes Urteil über die Lage, aber günstige Umstände und Kraft. Nutze sie, um dir Klarheit zu verschaffen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein erster, kleiner Schritt reicht – mehr nicht heute.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein offenes Gespräch kostet wenig und kann viel bewegen.",
+    "0NP": "Unklare Lage, aber Energie vorhanden. Nutze sie, um dir ehrlich einzugestehen, wo du stehst.",
+    "0NN": "Weder Klarheit noch Kraft, dazu eine schwierige Lage. Genau jetzt ist professionelle Unterstützung der richtige Weg.",
+    "0N0": "Kraftlos und unklar in schwieriger Lage. Ein erster Anruf bei einer Beratungsstelle muss nicht viel kosten.",
+    "00P": "Keine klare Linie, aber Energie da. Nutze sie, um dir Informationen zu holen.",
+    "00N": "Neutral und müde. Auch das ist ein Moment, in dem ein Gespräch helfen kann.",
+    "000": "Ruhige Lage ohne akuten Druck. Trotzdem gilt: bei diesem Thema lohnt sich frühzeitige, offene Reflexion."
+  }
+}
+
+
+,{
+  name: "Zeitmanagement/Überlastung",
+  woerter: ["zei","termi","überlastu","stres","priorität"],
+  lagen: {
+    "PPP": "Klarer Plan, gute Bedingungen, genug Kraft. Setz die Prioritäten jetzt um.",
+    "PPN": "Du weißt, was wichtig wäre, schiebst es aber auf. Ein einziger Termin, den du absagst, kann schon spürbar Raum schaffen.",
+    "PP0": "Klare Vorstellung von Prioritäten, gute Lage – aber Unentschlossenheit. Schreib dir die drei wichtigsten Dinge auf, der Rest wartet.",
+    "PNP": "Viel Druck von außen, aber du hältst deine Linie. Sag bewusst Nein zu Unwichtigem – das ist hier dein Rückgrat.",
+    "PNN": "Du weißt, was du bräuchtest, aber die Erschöpfung ist zu groß. Genau jetzt zählt eine Pause mehr als ein weiterer Punkt auf der Liste.",
+    "PN0": "Du siehst die Überlastung, schwankst aber, was du ändern sollst. Streiche heute einen einzigen Termin – das reicht als Anfang.",
+    "P0P": "Neutrale Lage, aber Energie da. Nutze sie, um deine Zeit aktiv neu zu ordnen.",
+    "P0N": "Klares Ideal von Struktur, aber wenig Kraft. Erlaub dir, heute weniger zu schaffen als geplant.",
+    "P00": "Nur dein Wunsch nach Ordnung ist klar, der Rest offen. Frag dich, was wirklich dringend ist – und was nur laut.",
+    "NPP": "Du zweifelst, ob deine Überlastung wirklich so schlimm ist, obwohl die Lage dafürspricht und du Energie hast. Vertrau dem, was dein Körper dir signalisiert.",
+    "NPN": "Die Lage spricht für eine Pause, aber du traust dich nicht, sie dir zu nehmen. Niemand verliert an Wert, weil er kürzertritt.",
+    "NP0": "Gute Bedingungen für eine Veränderung, aber innere Unentschlossenheit. Gib dir die Erlaubnis, langsamer zu werden.",
+    "NNP": "Zweifel und Druck treffen auf Energie, die gerade ins Durchhalten statt ins Innehalten fließt. Bremse bewusst, bevor es zu spät ist.",
+    "NNN": "Zweifel, Druck und Erschöpfung zugleich – ein klares Zeichen zum Stoppen. Sag heute mindestens einen Termin ab.",
+    "NN0": "Unsicherheit über das Ausmaß der Belastung in stressiger Lage. Eine ehrliche Liste, was wirklich nötig ist, schafft Klarheit.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um deine Zeit neu zu sortieren, statt dich weiter zu verausgaben.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig – ein deutliches Warnsignal. Heute zählt Erholung mehr als Leistung.",
+    "N00": "Diffuse Überlastung ohne klares Bild. Die ehrliche Frage zuerst: Was würde mir wirklich Luft verschaffen?",
+    "0PP": "Keine klare Prioritätenliste, aber günstige Lage und Energie. Nutze sie, um Ordnung zu schaffen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein einziger gestrichener Termin reicht oft schon.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein kurzer Check deiner Woche kann nicht schaden.",
+    "0NP": "Unklare Prioritäten in stressiger Lage, aber mit Energie. Frag dich, was wirklich zählt.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Stress. Eine Pause ist hier keine Schwäche, sondern Notwendigkeit.",
+    "0N0": "Kraftlos und unklar in stressiger Lage. Nichts muss heute alles geschafft werden.",
+    "00P": "Keine klare Linie, aber Energie vorhanden. Nutze sie, um dir Struktur zu geben.",
+    "00N": "Neutral und müde. Erlaub dir, heute einfach weniger zu tun.",
+    "000": "Ruhige, ausgeglichene Lage. Nicht jede Woche verlangt volle Auslastung."
+  }
+}
+
+,{
+  name: "Reisen/Auswandern",
+  woerter: ["reis","auswande","umzug ausla","fernw","heima","entfernu","rückkeh"],
+  lagen: {
+    "PPP": "Klares Ziel, gute Bedingungen, genug Mut. Plane jetzt den nächsten konkreten Schritt.",
+    "PPN": "Du weißt, wohin es dich zieht, traust dich aber nicht, es anzugehen. Ein erster kleiner Schritt – Informationen sammeln – reicht zum Anfang.",
+    "PP0": "Klare Sehnsucht, günstige Lage – aber Unentschlossenheit. Lass dir Zeit, ohne das Vorhaben aufzugeben.",
+    "PNP": "Die Umstände sind unsicher (Finanzen, Sprache, Distanz), aber du bleibst am Plan dran. Genau das ist der Mut, der solche Schritte trägt.",
+    "PNN": "Du weißt, was du willst, aber die Unsicherheit erschöpft dich. Sprich mit jemandem, der den Weg schon gegangen ist, statt allein zu grübeln.",
+    "PN0": "Du spürst den Wunsch, schwankst aber, ob du ihn umsetzt. Recherchiere unverbindlich, ohne dich gleich festzulegen.",
+    "P0P": "Neutrale Lage, aber Energie und Mut da. Nutze sie, um aktiv zu planen.",
+    "P0N": "Klares Ziel, gerade wenig Antrieb. Notiere dir die ersten Schritte, der Rest kommt später.",
+    "P00": "Nur die Sehnsucht ist klar, der Rest offen. Frag dich, was dieser Wunsch eigentlich für dich bedeutet.",
+    "NPP": "Du zweifelst, ob der Plan vernünftig ist, obwohl die Umstände dafürsprechen und du Energie hast. Prüfe nüchtern, was wirklich dagegenspricht.",
+    "NPN": "Die Lage spräche dafür, aber du traust dich nicht und zweifelst an dir. Ein Austausch mit anderen Auswanderern kann hier viel klären.",
+    "NP0": "Gute Bedingungen, aber innere Unentschlossenheit. Gib dir Zeit, herauszufinden, ob das wirklich dein Weg ist.",
+    "NNP": "Zweifel und Unsicherheit treffen auf viel Energie. Kläre erst ehrlich, ob es um den Ort geht oder um etwas, dem du eigentlich entkommen willst.",
+    "NNN": "Zweifel, Unsicherheit und Erschöpfung zugleich – kein Moment für eine endgültige Entscheidung. Hol dir Rat, bevor du etwas Großes änderst.",
+    "NN0": "Unklarheit über den Plan in unsicherer Lage. Sammle erst Informationen, bevor du dich festlegst.",
+    "N0P": "Zweifel trotz Energie. Prüfe die Idee sachlich, statt sie impulsiv zu verwerfen oder zu erzwingen.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Lass die Entscheidung für jetzt liegen.",
+    "N00": "Diffuse Gemengelage. Die erste ehrliche Frage: Will ich wirklich weg – oder nur woanders sein?",
+    "0PP": "Keine feste Meinung, aber gute Umstände und Energie. Auch ohne klare Überzeugung lohnt sich ein erster Blick.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein kleiner Recherche-Schritt reicht, um wieder ins Tun zu kommen.",
+    "0P0": "Alles neutral, aber günstige Gelegenheit. Ein kurzer Check, ob jetzt der richtige Moment wäre, schadet nicht.",
+    "0NP": "Unentschlossen in unsicherer Lage, aber mit Energie. Frag dich, wie wichtig dir der Plan wirklich ist.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Unsicherheit. Lass den Plan ruhen, bis sich etwas klärt.",
+    "0N0": "Kraftlos und unentschlossen in unsicherer Lage. Nichts spricht für eine Entscheidung jetzt.",
+    "00P": "Keine Linie, aber Energie vorhanden. Nutze sie, um dir erst eine Meinung zu bilden.",
+    "00N": "Neutral und müde. Kein Grund zur Eile.",
+    "000": "Ruhige Lage ohne Handlungsdruck. Nicht jede Reiseidee verlangt sofortiges Handeln."
+  }
+}
+
+,{
+  name: "Erziehung",
+  woerter: ["erzieh","schul","kindergar","grenzen setzen"],
+  lagen: {
+    "PPP": "Klare Linie, gute Bedingungen, genug Kraft. Bleib bei dem, was du für richtig hältst.",
+    "PPN": "Du weißt, wie du erziehen möchtest, setzt es aber nicht konsequent um. Ein klar formulierter Satz im Alltag reicht oft schon als Anfang.",
+    "PP0": "Klare Vorstellung, gute Lage – aber Unsicherheit in der Umsetzung. Das ist normal, niemand erzieht ohne Zweifel.",
+    "PNP": "Es gibt Widerstand (vom Kind, von außen), aber du bleibst bei deiner Linie. Konsequenz, auch wenn sie unbequem ist, trägt langfristig.",
+    "PNN": "Du weißt, was richtig wäre, aber der Alltag erschöpft dich. Hol dir Unterstützung – Partner, Familie oder Beratung – statt allein durchzuhalten.",
+    "PN0": "Du erkennst, was nötig wäre, schwankst aber in der Umsetzung. Ein einziger klarer Moment heute reicht als Übung.",
+    "P0P": "Neutrale Lage, aber Energie da. Nutze sie, um deine Haltung aktiv zu zeigen.",
+    "P0N": "Klares Ideal, gerade wenig Kraft. Erlaub dir, heute nicht perfekt zu sein – Erziehung ist kein Wettbewerb.",
+    "P00": "Nur deine Vorstellung ist klar, der Rest offen. Frag dich, was dir in der Erziehung wirklich wichtig ist.",
+    "NPP": "Du zweifelst an deinem Vorgehen, obwohl die Umstände dafürsprechen und du Kraft hast. Prüfe, ob der Zweifel wirklich begründet ist.",
+    "NPN": "Die Lage spräche für Konsequenz, aber du zweifelst und gibst nach. Frag dich: Würde ich das auch einem anderen Elternteil raten?",
+    "NP0": "Gute Bedingungen, aber Unsicherheit über den richtigen Weg. Das darf sich entwickeln, muss nicht sofort feststehen.",
+    "NNP": "Zweifel und Schwierigkeit treffen auf Energie, die sich gerade gegen dich selbst richtet. Sei nachsichtiger mit dir, bevor du strenger mit dem Kind wirst.",
+    "NNN": "Zweifel, Schwierigkeit und Erschöpfung zugleich – kein Moment für strenge Entscheidungen. Eine Pause hilft mehr als ein weiterer Konflikt.",
+    "NN0": "Unsicherheit über den richtigen Weg in anstrengender Lage. Austausch mit anderen Eltern kann hier viel erleichtern.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um die Situation in Ruhe zu betrachten statt impulsiv zu reagieren.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Das ist okay – auch Eltern dürfen müde sein.",
+    "N00": "Diffuse Unsicherheit. Die ehrliche Frage zuerst: Was bräuchte ich selbst gerade, um ruhiger zu erziehen?",
+    "0PP": "Keine feste Linie, aber gute Lage und Energie. Probiere aus, was sich richtig anfühlt.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Auch kleine, konsequente Gesten zählen.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein kurzer Moment der Reflexion kann schon helfen.",
+    "0NP": "Unklare Linie in anstrengender Lage, aber mit Energie. Frag dich, was dir gerade am wichtigsten ist.",
+    "0NN": "Weder Klarheit noch Kraft, dazu eine anstrengende Lage. Genau jetzt zählt Selbstfürsorge mehr als Perfektion.",
+    "0N0": "Kraftlos und unklar in anstrengender Lage. Nichts muss heute entschieden werden.",
+    "00P": "Keine klare Linie, aber Energie da. Nutze sie, um dir bewusst zu werden, was dir wichtig ist.",
+    "00N": "Neutral und müde. Erlaub dir, heute weniger zu fordern – von dir und vom Kind.",
+    "000": "Ruhige, ausgeglichene Lage. Auch Erziehung darf in manchen Momenten einfach laufen."
+  }
+}
+
+
+
+
+
+
+
+,{
+  name: "Pflege von Angehörigen",
+  woerter: ["pfle","angehör","eltern pfleg","altenhe","pflegegr","Großelte","ganztäg","koste","betreuun"],
+  lagen: {
+    "PPP": "Klare Vorstellung, gute Bedingungen, genug Kraft. Geh den nächsten Schritt jetzt an.",
+    "PPN": "Du weißt, was nötig wäre, schiebst die Organisation aber vor dir her. Ein Anruf bei der Pflegeberatung reicht oft schon als Einstieg.",
+    "PP0": "Klare Idee, günstige Lage – aber Zögern. Schreib dir auf, was als Nächstes zu klären wäre, der Rest folgt.",
+    "PNP": "Die Lage ist belastend, aber du bleibst dran. Hol dir wenn nötig professionelle Unterstützung – das ist kein Scheitern, sondern Weitsicht.",
+    "PNN": "Du weißt, was richtig wäre, aber die Pflege erschöpft dich völlig. Genau jetzt ist es wichtig, Entlastung zu suchen, statt weiter durchzuhalten.",
+    "PN0": "Du siehst den Handlungsbedarf, schwankst aber. Ein erstes Gespräch mit einer Beratungsstelle kostet wenig und bringt oft viel Klarheit.",
+    "P0P": "Neutrale Lage, aber Kraft vorhanden. Nutze sie, um aktiv Unterstützung zu organisieren.",
+    "P0N": "Klares Ideal, gerade wenig Energie. Auch ein kleiner Schritt – ein Telefonat – reicht für heute.",
+    "P00": "Nur dein Wunsch nach guter Pflege ist klar, der Rest offen. Frag dich, was als Erstes Erleichterung bringen würde.",
+    "NPP": "Du zweifelst, ob du genug tust, obwohl die Umstände dafürsprechen und du Kraft hast. Dieser Zweifel ist häufig – er sagt mehr über deinen Anspruch als über die Realität.",
+    "NPN": "Die Lage spräche dafür, dir Hilfe zu holen, aber du zweifelst, ob du das darfst. Pflege zu teilen ist kein Versagen, sondern notwendig.",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit. Gib dir Zeit, herauszufinden, was wirklich machbar ist.",
+    "NNP": "Zweifel und Belastung treffen auf Energie, die sich gegen dich selbst richtet. Hol dir jetzt Entlastung, bevor die Kraft ganz aufgebraucht ist.",
+    "NNN": "Zweifel, Belastung und Erschöpfung zugleich – ein deutliches Warnsignal. Wende dich an eine Pflegeberatung, bevor es zu viel wird.",
+    "NN0": "Unsicherheit über den richtigen Weg in belastender Lage. Eine fachliche Beratung kann hier schnell Klarheit schaffen.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um dir gezielt Unterstützung zu holen, statt alles allein zu tragen.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Genau das ist der Moment, in dem Hilfe am dringendsten gebraucht wird.",
+    "N00": "Diffuse Belastung ohne klares Bild. Sprich mit jemandem – Familie oder Fachstelle –, bevor du allein weitermachst.",
+    "0PP": "Kein festes Urteil über die Lage, aber günstige Umstände und Kraft. Nutze sie, um dir Überblick zu verschaffen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein erster Anruf reicht, um ins Handeln zu kommen.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein kurzer Check der Möglichkeiten kostet wenig.",
+    "0NP": "Unklare Lage, aber Energie vorhanden. Nutze sie, um dir ehrlich einzugestehen, was du gerade brauchst.",
+    "0NN": "Weder Klarheit noch Kraft, dazu eine belastende Lage. Genau jetzt ist Entlastung wichtiger als Organisation.",
+    "0N0": "Kraftlos und unklar in belastender Lage. Ein kleiner Schritt – ein Gespräch – muss nicht viel kosten.",
+    "00P": "Keine klare Linie, aber Energie da. Nutze sie, um dir Informationen zu holen.",
+    "00N": "Neutral und müde. Auch das ist ein Moment, in dem ein Gespräch entlasten kann.",
+    "000": "Ruhige Lage ohne akuten Druck. Trotzdem lohnt sich frühzeitige Planung, bevor sich die Situation ändert."
+  }
+}
+
+,{
+  name: "Vertrag/Recht",
+  woerter: ["vertra","unterschri","anwal","klag","kündigungsfr"],
+  lagen: {
+    "PPP": "Klare Lage, gute Bedingungen, genug Entschlossenheit. Unterschreib oder handle jetzt.",
+    "PPN": "Du weißt, was zu tun wäre, zögerst aber. Ein Anruf bei einer Rechtsberatung klärt oft mehr als langes Abwägen.",
+    "PP0": "Klare Einschätzung, günstige Lage – aber Unentschlossenheit. Lies dir die wichtigsten Punkte noch einmal in Ruhe durch.",
+    "PNP": "Die Lage ist komplex oder unter Druck, du bleibst trotzdem dran. Hol dir fachlichen Rat, bevor du unterschreibst – das ist kein Zeichen von Schwäche.",
+    "PNN": "Du weißt, was richtig wäre, aber die Sache erschöpft dich. Zieh jetzt eine Fachperson hinzu, statt allein weiterzugrübeln.",
+    "PN0": "Du erkennst den Klärungsbedarf, schwankst aber. Eine erste unverbindliche Anfrage bei einer Beratungsstelle reicht zum Einstieg.",
+    "P0P": "Neutrale Lage, aber Energie vorhanden. Nutze sie, um die Sache aktiv zu klären.",
+    "P0N": "Klares Ideal, gerade wenig Kraft. Lies die wichtigsten Punkte, der Rest kann warten.",
+    "P00": "Nur deine Einschätzung ist klar, der Rest offen. Frag dich, welcher Punkt dir am meisten Sorgen macht.",
+    "NPP": "Du zweifelst, ob deine Bedenken berechtigt sind, obwohl die Lage dafürspricht und du Kraft hast. Eine fachliche Prüfung kann diesen Zweifel schnell auflösen.",
+    "NPN": "Die Lage spräche dafür zu handeln, aber du zweifelst und schiebst es auf. Im Zweifel hilft eine zweite Meinung mehr als langes Grübeln allein.",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit. Erlaub dir, in Ruhe zu prüfen, bevor du unterschreibst.",
+    "NNP": "Zweifel und Komplexität treffen auf Energie, die hier leicht fehlgeleitet wird. Hol dir Rat, bevor du vorschnell handelst.",
+    "NNN": "Zweifel, Komplexität und Erschöpfung zugleich – kein Moment für eine rechtlich bindende Entscheidung. Warte, bis du beraten bist.",
+    "NN0": "Unsicherheit über die Lage, dazu Komplexität. Eine fachliche Einschätzung schafft hier mehr Klarheit als eigenes Grübeln.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um dir Rat zu holen, statt impulsiv zu unterschreiben oder abzulehnen.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Triff jetzt keine endgültige Entscheidung – schlaf eine Nacht darüber.",
+    "N00": "Diffuse rechtliche Lage. Die ehrliche Frage zuerst: Verstehe ich wirklich, worauf ich mich einlasse?",
+    "0PP": "Keine feste Meinung, aber günstige Lage und Energie. Nutze sie, um dir Klarheit zu verschaffen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein kurzer Blick in die wichtigsten Klauseln reicht oft.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein Check der Eckpunkte kostet wenig.",
+    "0NP": "Unklare Lage, aber Energie vorhanden. Nutze sie, um dir Rat zu holen, bevor du handelst.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Komplexität. Das ist ein klares Signal, jetzt nichts zu unterschreiben.",
+    "0N0": "Kraftlos und unklar in komplexer Lage. Nichts muss heute entschieden werden.",
+    "00P": "Keine Linie, aber Energie vorhanden. Nutze sie, um dich zu informieren.",
+    "00N": "Neutral und müde. Kein Grund zur Eile bei rechtlichen Fragen.",
+    "000": "Ruhige Lage ohne akuten Druck. Lass dir die Zeit, die eine sorgfältige Prüfung braucht."
+  }
+}
+
+,{
+  name: "Versicherung",
+  woerter: ["versicher","schade","poli","ablehn","unfal","entschädi","ausfal","klin","nutzungsent","schadenskl","poliz","teilschul","schul","beschädi","kratz"],
+  lagen: {
+    "PPP": "Klare Sachlage, gute Bedingungen, genug Entschlossenheit. Reiche den Antrag oder Widerspruch jetzt ein.",
+    "PPN": "Du weißt, was zu tun wäre, zögerst aber. Ein kurzer Anruf bei der Versicherung oder Verbraucherzentrale klärt oft schon viel.",
+    "PP0": "Klare Einschätzung, günstige Lage – aber Unentschlossenheit. Sammle erst die wichtigsten Unterlagen, der Rest folgt.",
+    "PNP": "Die Versicherung mauert oder die Lage ist kompliziert, aber du bleibst dran. Bleib schriftlich, bleib sachlich – das trägt dich durch den Widerstand.",
+    "PNN": "Du weißt, dass du im Recht bist, aber der Streit erschöpft dich. Zieh die Verbraucherzentrale oder einen Anwalt hinzu, statt allein weiterzukämpfen.",
+    "PN0": "Du erkennst den Klärungsbedarf, schwankst aber. Der erste Schritt ist oft nur, den Widerspruch überhaupt zu formulieren.",
+    "P0P": "Neutrale Lage, aber Energie vorhanden. Nutze sie, um die Sache aktiv zu klären.",
+    "P0N": "Klares Ideal, gerade wenig Kraft. Sichere die wichtigsten Unterlagen, mehr nicht heute.",
+    "P00": "Nur deine Einschätzung ist klar, der Rest offen. Frag dich, welche Unterlagen du eigentlich brauchst.",
+    "NPP": "Du zweifelst, ob dein Anspruch berechtigt ist, obwohl die Lage dafürspricht und du Kraft hast. Eine fachliche Prüfung räumt diesen Zweifel oft schnell aus.",
+    "NPN": "Die Lage spricht dafür, Widerspruch einzulegen, aber du zweifelst und lässt es schleifen. Fristen ablaufen zu lassen kostet meist mehr als ein Versuch.",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit. Erlaub dir, in Ruhe zu prüfen, bevor du reagierst.",
+    "NNP": "Zweifel und Komplikationen treffen auf Energie, die hier oft ins Aufgeben fließt. Hol dir Rat, bevor du den Anspruch fallen lässt.",
+    "NNN": "Zweifel, Komplikation und Erschöpfung zugleich – kein Moment für eine endgültige Entscheidung. Warte auf fachlichen Rat, bevor du reagierst.",
+    "NN0": "Unsicherheit über die Erfolgsaussichten in komplizierter Lage. Eine kostenlose Erstberatung schafft hier oft schnell Klarheit.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um die Sache prüfen zu lassen, statt sie vorschnell aufzugeben.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Lass die Frist im Blick, aber triff heute keine endgültige Entscheidung.",
+    "N00": "Diffuse Lage. Die ehrliche Frage zuerst: Lohnt sich der Aufwand für mich – auch emotional?",
+    "0PP": "Keine feste Meinung, aber günstige Lage und Energie. Nutze sie, um dir Klarheit zu verschaffen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein kurzer Anruf reicht oft als erster Schritt.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein Blick in die Police kostet wenig.",
+    "0NP": "Unklare Lage, aber Energie vorhanden. Nutze sie, um dir fachlichen Rat zu holen.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Komplikation. Das ist ein Moment, die Sache einer Fachstelle zu überlassen.",
+    "0N0": "Kraftlos und unklar in komplizierter Lage. Nichts muss heute final entschieden werden.",
+    "00P": "Keine Linie, aber Energie vorhanden. Nutze sie, um dich zu informieren.",
+    "00N": "Neutral und müde. Kein Grund zur Eile, solange Fristen es erlauben.",
+    "000": "Ruhige Lage ohne akuten Druck. Prüfe in Ruhe, was wirklich sinnvoll ist."
+  }
+}
+
+,{
+  name: "Technik/Datenschutz",
+  woerter: ["dat","datenschu","hackerangri","passwo","privatsphä"],
+  lagen: {
+    "PPP": "Klare Lage, gute Bedingungen, genug Entschlossenheit. Ändere jetzt, was zu ändern ist.",
+    "PPN": "Du weißt, was zu tun wäre, zögerst aber. Ein Passwort jetzt zu ändern dauert nur Minuten.",
+    "PP0": "Klare Einschätzung, günstige Lage – aber Unentschlossenheit. Mach dir eine kurze Liste, was zu sichern wäre.",
+    "PNP": "Die Lage ist beunruhigend (z.B. Verdacht auf Datenmissbrauch), aber du bleibst dran. Dokumentiere, was du bemerkt hast – das hilft auch später.",
+    "PNN": "Du weißt, was richtig wäre, aber die Sache erschöpft dich. Hol dir technische Unterstützung, statt allein weiterzusuchen.",
+    "PN0": "Du erkennst den Handlungsbedarf, schwankst aber. Der erste Schritt ist oft nur, die wichtigsten Zugänge zu prüfen.",
+    "P0P": "Neutrale Lage, aber Energie vorhanden. Nutze sie, um deine Sicherheitseinstellungen aktiv zu überprüfen.",
+    "P0N": "Klares Ideal, gerade wenig Kraft. Ein einziges Passwort heute zu ändern reicht als Anfang.",
+    "P00": "Nur dein Sicherheitsbedürfnis ist klar, der Rest offen. Frag dich, was dich am meisten beunruhigt.",
+    "NPP": "Du zweifelst, ob die Sache wirklich ernst ist, obwohl die Lage dafürspricht und du Kraft hast. Im Zweifel ist eine technische Prüfung schnell gemacht.",
+    "NPN": "Die Lage spricht dafür zu handeln, aber du zweifelst und schiebst es auf. Ein Datenschutzproblem wird selten von allein besser.",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit. Erlaub dir, in Ruhe zu prüfen, was wirklich nötig ist.",
+    "NNP": "Zweifel und Beunruhigung treffen auf Energie, die sich oft in Panik statt in Handeln entlädt. Geh es Schritt für Schritt an, statt alles auf einmal zu ändern.",
+    "NNN": "Zweifel, Beunruhigung und Erschöpfung zugleich – kein Moment für hektisches Handeln. Hol dir technische Hilfe, bevor du dich verzettelst.",
+    "NN0": "Unsicherheit über das Ausmaß des Problems. Eine technische Überprüfung schafft hier mehr Klarheit als Vermutungen.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um die Sache systematisch zu prüfen statt impulsiv zu reagieren.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Die wichtigsten Zugänge sichern reicht für heute – mehr nicht.",
+    "N00": "Diffuse Unsicherheit über die Lage. Die ehrliche Frage zuerst: Was genau macht mir Sorgen?",
+    "0PP": "Keine feste Einschätzung, aber günstige Lage und Energie. Nutze sie für eine grundlegende Sicherheitsprüfung.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Ein Passwort heute ändern reicht als erster Schritt.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein kurzer Sicherheitscheck kostet wenig Zeit.",
+    "0NP": "Unklare Lage, aber Energie vorhanden. Nutze sie, um systematisch vorzugehen statt zu raten.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Beunruhigung. Hol dir Unterstützung, statt allein zu rätseln.",
+    "0N0": "Kraftlos und unklar in beunruhigender Lage. Ein einziger Schritt heute reicht.",
+    "00P": "Keine Linie, aber Energie vorhanden. Nutze sie, um dich zu informieren.",
+    "00N": "Neutral und müde. Kein Grund zur Panik, solange keine akute Gefahr besteht.",
+    "000": "Ruhige Lage ohne akuten Druck. Nutze die Ruhe für eine grundsätzliche Überprüfung deiner Sicherheit."
+  }
+}
+
+,{
+  name: "Umwelt/Nachhaltigkeit",
+  woerter: ["umwe","klim","nachhalt","kons","mül","abhol","elek","sonn","win"],
+  lagen: {
+    "PPP": "Klare Überzeugung, gute Bedingungen, genug Energie. Setz deine Idee jetzt um.",
+    "PPN": "Du weißt, was dir wichtig wäre, handelst aber nicht danach. Eine kleine Veränderung im Alltag heute zeigt schon Wirkung.",
+    "PP0": "Klare Überzeugung, günstige Lage – aber Unentschlossenheit. Wähle einen einzigen Bereich, den du ändern möchtest.",
+    "PNP": "Die Umstände erschweren es (Kosten, Aufwand), aber du bleibst an deiner Überzeugung dran. Konsequent zu bleiben, auch im Kleinen, ist hier dein Rückgrat.",
+    "PNN": "Du weißt, was dir wichtig wäre, aber der Anspruch an dich selbst erschöpft dich. Perfektion ist hier nicht das Ziel – jeder kleine Schritt zählt.",
+    "PN0": "Du erkennst den Widerspruch zwischen Anspruch und Alltag, schwankst aber, was du ändern sollst. Eine einzige Gewohnheit zu hinterfragen reicht als Anfang.",
+    "P0P": "Neutrale Lage, aber Energie vorhanden. Nutze sie, um eine bewusste Veränderung umzusetzen.",
+    "P0N": "Klares Ideal, gerade wenig Kraft. Erlaub dir, heute nicht perfekt nachhaltig zu sein.",
+    "P00": "Nur deine Überzeugung ist klar, der Rest offen. Frag dich, welcher Bereich dir am wichtigsten ist.",
+    "NPP": "Du zweifelst, ob dein Engagement wirklich etwas bewirkt, obwohl die Umstände dafürsprechen und du Energie hast. Auch kleine Beiträge sind real, nicht bedeutungslos.",
+    "NPN": "Die Lage spräche für mehr Engagement, aber du zweifelst an deinem Einfluss. Du musst nicht alles ändern, um etwas zu bewegen.",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit darüber, wie viel du wirklich tun willst. Das darf sich entwickeln, statt sofort feststehen.",
+    "NNP": "Zweifel und Aufwand treffen auf Energie, die sich gerade in Schuldgefühlen statt in Handeln entlädt. Wähle einen machbaren Schritt statt Selbstvorwürfen.",
+    "NNN": "Zweifel, Aufwand und Erschöpfung zugleich – kein Moment für große Veränderungen. Ein kleiner, machbarer Schritt reicht heute.",
+    "NN0": "Unsicherheit über den richtigen Weg in anstrengender Lage. Informiere dich erst, bevor du dich für eine Richtung entscheidest.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um dich sachlich zu informieren statt dich zu überfordern.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Lass das Thema heute ruhen, ohne dich schuldig zu fühlen.",
+    "N00": "Diffuse Unsicherheit über das eigene Engagement. Die ehrliche Frage zuerst: Was wäre für mich wirklich machbar?",
+    "0PP": "Keine feste Haltung, aber günstige Lage und Energie. Auch ohne große Überzeugung kann ein erster Schritt sich lohnen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Eine kleine Gewohnheit zu ändern reicht oft schon.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein kurzer Blick auf den eigenen Alltag kann reichen.",
+    "0NP": "Unklare Haltung in anstrengender Lage, aber mit Energie. Frag dich, was dir wirklich wichtig ist.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Anstrengung. Das ist ein guter Moment, das Thema ruhen zu lassen.",
+    "0N0": "Kraftlos und unentschlossen in anstrengender Lage. Nichts muss heute entschieden werden.",
+    "00P": "Keine klare Linie, aber Energie da. Nutze sie, um dir eine Meinung zu bilden.",
+    "00N": "Neutral und müde. Kein Grund zur Eile.",
+    "000": "Ruhige, ausgeglichene Lage. Nachhaltigkeit darf sich in kleinen Schritten entwickeln."
+  }
+}
+
+,{
+  name: "Glaube/Sinnfragen",
+  woerter: ["glaub","religi","sin","lebenssi","spiritualit"],
+  lagen: {
+    "PPP": "Klare innere Überzeugung, gute Bedingungen, genug Kraft. Lebe danach, ohne zu zögern.",
+    "PPN": "Du spürst klar, was dir wichtig wäre, traust dich aber nicht, danach zu leben. Ein kleiner gelebter Moment heute kann mehr bewirken als große Worte.",
+    "PP0": "Klares inneres Bild, günstige Lage, aber Unentschlossenheit. Sinnfragen brauchen Zeit, du musst nichts erzwingen.",
+    "PNP": "Die Umstände stellen deinen Glauben oder Sinn infrage, aber du hältst daran fest. Genau das ist gelebte innere Stärke.",
+    "PNN": "Du spürst, was dir wichtig wäre, aber Zweifel und Erschöpfung sind groß. Sprich mit jemandem, der zuhört, statt allein zu suchen.",
+    "PN0": "Du spürst eine Richtung, schwankst aber. Erlaub dir, langsam zu suchen, ohne sofort eine Antwort zu brauchen.",
+    "P0P": "Neutrale Lage, aber innere Kraft vorhanden. Nutze sie, um dich bewusst mit der Frage auseinanderzusetzen.",
+    "P0N": "Klares inneres Bild, gerade wenig Energie. Heute reicht es, einfach zu sein, ohne nach Antworten zu suchen.",
+    "P00": "Nur dein inneres Gefühl ist klar, der Rest offen. Frag dich, was diese Frage gerade in dir auslöst.",
+    "NPP": "Du zweifelst an deinem Glauben oder Sinn, obwohl die Umstände dafürsprechen und du Kraft hast. Zweifel gehört oft zum Glauben dazu, nicht gegen ihn.",
+    "NPN": "Die Lage spräche dafür, deinem Empfinden zu vertrauen, aber du zweifelst stark. Niemand muss diese Fragen allein und sofort klären.",
+    "NP0": "Gute Bedingungen, aber innere Unsicherheit. Das darf so bleiben. Sinnfragen entwickeln sich oft über Jahre.",
+    "NNP": "Zweifel und schwierige Umstände treffen auf Energie, die sich oft in Unruhe statt in Klarheit zeigt. Setz dich in Stille hin, bevor du nach Antworten suchst.",
+    "NNN": "Zweifel, Schwierigkeit und Erschöpfung zugleich. Das ist kein Moment für große Lebensfragen – sei nachsichtig mit dir.",
+    "NN0": "Unsicherheit über Glauben oder Sinn in schwieriger Lage. Austausch mit anderen kann hier mehr geben als einsames Grübeln.",
+    "N0P": "Zweifel trotz Energie. Nutze sie, um dich behutsam mit der Frage zu beschäftigen, statt sie zu erzwingen.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Lass diese großen Fragen heute liegen – sie laufen nicht weg.",
+    "N00": "Diffuse innere Unsicherheit. Die ehrliche Frage zuerst: Was würde mir gerade Ruhe geben?",
+    "0PP": "Kein festes Bild, aber günstige Lage und Energie. Lass dich auf die Suche ein, ohne ein Ziel zu erzwingen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Auch ein einziger ruhiger Moment kann etwas in Bewegung setzen.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein Moment der Stille kann schon viel geben.",
+    "0NP": "Unklares inneres Bild in schwieriger Lage, aber mit Energie. Frag dich, was dir gerade fehlt.",
+    "0NN": "Weder Klarheit noch Kraft, dazu Schwierigkeit. Genau jetzt ist Ruhe wichtiger als Antworten.",
+    "0N0": "Kraftlos und unklar in schwieriger Lage. Nichts muss heute geklärt werden.",
+    "00P": "Kein festes Bild, aber Energie da. Nutze sie, um dich offen mit der Frage zu beschäftigen.",
+    "00N": "Neutral und müde. Erlaub dir, diese Frage einfach ruhen zu lassen.",
+    "000": "Ruhige, ausgeglichene Lage. Sinnfragen dürfen sich in ihrer eigenen Zeit entwickeln."
+  }
+}
+
+,{
+  name: "Sport/Wettkampf",
+  woerter: ["spor","wettkam","traini","niederla","verein sp","geselligk","tea","passi"],
+  lagen: {
+    "PPP": "Klares Ziel, gute Form, genug Energie. Geh den Wettkampf oder das Training jetzt voll an.",
+    "PPN": "Du weißt, was dein Ziel wäre, hältst dich aber zurück. Ein konkreter Trainingsschritt heute bringt dich näher dran.",
+    "PP0": "Klares Ziel, gute Bedingungen, aber Unentschlossenheit. Plane den nächsten Schritt, der Rest folgt.",
+    "PNP": "Die Lage ist hart (Verletzung, Rückschlag), aber du bleibst dran. Durchhalten, auch in kleinen Schritten, ist hier dein Rückgrat.",
+    "PNN": "Du weißt, was du erreichen willst, aber die Anstrengung erschöpft dich. Eine Trainingspause ist kein Rückschritt, sondern Teil des Weges.",
+    "PN0": "Du erkennst, was nötig wäre, schwankst aber. Ein einziges leichtes Training heute reicht, um wieder reinzukommen.",
+    "P0P": "Neutrale Lage, aber Energie vorhanden. Nutze sie, um aktiv an deinem Ziel zu arbeiten.",
+    "P0N": "Klares Ziel, gerade wenig Kraft. Erlaub dir eine ruhigere Einheit statt voller Leistung.",
+    "P00": "Nur dein Ziel ist klar, der Rest offen. Frag dich, was dich gerade wirklich antreibt.",
+    "NPP": "Du zweifelst an deiner Form, obwohl die Umstände dafürsprechen und du Energie hast. Vertrau dem, was dein Training bisher aufgebaut hat.",
+    "NPN": "Die Lage spräche für einen Start, aber du zweifelst an dir. Frag dich: Würdest du einem Teamkollegen denselben Zweifel durchgehen lassen?",
+    "NP0": "Gute Bedingungen, aber Unentschlossenheit. Erlaub dir, in Ruhe zu entscheiden, ob du antreten willst.",
+    "NNP": "Zweifel und eine schwierige Lage treffen auf Energie, die sich gegen dich selbst richten könnte. Nutze sie stattdessen für ein faires Gespräch mit dir selbst.",
+    "NNN": "Zweifel, Schwierigkeit und Erschöpfung zugleich. Kein Moment für einen Wettkampfstart. Eine Pause schützt dich vor mehr Rückschlägen.",
+    "NN0": "Unsicherheit über deine Form in schwieriger Lage. Ein Gespräch mit Trainer oder Team kann hier viel klären.",
+    "N0P": "Zweifel trotz Energie. Nutze sie für gezieltes Training statt für Selbstzweifel.",
+    "N0N": "Zweifel und Erschöpfung gleichzeitig. Genau jetzt ist Erholung wichtiger als Leistung.",
+    "N00": "Diffuse Unsicherheit über die eigene Form. Die ehrliche Frage zuerst: Was würde mir jetzt wirklich helfen?",
+    "0PP": "Keine feste Einschätzung, aber günstige Lage und Energie. Nutze sie, ohne dich unter Druck zu setzen.",
+    "0PN": "Die Umstände passen, der Antrieb fehlt. Eine leichte Einheit reicht, um wieder reinzukommen.",
+    "0P0": "Neutral in allem, aber die Gelegenheit ist da. Ein kurzer Trainingscheck kann nicht schaden.",
+    "0NP": "Unklare Form in schwieriger Lage, aber mit Energie. Frag dich, was dir gerade wirklich wichtig ist.",
+    "0NN": "Weder Klarheit noch Kraft, dazu eine schwierige Lage. Genau jetzt zählt Pause mehr als Leistung.",
+    "0N0": "Kraftlos und unentschlossen in schwieriger Lage. Nichts muss heute bewiesen werden.",
+    "00P": "Keine klare Linie, aber Energie da. Nutze sie für ein Training nach Lust, nicht nach Plan.",
+    "00N": "Neutral und müde. Erlaub dir eine Pause ohne schlechtes Gewissen.",
+    "000": "Ruhige, ausgeglichene Lage. Nicht jedes Training verlangt Höchstleistung."
+  }
+}
+
+
+    /* =========================================================
+       NEUES THEMA HIER ERGÄNZEN – Vorlage zum Kopieren:
+
+    ,{
+      name: "Themenname",
+      woerter: ["stichwort1","stichwort2"],
+      lagen: {
+        "PPP": "...", "PPN": "...", "PP0": "...",
+        "PNP": "...", "PNN": "...", "PN0": "...",
+        "P0P": "...", "P0N": "...", "P00": "...",
+        "NPP": "...", "NPN": "...", "NP0": "...",
+        "NNP": "...", "NNN": "...", "NN0": "...",
+        "N0P": "...", "N0N": "...", "N00": "...",
+        "0PP": "...", "0PN": "...", "0P0": "...",
+        "0NP": "...", "0NN": "...", "0N0": "...",
+        "00P": "...", "00N": "...", "000": "..."
+      }
+    }
+    ========================================================= */
+
+  ];
+
+  /* =========================================================
+     LOGIK – nichts hier muss beim Erweitern angefasst werden
+     ========================================================= */
+
+ function findeThema(szenarioText){
+  if(!szenarioText) return null;
+  const text = szenarioText.toLowerCase();
+
+  let bestesThema = null;
+  let meisteTreffer = 0;
+
+  for(const thema of szenarioThemen){
+    let treffer = 0;
+    for(const wort of thema.woerter){
+      if(text.includes(wort)){
+        treffer++;
+      }
+    }
+    if(treffer > meisteTreffer){
+      meisteTreffer = treffer;
+      bestesThema = thema;
+    }
+  }
+
+  return bestesThema;
+}
+
+
+  function berechneLageCode(){
+    const I = parseInt((document.getElementById('ideal')||{}).value) || 0;
+    const R = parseInt((document.getElementById('real')||{}).value)  || 0;
+    const G = parseInt((document.getElementById('ruck')||{}).value)  || 0;
+    const sc = v => v>0?'P':v<0?'N':'0';
+    return sc(I)+sc(R)+sc(G);
+  }
+
+  function ergaenzeMitSzenario(){
+    const box = document.getElementById('wasJetztBox');
+    if(!box){
+      console.warn('wasJetztBox nicht gefunden – Szenario-Zusatz inaktiv.');
+      return;
+    }
+
+    const notesEl = document.getElementById('notes');
+    const szenarioText = notesEl ? (notesEl.value || notesEl.innerText || '') : '';
+
+    const thema = findeThema(szenarioText);
+    if(!thema) return;
+
+    const lageCode = berechneLageCode();
+    const zusatzText = thema.lagen[lageCode];
+    if(!zusatzText) return;
+
+    const alterZusatz = box.querySelector('.szenario-zusatz');
+    if(alterZusatz) alterZusatz.remove();
+
+    const div = document.createElement('div');
+    div.className = 'szenario-zusatz';
+    div.style.marginTop = '12px';
+    div.style.paddingTop = '12px';
+    div.style.borderTop = '1px dashed #d97706';
+    div.innerHTML = '<strong>📝 ...zu deinem mögl. Szenario (' + thema.name + '):</strong><br>' + zusatzText;
+    box.appendChild(div);
+  }
+
+  /* ===== An bestehenden Button hängen ===== */
+  const btn = document.getElementById('wasJetztBtn');
+  if(btn){
+    btn.addEventListener('click', function(){
+      setTimeout(ergaenzeMitSzenario, 50);
+    });
+  } else {
+    console.warn('wasJetztBtn nicht gefunden – Szenario-Zusatz inaktiv.');
+  }
+
+})();
+</script>
+
+
+
+/* ================================== */
+/* ================================== */
+
+
+			
 
 <style>
 #digitalClock{
@@ -9410,8 +10440,7 @@ if(notesDiv){
 </script>
 
 
-
-
 	
+
 </body>
 </html>
