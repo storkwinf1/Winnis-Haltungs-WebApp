@@ -13423,128 +13423,280 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
 
 
 
-
 	
-<script>
-document.addEventListener("DOMContentLoaded", () => {
 
-    const notes = document.getElementById("notes");
-    if (!notes) return;
 
-    const SpeechRecognition =
-        window.SpeechRecognition ||
-        window.webkitSpeechRecognition;
+	<script>
+// ============================================================
+// Web Speech API – Diktierfunktion für #notes (contenteditable)
+// Senior-Level Implementierung, robust für Desktop & Android Chrome
+// ============================================================
+(function () {
+  'use strict';
 
-    if (!SpeechRecognition) {
-        console.warn("Spracherkennung wird vom Browser nicht unterstützt.");
-        return;
+  const notesEl = document.getElementById('notes');
+  if (!notesEl) return;
+
+  // --- SpeechRecognition Feature-Detection ---
+  const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognitionAPI) {
+    console.warn('Web Speech API wird von diesem Browser nicht unterstützt.');
+    return;
+  }
+
+  // --- UI: Mikrofonbutton + Statusanzeige erzeugen ---
+  const container = document.createElement('div');
+  container.style.marginTop = '8px';
+  container.style.display = 'flex';
+  container.style.alignItems = 'center';
+  container.style.gap = '10px';
+
+  const micButton = document.createElement('button');
+  micButton.type = 'button';
+  micButton.textContent = '🎤 Sprache';
+  micButton.style.cursor = 'pointer';
+  micButton.style.padding = '6px 14px';
+  micButton.style.borderRadius = '6px';
+  micButton.style.border = '1px solid #c0392b';
+  micButton.style.background = '#e74c3c';
+  micButton.style.color = '#ffffff';
+  micButton.style.fontSize = '14px';
+  micButton.style.fontWeight = 'bold';
+
+  const statusEl = document.createElement('span');
+  statusEl.textContent = '';
+  statusEl.style.fontSize = '13px';
+  statusEl.style.color = '#555';
+
+  container.appendChild(micButton);
+  container.appendChild(statusEl);
+  notesEl.insertAdjacentElement('afterend', container);
+
+  // --- Zustand ---
+  let recognition = null;
+  let isListening = false;      // Benutzer-Absicht: soll aufgenommen werden?
+  let isRecognizing = false;    // technischer Zustand: läuft recognition gerade?
+  let restartTimeout = null;
+
+  // --- Hilfsfunktionen ---
+
+  // Setzt den Cursor ans Ende des contenteditable-Feldes
+  function setCursorToEnd() {
+    notesEl.focus();
+    const range = document.createRange();
+    const sel = window.getSelection();
+    range.selectNodeContents(notesEl);
+    range.collapse(false);
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+
+  // Entfernt direkt aufeinanderfolgende doppelte Wörter (Groß-/Kleinschreibung ignorierend)
+  function removeDuplicateWords(text) {
+    const words = text.split(/\s+/);
+    const result = [];
+    for (let i = 0; i < words.length; i++) {
+      const current = words[i];
+      const prev = result[result.length - 1];
+      if (
+        current &&
+        prev &&
+        current.toLowerCase().replace(/[.,!?;:]/g, '') ===
+          prev.toLowerCase().replace(/[.,!?;:]/g, '')
+      ) {
+        continue; // Duplikat überspringen
+      }
+      result.push(current);
+    }
+    return result.join(' ');
+  }
+
+  // Prüft, ob der neue Satz bereits als letzter Satz im bestehenden Text vorkommt
+  function isDuplicateSentence(existingText, newSentence) {
+    const trimmedNew = newSentence.trim().toLowerCase();
+    if (!trimmedNew) return true;
+
+    // bestehende Sätze grob anhand Satzzeichen aufteilen
+    const existingSentences = existingText
+      .split(/(?<=[.!?])\s+/)
+      .map((s) => s.trim().toLowerCase())
+      .filter(Boolean);
+
+    const lastSentence = existingSentences[existingSentences.length - 1] || '';
+    return lastSentence === trimmedNew;
+  }
+
+  // Hängt finalen Text an, ohne bestehenden Text zu überschreiben
+  function appendFinalText(finalTranscript) {
+    let cleaned = finalTranscript.trim();
+    if (!cleaned) return;
+
+    cleaned = removeDuplicateWords(cleaned);
+
+    const currentText = notesEl.innerText || '';
+
+    if (isDuplicateSentence(currentText, cleaned)) {
+      return; // doppelten Satz nicht anhängen
     }
 
-    // ===============================
-    // Mikrofonbutton erzeugen
-    // ===============================
+    let separator = '';
+    if (currentText.length > 0) {
+      separator = /[\s]$/.test(currentText) ? '' : ' ';
+    }
 
-    const micBtn = document.createElement("button");
-    micBtn.type = "button";
-    micBtn.id = "speechButton";
+    // Ersten Buchstaben groß schreiben für saubereren Lesefluss
+    const formatted = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
 
-    micBtn.innerHTML = "🎤 Sprache";
+    notesEl.innerText = currentText + separator + formatted + ' ';
 
-    micBtn.style.marginTop = "10px";
-    micBtn.style.marginBottom = "8px";
-    micBtn.style.padding = "10px 18px";
-    micBtn.style.borderRadius = "10px";
-    micBtn.style.border = "none";
-    micBtn.style.cursor = "pointer";
-    micBtn.style.background = "#16a34a";
-    micBtn.style.color = "#fff";
-    micBtn.style.fontWeight = "600";
+    setCursorToEnd();
 
-    notes.parentNode.insertBefore(micBtn, notes.nextSibling);
+    // update() aufrufen, falls vorhanden
+    if (typeof window.update === 'function') {
+      try {
+        window.update();
+      } catch (e) {
+        console.error('Fehler beim Aufruf von update():', e);
+      }
+    }
+  }
 
-    // ===============================
-    // Statusanzeige
-    // ===============================
+  function setStatus(text) {
+    statusEl.textContent = text;
+  }
 
-    const status = document.createElement("div");
-    status.style.marginTop = "6px";
-    status.style.fontSize = "13px";
-    status.style.color = "#475569";
-    notes.parentNode.insertBefore(status, micBtn.nextSibling);
-    // ===============================
-    // Speech Engine
-    // ===============================
-    const recognition = new SpeechRecognition();
-    recognition.lang = "de-DE";
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.maxAlternatives = 1;
-    let listening = false;
-    micBtn.onclick = function () {
+  function setButtonListening(active) {
+    if (active) {
+      micButton.textContent = '🔴 Aufnahme läuft';
+      micButton.style.background = '#a93226';
+      micButton.style.borderColor = '#7b241c';
+      micButton.style.color = '#ffffff';
+    } else {
+      micButton.textContent = '🎤 Sprache';
+      micButton.style.background = '#e74c3c';
+      micButton.style.borderColor = '#c0392b';
+      micButton.style.color = '#ffffff';
+    }
+  }
 
-        if (!listening) {
+  // --- SpeechRecognition Instanz erstellen ---
+  function createRecognition() {
+    const rec = new SpeechRecognitionAPI();
+    rec.lang = 'de-DE';
+    rec.continuous = true;
+    rec.interimResults = true;
+    rec.maxAlternatives = 1;
 
-            recognition.start();
+    rec.onstart = function () {
+      isRecognizing = true;
+      setStatus('🎙 Ich höre zu...');
+    };
 
-        } else {
-
-            recognition.stop();
+    rec.onresult = function (event) {
+      // Nur ab dem Index, der noch nicht final verarbeitet wurde
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const result = event.results[i];
+        if (result.isFinal) {
+          const transcript = result[0].transcript;
+          appendFinalText(transcript);
         }
+        // Zwischenergebnisse (isFinal === false) werden bewusst NICHT gespeichert
+      }
     };
-    recognition.onstart = function () {
 
-        listening = true;
+    rec.onerror = function (event) {
+      const errorType = event.error;
 
-        micBtn.innerHTML = "⏹ Aufnahme stoppen";
-        micBtn.style.background = "#dc2626";
+      if (errorType === 'no-speech') {
+        // darf die Aufnahme NICHT beenden -> ignorieren, ggf. weiterlaufen lassen
+        return;
+      }
 
-        status.innerHTML = "🎙 Aufnahme läuft ...";
+      if (errorType === 'aborted') {
+        // meist durch bewusstes stop() ausgelöst -> kein Fehlerzustand anzeigen
+        return;
+      }
+
+      if (errorType === 'network') {
+        setStatus('⚠ Fehler: Netzwerkproblem');
+        return;
+      }
+
+      if (errorType === 'audio-capture') {
+        setStatus('⚠ Fehler: Kein Mikrofon gefunden');
+        isListening = false;
+        isRecognizing = false;
+        setButtonListening(false);
+        return;
+      }
+
+      // Sonstige Fehler
+      setStatus('⚠ Fehler: ' + errorType);
     };
-    recognition.onresult = function (event) {
 
-        let finalText = "";
+    rec.onend = function () {
+      isRecognizing = false;
 
-        for (let i = event.resultIndex; i < event.results.length; i++) {
+      // Falls der Benutzer die Aufnahme nicht bewusst gestoppt hat,
+      // beendet der Browser (v.a. Android Chrome) die Erkennung oft eigenmächtig.
+      // In diesem Fall automatisch neu starten.
+      if (isListening) {
+        clearTimeout(restartTimeout);
+        restartTimeout = setTimeout(function () {
+          if (isListening) {
+            startRecognition();
+          }
+        }, 300);
+      } else {
+        setStatus('✅ Spracheingabe beendet');
+        setButtonListening(false);
+      }
+    };
 
-            if (event.results[i].isFinal) {
+    return rec;
+  }
 
-                finalText += event.results[i][0].transcript + " ";
-            }
+  function startRecognition() {
+    try {
+      recognition = createRecognition();
+      recognition.start();
+      setButtonListening(true);
+    } catch (e) {
+      // z.B. InvalidStateError, wenn bereits eine Instanz läuft
+      console.error('Fehler beim Starten der Spracherkennung:', e);
+      clearTimeout(restartTimeout);
+      restartTimeout = setTimeout(function () {
+        if (isListening) {
+          startRecognition();
         }
-        if (finalText.length > 0) {
+      }, 500);
+    }
+  }
 
-            if (notes.innerText.trim() !== "") {
+  function stopRecognition() {
+    isListening = false;
+    clearTimeout(restartTimeout);
+    if (recognition) {
+      try {
+        recognition.stop();
+      } catch (e) {
+        console.error('Fehler beim Stoppen der Spracherkennung:', e);
+      }
+    }
+  }
 
-                notes.innerText += " ";
-            }
-            notes.innerText += finalText;
-            // vorhandene Updatefunktion aufrufen
-            if (typeof update === "function") {
-
-                update();
-            }
-        }
-    };
-    recognition.onerror = function (event) {
-
-        listening = false;
-
-        micBtn.innerHTML = "🎤 Sprache";
-        micBtn.style.background = "#16a34a";
-
-        status.innerHTML = "⚠ Fehler: " + event.error;
-    };
-    recognition.onend = function () {
-
-        listening = false;
-
-        micBtn.innerHTML = "🎤 Sprache";
-        micBtn.style.background = "#16a34a";
-
-        status.innerHTML = "✅ Spracheingabe beendet.";
-    };
-});
+  // --- Button-Klick-Handler: Start/Stopp über denselben Button ---
+  micButton.addEventListener('click', function () {
+    if (!isListening) {
+      isListening = true;
+      startRecognition();
+    } else {
+      stopRecognition();
+    }
+  });
+})();
 </script>
+
 
 
 	
