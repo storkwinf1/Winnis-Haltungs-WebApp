@@ -13425,11 +13425,11 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
 
 	
 
-
-	<script>
+<script>
 // ============================================================
 // Web Speech API – Diktierfunktion für #notes (contenteditable)
 // Senior-Level Implementierung, robust für Desktop & Android Chrome
+// inkl. Überlappungs-Erkennung gegen Android-Wiederholungsbug
 // ============================================================
 (function () {
   'use strict';
@@ -13478,6 +13478,11 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
   let isRecognizing = false;    // technischer Zustand: läuft recognition gerade?
   let restartTimeout = null;
 
+  // Wortpuffer der aktuellen Diktier-Sitzung (über automatische Restarts hinweg,
+  // wird NUR beim bewussten Start per Button zurückgesetzt).
+  // Damit lassen sich von Android wiederholt gelieferte Phrasen erkennen.
+  let sessionWords = [];
+
   // --- Hilfsfunktionen ---
 
   // Setzt den Cursor ans Ende des contenteditable-Feldes
@@ -13511,19 +13516,19 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
     return result.join(' ');
   }
 
-  // Prüft, ob der neue Satz bereits als letzter Satz im bestehenden Text vorkommt
-  function isDuplicateSentence(existingText, newSentence) {
-    const trimmedNew = newSentence.trim().toLowerCase();
-    if (!trimmedNew) return true;
-
-    // bestehende Sätze grob anhand Satzzeichen aufteilen
-    const existingSentences = existingText
-      .split(/(?<=[.!?])\s+/)
-      .map((s) => s.trim().toLowerCase())
-      .filter(Boolean);
-
-    const lastSentence = existingSentences[existingSentences.length - 1] || '';
-    return lastSentence === trimmedNew;
+  // Ermittelt, wie viele Wörter am Ende von "sessionWords" mit dem Anfang
+  // von "newWords" übereinstimmen (Android liefert oft den kompletten bisherigen
+  // Satz erneut als "final" mit). Nur den nicht überlappenden Rest übernehmen.
+  function findOverlapLength(existingWords, newWords) {
+    const maxCheck = Math.min(existingWords.length, newWords.length, 12);
+    for (let len = maxCheck; len > 0; len--) {
+      const tail = existingWords.slice(-len).join(' ').toLowerCase();
+      const head = newWords.slice(0, len).join(' ').toLowerCase();
+      if (tail === head) {
+        return len;
+      }
+    }
+    return 0;
   }
 
   // Hängt finalen Text an, ohne bestehenden Text zu überschreiben
@@ -13532,22 +13537,34 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
     if (!cleaned) return;
 
     cleaned = removeDuplicateWords(cleaned);
+    const newWords = cleaned.split(/\s+/).filter(Boolean);
+    if (newWords.length === 0) return;
 
-    const currentText = notesEl.innerText || '';
+    // Überlappung mit bereits übernommenem Sitzungstext ermitteln
+    const overlap = findOverlapLength(sessionWords, newWords);
+    const wordsToAppend = newWords.slice(overlap);
 
-    if (isDuplicateSentence(currentText, cleaned)) {
-      return; // doppelten Satz nicht anhängen
+    if (wordsToAppend.length === 0) {
+      return; // komplett bereits vorhanden -> nichts Neues anhängen
     }
 
+    // Sitzungspuffer aktualisieren
+    sessionWords = sessionWords.concat(wordsToAppend);
+
+    const currentText = notesEl.innerText || '';
     let separator = '';
     if (currentText.length > 0) {
       separator = /[\s]$/.test(currentText) ? '' : ' ';
     }
 
-    // Ersten Buchstaben groß schreiben für saubereren Lesefluss
-    const formatted = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+    let toAdd = wordsToAppend.join(' ');
 
-    notesEl.innerText = currentText + separator + formatted + ' ';
+    // Ersten Buchstaben groß schreiben, wenn es sich um einen neuen Satzanfang handelt
+    if (currentText.length === 0 || /[.!?]\s*$/.test(currentText)) {
+      toAdd = toAdd.charAt(0).toUpperCase() + toAdd.slice(1);
+    }
+
+    notesEl.innerText = currentText + separator + toAdd;
 
     setCursorToEnd();
 
@@ -13639,7 +13656,8 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
 
       // Falls der Benutzer die Aufnahme nicht bewusst gestoppt hat,
       // beendet der Browser (v.a. Android Chrome) die Erkennung oft eigenmächtig.
-      // In diesem Fall automatisch neu starten.
+      // In diesem Fall automatisch neu starten. sessionWords bleibt bewusst
+      // erhalten, damit die Überlappungserkennung über den Neustart hinweg wirkt.
       if (isListening) {
         clearTimeout(restartTimeout);
         restartTimeout = setTimeout(function () {
@@ -13688,6 +13706,8 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
   // --- Button-Klick-Handler: Start/Stopp über denselben Button ---
   micButton.addEventListener('click', function () {
     if (!isListening) {
+      // Neue Diktier-Sitzung -> Überlappungspuffer zurücksetzen
+      sessionWords = [];
       isListening = true;
       startRecognition();
     } else {
@@ -13696,7 +13716,6 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
   });
 })();
 </script>
-
 
 
 	
