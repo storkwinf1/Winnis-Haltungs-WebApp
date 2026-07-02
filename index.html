@@ -13421,6 +13421,132 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
 </script>
 
 
+
+
+
+	
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const notes = document.getElementById("notes");
+    if (!notes) return;
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        console.warn("Spracherkennung wird vom Browser nicht unterstützt.");
+        return;
+    }
+
+    // ===============================
+    // Mikrofonbutton erzeugen
+    // ===============================
+
+    const micBtn = document.createElement("button");
+    micBtn.type = "button";
+    micBtn.id = "speechButton";
+
+    micBtn.innerHTML = "🎤 Sprache";
+
+    micBtn.style.marginTop = "10px";
+    micBtn.style.marginBottom = "8px";
+    micBtn.style.padding = "10px 18px";
+    micBtn.style.borderRadius = "10px";
+    micBtn.style.border = "none";
+    micBtn.style.cursor = "pointer";
+    micBtn.style.background = "#16a34a";
+    micBtn.style.color = "#fff";
+    micBtn.style.fontWeight = "600";
+
+    notes.parentNode.insertBefore(micBtn, notes.nextSibling);
+
+    // ===============================
+    // Statusanzeige
+    // ===============================
+
+    const status = document.createElement("div");
+    status.style.marginTop = "6px";
+    status.style.fontSize = "13px";
+    status.style.color = "#475569";
+    notes.parentNode.insertBefore(status, micBtn.nextSibling);
+    // ===============================
+    // Speech Engine
+    // ===============================
+    const recognition = new SpeechRecognition();
+    recognition.lang = "de-DE";
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 1;
+    let listening = false;
+    micBtn.onclick = function () {
+
+        if (!listening) {
+
+            recognition.start();
+
+        } else {
+
+            recognition.stop();
+        }
+    };
+    recognition.onstart = function () {
+
+        listening = true;
+
+        micBtn.innerHTML = "⏹ Aufnahme stoppen";
+        micBtn.style.background = "#dc2626";
+
+        status.innerHTML = "🎙 Aufnahme läuft ...";
+    };
+    recognition.onresult = function (event) {
+
+        let finalText = "";
+
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+
+            if (event.results[i].isFinal) {
+
+                finalText += event.results[i][0].transcript + " ";
+            }
+        }
+        if (finalText.length > 0) {
+
+            if (notes.innerText.trim() !== "") {
+
+                notes.innerText += " ";
+            }
+            notes.innerText += finalText;
+            // vorhandene Updatefunktion aufrufen
+            if (typeof update === "function") {
+
+                update();
+            }
+        }
+    };
+    recognition.onerror = function (event) {
+
+        listening = false;
+
+        micBtn.innerHTML = "🎤 Sprache";
+        micBtn.style.background = "#16a34a";
+
+        status.innerHTML = "⚠ Fehler: " + event.error;
+    };
+    recognition.onend = function () {
+
+        listening = false;
+
+        micBtn.innerHTML = "🎤 Sprache";
+        micBtn.style.background = "#16a34a";
+
+        status.innerHTML = "✅ Spracheingabe beendet.";
+    };
+});
+</script>
+
+
 	
 
 </body>
