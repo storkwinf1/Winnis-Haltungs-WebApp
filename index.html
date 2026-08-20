@@ -378,7 +378,7 @@ function toggleProfi(ev){
 <section class="card"
 style="background:#fffefb;border:2px solid #e8d9a8;">
 
-<label for="notes"><strong>🛠️Situation / Szenario:</strong></label>
+<label for="notes"><strong>📝 Situation / Szenario:</strong></label>
 <div contenteditable="true" data-placeholder="Tipp: Beschreibe in 1 -2 Sätzen, worum es geht. 
 Welche Entscheidung steht an?
 Frage dich: Was ist das Thema? 
@@ -466,7 +466,7 @@ Kategorie: —
 <div style="margin-top:20px;">
   <button onclick="saveForEvaluation()">💾 Für Auswertung speichern</button><br/>
 </p>
- <button onclick="showSavedEvaluations()">📖 Gespeicherte anzeigen / löschen</button>
+ <button onclick="showSavedEvaluations()">📂 Gespeicherte anzeigen / löschen</button>
 </div>
 
 
@@ -489,7 +489,7 @@ Kategorie: —
  
 <div class="row" style="align-self:flex-start; margin-bottom:12px;">
 
-<button id="reset" style="margin-top:14px;">Zurücksetzen</button>
+<button id="reset" style="margin-top:14px;">🔄 Zurücksetzen</button>
 
 
 <style>
@@ -498,9 +498,9 @@ display: none;
 }
 </style>
 <button class="secondary" id="snap">Werte merken</button>
-<button id="pdfBtn">Als PDF speichern</button>
-<button class="secondary" id="helpBtn" style="background:#22c55e"> •• Hilfe ••</button>
-<button class="secondary" id="examplesBtn" style="background:#22c55e"> Beispiel & Übungen </button>
+<button id="pdfBtn">📄 Als PDF speichern</button>
+<button class="secondary" id="helpBtn" style="background:#22c55e"> ❓ Hilfe</button>
+<button class="secondary" id="examplesBtn" style="background:#22c55e">📝 Beispiel & Übungen </button>
 
 
 
@@ -7703,7 +7703,7 @@ const beispieleBtn = Array.from(document.querySelectorAll("button"))
   .find(b => b.textContent.toLowerCase().includes("beispiel"));
 
 const btn = document.createElement("button");
-btn.textContent = "🧭 Ich - Ehrlichkeitssystem";
+btn.textContent = "🧩 Ich - Ehrlichkeitssystem";
 btn.style.background = "#f59e0b";
 btn.style.color = "#fff";
 btn.style.marginLeft = "8px";
