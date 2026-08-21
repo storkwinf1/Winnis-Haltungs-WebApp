@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="de">
-
 <style>
 
 #szn-modal{
@@ -171,13 +169,16 @@ textarea {
   }
 </style>
 
+
+
 <head>
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Winnis Haltungsformel – skalenrein (V7.4) • PDF-Fix</title>
-<!-- Für 100% OFFLINE: Datei html2pdf.bundle.min.js neben diese HTML legen -->
-<script defer="defer" src="./html2pdf.bundle.min.js"></script>
+
+
+
 <style>
     :root{
       --fg:#1f2937; --brand:#0ea5e9; --card:#fff; --muted:#6b7280;
@@ -297,37 +298,48 @@ button[type="submit"]{ /* ensure no implicit submit behavior */ }
   <br/><br/>
   Als Maschinenbauingenieur habe ich diesen Moment oft erlebt, bei mir und bei anderen. Und ich habe festgestellt: Die, die standhalten, sind nicht die Klügsten. Sie sind die, die sich selbst kennen.
    <br/><br/>
+ 
 Ein persönliches Frühwarnsystem für <i>innere SPANNUNG unter Druck.</i></strong>
 <br/><br/>
 
+
+
  <strong style="font-style:normal;
-
   color:#1e3a5f;">Du kennst deine Richtung oft schon. Dieses Tool hilft dir sichtbar zu machen, wo Ausrichtung, Realität und Reaktion auseinanderliegen.</strong>
-	
 </div>
 </div>
-
 
 </header>
 <div class="wrap" id="exportArea">
+
+
+
+
 <!-- Kopf -->
 <section class="card">
 <div class="grid" style="grid-template-columns:1fr 1fr 1fr">
 <div><label><strong>📋 Reflexionsbereich</strong></label><input id="sessionTitle" placeholder="z. B. Tages-Reflexion" type="text"/></div>
+
 <div><label><strong>👤 Name</strong></label><input id="yourName" placeholder="Dein Name" type="text"/></div>
 <div><label><strong>🧮 Reflexionsformel</strong></label><div class="formula"><strong>Haltung = (Ideal – Realität) × Rückgrat</strong></div></div>
+
 <!-- Button zum Ein-/Ausblenden der 3.9 Profi-Version -->
 <div style="margin-top:12px;">
+
 <button onclick="toggleProfi()" style="padding:6px 12px; border-radius:8px; background:#2563eb; color:#fff; border:none; cursor:pointer;">
     3.9 Profi-Version anzeigen
   </button>
 </div>
+
+
 
 <!-- Versteckter Infoblock -->
 <div id="profiBox" style="display:none; margin-top:10px; padding:10px; background:#f1f5f9; border-radius:8px; font-size:14px;">
 <strong>Profi-Version der Haltungsformel:</strong><br/><br/>
   H = [(Ideal × α – Realität × β) × Rückgrat ± Emotion] × Reaktionsfaktor × FS
   <br/><br/>
+
+
 <em>Erklärung:</em><br/>
   • <strong>α (Alpha)</strong> – Gewichtung des Ideals.<br/>
   • <strong>β (Beta)</strong> – Gewichtung der Realität.<br/>
@@ -343,18 +355,16 @@ Ein persönliches Frühwarnsystem für <i>innere SPANNUNG unter Druck.</i></stro
 
 
 
-	
+
 <div style="margin-top:10px; padding:12px; border-radius:12px; background:#fffefb; font-size:14px;border:5px solid #e8d9a8;">
 <b><i>So funktioniert es:</i></b><br>
-1. Situation/Szenario beschreiben<br>
+1. Szenario beschreiben (Sprache)<br>
 2. Ideal bewerten<br>
 3. Realität bewerten<br>
 4. Rückgrat bewerten<br>
 👁️Die Reflexionsformel macht deine <i>innere Spannung</i> sichtbar.</div>
 
 
-
-	
 <script>
 
 function toggleProfi(ev){
@@ -369,16 +379,21 @@ function toggleProfi(ev){
   }catch(e){ console.warn('toggleProfi fallback:', e); }
 }
 
+
+
 </script>
 </div>
 </section>
 
 
-	
-<section class="card"
-style="background:#fffefb;border:2px solid #e8d9a8;">
 
-<label for="notes"><strong>📝 Situation / Szenario:</strong></label>
+<section class="card"
+
+
+style="background:#fffdf6;border:2px solid #e6d8a0;">
+
+
+<label for="notes"><strong>📝 Szenario / Situation:</strong></label>
 <div contenteditable="true" data-placeholder="Tipp: Beschreibe in 1 -2 Sätzen, worum es geht. 
 Welche Entscheidung steht an?
 Frage dich: Was ist das Thema? 
@@ -391,11 +406,15 @@ Beispiel: Soll die Wehrpflicht wieder eingeführt werden?" id="notes"></div>
 
 </div>
 </section>
+
 </section>   <!-- Szenario Ende -->
 
 
 
-	
+
+
+
+
 <!-- Skalen -->
 <section class="grid">
 <div class="card">
@@ -421,9 +440,12 @@ Beispiel: Soll die Wehrpflicht wieder eingeführt werden?" id="notes"></div>
 <div style="flex:1 1 auto;min-width:280px"> 
 
 
+
 <h3 style="margin:.3rem 0 .3rem; font-size:1rem; color:#666; font-weight:normal;">
-🧭 Interner Reflexionswert: <span id="H">-</span>
+🧭 <i>Interner Reflexionswert:<i/> <span id="H">-</span>
 </h3>
+
+
 
 <div class="kategorie" id="kategorie" style="
 display:none;
@@ -436,10 +458,9 @@ color:#7a1f1f;
 ">
 Kategorie: —
 </div>
-	
+
+
 <div class="wirkung" id="wirkung" style="display:none;">Wirkung: –</div> 
-
-
 
 
 <div class="info" id="logicBox" style="margin-top:10px; display:none;">
@@ -492,6 +513,7 @@ Kategorie: —
 <button id="reset" style="margin-top:14px;">🔄 Zurücksetzen</button>
 
 
+
 <style>
 #snap {
 display: none;
@@ -499,16 +521,15 @@ display: none;
 </style>
 <button class="secondary" id="snap">Werte merken</button>
 <button id="pdfBtn">📄 Als PDF speichern</button>
-<button class="secondary" id="helpBtn" style="background:#22c55e"> ❓ Hilfe</button>
+<button class="secondary" id="helpBtn" style="background:#22c55e"> ❓ Hilfe </button>
 <button class="secondary" id="examplesBtn" style="background:#22c55e">📝 Beispiel & Übungen </button>
-
-
 
 </div>
 </div>
 <div class="meter" style="margin-top:12px"><div class="bar" id="bar"></div></div>
 </section>
 <!-- Selbstreflexion je Skala -->
+
 <section class="card" style="display:none;">
 <div class="info">
 <strong>Selbstreflexion je Skala...</strong>
@@ -517,14 +538,13 @@ display: none;
 </section>
 <!-- Notizen -->
 
-	
 <!-- 🔽 NEUER EINSATZBEREICH -->
 <section class="card">
   <div class="info" style="background:#fffaf0; border-color:#fcd34d;">
     <strong>🧭 Wann dir diese Reflexionsformel wirklich hilft</strong>
 
     <div style="margin-top:8px;">
-      Diese Formel gibt dir keine fertige Antwort. Sie macht Unterschiede zwischen deiner Ausrichtung, deiner erlebten Realität und deiner Reaktion sichtbar, damit du sie bewusster prüfen kannst.
+      Diese Formel gibt dir keine fertige Antwort. Sie macht Unterschiede zwischen deiner Ausrichtung, deiner erlebten Realität und deiner Reaktion sichtbar – damit du sie bewusster prüfen kannst.
     </div>
 
     <div style="margin-top:10px;">
@@ -558,9 +578,11 @@ display: none;
 
   </div>
 </section>
-	
+
+
 <!-- Begleitheft-Verweis -->
 <section class="card">
+
 
 <!-- Begleitheft-Verweis -->
 <section class="card">
@@ -570,9 +592,12 @@ display: none;
   </div>
 </section>
 
+
 <section class="card" style="text-align:center">
 <div style="font-size:13px;color:#334155">🖋️ Winni Stork; D-35287 Amöneburg</div>
 <div style="margin-top:8px;font-size:12px;color:#475569">© 08/2026; V7.5) Winni Stork – Alle Rechte vorbehalten. Diese Anwendungen sowie die Inhalte (Ich - Ehrlichkeitssystem - Konzept, Skalen, Beschreibungen und Beispiele) sind urheberrechtlich geschützt. Jede Vervielfältigung oder Weitergabe nur mit ausdrücklicher Genehmigung.</div>
+
+
 
 <div style="
 display:flex;
@@ -596,19 +621,22 @@ alt="Winni Stork"
 title="Winni Stork"
 
 style="
-width:65px;
-height:65px;
+width:85px;
+height:85px;
 border-radius:50%;
 object-fit:cover;
 border:2px solid #ffffff;
 box-shadow:0 2px 6px rgba(0,0,0,.2);
 ">
+
 </div>
 
 
-	
 </section>
+
+
 </div>
+
 
 <script>
 
@@ -1083,11 +1111,6 @@ function ensureLageElement(){
   return lageEl;
 }
 
-
-
-
-
-
 /* ===== Update ===== */
 
 function update(){
@@ -1159,19 +1182,14 @@ const richtung = getIdealRichtung(I);
 let category = "";
 let effect = "";
 
-
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//.............................................................................
-//.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 
@@ -1181,8 +1199,7 @@ let effect = "";
   ========================================================= */
 
 
-
-	if (lageCode === "PPP") {
+if (lageCode === "PPP") {
 
   const spannung = I - R;
   const H = spannung * G;
@@ -1190,93 +1207,97 @@ let effect = "";
   const kraft = Math.abs(G);
 
   // ============================
-  // 1. BALANCE
+  // 1. ÜBEREINSTIMMUNG
+  // Ideal = Realität
   // ============================
   if (spannung === 0) {
+
     if (kraft >= 8) {
-      category = "Übersteuernd stabil";
-      effect = "Du setzt viel Energie ein, obwohl Ideal und Realität bereits übereinstimmen.";
+      category = "Stark übereinstimmend";
+      effect = "Ideal und Realität stimmen überein. Gleichzeitig setzt du deine positive Ausrichtung mit hoher Intensität um.";
     } else {
-      category = "Stabil ausgeglichen";
-      effect = "Ideal und Realität sind im Gleichgewicht, die Situation trägt sich stabil.";
+      category = "Stimmig ausgeglichen";
+      effect = "Ideal und Realität stimmen überein und deine Umsetzung weist in dieselbe positive Richtung.";
     }
   }
 
   // ============================
-  // 2. TRAGKRAFT (H > 0)
+  // 2. IDEAL ÜBER REALITÄT
+  // positive Spannung, G positiv
   // ============================
   else if (spannung > 0) {
 
     if (s <= 4) {
-      category = "Beginnend tragend";
-      effect = "Du beginnst, die gute Lage bewusst zu unterstützen.";
+      category = "Leicht vorwärtsgerichtet";
+      effect = "Dein positives Ideal liegt leicht über der positiv erlebten Realität. Deine Umsetzung weist in Richtung dieses Ideals.";
     }
     else if (s <= 9) {
-      category = "Tragend stabilisierend";
-      effect = "Du gibst der Situation erste Richtung und stärkst ihre Basis.";
+      category = "Vorwärtsgerichtet";
+      effect = "Zwischen deinem positiven Ideal und der positiv erlebten Realität besteht eine erkennbare Differenz. Du handelst in Richtung deines Ideals.";
     }
     else if (s <= 14) {
-      category = "Klar tragend";
-      effect = "Du entwickelst die gute Lage sichtbar weiter und gibst ihr Struktur.";
+      category = "Klar vorwärtsgerichtet";
+      effect = "Dein positives Ideal liegt erkennbar über der aktuellen positiven Realität. Deine Umsetzung unterstützt diese Ausrichtung.";
     }
     else if (s <= 29) {
-      category = "Aktiv prägend";
-      effect = "Du formst die Situation bewusst und verstärkst ihre positive Dynamik.";
+      category = "Aktiv vorwärtsgerichtet";
+      effect = "Die Differenz zwischen deinem positiven Ideal und der Realität ist deutlich. Gleichzeitig setzt du deine Ausrichtung aktiv um.";
     }
     else if (s <= 49) {
-      category = "Stark tragend";
-      effect = "Du gibst der Lage klare Stabilität und wirkst deutlich auf dein Umfeld.";
+      category = "Stark vorwärtsgerichtet";
+      effect = "Zwischen Ideal und Realität besteht eine deutliche Spannung. Deine Umsetzung wirkt weiterhin in Richtung deines positiven Ideals.";
     }
     else if (s <= 64) {
-      category = "Sehr stark prägend";
-      effect = "Du wirst zu einer gestaltenden Kraft und gibst der Realität Richtung.";
+      category = "Sehr stark vorwärtsgerichtet";
+      effect = "Die Spannung zwischen deinem positiven Ideal und der positiv erlebten Realität ist groß. Deine Umsetzung folgt dieser Ausrichtung mit hoher Intensität.";
     }
     else if (s <= 79) {
-      category = "Dominant tragend";
-      effect = "Du prägst die Situation massiv und setzt klare Maßstäbe für andere.";
+      category = "Intensiv vorwärtsgerichtet";
+      effect = "Dein positives Ideal liegt deutlich über der aktuellen Realität und deine Umsetzung folgt dieser Richtung sehr stark.";
     }
     else {
-      category = "Übersteuernd prägend";
-      effect = "Deine Wirkung dominiert die Entwicklung vollständig.";
+      category = "Extrem vorwärtsgerichtet";
+      effect = "Zwischen deinem positiven Ideal und der Realität besteht eine sehr große wirksame Differenz. Deine Umsetzung folgt dieser Ausrichtung mit sehr hoher Intensität.";
     }
   }
 
   // ============================
-  // 3. UNTERFORDERUNG (H < 0)
+  // 3. REALITÄT ÜBER IDEAL
+  // negative Spannung, G positiv
   // ============================
   else {
 
     if (s <= 4) {
-      category = "Minimal unterfordert";
-      effect = "Die Realität übertrifft dein Ideal leicht. Erstes ungenutztes Potenzial entsteht.";
+      category = "Leicht realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt leicht über deinem positiven Ideal. Deine Umsetzung bleibt dennoch in positiver Richtung.";
     }
     else if (s <= 9) {
-      category = "Leicht unterfordert";
-      effect = "Dein Anspruch bleibt hinter der Realität. Du schöpfst deine Möglichkeiten nicht aus.";
+      category = "Realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt über deinem Ideal. Prüfe, ob deine eigene Ausrichtung diese Entwicklung bereits ausreichend abbildet.";
     }
     else if (s <= 14) {
-      category = "Unterfordert";
-      effect = "Du entwickelst die Situation nicht weiter, obwohl mehr möglich wäre.";
+      category = "Klar realitätsseitig";
+      effect = "Die Realität wird positiver erlebt, als es dein derzeitiges Ideal ausdrückt. Deine Umsetzung bleibt positiv gerichtet.";
     }
     else if (s <= 29) {
-      category = "Spürbar unterfordert";
-      effect = "Die gute Lage wird nicht bewusst geführt. Du bleibst klar unter deinen Möglichkeiten.";
+      category = "Deutlich realitätsseitig";
+      effect = "Zwischen der positiv erlebten Realität und deinem positiven Ideal besteht eine deutliche Differenz zugunsten der Realität.";
     }
     else if (s <= 49) {
-      category = "Deutlich unterfordert";
-      effect = "Realität und Rückgrat bieten mehr, als dein Ideal einfordert.";
+      category = "Stark realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt deutlich über deinem derzeitigen Ideal. Prüfe, ob deine Ausrichtung noch zu dieser Realität passt.";
     }
     else if (s <= 64) {
-      category = "Stark unterfordert";
-      effect = "Ein zu niedriges Ideal verschenkt eine starke Ausgangslage.";
+      category = "Sehr stark realitätsseitig";
+      effect = "Die Differenz zwischen der positiv erlebten Realität und deinem Ideal ist groß. Eine Neubewertung deiner Ausrichtung kann sinnvoll sein.";
     }
     else if (s <= 79) {
-      category = "Massiv unterfordert";
-      effect = "Dein Rückgrat und die Realität bleiben ohne ausreichendes Ideal wirkungslos.";
+      category = "Intensiv realitätsseitig";
+      effect = "Die Realität wird wesentlich positiver erlebt, als es dein derzeitiges Ideal widerspiegelt. Prüfe diese Differenz bewusst.";
     }
     else {
-      category = "Vollständig unterfordert";
-      effect = "Maximale Voraussetzungen treffen auf einen zu niedrigen Anspruch. Das Potenzial bleibt vollständig liegen.";
+      category = "Extrem realitätsseitig";
+      effect = "Zwischen der sehr positiv erlebten Realität und deinem derzeitigen positiven Ideal besteht eine außergewöhnlich große wirksame Differenz.";
     }
   }
 
@@ -1285,11 +1306,12 @@ let effect = "";
 
 
 
+//.............................................................................
+//.............................................................................
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-//.............................................................................
-//.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 
@@ -1303,96 +1325,97 @@ if (lageCode === "PPN") {
   const kraft = Math.abs(G);
 
   // ============================
-  // 1. BALANCE
+  // 1. ÜBEREINSTIMMUNG
+  // Ideal = Realität
   // ============================
   if (spannung === 0) {
 
     if (kraft >= 8) {
-      category = "Instabil stabil";
-      effect = "Du bringst Unruhe in eine eigentlich stabile Situation.";
+      category = "Starke Gegenbewegung bei Übereinstimmung";
+      effect = "Ideal und Realität stimmen überein. Gleichzeitig weist deine Reaktion deutlich gegen deine eigene positive Ausrichtung. Prüfe, wodurch diese Gegenbewegung entsteht.";
     } else {
-      category = "Passiv stabil";
-      effect = "Die Lage ist gut – aber du greifst nicht aktiv ein.";
+      category = "Gegenbewegung bei Übereinstimmung";
+      effect = "Ideal und Realität stimmen überein, während deine aktuelle Reaktion gegen deine positive Ausrichtung weist.";
     }
   }
 
   // ============================
-  // 2. BLOCKADE (spannung > 0, H < 0)
+  // 2. IDEAL ÜBER REALITÄT
+  // positive Spannung, G negativ
   // ============================
   else if (spannung > 0) {
 
     if (s <= 4) {
-      category = "Leicht unsicher";
-      effect = "Du erkennst den nächsten Schritt, gehst ihn aber noch nicht.";
+      category = "Leichte Gegenbewegung";
+      effect = "Dein positives Ideal liegt leicht über der positiv erlebten Realität. Deine Reaktion weist jedoch gegen diese eigene Ausrichtung.";
     }
     else if (s <= 9) {
-      category = "Unsicher bremsend";
-      effect = "Du zögerst trotz klarer Lage und beginnst, die Entwicklung leicht auszubremsen.";
+      category = "Gegenbewegung";
+      effect = "Zwischen deinem positiven Ideal und der positiv erlebten Realität besteht eine erkennbare Differenz. Deine Reaktion weist gleichzeitig gegen dein Ideal.";
     }
     else if (s <= 14) {
-      category = "Passiv blockierend";
-      effect = "Du weißt, was richtig wäre, setzt es aber nicht um und schwächst die Dynamik.";
+      category = "Klare Gegenbewegung";
+      effect = "Dein positives Ideal liegt über der aktuellen positiven Realität. Gleichzeitig reagierst du deutlich gegen deine eigene Ausrichtung.";
     }
     else if (s <= 29) {
-      category = "Blockiert";
-      effect = "Du bleibst hinter deinem Anspruch zurück und hältst die Entwicklung sichtbar auf.";
+      category = "Deutliche Gegenbewegung";
+      effect = "Zwischen deinem positiven Ideal und der Realität besteht eine deutliche Spannung. Deine Reaktion wirkt dabei gegen die von dir gewählte positive Ausrichtung.";
     }
     else if (s <= 49) {
-      category = "Stark blockiert";
-      effect = "Du hältst dich aktiv zurück und verhinderst, dass sich die gute Lage weiter entfaltet.";
+      category = "Starke Gegenbewegung";
+      effect = "Die Spannung zwischen deinem positiven Ideal und der Realität ist deutlich. Gleichzeitig weist deine Reaktion stark gegen deine eigene Ausrichtung.";
     }
     else if (s <= 64) {
-      category = "Deutlich untergrabend";
-      effect = "Du schwächst die vorhandene Stabilität und nimmst der Situation ihre Tragfähigkeit.";
+      category = "Sehr starke Gegenbewegung";
+      effect = "Zwischen deinem positiven Ideal und der positiv erlebten Realität besteht eine große Spannung. Deine Reaktion wirkt mit hoher Intensität gegen diese Ausrichtung.";
     }
     else if (s <= 79) {
-      category = "Massiv blockierend";
-      effect = "Du ziehst die Entwicklung klar nach unten und verhinderst Fortschritt deutlich.";
+      category = "Intensive Gegenbewegung";
+      effect = "Dein positives Ideal liegt deutlich über der aktuellen Realität, während deine Reaktion sehr stark gegen diese eigene Ausrichtung weist.";
     }
     else {
-      category = "Selbstsabotage";
-      effect = "Du arbeitest aktiv gegen deine eigene positive Entwicklung und zerstörst Fortschritt.";
+      category = "Extreme Gegenbewegung";
+      effect = "Zwischen deinem positiven Ideal und der Realität besteht eine sehr große wirksame Differenz. Gleichzeitig weist deine Reaktion mit sehr hoher Intensität gegen deine eigene Ausrichtung.";
     }
   }
 
   // ============================
-  // 3. FEHLFOKUS (spannung < 0, H > 0)
-  // Realität besser als Ideal – negatives Rückgrat
-  // wirkt paradox gegen die gute Lage
+  // 3. REALITÄT ÜBER IDEAL
+  // negative Spannung, G negativ
   // ============================
   else {
 
     if (s <= 4) {
-      category = "Minimal fehlgesteuert";
-      effect = "Du setzt Impulse, die nicht zur guten Lage passen – kaum spürbar.";
+      category = "Leicht gegenläufig realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt leicht über deinem positiven Ideal. Deine Reaktion weist zugleich gegen deine bisherige positive Ausrichtung.";
     }
     else if (s <= 9) {
-      category = "Leicht fehlgesteuert";
-      effect = "Du gehst leicht in eine Richtung, die nicht nötig ist.";
+      category = "Gegenläufig realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt über deinem Ideal, während deine Reaktion gegen deine bisherige Ausrichtung weist. Prüfe, ob sich deine eigene Richtung verändert hat.";
     }
     else if (s <= 14) {
-      category = "Fehlgesteuert";
-      effect = "Du setzt Energie ein, aber nicht am richtigen Punkt.";
+      category = "Klar gegenläufig realitätsseitig";
+      effect = "Die Realität wird positiver erlebt, als es dein derzeitiges Ideal ausdrückt. Gleichzeitig weist deine Reaktion gegen deine bisherige Ausrichtung.";
     }
     else if (s <= 29) {
-      category = "Spürbar fehlgesteuert";
-      effect = "Du entfernst dich erkennbar von deiner eigentlich guten Lage.";
+      category = "Deutlich gegenläufig realitätsseitig";
+      effect = "Zwischen der positiv erlebten Realität und deinem Ideal besteht eine deutliche Differenz. Deine Reaktion weist zusätzlich gegen deine bisherige Ausrichtung.";
     }
     else if (s <= 49) {
-      category = "Deutlich fehlgesteuert";
-      effect = "Du arbeitest gegen die vorhandene positive Dynamik.";
+      category = "Stark gegenläufig realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt deutlich über deinem derzeitigen Ideal. Gleichzeitig reagierst du stark gegen deine bisherige positive Ausrichtung.";
     }
     else if (s <= 64) {
-      category = "Stark fehlgesteuert";
-      effect = "Du schwächst die gute Lage aktiv durch fehlgeleitetes Handeln.";
+      category = "Sehr stark gegenläufig realitätsseitig";
+      effect = "Die Differenz zwischen der positiv erlebten Realität und deinem Ideal ist groß. Deine Gegenbewegung zur bisherigen Ausrichtung ist ebenfalls stark ausgeprägt.";
     }
     else if (s <= 79) {
-      category = "Massiv fehlgesteuert";
-      effect = "Du destabilisierst die positive Situation durch konsequent falschen Fokus.";
+      category = "Intensiv gegenläufig realitätsseitig";
+      effect = "Die Realität wird wesentlich positiver erlebt, als es dein derzeitiges Ideal widerspiegelt. Gleichzeitig weist deine Reaktion sehr deutlich gegen deine bisherige Ausrichtung.";
     }
     else {
-      category = "Vollständig fehlgesteuert";
-      effect = "Du zerstörst eine gute Ausgangslage durch maximalen Fehlfokus.";
+      category = "Extrem gegenläufig realitätsseitig";
+      effect = "Zwischen der sehr positiv erlebten Realität und deinem derzeitigen Ideal besteht eine außergewöhnlich große wirksame Differenz. Gleichzeitig weist deine Reaktion extrem stark gegen deine bisherige Ausrichtung.";
     }
   }
 }
@@ -1400,8 +1423,8 @@ if (lageCode === "PPN") {
 
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 
@@ -1412,84 +1435,63 @@ if (lageCode === "PNP") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  // ============================
-  // 1. BALANCE
-  // ============================
   if (spannung === 0) {
-
     if (kraft >= 8) {
-      category = "Übersteuernd stabil";
-      effect = "Du setzt viel Energie ein, obwohl kein echter Konflikt besteht.";
+      category = "Stark ausgerichtet";
+      effect = "Ideal und Realität stimmen überein. Gleichzeitig setzt du deine positive Ausrichtung mit hoher Intensität um.";
     } else {
-      category = "Stabil ausgeglichen";
-      effect = "Du hältst die Situation stabil, obwohl sie keine Spannung aufweist.";
+      category = "Stimmig ausgerichtet";
+      effect = "Ideal und Realität stimmen überein und deine Umsetzung folgt deiner positiven Ausrichtung.";
     }
   }
 
-  // ============================
-  // 2. GEGENKRAFT / AUFBAU
-  // ============================
   else if (spannung > 0) {
-
     if (s <= 4) {
       category = "Leicht gegensteuernd";
-      effect = "Du erkennst die negative Realität und beginnst vorsichtig gegenzusteuern.";
+      effect = "Deine positive Ausrichtung liegt über der negativ erlebten Realität. Deine Umsetzung weist in Richtung dieser Ausrichtung.";
     }
-
     else if (s <= 9) {
-      category = "Gegensteuernd stabilisierend";
-      effect = "Du arbeitest aktiv gegen die negative Lage und bringst erste Stabilität hinein.";
+      category = "Gegensteuernd";
+      effect = "Zwischen deiner positiven Ausrichtung und der negativ erlebten Realität besteht eine erkennbare Spannung. Du handelst in Richtung deiner Ausrichtung.";
     }
-
     else if (s <= 14) {
-      category = "Klar stabilisierend";
-      effect = "Du hältst bewusst gegen die negative Realität und gibst klare Richtung vor.";
+      category = "Klar gegensteuernd";
+      effect = "Die Spannung zwischen positiver Ausrichtung und negativ erlebter Realität ist deutlich. Deine Umsetzung folgt deiner Ausrichtung.";
     }
-
     else if (s <= 29) {
-      category = "Aktiv stabilisierend";
-      effect = "Du veränderst die negative Situation aktiv und bringst Struktur hinein.";
+      category = "Aktiv gegensteuernd";
+      effect = "Du setzt deine positive Ausrichtung trotz deutlich negativ erlebter Realität aktiv um.";
     }
-
     else if (s <= 49) {
-      category = "Stark stabilisierend";
-      effect = "Du stabilisierst die Lage deutlich und wirkst sichtbar gegen den negativen Zustand.";
+      category = "Stark gegensteuernd";
+      effect = "Die wirksame Spannung ist groß. Deine Umsetzung bleibt klar auf deine positive Ausrichtung gerichtet.";
     }
-
     else if (s <= 64) {
-      category = "Sehr stark transformierend";
-      effect = "Du strukturierst die Realität aktiv um und wirst zur tragenden Kraft.";
+      category = "Sehr stark gegensteuernd";
+      effect = "Zwischen deiner positiven Ausrichtung und der negativ erlebten Realität besteht eine große wirksame Spannung. Deine Umsetzung folgt deiner Ausrichtung mit hoher Intensität.";
     }
-
     else if (s <= 79) {
-      category = "Dominant transformierend";
-      effect = "Du veränderst die Situation massiv und setzt klare Maßstäbe.";
+      category = "Intensiv gegensteuernd";
+      effect = "Du setzt deine positive Ausrichtung bei sehr großer wirksamer Spannung mit hoher Intensität um.";
     }
-
     else {
-      category = "Übersteuernd transformierend";
-      effect = "Deine Wirkung ist extrem stark, du dominierst die Entwicklung vollständig.";
+      category = "Extrem gegensteuernd";
+      effect = "Die wirksame Spannung zwischen positiver Ausrichtung und negativ erlebter Realität ist außergewöhnlich groß. Deine Umsetzung folgt weiterhin deiner positiven Ausrichtung.";
     }
   }
 
-  // ============================
-  // 3. ÜBERSTEUERUNG (analog PPP Unterforderung)
-  // ============================
   else {
-
     if (s <= 10) {
-      category = "Leicht übersteuernd";
-      effect = "Du gehst leicht über das Ziel hinaus und setzt mehr Energie ein als nötig.";
+      category = "Leicht realitätsseitig";
+      effect = "Die Realität liegt auf der Skala über deiner positiven Ausrichtung. Prüfe, wie diese Differenz zu deiner aktuellen Umsetzung passt.";
     }
-
     else if (s <= 30) {
-      category = "Übersteuernd";
-      effect = "Du verlierst die Balance und gehst zu stark gegen die Situation vor.";
+      category = "Deutlich realitätsseitig";
+      effect = "Zwischen Realität und positiver Ausrichtung besteht eine deutliche Differenz zugunsten der Realität. Deine Umsetzung bleibt positiv gerichtet.";
     }
-
     else {
-      category = "Dominant übersteuernd";
-      effect = "Du kippst die Situation durch zu viel Eingreifen in eine neue Schieflage.";
+      category = "Stark realitätsseitig";
+      effect = "Die Realität liegt deutlich über deiner gesetzten positiven Ausrichtung. Prüfe, ob deine Ausrichtung die aktuelle Situation noch passend abbildet.";
     }
   }
 
@@ -1497,11 +1499,12 @@ if (lageCode === "PNP") {
 }
 
 
+//.............................................................................
+//.............................................................................
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-//.............................................................................
-//.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 if (lageCode === "PNN") {
@@ -1511,74 +1514,75 @@ if (lageCode === "PNN") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  // ============================
-  // 1. BALANCE
-  // ============================
   if (spannung === 0) {
-
     if (kraft >= 8) {
-      category = "Übersteuernd stabil";
-      effect = "Du setzt viel Energie ein, obwohl kein echter Konflikt besteht.";
+      category = "Starke Gegenbewegung";
+      effect = "Ideal und Realität stimmen überein, während deine Reaktion deutlich gegen deine eigene positive Ausrichtung weist.";
     } else {
-      category = "Stabil ausgeglichen";
-      effect = "Du hältst die Situation stabil, obwohl sie keine Spannung aufweist.";
+      category = "Gegenbewegung";
+      effect = "Ideal und Realität stimmen überein, während deine Reaktion gegen deine positive Ausrichtung weist.";
     }
   }
 
-  // ============================
-  // 2. GEGENKRAFT / AUFBAU
-  // ============================
-	
-
-else if (spannung > 0) {
-
+  else if (spannung > 0) {
     if (s <= 4) {
-      category = "Leicht vermeidend";
-      effect = "Du erkennst die negative Realität, weichst ihr aber noch leicht aus.";
+      category = "Leichte Gegenbewegung";
+      effect = "Zwischen deiner positiven Ausrichtung und der negativ erlebten Realität besteht Spannung. Deine Reaktion weist leicht gegen deine eigene Ausrichtung.";
     }
     else if (s <= 9) {
-      category = "Vermeidend bremsend";
-      effect = "Du zögerst und gehst nicht aktiv gegen die negative Situation vor.";
+      category = "Erkennbare Gegenbewegung";
+      effect = "Deine aktuelle Reaktion weist erkennbar gegen deine positive Ausrichtung.";
     }
     else if (s <= 14) {
-      category = "Passiv blockierend";
-      effect = "Du weißt, was zu tun wäre, setzt es aber nicht um.";
+      category = "Klare Gegenbewegung";
+      effect = "Bei deutlicher Spannung reagierst du gegen deine eigene positive Ausrichtung.";
     }
     else if (s <= 29) {
-      category = "Blockiert";
-      effect = "Du bleibst hinter deinem Anspruch zurück und gehst nicht ins Handeln.";
+      category = "Deutliche Gegenbewegung";
+      effect = "Die Differenz zwischen positiver Ausrichtung und negativ erlebter Realität ist deutlich. Deine Reaktion läuft zugleich gegen deine Ausrichtung.";
     }
     else if (s <= 49) {
-      category = "Stark blockiert";
-      effect = "Du verhinderst aktiv, dass sich die Situation verbessert.";
+      category = "Starke Gegenbewegung";
+      effect = "Bei großer wirksamer Spannung weist deine Reaktion stark gegen deine eigene positive Ausrichtung.";
     }
     else if (s <= 64) {
-      category = "Deutlich selbstschwächend";
-      effect = "Du stabilisierst die negative Realität durch dein Verhalten.";
+      category = "Sehr starke Gegenbewegung";
+      effect = "Die Gegenbewegung zu deiner positiven Ausrichtung ist bei großer wirksamer Spannung stark ausgeprägt.";
     }
     else if (s <= 79) {
-      category = "Massiv blockierend";
-      effect = "Du hältst dich konsequent zurück und lässt die Situation kippen.";
+      category = "Intensive Gegenbewegung";
+      effect = "Deine Reaktion weist bei sehr großer wirksamer Spannung sehr deutlich gegen deine positive Ausrichtung.";
     }
     else if (s <= 119) {
-      category = "Stark selbstsabotierend";
-      effect = "Du arbeitest konsequent gegen deine eigene positive Ausrichtung.";
+      category = "Sehr intensive Gegenbewegung";
+      effect = "Zwischen deiner positiven Ausrichtung und deiner aktuellen Reaktion besteht eine sehr starke Gegenrichtung.";
     }
     else if (s <= 159) {
-      category = "Massiv selbstsabotierend";
-      effect = "Du zerstörst aktiv jeden Ansatz zur Verbesserung.";
+      category = "Extrem starke Gegenbewegung";
+      effect = "Deine aktuelle Reaktion läuft mit außergewöhnlich hoher Intensität gegen deine positive Ausrichtung.";
     }
     else {
-      category = "Vollständige Selbstsabotage";
-      effect = "Du arbeitest maximal gegen dich selbst – kein Fortschritt ist möglich.";
+      category = "Maximale Gegenbewegung";
+      effect = "Die Gegenbewegung zu deiner gesetzten positiven Ausrichtung erreicht in diesem Modell eine maximale Intensität.";
     }
   }
+
+  lageText = "Ideal: positiv, Realität: negativ, Rückgrat: negativ";
 }
+
+ 
+
+
+
+
+
+
 
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 if (lageCode === "NPP") {
@@ -1588,94 +1592,76 @@ if (lageCode === "NPP") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  // ============================
-  // 1. BALANCE
-  // ============================
   if (spannung === 0) {
-
     if (kraft >= 8) {
-      category = "Übersteuernd stabil";
-      effect = "Du setzt viel Energie ein, obwohl Ideal und Realität übereinstimmen.";
+      category = "Stark negativ ausgerichtet";
+      effect = "Ideal und Realität stimmen auf der Skala überein. Gleichzeitig setzt du deine negative Ausrichtung mit hoher Intensität um.";
     } else {
-      category = "Stabil ausgeglichen";
-      effect = "Die Situation ist im Gleichgewicht – du hältst sie stabil.";
+      category = "Negativ ausgerichtet";
+      effect = "Ideal und Realität stimmen auf der Skala überein und deine Umsetzung folgt deiner negativen Ausrichtung.";
     }
   }
 
-  // ============================
-  // 2. ESKALATION (Spiegel von PPP Tragkraft)
-  // ============================
   else if (spannung < 0) {
-
     if (s <= 4) {
-      category = "Leicht irritierend";
-      effect = "Du setzt erste negative Impulse in eine gute Situation.";
+      category = "Leicht negativ gegenläufig";
+      effect = "Deine Ausrichtung ist negativ, während du die Realität positiv erlebst. Deine Umsetzung folgt leicht dieser negativen Ausrichtung.";
     }
-
     else if (s <= 9) {
-      category = "Irritierend destabilisieren";
-      effect = "Du bringst Unruhe in eine funktionierende Realität.";
+      category = "Negativ gegenläufig";
+      effect = "Zwischen deiner negativen Ausrichtung und der positiv erlebten Realität besteht eine erkennbare Differenz. Deine Umsetzung folgt deiner Ausrichtung.";
     }
-
     else if (s <= 14) {
-      category = "Klar destabilisierend";
-      effect = "Du schwächst eine positive Situation sichtbar.";
+      category = "Klar negativ gegenläufig";
+      effect = "Die positiv erlebte Realität unterscheidet sich deutlich von deiner negativen Ausrichtung, die du zugleich umsetzt.";
     }
-
     else if (s <= 29) {
-      category = "Aktiv destabilisierend";
-      effect = "Du greifst aktiv in eine gute Lage ein und verschlechterst sie.";
+      category = "Deutlich negativ gegenläufig";
+      effect = "Zwischen negativer Ausrichtung und positiver Realität besteht eine deutliche Spannung. Deine Umsetzung folgt weiterhin deiner Ausrichtung.";
     }
-
     else if (s <= 49) {
-      category = "Stark destabilisierend";
-      effect = "Du bringst eine stabile Situation deutlich ins Wanken.";
+      category = "Stark negativ gegenläufig";
+      effect = "Die wirksame Differenz zwischen negativer Ausrichtung und positiver Realität ist groß. Deine Umsetzung bleibt negativ gerichtet.";
     }
-
     else if (s <= 64) {
-      category = "Sehr stark eskalierend";
-      effect = "Du zerstörst vorhandene Stabilität und baust Druck auf.";
+      category = "Sehr stark negativ gegenläufig";
+      effect = "Deine negative Ausrichtung steht einer deutlich positiv erlebten Realität gegenüber und wird mit hoher Intensität umgesetzt.";
     }
-
     else if (s <= 79) {
-      category = "Dominant eskalierend";
-      effect = "Du kippst eine funktionierende Realität massiv in eine negative Richtung.";
+      category = "Intensiv negativ gegenläufig";
+      effect = "Die Gegenläufigkeit zwischen negativer Ausrichtung und positiver Realität ist sehr stark ausgeprägt.";
     }
-
     else {
-      category = "Zerstörerisch";
-      effect = "Du arbeitest aktiv und massiv gegen eine positive Realität.";
+      category = "Extrem negativ gegenläufig";
+      effect = "Negative Ausrichtung und positiv erlebte Realität liegen außergewöhnlich weit auseinander, während deine Umsetzung der negativen Ausrichtung folgt.";
     }
   }
 
-  // ============================
-  // 3. FEHLFOKUS (analog PPP Unterforderung)
-  // ============================
   else {
-
     if (s <= 10) {
-      category = "Leicht fehlgeleitet";
-      effect = "Du setzt Energie ein, obwohl kein echter Bedarf besteht.";
+      category = "Leicht ausrichtungsseitig";
+      effect = "Deine negative Ausrichtung liegt auf der Skala über der Realität. Prüfe, wie diese Differenz zu deiner Umsetzung passt.";
     }
-
     else if (s <= 30) {
-      category = "Fehlgeleitet";
-      effect = "Du entfernst dich von einer stabilen Situation.";
+      category = "Deutlich ausrichtungsseitig";
+      effect = "Zwischen deiner negativen Ausrichtung und der Realität besteht eine deutliche Differenz. Deine Umsetzung folgt weiterhin deiner Ausrichtung.";
     }
-
     else {
-      category = "Stark fehlgeleitet";
-      effect = "Du wirkst aktiv gegen eine funktionierende Realität.";
+      category = "Stark ausrichtungsseitig";
+      effect = "Deine negative Ausrichtung liegt deutlich über der Realität. Prüfe, ob diese Ausrichtung die Situation noch passend abbildet.";
     }
   }
 
   lageText = "Ideal: negativ, Realität: positiv, Rückgrat: positiv";
 }
 
+
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
 
 
 if (lageCode === "NPN") {
@@ -1688,48 +1674,49 @@ if (lageCode === "NPN") {
   lageText = "Ideal: negativ, Realität: positiv, Rückgrat: negativ";
 
   if (s <= 4) {
-    category = "Minimal passiv";
-    effect = "Du lässt eine gute Situation laufen, ohne Einfluss zu nehmen.";
+    category = "Leichte Korrekturbewegung";
+    effect = "Deine Reaktion weist leicht gegen deine eigene negative Ausrichtung, während du die Realität positiv erlebst.";
   }
   else if (s <= 9) {
-    category = "Leicht passiv bremsend";
-    effect = "Du nutzt die gute Lage nicht und bremst Entwicklung leicht aus.";
+    category = "Erkennbare Korrekturbewegung";
+    effect = "Du reagierst erkennbar gegen deine negative Ausrichtung. Die positiv erlebte Realität kann dabei Anlass zur Neubewertung geben.";
   }
   else if (s <= 14) {
-    category = "Passiv untergrabend";
-    effect = "Du schwächst die positive Dynamik durch Untätigkeit.";
+    category = "Klare Korrekturbewegung";
+    effect = "Deine Reaktion weist klar gegen deine negative Ausrichtung und damit in eine andere Richtung als dein bisheriges Ideal.";
   }
   else if (s <= 29) {
-    category = "Stabil ohne Einfluss";
-    effect = "Die Realität bleibt gut – aber nicht durch dich.";
+    category = "Deutliche Korrekturbewegung";
+    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist deutlich ausgeprägt. Prüfe, welche neue Richtung sich daraus entwickelt.";
   }
   else if (s <= 49) {
-    category = "Deutlich passiv";
-    effect = "Du hältst dich zurück, obwohl du Einfluss nehmen könntest.";
+    category = "Starke Korrekturbewegung";
+    effect = "Du reagierst stark gegen deine negative Ausrichtung, während die Realität positiv erlebt wird.";
   }
   else if (s <= 79) {
-    category = "Träge blockierend";
-    effect = "Du verhinderst Weiterentwicklung durch konsequente Passivität.";
+    category = "Sehr starke Korrekturbewegung";
+    effect = "Die Gegenbewegung zu deiner bisherigen negativen Ausrichtung ist sehr deutlich ausgeprägt.";
   }
   else if (s <= 119) {
-    category = "Stark blockierend";
-    effect = "Du hältst die Situation fest und lässt keine Entwicklung zu.";
+    category = "Intensive Korrekturbewegung";
+    effect = "Deine Reaktion weist mit hoher Intensität gegen deine negative Ausrichtung. Eine bewusste Neubewertung deiner Richtung kann sinnvoll sein.";
   }
   else if (s <= 159) {
-    category = "Massiv blockierend";
-    effect = "Du blockierst Entwicklung durch maximales Nicht-Handeln.";
+    category = "Sehr intensive Korrekturbewegung";
+    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist außergewöhnlich stark ausgeprägt.";
   }
   else {
-    category = "Vollständige Blockade";
-    effect = "Du untergräbst aktiv jede positive Entwicklung durch konsequentes Nicht-Handeln.";
+    category = "Maximale Korrekturbewegung";
+    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung erreicht innerhalb dieses Modells eine maximale Intensität.";
   }
 }
 
 
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 
@@ -1741,84 +1728,63 @@ if (lageCode === "NNP") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  // ============================
-  // 1. BALANCE
-  // ============================
   if (spannung === 0) {
-
     if (kraft >= 8) {
-      category = "Übersteuernd negativ stabil";
-      effect = "Du verstärkst eine ohnehin negative Lage mit unnötig viel Energie.";
+      category = "Stark negativ übereinstimmend";
+      effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein. Deine Umsetzung folgt dieser Ausrichtung mit hoher Intensität.";
     } else {
-      category = "Stabil negativ";
-      effect = "Du hältst eine negative Situation stabil aufrecht.";
+      category = "Negativ übereinstimmend";
+      effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein und deine Umsetzung folgt dieser Richtung.";
     }
   }
 
-  // ============================
-  // 2. VERSTÄRKUNG / ESKALATION
-  // ============================
   else if (spannung < 0) {
-
     if (s <= 4) {
-      category = "Leicht verstärkend";
-      effect = "Du verstärkst eine negative Situation leicht.";
+      category = "Leicht negativ verstärkend";
+      effect = "Deine Umsetzung folgt deiner negativen Ausrichtung bei einer leicht abweichenden negativ erlebten Realität.";
     }
-
     else if (s <= 9) {
-      category = "Verstärkend eskalierend";
-      effect = "Du verschärfst die negative Lage sichtbar.";
+      category = "Negativ verstärkend";
+      effect = "Deine Umsetzung folgt der negativen Ausrichtung bei erkennbarer Spannung zur negativ erlebten Realität.";
     }
-
     else if (s <= 14) {
-      category = "Klar eskalierend";
-      effect = "Du treibst die Situation bewusst weiter ins Negative.";
+      category = "Klar negativ verstärkend";
+      effect = "Die negative Ausrichtung wird bei deutlicher Differenz zur Realität klar umgesetzt.";
     }
-
     else if (s <= 29) {
-      category = "Aktiv eskalierend";
-      effect = "Du verstärkst die negative Dynamik aktiv.";
+      category = "Deutlich negativ verstärkend";
+      effect = "Deine Umsetzung folgt deutlich deiner negativen Ausrichtung. Prüfe, welche Wirkung diese Richtung auf die Situation hat.";
     }
-
     else if (s <= 49) {
-      category = "Stark eskalierend";
-      effect = "Du bringst die Situation deutlich weiter in eine negative Richtung.";
+      category = "Stark negativ verstärkend";
+      effect = "Die negative Umsetzungsrichtung ist bei großer wirksamer Spannung stark ausgeprägt.";
     }
-
     else if (s <= 64) {
-      category = "Sehr stark zerstörend";
-      effect = "Du verstärkst die negative Realität massiv.";
+      category = "Sehr stark negativ verstärkend";
+      effect = "Deine Umsetzung folgt deiner negativen Ausrichtung mit hoher Intensität.";
     }
-
     else if (s <= 79) {
-      category = "Dominant zerstörend";
-      effect = "Du dominierst die Situation und treibst sie konsequent ins Negative.";
+      category = "Intensiv negativ verstärkend";
+      effect = "Die negative Ausrichtung wird bei sehr großer wirksamer Spannung intensiv umgesetzt.";
     }
-
     else {
-      category = "Extrem zerstörerisch";
-      effect = "Du verstärkst das Schlechte maximal und nachhaltig.";
+      category = "Extrem negativ verstärkend";
+      effect = "Die Umsetzung deiner negativen Ausrichtung erreicht bei außergewöhnlich großer wirksamer Spannung eine sehr hohe Intensität.";
     }
   }
 
-  // ============================
-  // 3. GEGENSPANNUNG (selten, aber systemlogisch sauber)
-  // ============================
   else {
-
     if (s <= 10) {
       category = "Leicht gegenläufig";
-      effect = "Du weichst minimal von deiner negativen Ausrichtung ab.";
+      effect = "Zwischen deiner negativen Ausrichtung und der negativ erlebten Realität besteht eine gegenläufige Differenz.";
     }
-
     else if (s <= 30) {
-      category = "Gegenläufig";
-      effect = "Du gehst teilweise gegen die bestehende Negativdynamik.";
+      category = "Deutlich gegenläufig";
+      effect = "Ausrichtung und Realität unterscheiden sich deutlich innerhalb des negativen Bereichs.";
     }
-
     else {
       category = "Stark gegenläufig";
-      effect = "Du arbeitest gegen eine negative Lage, trotz negativer Grundausrichtung.";
+      effect = "Zwischen deiner negativen Ausrichtung und der negativ erlebten Realität besteht eine große gegenläufige Differenz.";
     }
   }
 
@@ -1828,8 +1794,9 @@ if (lageCode === "NNP") {
 
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 
@@ -1841,94 +1808,75 @@ if (lageCode === "NNN") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  // ============================
-  // 1. BALANCE
-  // ============================
   if (spannung === 0) {
-
     if (kraft >= 8) {
-      category = "Instabil negativ stabil";
-      effect = "Du hältst eine negative Situation aufrecht, erzeugst aber gleichzeitig innere Unruhe.";
+      category = "Starke Gegenbewegung zur negativen Ausrichtung";
+      effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein. Gleichzeitig reagierst du stark gegen deine eigene negative Ausrichtung.";
     } else {
-      category = "Stabil negativ passiv";
-      effect = "Die negative Situation bleibt bestehen, ohne dass du aktiv eingreifst.";
+      category = "Gegenbewegung zur negativen Ausrichtung";
+      effect = "Negative Ausrichtung und Realität stimmen auf der Skala überein, während deine Reaktion gegen deine eigene Ausrichtung weist.";
     }
   }
 
-  // ============================
-  // 2. ZERFALL / PASSIVITÄT
-  // ============================
   else if (spannung < 0) {
-
     if (s <= 4) {
-      category = "Leicht passiv negativ";
-      effect = "Du lässt eine negative Situation einfach laufen.";
+      category = "Leichte Korrekturbewegung";
+      effect = "Deine Reaktion weist leicht gegen deine negative Ausrichtung.";
     }
-
     else if (s <= 9) {
-      category = "Passiv verschlechternd";
-      effect = "Du greifst nicht ein und lässt die Lage weiter kippen.";
+      category = "Erkennbare Korrekturbewegung";
+      effect = "Du reagierst erkennbar gegen deine eigene negative Ausrichtung.";
     }
-
     else if (s <= 14) {
-      category = "Schwächend passiv";
-      effect = "Du verstärkst die negative Realität durch Untätigkeit.";
+      category = "Klare Korrekturbewegung";
+      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist klar ausgeprägt.";
     }
-
     else if (s <= 29) {
-      category = "Deutlich resigniert";
-      effect = "Du hast innerlich aufgegeben und ziehst dich zurück.";
+      category = "Deutliche Korrekturbewegung";
+      effect = "Du reagierst deutlich gegen deine negative Ausrichtung. Prüfe, welche alternative Richtung daraus entstehen soll.";
     }
-
     else if (s <= 49) {
-      category = "Resigniert";
-      effect = "Du stabilisierst die negative Lage durch konsequentes Nicht-Handeln.";
+      category = "Starke Korrekturbewegung";
+      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist stark ausgeprägt.";
     }
-
     else if (s <= 64) {
-      category = "Stark resigniert";
-      effect = "Du lässt die Situation bewusst weiter zerfallen.";
+      category = "Sehr starke Korrekturbewegung";
+      effect = "Du reagierst mit hoher Intensität gegen deine negative Ausrichtung.";
     }
-
     else if (s <= 79) {
-      category = "Verfestigter Zerfall";
-      effect = "Du hältst eine negative Dynamik durch Passivität aufrecht.";
+      category = "Intensive Korrekturbewegung";
+      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist bei großer wirksamer Spannung sehr deutlich.";
     }
-
     else {
-      category = "Kompletter Rückzug";
-      effect = "Du hast dich vollständig aus der Situation zurückgezogen.";
+      category = "Extreme Korrekturbewegung";
+      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung erreicht eine außergewöhnlich hohe Intensität.";
     }
   }
 
-  // ============================
-  // 3. GEGENSPANNUNG (selten)
-  // ============================
   else {
-
     if (s <= 10) {
-      category = "Leicht inkonsistent";
-      effect = "Du zeigst minimale Abweichungen von deiner negativen Grundhaltung.";
+      category = "Leichte Gegenbewegung";
+      effect = "Deine Reaktion weist gegen deine negative Ausrichtung. Prüfe, welche Veränderung sich darin zeigt.";
     }
-
     else if (s <= 30) {
-      category = "Inkonsistent";
-      effect = "Du schwankst zwischen Rückzug und vereinzeltem Handeln.";
+      category = "Deutliche Gegenbewegung";
+      effect = "Du reagierst deutlich gegen deine bisherige negative Ausrichtung.";
     }
-
     else {
-      category = "Unstabil widersprüchlich";
-      effect = "Du handelst unklar und ohne Richtung.";
+      category = "Starke Gegenbewegung";
+      effect = "Die Reaktion gegen deine negative Ausrichtung ist stark ausgeprägt und kann Anlass für eine Neubewertung sein.";
     }
   }
 
   lageText = "Ideal: negativ, Realität: negativ, Rückgrat: negativ";
 }
 
+
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 
@@ -1941,109 +1889,95 @@ if (lageCode === "P0P") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  // ===============================
-  // 1. BALANCE
-  // ===============================
   if (spannung === 0) {
-
     if (kraft >= 8) {
-      category = "Übersteuernd stabil";
-      effect = "Du setzt viel Energie ein, obwohl keine klare Richtung erforderlich ist.";
+      category = "Stark positiv gerichtet";
+      effect = "Die Realität ist neutral bewertet, während deine Umsetzung deutlich positiv gerichtet ist.";
     } else {
-      category = "Neutral stabil";
-      effect = "Es besteht keine klare Spannung, du hältst die Situation ruhig.";
+      category = "Positiv gerichtet";
+      effect = "Die Realität ist neutral bewertet und deine Umsetzung weist in positive Richtung.";
     }
-
   }
 
-  // ===============================
-  // 2. AUFBAU / INITIATIVE (6 STUFEN)
-  // ===============================
   else if (spannung > 0) {
-
-    
-
-        if (s <= 4) {
-            category = "Leicht initiierend";
-            effect = "Du bringst erste positive Impulse in eine neutrale Situation.";
-        }
-        else if (s <= 9) {
-            category = "Sanft initiierend";
-            effect = "Du gibst der Situation eine erste erkennbare positive Richtung.";
-        }
-        else if (s <= 14) {
-            category = "Initiierend";
-            effect = "Du setzt klare Impulse und lenkst die Situation aktiv.";
-        }
-        else if (s <= 29) {
-            category = "Aufbauend";
-            effect = "Du entwickelst aus einer neutralen Lage aktiv etwas Positives.";
-        }
-        else if (s <= 49) {
-            category = "Stark aufbauend";
-            effect = "Du schaffst klare Struktur und gezielte Entwicklung.";
-        }
-        else if (s <= 64) {
-            category = "Sehr stark aufbauend";
-            effect = "Du stabilisierst die Entwicklung deutlich und gibst ihr Richtung.";
-        }
-        else if (s <= 79) {
-            category = "Dynamisch aufbauend";
-            effect = "Du treibst die Entwicklung kraftvoll und sichtbar voran.";
-        }
-        else {
-            category = "Gestaltend";
-            effect = "Du formst die Situation aktiv und nachhaltig in eine positive Richtung.";
-        }
+    if (s <= 4) {
+      category = "Leicht initiierend";
+      effect = "Deine positive Ausrichtung unterscheidet sich leicht von der neutralen Realität und deine Umsetzung folgt dieser Richtung.";
     }
-
-
-// ============================
-    // 3. ÜBERSTEUERUNG (8 STUFEN)
-    // ============================
+    else if (s <= 9) {
+      category = "Initiierend";
+      effect = "Du setzt deine positive Ausrichtung gegenüber der neutral bewerteten Realität erkennbar um.";
+    }
+    else if (s <= 14) {
+      category = "Klar initiierend";
+      effect = "Die Umsetzung deiner positiven Ausrichtung ist klar erkennbar.";
+    }
+    else if (s <= 29) {
+      category = "Aktiv vorwärtsgerichtet";
+      effect = "Du setzt deine positive Ausrichtung gegenüber der neutralen Realität aktiv um.";
+    }
+    else if (s <= 49) {
+      category = "Stark vorwärtsgerichtet";
+      effect = "Deine Umsetzung folgt deiner positiven Ausrichtung mit deutlicher Intensität.";
+    }
+    else if (s <= 64) {
+      category = "Sehr stark vorwärtsgerichtet";
+      effect = "Die positive Umsetzungsrichtung ist bei großer wirksamer Spannung stark ausgeprägt.";
+    }
+    else if (s <= 79) {
+      category = "Intensiv vorwärtsgerichtet";
+      effect = "Du setzt deine positive Ausrichtung mit sehr hoher Intensität gegenüber der neutral bewerteten Realität um.";
+    }
     else {
-
-        if (s <= 4) {
-            category = "Leicht übersteuernd";
-            effect = "Du setzt Impulse, die nicht ganz zur Situation passen.";
-        }
-        else if (s <= 9) {
-            category = "Übersteuernd";
-            effect = "Du gehst leicht über das Ziel hinaus.";
-        }
-        else if (s <= 14) {
-            category = "Klar übersteuernd";
-            effect = "Du verlierst die Balance und gibst eine unnötige Richtung vor.";
-        }
-        else if (s <= 29) {
-            category = "Aktiv übersteuernd";
-            effect = "Du drückst der Situation eine Entwicklung auf, die nicht erforderlich ist.";
-        }
-        else if (s <= 49) {
-            category = "Stark übersteuernd";
-            effect = "Du verlierst deutlich die Passung und überformst die Situation.";
-        }
-        else if (s <= 64) {
-            category = "Sehr stark übersteuernd";
-            effect = "Du erzeugst Druck und Widerstand durch zu starke Einflussnahme.";
-        }
-        else if (s <= 79) {
-            category = "Dominant übersteuernd";
-            effect = "Du kontrollierst die Situation übermäßig und verlierst die Balance vollständig.";
-        }
-        else {
-            category = "Maximal übersteuernd";
-            effect = "Du erzwingst eine Richtung, die der Situation komplett widerspricht.";
-        }
+      category = "Extrem vorwärtsgerichtet";
+      effect = "Die Umsetzung deiner positiven Ausrichtung erreicht gegenüber der neutral bewerteten Realität eine außergewöhnlich hohe Intensität.";
     }
+  }
+
+  else {
+    if (s <= 4) {
+      category = "Leicht realitätsseitig";
+      effect = "Die Realität liegt auf der Skala leicht über deiner Ausrichtung. Prüfe die Passung deiner positiven Umsetzung.";
+    }
+    else if (s <= 9) {
+      category = "Realitätsseitig";
+      effect = "Die Realität liegt über deiner Ausrichtung, während deine Umsetzung positiv gerichtet bleibt.";
+    }
+    else if (s <= 14) {
+      category = "Klar realitätsseitig";
+      effect = "Zwischen Realität und Ausrichtung besteht eine erkennbare Differenz.";
+    }
+    else if (s <= 29) {
+      category = "Deutlich realitätsseitig";
+      effect = "Die Realität liegt deutlich über deiner gesetzten Ausrichtung. Prüfe, ob diese Ausrichtung noch passend gewählt ist.";
+    }
+    else if (s <= 49) {
+      category = "Stark realitätsseitig";
+      effect = "Die Differenz zugunsten der Realität ist groß, während deine Umsetzung positiv gerichtet bleibt.";
+    }
+    else if (s <= 64) {
+      category = "Sehr stark realitätsseitig";
+      effect = "Zwischen Realität und Ausrichtung besteht eine große wirksame Differenz.";
+    }
+    else if (s <= 79) {
+      category = "Intensiv realitätsseitig";
+      effect = "Die Realität liegt sehr deutlich über deiner gesetzten Ausrichtung.";
+    }
+    else {
+      category = "Extrem realitätsseitig";
+      effect = "Die wirksame Differenz zwischen Realität und deiner gesetzten Ausrichtung ist außergewöhnlich groß.";
+    }
+  }
 }
 
 
 
 //.............................................................................
 //.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
 
 
 if (lageCode === "0P0") {
@@ -2075,173 +2009,223 @@ if (lageCode === "0P0") {
 }
 
 
-//.............................................................................
-//.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 
 if (lageCode === "PP0") {
 
-    lageText = "Ideal: positiv, Realität: positiv, Rückgrat: neutral";
+  lageText = "Ideal: positiv, Realität: positiv, Rückgrat: neutral";
 
-    const spannung = I - R;      // -9 bis +9
-    const s = Math.abs(spannung);
+  const spannung = I - R;
+  const s = Math.abs(spannung);
 
-    // =========================
-    // 1. BALANCE
-    // =========================
-    if (spannung === 0) {
-        category = "Stabil ohne Impuls";
-        effect = "Ideal und Realität passen, aber ohne Rückgrat entsteht keine aktive Entwicklung.";
+  if (spannung === 0) {
+    category = "Übereinstimmend neutral";
+    effect = "Ideal und Realität stimmen überein. Gleichzeitig zeigt sich aktuell keine gerichtete Umsetzung.";
+  }
+
+  else if (spannung > 0) {
+    if (s <= 1) {
+      category = "Leichte offene Differenz";
+      effect = "Dein positives Ideal liegt leicht über der positiv erlebten Realität, ohne dass aktuell eine gerichtete Umsetzung erfolgt.";
     }
-
-    // =========================
-    // 2. UNGENUTZTE TRAGKRAFT (Ideal > Realität)
-    // =========================
-    else if (spannung > 0) {
-
-        if (s <= 1) {
-            category = "Leicht ungenutzt";
-            effect = "Du erkennst Potenzial, setzt es aber kaum um.";
-        }
-        else if (s <= 2) {
-            category = "Spürbar ungenutzt";
-            effect = "Erste Möglichkeiten bleiben liegen.";
-        }
-        else if (s <= 3) {
-            category = "Unterschätzt";
-            effect = "Du könntest mehr erreichen, bleibst aber passiv.";
-        }
-        else if (s <= 4) {
-            category = "Deutlich ungenutzt";
-            effect = "Dein Anspruch ist da, aber ohne Umsetzung bleibt er wirkungslos.";
-        }
-        else if (s <= 5) {
-            category = "Stark ungenutzt";
-            effect = "Du nutzt vorhandene Chancen nicht.";
-        }
-        else if (s <= 6) {
-            category = "Sehr stark ungenutzt";
-            effect = "Großes Potenzial ist vorhanden, bleibt aber durch fehlende Umsetzung ungenutzt.";
-        }
-        else if (s <= 7) {
-            category = "Massiv ungenutzt";
-            effect = "Großes Potenzial bleibt komplett liegen.";
-        }
-        else if (s <= 8) {
-            category = "Extrem ungenutzt";
-            effect = "Du verhinderst unbewusst mögliche Entwicklung.";
-        }
-        else {
-            category = "Blockierte Tragkraft";
-            effect = "Maximales Potenzial wird vollständig verschenkt.";
-        }
+    else if (s <= 2) {
+      category = "Kleine offene Differenz";
+      effect = "Zwischen Ideal und Realität besteht eine kleine Differenz bei neutraler Umsetzung.";
     }
-
-    // =========================
-    // 3. REALITÄT ÜBER IDEAL (Ideal < Realität)
-    // =========================
+    else if (s <= 3) {
+      category = "Erkennbare offene Differenz";
+      effect = "Ideal und Realität unterscheiden sich erkennbar, während deine Umsetzung neutral bleibt.";
+    }
+    else if (s <= 4) {
+      category = "Mittlere offene Differenz";
+      effect = "Die Differenz zwischen Ideal und Realität ist spürbar; aktuell erfolgt keine gerichtete Umsetzung.";
+    }
+    else if (s <= 5) {
+      category = "Deutliche offene Differenz";
+      effect = "Dein Ideal liegt deutlich über der Realität, während die Umsetzung neutral bleibt.";
+    }
+    else if (s <= 6) {
+      category = "Starke offene Differenz";
+      effect = "Zwischen deinem positiven Ideal und der Realität besteht eine starke Differenz ohne gerichtete Umsetzung.";
+    }
+    else if (s <= 7) {
+      category = "Sehr starke offene Differenz";
+      effect = "Die Differenz zwischen Ideal und Realität ist sehr deutlich, während die Umsetzung neutral bleibt.";
+    }
+    else if (s <= 8) {
+      category = "Intensive offene Differenz";
+      effect = "Ideal und Realität liegen weit auseinander. Eine gerichtete Umsetzung zeigt sich aktuell nicht.";
+    }
     else {
-
-        if (s <= 1) {
-            category = "Leicht unter Anspruch";
-            effect = "Die Realität ist besser als dein Anspruch, du nutzt sie kaum.";
-        }
-        else if (s <= 2) {
-            category = "Passiv in guter Lage";
-            effect = "Du bleibst unter deinen Möglichkeiten.";
-        }
-        else if (s <= 3) {
-            category = "Unterschätzt";
-            effect = "Du erkennst die Stärke deiner Situation nicht.";
-        }
-        else if (s <= 4) {
-            category = "Deutlich unterfordert";
-            effect = "Du nutzt deine gute Lage nicht bewusst.";
-        }
-        else if (s <= 5) {
-            category = "Stark unterfordert";
-            effect = "Du bleibst weit unter deinen Möglichkeiten.";
-        }
-        else if (s <= 6) {
-            category = "Sehr stark unterfordert";
-            effect = "Du lässt klare Chancen ungenutzt.";
-        }
-        else if (s <= 7) {
-            category = "Massiv unterfordert";
-            effect = "Deine Realität ist deutlich stärker als dein Anspruch.";
-        }
-        else if (s <= 8) {
-            category = "Extrem unterfordert";
-            effect = "Du erkennst die Qualität deiner Lage kaum.";
-        }
-        else {
-            category = "Verloren im Positiven";
-            effect = "Maximal gute Realität bleibt komplett ungenutzt.";
-        }
+      category = "Maximale offene Differenz";
+      effect = "Zwischen positivem Ideal und positiv erlebter Realität besteht innerhalb dieses Lagecodes eine sehr große Differenz bei neutraler Umsetzung.";
     }
-}
+  }
 
-
-//.............................................................................
-//.............................................................................
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-
-
-
-if (lageCode === "P00") {
-
-    if (I === 1) {
-        category = "Minimal ungenutzt";
-        effect = "Ein positives Ideal ist angedeutet, bleibt aber ohne Rückgrat praktisch wirkungslos.";
-
-    } else if (I === 2) {
-        category = "Leicht ungenutzt";
-        effect = "Du hast ein positives Ideal, setzt es aber kaum um.";
-
-    } else if (I === 3) {
-        category = "Mäßig ungenutzt";
-        effect = "Eine gute Richtung ist erkennbar, bleibt aber ohne Umsetzung schwach.";
-
-    } else if (I === 4) {
-        category = "Ungenutzt";
-        effect = "Du erkennst eine gute Richtung, bringst sie aber nicht in Umsetzung.";
-
-    } else if (I === 5) {
-        category = "Spürbar ungenutzt";
-        effect = "Dein positives Ideal ist klar vorhanden, bleibt aber ohne Rückgrat weitgehend liegen.";
-
-    } else if (I === 6) {
-        category = "Deutlich ungenutzt";
-        effect = "Du weißt, was richtig wäre, lässt es aber ohne Umsetzung stehen.";
-
-    } else if (I === 7) {
-        category = "Stark ungenutzt";
-        effect = "Du hast eine klare Richtung, setzt sie aber nicht in Handlung um.";
-
-    } else if (I === 8) {
-        category = "Sehr stark ungenutzt";
-        effect = "Ein starkes positives Ideal bleibt ohne Rückgrat deutlich unter seiner möglichen Wirkung.";
-
-    } else if (I === 9) {
-        category = "Massiv ungenutzt";
-        effect = "Ein sehr starkes positives Ideal bleibt nahezu vollständig ohne Umsetzung.";
-
-    } else {
-        category = "Vollständig liegengeblieben";
-        effect = "Du hast ein maximal positives Ideal, setzt es aber überhaupt nicht um.";
+  else {
+    if (s <= 1) {
+      category = "Leicht realitätsseitig neutral";
+      effect = "Die positiv erlebte Realität liegt leicht über deinem Ideal; deine Umsetzung bleibt neutral.";
     }
+    else if (s <= 2) {
+      category = "Realitätsseitig neutral";
+      effect = "Die Realität liegt über deinem Ideal, ohne dass aktuell eine gerichtete Umsetzung erfolgt.";
+    }
+    else if (s <= 3) {
+      category = "Erkennbar realitätsseitig";
+      effect = "Die positive Realität liegt erkennbar über deinem gesetzten Ideal.";
+    }
+    else if (s <= 4) {
+      category = "Deutlich realitätsseitig";
+      effect = "Zwischen Realität und Ideal besteht eine deutliche Differenz zugunsten der Realität.";
+    }
+    else if (s <= 5) {
+      category = "Stark realitätsseitig";
+      effect = "Die Realität liegt deutlich über deinem Ideal, während die Umsetzung neutral bleibt.";
+    }
+    else if (s <= 6) {
+      category = "Sehr stark realitätsseitig";
+      effect = "Die Differenz zugunsten der Realität ist stark ausgeprägt.";
+    }
+    else if (s <= 7) {
+      category = "Intensiv realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt weit über deinem derzeitigen Ideal.";
+    }
+    else if (s <= 8) {
+      category = "Sehr intensiv realitätsseitig";
+      effect = "Die Differenz zwischen Realität und Ideal ist sehr groß.";
+    }
+    else {
+      category = "Extrem realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt innerhalb dieses Lagecodes außergewöhnlich weit über deinem Ideal.";
+    }
+  }
 }
 
 
 
+
+
 //.............................................................................
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
+
+if (lageCode === "PP0") {
+
+  lageText = "Ideal: positiv, Realität: positiv, Rückgrat: neutral";
+
+  const spannung = I - R;
+  const s = Math.abs(spannung);
+
+  if (spannung === 0) {
+    category = "Übereinstimmend neutral";
+    effect = "Ideal und Realität stimmen überein. Gleichzeitig zeigt sich aktuell keine gerichtete Umsetzung.";
+  }
+
+  else if (spannung > 0) {
+    if (s <= 1) {
+      category = "Leichte offene Differenz";
+      effect = "Dein positives Ideal liegt leicht über der positiv erlebten Realität, ohne dass aktuell eine gerichtete Umsetzung erfolgt.";
+    }
+    else if (s <= 2) {
+      category = "Kleine offene Differenz";
+      effect = "Zwischen Ideal und Realität besteht eine kleine Differenz bei neutraler Umsetzung.";
+    }
+    else if (s <= 3) {
+      category = "Erkennbare offene Differenz";
+      effect = "Ideal und Realität unterscheiden sich erkennbar, während deine Umsetzung neutral bleibt.";
+    }
+    else if (s <= 4) {
+      category = "Mittlere offene Differenz";
+      effect = "Die Differenz zwischen Ideal und Realität ist spürbar; aktuell erfolgt keine gerichtete Umsetzung.";
+    }
+    else if (s <= 5) {
+      category = "Deutliche offene Differenz";
+      effect = "Dein Ideal liegt deutlich über der Realität, während die Umsetzung neutral bleibt.";
+    }
+    else if (s <= 6) {
+      category = "Starke offene Differenz";
+      effect = "Zwischen deinem positiven Ideal und der Realität besteht eine starke Differenz ohne gerichtete Umsetzung.";
+    }
+    else if (s <= 7) {
+      category = "Sehr starke offene Differenz";
+      effect = "Die Differenz zwischen Ideal und Realität ist sehr deutlich, während die Umsetzung neutral bleibt.";
+    }
+    else if (s <= 8) {
+      category = "Intensive offene Differenz";
+      effect = "Ideal und Realität liegen weit auseinander. Eine gerichtete Umsetzung zeigt sich aktuell nicht.";
+    }
+    else {
+      category = "Maximale offene Differenz";
+      effect = "Zwischen positivem Ideal und positiv erlebter Realität besteht innerhalb dieses Lagecodes eine sehr große Differenz bei neutraler Umsetzung.";
+    }
+  }
+
+  else {
+    if (s <= 1) {
+      category = "Leicht realitätsseitig neutral";
+      effect = "Die positiv erlebte Realität liegt leicht über deinem Ideal; deine Umsetzung bleibt neutral.";
+    }
+    else if (s <= 2) {
+      category = "Realitätsseitig neutral";
+      effect = "Die Realität liegt über deinem Ideal, ohne dass aktuell eine gerichtete Umsetzung erfolgt.";
+    }
+    else if (s <= 3) {
+      category = "Erkennbar realitätsseitig";
+      effect = "Die positive Realität liegt erkennbar über deinem gesetzten Ideal.";
+    }
+    else if (s <= 4) {
+      category = "Deutlich realitätsseitig";
+      effect = "Zwischen Realität und Ideal besteht eine deutliche Differenz zugunsten der Realität.";
+    }
+    else if (s <= 5) {
+      category = "Stark realitätsseitig";
+      effect = "Die Realität liegt deutlich über deinem Ideal, während die Umsetzung neutral bleibt.";
+    }
+    else if (s <= 6) {
+      category = "Sehr stark realitätsseitig";
+      effect = "Die Differenz zugunsten der Realität ist stark ausgeprägt.";
+    }
+    else if (s <= 7) {
+      category = "Intensiv realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt weit über deinem derzeitigen Ideal.";
+    }
+    else if (s <= 8) {
+      category = "Sehr intensiv realitätsseitig";
+      effect = "Die Differenz zwischen Realität und Ideal ist sehr groß.";
+    }
+    else {
+      category = "Extrem realitätsseitig";
+      effect = "Die positiv erlebte Realität liegt innerhalb dieses Lagecodes außergewöhnlich weit über deinem Ideal.";
+    }
+  }
+}
+
+
+
+
+
+//.............................................................................
+//.............................................................................
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
 
 
 
@@ -2269,7 +2253,7 @@ if (delta <= 2) {
     effect = "Du weißt, was zu tun wäre – aber ohne Rückgrat bleibst du unter Druck handlungsunfähig.";
 } else if (delta <= 14) {
     category = "Stark gelähmt";
-    effect = "Die Spannung zwischen positivem Ideal und negativer Realität ist hoch, ohne Rückgrat keine Auflösung.";
+    effect = "Die Spannung zwischen positivem Ideal und negativer Realität ist hoch – ohne Rückgrat keine Auflösung.";
 } else if (delta <= 18) {
     category = "Massiv gelähmt";
     effect = "Ein starkes positives Ideal trifft auf schwere Belastung, ohne Rückgrat ist keine Wirkung möglich.";
@@ -2338,32 +2322,38 @@ if (lageCode === "0PP") {
   const spannung = I - R;
   const H = spannung * G;
   const s = Math.abs(H);
-  const kraft = Math.abs(G);
 
   if (s <= 4) {
-    category = "Minimal verstärkend";
-    effect = "Du gibst einer positiven Situation einen leichten zusätzlichen Impuls.";
-  } else if (s <= 9) {
-    category = "Leicht verstärkend";
-    effect = "Du unterstützt eine gute Situation spürbar.";
-  } else if (s <= 14) {
-    category = "Verstärkend";
-    effect = "Du stärkst eine bereits positive Lage aktiv.";
-  } else if (s <= 29) {
-    category = "Deutlich verstärkend";
-    effect = "Du baust eine gute Situation gezielt weiter aus.";
-  } else if (s <= 49) {
-    category = "Stark verstärkend";
-    effect = "Du treibst eine positive Entwicklung aktiv voran.";
-  } else if (s <= 64) {
-    category = "Sehr stark verstärkend";
-    effect = "Du gibst einer positiven Lage maximale Dynamik.";
-  } else if (s <= 79) {
-    category = "Dominant verstärkend";
-    effect = "Du überprägst eine positive Lage mit sehr viel Einfluss.";
-  } else {
-    category = "Überdreht verstärkend";
-    effect = "Du verstärkst die Situation maximal, die Balance gerät unter Druck.";
+    category = "Leicht positiv reagierend";
+    effect = "Bei neutraler eigener Ausrichtung erlebst du die Realität positiv und reagierst leicht in positive Richtung.";
+  }
+  else if (s <= 9) {
+    category = "Positiv reagierend";
+    effect = "Bei neutraler Ausrichtung reagierst du erkennbar positiv auf die positiv erlebte Realität.";
+  }
+  else if (s <= 14) {
+    category = "Klar positiv reagierend";
+    effect = "Deine positive Reaktion auf die positiv erlebte Realität ist klar ausgeprägt.";
+  }
+  else if (s <= 29) {
+    category = "Deutlich positiv reagierend";
+    effect = "Obwohl deine eigene Ausrichtung neutral ist, reagierst du deutlich positiv auf die aktuelle Realität.";
+  }
+  else if (s <= 49) {
+    category = "Stark positiv reagierend";
+    effect = "Deine Reaktion auf die positiv erlebte Realität ist stark positiv gerichtet.";
+  }
+  else if (s <= 64) {
+    category = "Sehr stark positiv reagierend";
+    effect = "Bei neutraler Ausrichtung reagierst du mit hoher Intensität positiv auf die Realität.";
+  }
+  else if (s <= 79) {
+    category = "Intensiv positiv reagierend";
+    effect = "Die positive Reaktionsrichtung ist bei neutraler eigener Ausrichtung sehr stark ausgeprägt.";
+  }
+  else {
+    category = "Extrem positiv reagierend";
+    effect = "Deine positive Reaktion auf die positiv erlebte Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
   }
 }
 
@@ -2382,63 +2372,39 @@ if (lageCode === "0PN") {
   const spannung = I - R;
   const H = spannung * G;
   const s = Math.abs(H);
-  const kraft = Math.abs(G);
 
-  // ===============================
-  // 1. BALANCE
-  // ===============================
-  if (spannung === 0) {
-
-    if (kraft >= 8) {
-      category = "Instabil passiv";
-      effect = "Du bringst Unsicherheit in eine eigentlich stabile Situation.";
-    } else {
-      category = "Passiv stabil";
-      effect = "Die positive Lage bleibt bestehen, ohne dein aktives Zutun.";
-    }
-
+  if (s <= 4) {
+    category = "Leicht negativ reagierend";
+    effect = "Bei neutraler eigener Ausrichtung erlebst du die Realität positiv, reagierst jedoch leicht in negative Richtung.";
   }
-
-  // ===============================
-  // 2. PASSIVE ANPASSUNG / RÜCKZUG (6 STUFEN)
-  // ===============================
-  else if (spannung < 0) {
-
-    if (s <= 4) {
-    category = "Irritierend";
-    effect = "Du setzt kleine Störimpulse in eine funktionierende Situation.";
-
-} else if (s <= 9) {
-    category = "Verunsichernd";
-    effect = "Du bringst eine gute Dynamik leicht aus dem Gleichgewicht.";
-
-} else if (s <= 14) {
-    category = "Bremsend";
-    effect = "Du nimmst einer positiven Entwicklung spürbar Tempo.";
-
-} else if (s <= 29) {
-    category = "Gegenwirkend";
-    effect = "Du arbeitest aktiv gegen eine funktionierende Entwicklung.";
-
-} else if (s <= 49) {
-    category = "Blockierend";
-    effect = "Du verhinderst gezielt Fortschritt.";
-
-} else if (s <= 64) {
-    category = "Stark blockierend";
-    effect = "Du drückst eine gute Dynamik systematisch zurück.";
-
-} else if (s <= 79) {
-    category = "Unterdrückend";
-    effect = "Du hältst eine positive Entwicklung bewusst klein.";
-
-} else {
-    category = "Zerstörend";
-    effect = "Du kehrst eine funktionierende Situation aktiv ins Negative.";
-}
-
+  else if (s <= 9) {
+    category = "Negativ reagierend";
+    effect = "Deine Reaktion weist bei positiv erlebter Realität in negative Richtung. Prüfe, wodurch diese Gegenrichtung entsteht.";
   }
-
+  else if (s <= 14) {
+    category = "Klar negativ reagierend";
+    effect = "Die negative Reaktionsrichtung gegenüber der positiv erlebten Realität ist klar erkennbar.";
+  }
+  else if (s <= 29) {
+    category = "Deutlich negativ reagierend";
+    effect = "Bei neutraler eigener Ausrichtung reagierst du deutlich negativ auf eine positiv erlebte Realität.";
+  }
+  else if (s <= 49) {
+    category = "Stark negativ reagierend";
+    effect = "Die negative Reaktionsrichtung gegenüber der positiv erlebten Realität ist stark ausgeprägt.";
+  }
+  else if (s <= 64) {
+    category = "Sehr stark negativ reagierend";
+    effect = "Du reagierst mit hoher Intensität negativ auf die positiv erlebte Realität. Prüfe diese Gegenläufigkeit bewusst.";
+  }
+  else if (s <= 79) {
+    category = "Intensiv negativ reagierend";
+    effect = "Die negative Reaktionsrichtung bei positiv erlebter Realität ist sehr stark ausgeprägt.";
+  }
+  else {
+    category = "Extrem negativ reagierend";
+    effect = "Die negative Reaktionsrichtung gegenüber der positiv erlebten Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
+  }
 }
 
 
@@ -2451,50 +2417,10 @@ if (lageCode === "0PN") {
 
 if (lageCode === "00P") {
 
-lageText = "Ideal: neutral, Realität: neutral, Rückgrat: positiv";
+  lageText = "Ideal: neutral, Realität: neutral, Rückgrat: positiv";
 
-const spannung = I - R;   // = 0
-const H = spannung * G;   // = 0
-const s = Math.abs(H);    // = 0
-const kraft = Math.abs(G);
-
-// ==========================================
-// EINZIGER REALER FALL → ENERGIE OHNE RICHTUNG
-// ==========================================
-
-if (kraft <= 1) {
-    category = "Neutral passiv";
-    effect = "Es entsteht weder Spannung noch Bewegung, du bleibst vollständig inaktiv.";
-
-} else if (kraft <= 2) {
-    category = "Minimal aktiv";
-    effect = "Du setzt erste, kaum spürbare Impulse in eine neutrale Situation.";
-
-} else if (kraft <= 3) {
-    category = "Leicht aktivierend";
-    effect = "Du bringst leichte Bewegung in eine offene, neutrale Lage.";
-
-} else if (kraft <= 4) {
-    category = "Aktivierend";
-    effect = "Du erzeugst erste erkennbare Dynamik ohne klare Zielrichtung.";
-
-} else if (kraft <= 5) {
-    category = "Deutlich aktivierend";
-    effect = "Du bringst spürbare Bewegung in die Situation, ohne sie gezielt zu steuern.";
-
-} else if (kraft <= 6) {
-    category = "Dynamisch suchend";
-    effect = "Du erzeugst Aktivität und beginnst, eine mögliche Richtung zu erkunden.";
-
-} else if (kraft <= 8) {
-    category = "Stark aktivierend";
-    effect = "Du treibst Bewegung stark voran, auch ohne klare Orientierung.";
-
-} else {
-    category = "Überaktiv ungerichtet";
-    effect = "Du setzt maximale Energie ein, ohne klare Richtung, Aktivität ohne Ziel.";
-}
-
+  category = "Positive Reaktionsbereitschaft bei neutraler Lage";
+  effect = "Ideal und Realität sind neutral bewertet. Deine Reaktionsrichtung ist positiv, ohne dass daraus in dieser Konstellation eine Spannung zwischen Ideal und Realität entsteht.";
 }
 
 
@@ -2514,50 +2440,10 @@ if (kraft <= 1) {
 
 if (lageCode === "00N") {
 
-lageText = "Ideal: neutral, Realität: neutral, Rückgrat: negativ";
+  lageText = "Ideal: neutral, Realität: neutral, Rückgrat: negativ";
 
-const spannung = I - R;   // = 0
-const H = spannung * G;   // = 0
-const s = Math.abs(H);    // = 0
-const kraft = Math.abs(G);
-
-// ==========================================
-// EINZIGER REALER FALL → NEGATIVE IMPULSE OHNE ANLASS
-// ==========================================
-
-if (kraft <= 1) {
-    category = "Neutral passiv";
-    effect = "Es entsteht weder Spannung noch Störung, du bleibst vollständig neutral.";
-
-} else if (kraft <= 2) {
-    category = "Minimal störend";
-    effect = "Du bringst minimale Unruhe in eine eigentlich neutrale Situation.";
-
-} else if (kraft <= 3) {
-    category = "Irritierend";
-    effect = "Du erzeugst leichte Reibung ohne erkennbaren Anlass.";
-
-} else if (kraft <= 4) {
-    category = "Störend";
-    effect = "Du bringst spürbare Unruhe in eine stabile, neutrale Lage.";
-
-} else if (kraft <= 5) {
-    category = "Deutlich störend";
-    effect = "Du beeinflusst die Situation negativ, obwohl kein Grund dafür besteht.";
-
-} else if (kraft <= 6) {
-    category = "Negativ prägend";
-    effect = "Du gibst einer neutralen Situation eine unnötig negative Richtung.";
-
-} else if (kraft <= 8) {
-    category = "Destabilisierend";
-    effect = "Du bringst eine neutrale Situation aktiv aus dem Gleichgewicht.";
-
-} else {
-    category = "Systemstörend";
-    effect = "Du wirkst massiv störend, ohne Anlass und ohne konstruktive Richtung.";
-}
-
+  category = "Negative Reaktionsrichtung bei neutraler Lage";
+  effect = "Ideal und Realität sind neutral bewertet. Deine Reaktionsrichtung ist negativ, ohne dass daraus in dieser Konstellation eine Spannung zwischen Ideal und Realität entsteht.";
 }
 
 
@@ -2570,53 +2456,44 @@ if (kraft <= 1) {
 
 if (lageCode === "0NP") {
 
-lageText = "Ideal: neutral, Realität: negativ, Rückgrat: positiv";
+  lageText = "Ideal: neutral, Realität: negativ, Rückgrat: positiv";
 
-const spannung = I - R;   // > 0
-const H = spannung * G;   // > 0
-const s = Math.abs(H);    // > 0
-const kraft = Math.abs(G);
+  const spannung = I - R;
+  const H = spannung * G;
+  const s = Math.abs(H);
 
-// ==========================================
-// EINZIG REALER FALL → REAKTION AUF NEGATIVE REALITÄT
-// OHNE EIGENE RICHTUNG (kein Ideal)
-// ==========================================
-
-if (s <= 4) {
-    category = "Minimal reagierend";
-    effect = "Du reagierst leicht auf eine negative Situation, bleibst aber ohne klare Linie.";
-
-} else if (s <= 9) {
-    category = "Leicht reagierend";
-    effect = "Du setzt erste Gegenimpulse, aber noch ohne stabile Ausrichtung.";
-
-} else if (s <= 14) {
-    category = "Reagierend";
-    effect = "Du gehst aktiv gegen die negative Situation vor, jedoch eher situativ als geführt.";
-
-} else if (s <= 29) {
-    category = (kraft >= 7) ? "Impulsiv ordnend" : "Deutlich reagierend";
-    effect = (kraft >= 7)
-        ? "Du greifst stark ein und bringst Bewegung in die Lage, aber ohne klare Zielstruktur."
-        : "Du wirkst klar gegen die negative Lage, bleibst jedoch ohne langfristige Richtung.";
-
-} else if (s <= 49) {
-    category = "Ordnung schaffend";
-    effect = "Du bringst Struktur in die negative Situation, ohne sie gezielt neu auszurichten.";
-
-} else if (s <= 64) {
-    category = "Stark ordnend";
-    effect = "Du ordnest eine schwierige Lage deutlich, handelst aber weiterhin reaktiv.";
-
-} else if (s <= 79) {
-    category = "Dominant reagierend";
-    effect = "Du bestimmst die Situation stark, jedoch ohne klare innere Zielrichtung.";
-
-} else {
-    category = "Übersteuernd";
-    effect = "Du setzt maximale Energie gegen die Situation ein und verlierst dabei die Balance.";
-}
-
+  if (s <= 4) {
+    category = "Leicht positiv reagierend";
+    effect = "Bei neutraler eigener Ausrichtung reagierst du leicht positiv auf die negativ erlebte Realität.";
+  }
+  else if (s <= 9) {
+    category = "Positiv reagierend";
+    effect = "Deine Reaktion auf die negativ erlebte Realität weist erkennbar in positive Richtung.";
+  }
+  else if (s <= 14) {
+    category = "Klar positiv reagierend";
+    effect = "Bei neutraler eigener Ausrichtung ist deine positive Reaktionsrichtung klar ausgeprägt.";
+  }
+  else if (s <= 29) {
+    category = "Deutlich positiv reagierend";
+    effect = "Du reagierst deutlich positiv auf die negativ erlebte Realität, ohne zuvor eine eigene positive oder negative Ausrichtung gesetzt zu haben.";
+  }
+  else if (s <= 49) {
+    category = "Stark positiv reagierend";
+    effect = "Die positive Reaktionsrichtung gegenüber der negativ erlebten Realität ist stark ausgeprägt.";
+  }
+  else if (s <= 64) {
+    category = "Sehr stark positiv reagierend";
+    effect = "Du reagierst mit hoher Intensität positiv auf die negativ erlebte Realität.";
+  }
+  else if (s <= 79) {
+    category = "Intensiv positiv reagierend";
+    effect = "Die positive Reaktionsrichtung bei negativ erlebter Realität ist sehr stark ausgeprägt.";
+  }
+  else {
+    category = "Extrem positiv reagierend";
+    effect = "Die positive Reaktionsrichtung gegenüber der negativ erlebten Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
+  }
 }
 
 
@@ -2691,49 +2568,44 @@ if (rAbs === 1) {
 
 if (lageCode === "0NN") {
 
-lageText = "Ideal: neutral, Realität: negativ, Rückgrat: negativ";
+  lageText = "Ideal: neutral, Realität: negativ, Rückgrat: negativ";
 
-const spannung = I - R;   // > 0
-const H = spannung * G;   // < 0
-const s = Math.abs(H);    // > 0
+  const spannung = I - R;
+  const H = spannung * G;
+  const s = Math.abs(H);
 
-// ==========================================
-// EINZIG REALER FALL → NEGATIVE VERSTÄRKUNG
-// ==========================================
-
-if (s <= 4) {
-    category = "Leicht fehlleitend";
-    effect = "Du reagierst auf eine negative Situation, verschlechterst sie aber leicht.";
-
-} else if (s <= 9) {
-    category = "Fehlleitend";
-    effect = "Du wirkst gegen die Situation, trägst aber zur Verschlechterung bei.";
-
-} else if (s <= 14) {
-    category = "Deutlich fehlleitend";
-    effect = "Dein Handeln verschärft die negative Lage spürbar.";
-
-} else if (s <= 29) {
-    category = "Negativ verstärkend";
-    effect = "Du verstärkst eine bereits negative Situation aktiv.";
-
-} else if (s <= 49) {
-    category = "Verschärfend";
-    effect = "Du verschlimmerst die Situation deutlich durch dein Verhalten.";
-
-} else if (s <= 64) {
-    category = "Stark verschärfend";
-    effect = "Du treibst die negative Entwicklung aktiv weiter voran.";
-
-} else if (s <= 79) {
-    category = "Rückwärts wirkend";
-    effect = "Du arbeitest klar gegen eine Verbesserung und ziehst die Situation weiter nach unten.";
-
-} else {
-    category = "Massiv fehlwirkend";
-    effect = "Dein Handeln verschlechtert die Situation maximal und verhindert jede Verbesserung.";
-}
-
+  if (s <= 4) {
+    category = "Leicht negativ reagierend";
+    effect = "Bei neutraler eigener Ausrichtung reagierst du leicht negativ auf die negativ erlebte Realität.";
+  }
+  else if (s <= 9) {
+    category = "Negativ reagierend";
+    effect = "Deine Reaktion auf die negativ erlebte Realität weist erkennbar in negative Richtung.";
+  }
+  else if (s <= 14) {
+    category = "Klar negativ reagierend";
+    effect = "Bei neutraler eigener Ausrichtung ist deine negative Reaktionsrichtung klar ausgeprägt.";
+  }
+  else if (s <= 29) {
+    category = "Deutlich negativ reagierend";
+    effect = "Du reagierst deutlich negativ auf die negativ erlebte Realität.";
+  }
+  else if (s <= 49) {
+    category = "Stark negativ reagierend";
+    effect = "Die negative Reaktionsrichtung gegenüber der negativ erlebten Realität ist stark ausgeprägt.";
+  }
+  else if (s <= 64) {
+    category = "Sehr stark negativ reagierend";
+    effect = "Du reagierst mit hoher Intensität negativ auf die bereits negativ erlebte Realität.";
+  }
+  else if (s <= 79) {
+    category = "Intensiv negativ reagierend";
+    effect = "Die negative Reaktionsrichtung bei negativ erlebter Realität ist sehr stark ausgeprägt.";
+  }
+  else {
+    category = "Extrem negativ reagierend";
+    effect = "Die negative Reaktionsrichtung gegenüber der negativ erlebten Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
+  }
 }
 
 
@@ -2748,48 +2620,43 @@ if (s <= 4) {
 
 if (lageCode === "NP0") {
 
-lageText = "Ideal: negativ, Realität: positiv, Rückgrat: neutral";
+  lageText = "Ideal: negativ, Realität: positiv, Rückgrat: neutral";
 
-const spannung = I - R;            // –1 bis –20
-const delta = Math.abs(spannung);  // 1 bis 20
+  const spannung = I - R;
+  const delta = Math.abs(spannung);
 
-// ==========================================
-// EINZIG REALER FALL → GEGENLÄUFIGE STRUKTUR OHNE WIRKUNG
-// ==========================================
-
-if (delta <= 2) {
-    category = "Leicht gegenläufig";
-    effect = "Ideal und Realität unterscheiden sich leicht, ohne dass eine Wirkung entsteht.";
-
-} else if (delta <= 4) {
-    category = "Gegenläufig";
-    effect = "Ideal und Realität weichen voneinander ab, bleiben jedoch ohne Auswirkung.";
-
-} else if (delta <= 6) {
-    category = "Spürbar gegenläufig";
-    effect = "Die Abweichung ist erkennbar, bleibt jedoch wirkungslos.";
-
-} else if (delta <= 8) {
-    category = "Deutlich gegenläufig";
-    effect = "Ideal und Realität stehen klar gegeneinander, ohne dass etwas verändert wird.";
-
-} else if (delta <= 10) {
-    category = "Stark gegenläufig";
-    effect = "Die Differenz ist deutlich, bleibt jedoch ohne Einfluss.";
-
-} else if (delta <= 14) {
-    category = "Widersprüchlich";
-    effect = "Ideal und Realität stehen im starken Gegensatz, ohne Anpassung.";
-
-} else if (delta <= 18) {
-    category = "Grundlegend widersprüchlich";
-    effect = "Die Struktur ist deutlich gegensätzlich und bleibt unverändert.";
-
-} else {
-    category = "Vollständig entkoppelt";
-    effect = "Ideal und Realität stehen maximal im Gegensatz und bleiben ohne jede Wirkung bestehen.";
-}
-
+  if (delta <= 2) {
+    category = "Leichte offene Gegenläufigkeit";
+    effect = "Negative Ausrichtung und positiv erlebte Realität unterscheiden sich leicht; aktuell erfolgt keine gerichtete Umsetzung.";
+  }
+  else if (delta <= 4) {
+    category = "Offene Gegenläufigkeit";
+    effect = "Zwischen negativer Ausrichtung und positiver Realität besteht eine erkennbare Differenz bei neutraler Umsetzung.";
+  }
+  else if (delta <= 6) {
+    category = "Erkennbare offene Gegenläufigkeit";
+    effect = "Ausrichtung und Realität unterscheiden sich deutlich, während deine Umsetzung neutral bleibt.";
+  }
+  else if (delta <= 8) {
+    category = "Deutliche offene Gegenläufigkeit";
+    effect = "Negative Ausrichtung und positive Realität stehen deutlich auseinander; eine Umsetzungsrichtung zeigt sich aktuell nicht.";
+  }
+  else if (delta <= 10) {
+    category = "Starke offene Gegenläufigkeit";
+    effect = "Zwischen negativer Ausrichtung und positiver Realität besteht eine starke Differenz bei neutraler Umsetzung.";
+  }
+  else if (delta <= 14) {
+    category = "Sehr starke offene Gegenläufigkeit";
+    effect = "Ausrichtung und Realität liegen weit auseinander, während die Umsetzung neutral bleibt.";
+  }
+  else if (delta <= 18) {
+    category = "Intensive offene Gegenläufigkeit";
+    effect = "Die Differenz zwischen negativer Ausrichtung und positiver Realität ist sehr groß; aktuell erfolgt keine gerichtete Umsetzung.";
+  }
+  else {
+    category = "Maximale offene Gegenläufigkeit";
+    effect = "Negative Ausrichtung und positiv erlebte Realität liegen nahezu maximal auseinander, während die Umsetzung neutral bleibt.";
+  }
 }
 
 
@@ -2804,41 +2671,44 @@ if (delta <= 2) {
 
 if (lageCode === "N0P") {
 
-lageText = "Ideal: negativ, Realität: neutral, Rückgrat: positiv";
+  lageText = "Ideal: negativ, Realität: neutral, Rückgrat: positiv";
 
-const spannung = I - R;   // < 0
-const H = spannung * G;   // < 0
-const s = Math.abs(H);    // > 0
+  const spannung = I - R;
+  const H = spannung * G;
+  const s = Math.abs(H);
 
-// ==========================================
-// EINZIG REALER FALL → AKTIVE GEGENLÄUFIGE EINWIRKUNG
-// ==========================================
-
-if (s <= 4) {
-    category = "Leicht negativ einwirkend";
-    effect = "Du bringst erste negative Impulse in eine neutrale Situation.";
-} else if (s <= 9) {
-    category = "Negativ einwirkend";
-    effect = "Du lenkst die neutrale Lage spürbar in eine negative Richtung.";
-} else if (s <= 14) {
-    category = "Deutlich negativ einwirkend";
-    effect = "Du gibst der Situation eine klar negative Richtung.";
-} else if (s <= 29) {
-    category = "Negativ prägend";
-    effect = "Du formst die neutrale Situation aktiv in eine negative Ausrichtung.";
-} else if (s <= 49) {
-    category = "Stark negativ prägend";
-    effect = "Du bestimmst die Entwicklung deutlich in eine negative Richtung.";
-} else if (s <= 64) {
-    category = "Dominant negativ";
-    effect = "Du setzt deine negative Ausrichtung klar und aktiv durch.";
-} else if (s <= 79) {
-    category = "Massiv negativ prägend";
-    effect = "Du überformst die Situation vollständig in eine negative Struktur.";
-} else {
-    category = "Zerstörerisch einwirkend";
-    effect = "Du verwandelst eine neutrale Situation maximal in eine negative Realität.";
-}
+  if (s <= 4) {
+    category = "Leicht negativ gerichtet";
+    effect = "Deine Ausrichtung ist negativ und deine Umsetzung folgt dieser Richtung gegenüber einer neutral bewerteten Realität.";
+  }
+  else if (s <= 9) {
+    category = "Negativ gerichtet";
+    effect = "Du setzt deine negative Ausrichtung gegenüber der neutral bewerteten Realität erkennbar um.";
+  }
+  else if (s <= 14) {
+    category = "Klar negativ gerichtet";
+    effect = "Die Umsetzung deiner negativen Ausrichtung ist klar ausgeprägt.";
+  }
+  else if (s <= 29) {
+    category = "Deutlich negativ gerichtet";
+    effect = "Deine Umsetzung folgt deutlich deiner negativen Ausrichtung gegenüber der neutralen Realität.";
+  }
+  else if (s <= 49) {
+    category = "Stark negativ gerichtet";
+    effect = "Die negative Umsetzungsrichtung ist stark ausgeprägt.";
+  }
+  else if (s <= 64) {
+    category = "Sehr stark negativ gerichtet";
+    effect = "Du setzt deine negative Ausrichtung mit hoher Intensität um.";
+  }
+  else if (s <= 79) {
+    category = "Intensiv negativ gerichtet";
+    effect = "Die Umsetzung deiner negativen Ausrichtung ist sehr stark ausgeprägt.";
+  }
+  else {
+    category = "Extrem negativ gerichtet";
+    effect = "Die Umsetzung deiner negativen Ausrichtung erreicht gegenüber der neutral bewerteten Realität eine außergewöhnlich hohe Intensität.";
+  }
 }
 
 
@@ -2850,39 +2720,43 @@ if (s <= 4) {
 
 if (lageCode === "N00") {
 
-lageText = "Ideal: negativ, Realität: neutral, Rückgrat: neutral";
+  lageText = "Ideal: negativ, Realität: neutral, Rückgrat: neutral";
 
-const delta = Math.abs(I);   // 1 bis 10
+  const delta = Math.abs(I);
 
-if (delta <= 1) {
-    category = "Minimal negativ ohne Wirkung";
-    effect = "Eine kaum merkliche negative Tendenz ist vorhanden, ohne jeden Einfluss nach außen.";
-} else if (delta <= 2) {
-    category = "Leicht negativ ohne Wirkung";
-    effect = "Eine leichte negative Ausrichtung ist angedeutet, bleibt aber vollständig wirkungslos.";
-} else if (delta <= 3) {
-    category = "Negativ ohne Wirkung";
-    effect = "Ein negatives Ideal steht der neutralen Realität gegenüber, ohne Einfluss zu nehmen.";
-} else if (delta <= 5) {
-    category = "Spürbar negativ ohne Wirkung";
-    effect = "Eine erkennbare negative Ausrichtung ist vorhanden, bleibt aber ohne Rückgrat stumm.";
-} else if (delta <= 6) {
-    category = "Deutlich negativ ohne Wirkung";
-    effect = "Eine klar negative Grundausrichtung bleibt ohne Rückgrat vollständig blockiert.";
-} else if (delta <= 7) {
-    category = "Stark negativ ohne Wirkung";
-    effect = "Ein starkes negatives Ideal entfaltet mangels Rückgrat keine äußere Wirkung.";
-} else if (delta <= 9) {
-    category = "Sehr stark negativ ohne Wirkung";
-    effect = "Ein sehr starkes negatives Ideal bleibt ohne Rückgrat vollständig im Verborgenen.";
-} else {
-    category = "Maximal negativ ohne Wirkung";
-    effect = "Maximales negatives Ideal trifft auf fehlendes Rückgrat, keine Wirkung, aber höchste innere Spannung.";
+  if (delta <= 1) {
+    category = "Minimal negative Ausrichtung";
+    effect = "Eine leicht negative Ausrichtung steht einer neutral bewerteten Realität gegenüber; die Umsetzung bleibt neutral.";
+  }
+  else if (delta <= 2) {
+    category = "Leicht negative Ausrichtung";
+    effect = "Deine Ausrichtung ist leicht negativ, während Realität und Umsetzung neutral bleiben.";
+  }
+  else if (delta <= 3) {
+    category = "Negative Ausrichtung";
+    effect = "Eine negative Ausrichtung ist erkennbar; aktuell erfolgt keine gerichtete Umsetzung.";
+  }
+  else if (delta <= 5) {
+    category = "Erkennbare negative Ausrichtung";
+    effect = "Deine negative Ausrichtung unterscheidet sich erkennbar von der neutral bewerteten Realität.";
+  }
+  else if (delta <= 6) {
+    category = "Deutliche negative Ausrichtung";
+    effect = "Die negative Ausrichtung ist deutlich ausgeprägt, während die Umsetzung neutral bleibt.";
+  }
+  else if (delta <= 7) {
+    category = "Starke negative Ausrichtung";
+    effect = "Deine negative Ausrichtung ist stark ausgeprägt; eine gerichtete Umsetzung zeigt sich aktuell nicht.";
+  }
+  else if (delta <= 9) {
+    category = "Sehr starke negative Ausrichtung";
+    effect = "Die negative Ausrichtung ist sehr deutlich, während Realität und Umsetzung neutral bewertet sind.";
+  }
+  else {
+    category = "Maximale negative Ausrichtung";
+    effect = "Deine negative Ausrichtung erreicht den höchsten negativen Skalenwert, während Realität und Umsetzung neutral bleiben.";
+  }
 }
-}
-
-
-
 
 
 
@@ -2894,35 +2768,42 @@ if (delta <= 1) {
 
 if (lageCode === "N0N") {
 
-lageText = "Ideal: negativ, Realität: neutral, Rückgrat: negativ";
+  lageText = "Ideal: negativ, Realität: neutral, Rückgrat: negativ";
 
-const s = Math.abs(H);
+  const s = Math.abs(H);
 
-if (s <= 4) {
-    category = "Minimal widersprüchlich";
-    effect = "Eine leichte negative Ausrichtung bleibt ohne Rückgrat kaum spürbar.";
-} else if (s <= 9) {
-    category = "Leicht widersprüchlich";
-    effect = "Eine negative Tendenz ist vorhanden, entfaltet aber keine äußere Wirkung.";
-} else if (s <= 14) {
-    category = "Widersprüchlich";
-    effect = "Negatives Ideal und fehlendes Rückgrat erzeugen innere Spannung ohne Ausdruck nach außen.";
-} else if (s <= 29) {
-    category = "Spürbar widersprüchlich";
-    effect = "Die innere Spannung ist erkennbar – nach außen bleibt sie jedoch wirkungslos.";
-} else if (s <= 49) {
-    category = "Deutlich widersprüchlich";
-    effect = "Negatives Ideal und fehlendes Rückgrat erzeugen starke innere Zerrissenheit.";
-} else if (s <= 64) {
-    category = "Stark widersprüchlich";
-    effect = "Eine starke negative Ausrichtung bleibt blockiert, die innere Belastung ist hoch.";
-} else if (s <= 79) {
-    category = "Massiv widersprüchlich";
-    effect = "Starkes negatives Ideal trifft auf völligen Rückgrat-Ausfall, dauerhaft belastend.";
-} else {
-    category = "Vollständig blockiert";
-    effect = "Maximaler innerer Widerspruch ohne jede Auflösung, höchste innere Spannung.";
-}
+  if (s <= 4) {
+    category = "Leichte Korrekturbewegung";
+    effect = "Deine Reaktion weist leicht gegen deine negative Ausrichtung bei neutral bewerteter Realität.";
+  }
+  else if (s <= 9) {
+    category = "Erkennbare Korrekturbewegung";
+    effect = "Du reagierst erkennbar gegen deine eigene negative Ausrichtung.";
+  }
+  else if (s <= 14) {
+    category = "Klare Korrekturbewegung";
+    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist klar ausgeprägt.";
+  }
+  else if (s <= 29) {
+    category = "Deutliche Korrekturbewegung";
+    effect = "Deine Reaktion weist deutlich gegen deine negative Ausrichtung. Prüfe, welche alternative Richtung sich daraus ergibt.";
+  }
+  else if (s <= 49) {
+    category = "Starke Korrekturbewegung";
+    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist stark ausgeprägt.";
+  }
+  else if (s <= 64) {
+    category = "Sehr starke Korrekturbewegung";
+    effect = "Du reagierst mit hoher Intensität gegen deine eigene negative Ausrichtung.";
+  }
+  else if (s <= 79) {
+    category = "Intensive Korrekturbewegung";
+    effect = "Die Gegenbewegung zur negativen Ausrichtung ist sehr stark ausgeprägt.";
+  }
+  else {
+    category = "Maximale Korrekturbewegung";
+    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung erreicht innerhalb dieses Modells eine maximale Intensität.";
+  }
 }
 
 
@@ -2938,26 +2819,14 @@ if (lageCode === "000") {
 
   const spannung = I - R;
 
-  // ===============================
-  // EINZIGER REALER ZUSTAND
-  // ===============================
   if (spannung === 0) {
-
-    category = "Neutraler Nullzustand";
-    effect = "Es besteht weder Anspruch noch Druck noch Handlung, die Situation ist vollständig statisch.";
-
+    category = "Neutraler Ausgangspunkt";
+    effect = "Ideal, Realität und Umsetzung sind neutral bewertet. In dieser Konstellation entsteht innerhalb der Formel keine Spannung.";
   }
-
-  // ===============================
-  // NICHT ERREICHBAR
-  // ===============================
   else {
-
     category = "Theoretischer Zustand";
-    effect = "Dieser Fall ist rechnerisch nicht erreichbar.";
-
+    effect = "Dieser Zustand ist bei Lagecode 000 rechnerisch nicht erreichbar.";
   }
-
 }
 
 
@@ -2969,76 +2838,57 @@ if (lageCode === "000") {
 
 if (lageCode === "NN0") {
 
-lageText = "Ideal: negativ, Realität: negativ, Rückgrat: neutral";
+  lageText = "Ideal: negativ, Realität: negativ, Rückgrat: neutral";
 
-const spannung = I - R;
-const d = Math.abs(spannung);
+  const spannung = I - R;
+  const delta = Math.abs(spannung);
 
-if (spannung === 0) {
-    category = "Stabil negativ";
-    effect = "Ideal und Realität sind gleich negativ, die Lage bleibt ohne Rückgrat unverändert stehen.";
-
-} else if (spannung < 0) {
-    // Realität weniger negativ als Ideal
-    if (d <= 1) {
-        category = "Minimal besser als erwartet";
-        effect = "Die Realität ist leicht weniger negativ als dein Ideal, kaum spürbar.";
-    } else if (d <= 2) {
-        category = "Leicht besser als erwartet";
-        effect = "Die Realität bleibt etwas weniger negativ als deine Ausrichtung.";
-    } else if (d <= 4) {
-        category = "Spürbar besser als erwartet";
-        effect = "Die Realität ist erkennbar weniger negativ als dein Ideal, ohne dass du es nutzt.";
-    } else if (d <= 5) {
-        category = "Deutlich besser als erwartet";
-        effect = "Die Realität weicht klar nach oben von deiner negativen Ausrichtung ab.";
-    } else if (d <= 6) {
-        category = "Stark besser als erwartet";
-        effect = "Die Realität ist deutlich weniger negativ als dein Ideal, ohne Rückgrat bleibt das ungenutzt.";
-    } else if (d <= 7) {
-        category = "Sehr stark besser als erwartet";
-        effect = "Die Situation liegt weit über deinem negativen Maßstab, du erkennst es nicht.";
-    } else if (d <= 8) {
-        category = "Massiv besser als erwartet";
-        effect = "Die Realität ist massiv weniger negativ als dein Ideal, ein ungenutzter Spielraum.";
-    } else {
-        category = "Maximal besser als erwartet";
-        effect = "Maximale Abweichung, die Realität ist weit weniger negativ als deine Ausrichtung, bleibt aber ohne Reaktion.";
-    }
-
-} else {
-    // Realität negativer als Ideal
-    if (d <= 1) {
-        category = "Minimal schlechter als erwartet";
-        effect = "Die Realität ist leicht negativer als dein Ideal, kaum spürbar.";
-    } else if (d <= 2) {
-        category = "Leicht schlechter als erwartet";
-        effect = "Die Realität ist etwas negativer als deine Ausrichtung.";
-    } else if (d <= 4) {
-        category = "Spürbar schlechter als erwartet";
-        effect = "Die Situation ist erkennbar negativer als dein Ideal, ohne Rückgrat bleibt das unbearbeitet.";
-    } else if (d <= 5) {
-        category = "Deutlich schlechter als erwartet";
-        effect = "Die Realität weicht klar nach unten von deiner Ausrichtung ab.";
-    } else if (d <= 6) {
-        category = "Stark schlechter als erwartet";
-        effect = "Die Situation ist deutlich negativer als dein Ideal, die Lage verschlechtert sich ohne Reaktion.";
-    } else if (d <= 7) {
-        category = "Sehr stark schlechter als erwartet";
-        effect = "Die Realität liegt weit unter deinem Maßstab, ohne Rückgrat bleibt das unkorrigiert.";
-    } else if (d <= 8) {
-        category = "Massiv schlechter als erwartet";
-        effect = "Die Realität ist massiv negativer als dein Ideal, ein unkontrollierter Einbruch.";
-    } else {
-        category = "Maximal schlechter als erwartet";
-        effect = "Maximale negative Abweichung, die Realität ist weit negativer als deine Ausrichtung und bleibt ohne jede Reaktion.";
-    }
-}
+  if (spannung === 0) {
+    category = "Negativ übereinstimmend neutral";
+    effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein. Aktuell erfolgt keine gerichtete Umsetzung.";
+  }
+  else if (delta <= 2) {
+    category = "Leichte offene Differenz";
+    effect = "Zwischen negativer Ausrichtung und negativ erlebter Realität besteht eine geringe Differenz bei neutraler Umsetzung.";
+  }
+  else if (delta <= 4) {
+    category = "Offene Differenz";
+    effect = "Ausrichtung und Realität unterscheiden sich erkennbar innerhalb des negativen Bereichs; die Umsetzung bleibt neutral.";
+  }
+  else if (delta <= 6) {
+    category = "Erkennbare offene Differenz";
+    effect = "Zwischen negativer Ausrichtung und negativer Realität besteht eine erkennbare Differenz ohne gerichtete Umsetzung.";
+  }
+  else if (delta <= 8) {
+    category = "Deutliche offene Differenz";
+    effect = "Ausrichtung und Realität unterscheiden sich deutlich, während aktuell keine Umsetzungsrichtung erkennbar ist.";
+  }
+  else if (delta <= 10) {
+    category = "Starke offene Differenz";
+    effect = "Die Differenz zwischen negativer Ausrichtung und negativ erlebter Realität ist stark ausgeprägt; die Umsetzung bleibt neutral.";
+  }
+  else if (delta <= 14) {
+    category = "Sehr starke offene Differenz";
+    effect = "Ausrichtung und Realität liegen innerhalb des negativen Bereichs weit auseinander.";
+  }
+  else if (delta <= 18) {
+    category = "Intensive offene Differenz";
+    effect = "Zwischen negativer Ausrichtung und negativer Realität besteht eine sehr große Differenz bei neutraler Umsetzung.";
+  }
+  else {
+    category = "Maximale offene Differenz";
+    effect = "Negative Ausrichtung und negativ erlebte Realität liegen innerhalb ihres Wertebereichs nahezu maximal auseinander; die Umsetzung bleibt neutral.";
+  }
 }
 
+
+
+
+
 //"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 //"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 //"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 
 //.............................................................................
@@ -3052,11 +2902,6 @@ if (spannung === 0) {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-
-//"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-//"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-//"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	
 
 let deutung = "";
 
@@ -3072,15 +2917,11 @@ function gradText(s) {
 const grad = gradText(s);
 
 
+
+
 /* =========================================================
    Deutung Deutung
 ========================================================= */
-
-
-// =========================
-// PPP – Deutung komplett synchron
-// =========================
-
 
 
 if (lageCode === "PPP") {
@@ -3106,7 +2947,7 @@ if (lageCode === "PPP") {
 
     if (s <= 4) {
       if (intensitaet === "leicht") {
-        deutung = "Du gehst den ersten Schritt vom Beobachter zum Gestalter. Dein Verhalten beginnt, eine gute Situation zu tragen, noch zurückhaltend, aber spürbar.";
+        deutung = "Du gehst den ersten Schritt vom Beobachter zum Gestalter. Dein Verhalten beginnt, eine gute Situation zu tragen – noch zurückhaltend, aber spürbar.";
       } else if (intensitaet === "mittel") {
         deutung = "Du unterstützt die gute Lage bewusst und bringst erste Stabilität hinein.";
       } else {
@@ -3180,7 +3021,7 @@ if (lageCode === "PPP") {
       } else if (intensitaet === "mittel") {
         deutung = "Du bestimmst die Entwicklung maßgeblich und lässt keinen Spielraum für andere Richtungen.";
       } else {
-        deutung = "Du dominierst die Entwicklung vollständig. Die Situation trägt deine Handschrift auf höchstem Niveau.";
+        deutung = "Du dominierst die Entwicklung vollständig. Die Situation trägt deine Handschrift – auf höchstem Niveau.";
       }
     }
   }
@@ -3192,11 +3033,11 @@ if (lageCode === "PPP") {
 
     if (s <= 4) {
       if (intensitaet === "leicht") {
-        deutung = "Deine Realität übertrifft dein Ideal leicht. Du merkst es kaum, aber erstes Potenzial bleibt liegen.";
+        deutung = "Deine Realität übertrifft dein Ideal leicht. Du merkst es kaum – aber erstes Potenzial bleibt liegen.";
       } else if (intensitaet === "mittel") {
-        deutung = "Die Lage übertrifft deinen Anspruch leicht. Du hast das Rückgrat, aber setzt es noch nicht für die volle Entwicklung ein.";
+        deutung = "Die Lage übertrifft deinen Anspruch leicht. Du hast das Rückgrat – aber setzt es noch nicht für die volle Entwicklung ein.";
       } else {
-        deutung = "Trotz starkem Rückgrat bleibt dein Ideal knapp hinter der Realität. Die Energie ist da. Die Richtung noch nicht klar genug.";
+        deutung = "Trotz starkem Rückgrat bleibt dein Ideal knapp hinter der Realität. Die Energie ist da – die Richtung noch nicht klar genug.";
       }
     }
 
@@ -3212,7 +3053,7 @@ if (lageCode === "PPP") {
 
     else if (s <= 14) {
       if (intensitaet === "leicht") {
-        deutung = "Du bleibst unter deinem eigentlichen Anspruch. Die Lage gäbe mehr her. Du entwickelst sie nicht weiter.";
+        deutung = "Du bleibst unter deinem eigentlichen Anspruch. Die Lage gäbe mehr her – du entwickelst sie nicht weiter.";
       } else if (intensitaet === "mittel") {
         deutung = "Die Realität trägt mehr als dein Ideal fordert. Ein höherer Anspruch würde klar mehr bewegen.";
       } else {
@@ -3222,9 +3063,9 @@ if (lageCode === "PPP") {
 
     else if (s <= 29) {
       if (intensitaet === "leicht") {
-        deutung = "Realität und Rückgrat wären eine starke Basis. Dein Ideal bleibt dahinter zurück.";
+        deutung = "Realität und Rückgrat wären eine starke Basis – dein Ideal bleibt dahinter zurück.";
       } else if (intensitaet === "mittel") {
-        deutung = "Die Situation bietet mehr als du von dir verlangst. Du hast Haltung, aber zu wenig Anspruch an dich selbst.";
+        deutung = "Die Situation bietet mehr als du von dir verlangst. Du hast Haltung – aber zu wenig Anspruch an dich selbst.";
       } else {
         deutung = "Gute Realität und starkes Rückgrat werden durch ein zu niedriges Ideal gebremst.";
       }
@@ -3232,17 +3073,17 @@ if (lageCode === "PPP") {
 
     else if (s <= 49) {
       if (intensitaet === "leicht") {
-        deutung = "Du läufst unter Kapazität. Nicht wegen der Realität, sondern wegen deines Anspruchs.";
+        deutung = "Du läufst unter Kapazität – nicht wegen der Realität, sondern wegen deines Anspruchs.";
       } else if (intensitaet === "mittel") {
-        deutung = "Rückgrat und gute Bedingungen sind vorhanden, aber dein Ideal begrenzt, was du daraus machst.";
+        deutung = "Rückgrat und gute Bedingungen sind vorhanden – aber dein Ideal begrenzt, was du daraus machst.";
       } else {
-        deutung = "Du könntest die Situation deutlich weiterentwickeln. Dein Ideal lässt es nicht zu.";
+        deutung = "Du könntest die Situation deutlich weiterentwickeln – dein Ideal lässt es nicht zu.";
       }
     }
 
     else if (s <= 64) {
       if (intensitaet === "leicht") {
-        deutung = "Realität und Rückgrat wären eine starke Kombination. Dein Ideal nutzt sie nicht.";
+        deutung = "Realität und Rückgrat wären eine starke Kombination – dein Ideal nutzt sie nicht.";
       } else if (intensitaet === "mittel") {
         deutung = "Du verlangst weniger von dir als die Situation erlaubt. Das ist eine Form von Selbstbeschränkung.";
       } else {
@@ -3252,25 +3093,30 @@ if (lageCode === "PPP") {
 
     else if (s <= 79) {
       if (intensitaet === "leicht") {
-        deutung = "Ein großer ungenutzter Spielraum entsteht. Dein Ideal reicht nicht, um ihn zu füllen.";
+        deutung = "Ein großer ungenutzter Spielraum entsteht – dein Ideal reicht nicht, um ihn zu füllen.";
       } else if (intensitaet === "mittel") {
-        deutung = "Rückgrat und Realität sind stark, aber dein Ideal hält nicht mit. Eine tiefe Form von Unterforderung.";
+        deutung = "Rückgrat und Realität sind stark – aber dein Ideal hält nicht mit. Eine tiefe Form von Unterforderung.";
       } else {
-        deutung = "Du verschenkst dein volles Potenzial. Nicht aus Schwäche, sondern aus zu niedrigem Anspruch.";
+        deutung = "Du verschenkst dein volles Potenzial – nicht aus Schwäche, sondern aus zu niedrigem Anspruch.";
       }
     }
 
     else {
       if (intensitaet === "leicht") {
-        deutung = "Maximale Voraussetzungen, aber dein Ideal bleibt weit darunter. Das Potenzial bleibt vollständig ungenutzt.";
+        deutung = "Maximale Voraussetzungen – aber dein Ideal bleibt weit darunter. Das Potenzial bleibt vollständig ungenutzt.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du hast alles was nötig wäre, aber dein Anspruch an dich selbst reicht nicht. Die stärkste Form von Selbstbeschränkung.";
+        deutung = "Du hast alles was nötig wäre – aber dein Anspruch an dich selbst reicht nicht. Die stärkste Form von Selbstbeschränkung.";
       } else {
-        deutung = "Maximales Rückgrat, maximale Realität, aber dein Ideal verschenkt alles davon. Diese Lage verlangt eine ehrliche Frage: Was willst du wirklich?";
+        deutung = "Maximales Rückgrat, maximale Realität – aber dein Ideal verschenkt alles davon. Diese Lage verlangt eine ehrliche Frage: Was willst du wirklich?";
       }
     }
   }
 }
+
+
+
+
+
 
 
 
@@ -3289,9 +3135,9 @@ if (lageCode === "PPN") {
   if (H === 0) {
 
     if (kraft >= 8) {
-      deutung = "Du bringst Unruhe in eine stabile Lage. Ideal und Realität passen zusammen, aber dein negatives Rückgrat erzeugt unnötige Spannung.";
+      deutung = "Du bringst Unruhe in eine stabile Lage. Ideal und Realität passen zusammen – aber dein negatives Rückgrat erzeugt unnötige Spannung.";
     } else {
-      deutung = "Die Lage ist gut und stabil. Du greifst nicht ein, weder fördernd noch störend. Die Situation trägt sich selbst.";
+      deutung = "Die Lage ist gut und stabil. Du greifst nicht ein – weder fördernd noch störend. Die Situation trägt sich selbst.";
     }
   }
 
@@ -3458,7 +3304,7 @@ if (lageCode === "PPN") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-	
+
 
 if (lageCode === "PNP") {
 
@@ -3660,10 +3506,14 @@ if (lageCode === "PNP") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
-	
+
+
+
 /* =========================================================
      PNN   PNN  PNN
   ========================================================= */
+
+
 
 
 if (H < 0) {
@@ -3761,12 +3611,10 @@ if (H < 0) {
 }
 
 
-	
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
+
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 else if (lageCode === "NPP") {
@@ -3951,6 +3799,7 @@ else if (lageCode === "NPP") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
+
 if (lageCode === "NPN") {
 
   let s = Math.abs(H);
@@ -3958,7 +3807,7 @@ if (lageCode === "NPN") {
 
   if (s <= 4) {
     if (intensitaet === "leicht") {
-      deutung = "Du lässt eine gute Situation einfach laufen. Dein negatives Ideal nimmt sie nicht wahr, du nutzt sie weder aktiv noch störst du sie.";
+      deutung = "Du lässt eine gute Situation einfach laufen. Dein negatives Ideal nimmt sie nicht wahr – du nutzt sie weder aktiv noch störst du sie.";
     } else if (intensitaet === "mittel") {
       deutung = "Die positive Realität bleibt bestehen, wird aber nicht genutzt. Dein negatives Ideal verhindert, dass du sie als Chance siehst.";
     } else {
@@ -3970,7 +3819,7 @@ if (lageCode === "NPN") {
     if (intensitaet === "leicht") {
       deutung = "Du bremst die gute Entwicklung leicht aus. Dein negatives Ideal verhindert, dass du die positive Realität aktiv trägst.";
     } else if (intensitaet === "mittel") {
-      deutung = "Die Situation verliert erste Dynamik durch deine Zurückhaltung. Du siehst das Gute, nutzt es aber nicht.";
+      deutung = "Die Situation verliert erste Dynamik durch deine Zurückhaltung. Du siehst das Gute – nutzt es aber nicht.";
     } else {
       deutung = "Dein negatives Rückgrat beginnt spürbar, die positive Realität zu schwächen.";
     }
@@ -3992,7 +3841,7 @@ if (lageCode === "NPN") {
     } else if (intensitaet === "mittel") {
       deutung = "Du siehst die gute Lage – aber dein negatives Ideal verhindert, dass du etwas damit anfängst. Die Spannung wächst still.";
     } else {
-      deutung = "Dein Rückgrat zieht gegen die positive Realität. Die Lage bleibt gut, aber nur solange nichts Äußeres sie herausfordert.";
+      deutung = "Dein Rückgrat zieht gegen die positive Realität. Die Lage bleibt gut – aber nur solange nichts Äußeres sie herausfordert.";
     }
   }
 
@@ -4022,7 +3871,7 @@ if (lageCode === "NPN") {
     } else if (intensitaet === "mittel") {
       deutung = "Die gute Lage wird durch dein Verhalten zunehmend ausgehöhlt. Das Potenzial verpufft ohne Nutzung.";
     } else {
-      deutung = "Dein starkes negatives Rückgrat arbeitet aktiv gegen eine eigentlich funktionierende Lage. Du dominierst die Situation, aber in die falsche Richtung. Die positive Realität verliert zunehmend an Boden.";
+      deutung = "Dein starkes negatives Rückgrat arbeitet aktiv gegen eine eigentlich funktionierende Lage. Du dominierst die Situation – aber in die falsche Richtung. Die positive Realität verliert zunehmend an Boden.";
     }
   }
 
@@ -4038,7 +3887,7 @@ if (lageCode === "NPN") {
 
   else {
     if (intensitaet === "leicht") {
-      deutung = "Vollständige Blockade. Eine maximal positive Realität trifft auf maximales negatives Ideal und Rückgrat, kein Potenzial wird genutzt.";
+      deutung = "Vollständige Blockade. Eine maximal positive Realität trifft auf maximales negatives Ideal und Rückgrat – kein Potenzial wird genutzt.";
     } else if (intensitaet === "mittel") {
       deutung = "Du unterdrückst eine gute Lage vollständig. Die Spannung zwischen Realität und deiner Haltung ist auf einem Höchststand.";
     } else {
@@ -4047,11 +3896,6 @@ if (lageCode === "NPN") {
   }
 }
 
-
-
-	
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
@@ -4703,39 +4547,54 @@ else {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
+
+
 if (lageCode === "P00") {
 
     if (I === 1) {
-        deutung = "Ein positives Ideal ist nur leicht angedeutet. Da Realität und Rückgrat neutral bleiben, entsteht noch keine erkennbare Umsetzung oder Wirkung.";
+        category = "Minimal ungenutzt";
+        effect = "Ein positives Ideal ist angedeutet, bleibt aber ohne Rückgrat praktisch wirkungslos.";
 
     } else if (I === 2) {
-        deutung = "Ein positives Ideal ist vorhanden, bleibt aber ohne Rückgrat weitgehend passiv. Die gute Richtung wird wahrgenommen, aber kaum aufgenommen.";
+        category = "Leicht ungenutzt";
+        effect = "Du hast ein positives Ideal, setzt es aber kaum um.";
 
     } else if (I === 3) {
-        deutung = "Eine gute innere Richtung wird erkennbar. Ohne Rückgrat bleibt sie jedoch schwach und führt noch nicht zu klarer Handlung.";
+        category = "Mäßig ungenutzt";
+        effect = "Eine gute Richtung ist erkennbar, bleibt aber ohne Umsetzung schwach.";
 
     } else if (I === 4) {
-        deutung = "Das positive Ideal ist spürbar vorhanden. Da Realität und Rückgrat neutral bleiben, wird es jedoch nicht aktiv in Entwicklung übersetzt.";
+        category = "Ungenutzt";
+        effect = "Du erkennst eine gute Richtung, bringst sie aber nicht in Umsetzung.";
 
     } else if (I === 5) {
-        deutung = "Das Ideal hat bereits klare positive Substanz. Ohne Rückgrat bleibt es innerer Anspruch, aber noch keine sichtbare Umsetzung.";
+        category = "Spürbar ungenutzt";
+        effect = "Dein positives Ideal ist klar vorhanden, bleibt aber ohne Rückgrat weitgehend liegen.";
 
     } else if (I === 6) {
-        deutung = "Du weißt zunehmend klar, was richtig oder wertvoll wäre. Ohne Rückgrat bleibt diese Orientierung jedoch stehen und wird nicht getragen.";
+        category = "Deutlich ungenutzt";
+        effect = "Du weißt, was richtig wäre, lässt es aber ohne Umsetzung stehen.";
 
     } else if (I === 7) {
-        deutung = "Ein starkes positives Ideal ist vorhanden. Es fehlt jedoch die Kraft zur Umsetzung, sodass die mögliche Wirkung deutlich hinter dem Anspruch zurückbleibt.";
+        category = "Stark ungenutzt";
+        effect = "Du hast eine klare Richtung, setzt sie aber nicht in Handlung um.";
 
     } else if (I === 8) {
-        deutung = "Dein Ideal ist sehr stark und richtungsgebend. Ohne Rückgrat bleibt diese Qualität jedoch ungenutzt und entfaltet keine entsprechende Wirkung.";
+        category = "Sehr stark ungenutzt";
+        effect = "Ein starkes positives Ideal bleibt ohne Rückgrat deutlich unter seiner möglichen Wirkung.";
 
     } else if (I === 9) {
-        deutung = "Ein sehr hohes positives Ideal ist vorhanden. Weil Realität und Rückgrat neutral bleiben, bleibt sein Potenzial nahezu vollständig unausgeschöpft.";
+        category = "Massiv ungenutzt";
+        effect = "Ein sehr starkes positives Ideal bleibt nahezu vollständig ohne Umsetzung.";
 
-    } else if (I === 10) {
-        deutung = "Ein maximal positives Ideal ist vorhanden. Ohne Rückgrat und ohne tragende Realität bleibt es jedoch reine Möglichkeit und wird nicht wirksam.";
+    } else {
+        category = "Vollständig liegengeblieben";
+        effect = "Du hast ein maximal positives Ideal, setzt es aber überhaupt nicht um.";
     }
 }
+
+
+
 
 
 
@@ -4892,7 +4751,7 @@ if (delta <= 2) {
     deutung = "Starkes positives Ideal trifft auf massive Belastung und du stehst nicht dafür ein. Die Lähmung ist tief. Du weißt genau, was richtig wäre, und bleibst trotzdem passiv. Das ist auf Dauer nicht haltbar.";
 
 } else {
-    deutung = "Maximale Spannung. Dein positives Ideal ist so stark wie die negative Realität drückend und ohne Rückgrat ist beides ohne Auflösung. Dieser Zustand verlangt eine Entscheidung: Entweder das Ideal aufgeben oder endlich dafür einzustehen.";
+    deutung = "Maximale Spannung. Dein positives Ideal ist so stark wie die negative Realität drückend und ohne Rückgrat ist beides ohne Auflösung. Dieser Zustand verlangt eine Entscheidung: entweder das Ideal aufgeben oder endlich dafür einzustehen.";
 }
 }
 
@@ -4909,7 +4768,7 @@ if (lageCode === "0PP") {
 
   if (s <= 4) {
     if (intensitaet === "leicht") {
-      deutung = "Du gibst einer positiven Situation erste leichte Impulse. Ohne eigenes Ideal bleibt dein Beitrag reaktiv, aber du trägst die gute Lage mit.";
+      deutung = "Du gibst einer positiven Situation erste leichte Impulse. Ohne eigenes Ideal bleibt dein Beitrag reaktiv – aber du trägst die gute Lage mit.";
     } else if (intensitaet === "mittel") {
       deutung = "Du unterstützt eine funktionierende Situation spürbar. Die Wirkung ist da, aber noch ohne klare eigene Ausrichtung.";
     } else {
@@ -4929,9 +4788,9 @@ if (lageCode === "0PP") {
 
   else if (s <= 14) {
     if (intensitaet === "leicht") {
-      deutung = "Du trägst eine positive Lage aktiv mit. Dein Rückgrat gibt ihr Stabilität, auch wenn du kein klares eigenes Ideal hast.";
+      deutung = "Du trägst eine positive Lage aktiv mit. Dein Rückgrat gibt ihr Stabilität – auch wenn du kein klares eigenes Ideal hast.";
     } else if (intensitaet === "mittel") {
-      deutung = "Du stärkst die Situation erkennbar. Die Wirkung ist real, aber ohne Ideal bleibt dein Handeln auf die vorhandene Realität angewiesen.";
+      deutung = "Du stärkst die Situation erkennbar. Die Wirkung ist real – aber ohne Ideal bleibt dein Handeln auf die vorhandene Realität angewiesen.";
     } else {
       deutung = "Du verstärkst die positive Entwicklung klar und sichtbar. Was fehlt, ist ein eigenes Ideal, das deinem Rückgrat eine Richtung gibt.";
     }
@@ -4939,31 +4798,31 @@ if (lageCode === "0PP") {
 
   else if (s <= 29) {
     if (intensitaet === "leicht") {
-      deutung = "Du baust eine gute Situation aktiv weiter aus. Dein Beitrag ist spürbar, aber du folgst der Realität, statt sie zu führen.";
+      deutung = "Du baust eine gute Situation aktiv weiter aus. Dein Beitrag ist spürbar – aber du folgst der Realität, statt sie zu führen.";
     } else if (intensitaet === "mittel") {
-      deutung = "Du entwickelst die positive Lage deutlich weiter. Dein Rückgrat trägt, aber ohne Ideal gibt es keine eigene Richtung dahinter.";
+      deutung = "Du entwickelst die positive Lage deutlich weiter. Dein Rückgrat trägt – aber ohne Ideal gibt es keine eigene Richtung dahinter.";
     } else {
-      deutung = "Du prägst die positive Entwicklung stark. Die Wirkung ist groß, aber sie bleibt an eine fremde Realität gebunden, nicht an dein eigenes Ideal.";
+      deutung = "Du prägst die positive Entwicklung stark. Die Wirkung ist groß – aber sie bleibt an eine fremde Realität gebunden, nicht an dein eigenes Ideal.";
     }
   }
 
   else if (s <= 49) {
     if (intensitaet === "leicht") {
-      deutung = "Du treibst eine positive Entwicklung aktiv voran. Dein Rückgrat ist stark, aber ohne Ideal handelst du reaktiv statt richtungsgebend.";
+      deutung = "Du treibst eine positive Entwicklung aktiv voran. Dein Rückgrat ist stark – aber ohne Ideal handelst du reaktiv statt richtungsgebend.";
     } else if (intensitaet === "mittel") {
       deutung = "Du gibst der Situation klare Stabilität und Dynamik. Was fehlt, ist ein eigenes Ideal, das deinem Handeln eine tiefere Bedeutung gibt.";
     } else {
-      deutung = "Du wirkst stark und sichtbar auf eine positive Lage ein. Dein Rückgrat ist ausgeprägt, aber ohne Ideal bleibt es Kraft ohne Kompass.";
+      deutung = "Du wirkst stark und sichtbar auf eine positive Lage ein. Dein Rückgrat ist ausgeprägt – aber ohne Ideal bleibt es Kraft ohne Kompass.";
     }
   }
 
   else if (s <= 64) {
     if (intensitaet === "leicht") {
-      deutung = "Du verstärkst die positive Lage erheblich. Dein Rückgrat wirkt dominant, aber ohne eigenes Ideal fehlt die innere Begründung für dein Handeln.";
+      deutung = "Du verstärkst die positive Lage erheblich. Dein Rückgrat wirkt dominant – aber ohne eigenes Ideal fehlt die innere Begründung für dein Handeln.";
     } else if (intensitaet === "mittel") {
-      deutung = "Du prägst die Entwicklung stark. Die Wirkung ist groß, aber du folgst einer fremden Realität, nicht deiner eigenen Ausrichtung.";
+      deutung = "Du prägst die Entwicklung stark. Die Wirkung ist groß – aber du folgst einer fremden Realität, nicht deiner eigenen Ausrichtung.";
     } else {
-      deutung = "Du dominierst eine positive Situation ohne eigenes Ideal. Das ist wirkungsvoll, aber auch instabil, weil es keine innere Verankerung hat.";
+      deutung = "Du dominierst eine positive Situation ohne eigenes Ideal. Das ist wirkungsvoll – aber auch instabil, weil es keine innere Verankerung hat.";
     }
   }
 
@@ -4979,61 +4838,86 @@ if (lageCode === "0PP") {
 
   else {
     if (intensitaet === "leicht") {
-      deutung = "Du verstärkst die Situation maximal, aber ohne eigenes Ideal verlierst du die Verbindung zur natürlichen Struktur der Lage.";
+      deutung = "Du verstärkst die Situation maximal – aber ohne eigenes Ideal verlierst du die Verbindung zur natürlichen Struktur der Lage.";
     } else if (intensitaet === "mittel") {
       deutung = "Maximale Kraft ohne eigene Richtung. Du überforderst eine positive Situation und zerstörst ihre natürliche Balance.";
     } else {
-      deutung = "Maximales Rückgrat trifft auf keine eigene Ausrichtung. Du überwältigst die Situation, ohne zu wissen wohin. Das ist Kraft ohne Kompass auf höchstem Niveau.";
+      deutung = "Maximales Rückgrat trifft auf keine eigene Ausrichtung. Du überwältigst die Situation – ohne zu wissen wohin. Das ist Kraft ohne Kompass auf höchstem Niveau.";
     }
   }
 }
 
 
+
+
+
+
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 
-else if (lageCode === "0P0") {
+if (lageCode === "0P0") {
 
-    let spannung = Math.abs(I - R);
+  lageText = "Ideal: neutral, Realität: positiv, Rückgrat: neutral";
 
+  const rAbs = Math.abs(R);
 
-    if (spannung <= 1) {
-        deutung = "Du befindest dich in einer leicht positiven Realität, nimmst das Gute wahr, nutzt es aber noch nicht bewusst.";
-
-    } else if (spannung <= 2) {
-        deutung = "Die Realität bietet erste Chancen, doch ohne innere Ausrichtung bleiben diese eher beiläufig statt gezielt genutzt.";
-
-    } else if (spannung <= 3) {
-        deutung = "Gute Bedingungen sind vorhanden, aber ohne klares Ideal fehlt dir die Richtung, diese aktiv weiterzuentwickeln.";
-
-    } else if (spannung <= 4) {
-        deutung = "Du erkennst das Positive, doch ohne innere Haltung bleibt es bei Beobachtung statt Gestaltung.";
-
-    } else if (spannung <= 5) {
-        deutung = "Die Möglichkeiten werden spürbar, aber ohne Orientierung fehlt dir der Schritt von Wahrnehmen zu Handeln.";
-
-    } else if (spannung <= 6) {
-        deutung = "Die Realität bietet klare Chancen, doch ohne inneres Ziel bleibt dein Verhalten reaktiv statt bewusst steuernd.";
-
-    } else if (spannung <= 7) {
-        deutung = "Du befindest dich in guten Umständen, nutzt dein Potenzial aber nicht, weil dir innere Klarheit und Umsetzung fehlen.";
-
-    } else if (spannung <= 8) {
-        deutung = "Die Diskrepanz wächst: Viel Gutes ist da, aber ohne innere Verbindung bleibt es ungenutzt und instabil.";
-
-    } else if (spannung <= 9) {
-        deutung = "Du hast starke Voraussetzungen, doch ohne Ideal und Rückgrat fehlt dir fast vollständig die Fähigkeit, diese zu führen.";
-
-    } else {
-        deutung = "Du bist in einer sehr guten Realität, nutzt sie aber kaum. Ohne innere Ausrichtung und Rückgrat bleibt dein Potenzial nahezu vollständig ungenutzt.";
-    }
+  if (rAbs <= 2) {
+    category = "Leicht positive Realität bei neutraler Ausrichtung";
+    effect = "Du erlebst die Realität leicht positiv, während Ausrichtung und Umsetzung neutral bleiben.";
+  }
+  else if (rAbs <= 4) {
+    category = "Positive Realität bei neutraler Ausrichtung";
+    effect = "Die Realität wird positiv erlebt, ohne dass aktuell eine eigene Richtung oder gerichtete Umsetzung gesetzt ist.";
+  }
+  else if (rAbs <= 6) {
+    category = "Deutlich positive Realität bei neutraler Ausrichtung";
+    effect = "Du erlebst die Realität deutlich positiv, während deine Ausrichtung und Umsetzung neutral bleiben.";
+  }
+  else if (rAbs <= 8) {
+    category = "Stark positive Realität bei neutraler Ausrichtung";
+    effect = "Die Realität wird stark positiv erlebt. Eine eigene Ausrichtung oder gerichtete Umsetzung zeigt sich aktuell nicht.";
+  }
+  else {
+    category = "Sehr stark positive Realität bei neutraler Ausrichtung";
+    effect = "Du erlebst die Realität sehr positiv, während Ausrichtung und Umsetzung neutral bleiben.";
+  }
 }
 
 
 
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
+ if (lageCode === "0P0") {
+
+    const realitaet = Math.abs(R);
+
+    if (realitaet <= 2) {
+        deutung = "Du erlebst die aktuelle Realität leicht positiv, während deine eigene Ausrichtung und Umsetzung neutral bleiben. Prüfe, ob diese Neutralität für dich stimmig ist.";
+    }
+    else if (realitaet <= 4) {
+        deutung = "Du erlebst die aktuelle Realität positiv, ohne gleichzeitig eine eigene positive oder negative Ausrichtung oder eine gerichtete Umsetzung anzugeben. Prüfe, ob du die Situation bewusst so stehen lassen möchtest.";
+    }
+    else if (realitaet <= 6) {
+        deutung = "Du erlebst die aktuelle Realität deutlich positiv, während deine eigene Ausrichtung und Umsetzung neutral bleiben. Prüfe, ob diese Neutralität für dich stimmig ist oder ob du bewusst eine eigene Richtung entwickeln möchtest.";
+    }
+    else if (realitaet <= 8) {
+        deutung = "Du erlebst die aktuelle Realität stark positiv, während Ausrichtung und Umsetzung neutral bleiben. Das kann ein stimmiger Zustand sein; zugleich kannst du prüfen, ob du eine eigene Position dazu entwickeln möchtest.";
+    }
+    else {
+        deutung = "Du erlebst die aktuelle Realität sehr stark positiv, ohne selbst eine positive oder negative Ausrichtung oder gerichtete Umsetzung anzugeben. Prüfe, ob diese Neutralität deiner tatsächlichen Haltung entspricht.";
+    }
+}
+
+
+
+
+
+
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
@@ -5145,6 +5029,7 @@ else {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
+
 else if (lageCode === "00P") {
 
     let r = Math.abs(G);
@@ -5155,7 +5040,7 @@ else if (lageCode === "00P") {
     // -> nur Wirkung über Stärke des Rückgrats
 
     if (r <= 1) {
-         deutung = "Du bleibst in einer neutralen Situation nahezu passiv, es entsteht kaum Bewegung.";
+         deutung = "Du bleibst in einer neutralen Situation nahezu passiv – es entsteht kaum Bewegung.";
 
     }
     else if (r <= 2) {
@@ -5167,7 +5052,7 @@ else if (lageCode === "00P") {
 
     }
     else if (r <= 4) {
-        deutung = "Du erzeugst erste erkennbare Dynamik, noch ohne klare Richtung.";
+        deutung = "Du erzeugst erste erkennbare Dynamik – noch ohne klare Richtung.";
     }
     else if (r <= 5) {
         deutung = "Du bringst spürbare Aktivität in die Situation, ohne sie gezielt zu steuern.";
@@ -5181,7 +5066,7 @@ else if (lageCode === "00P") {
         deutung = "Starke Aktivität prägt die neutrale Lage deutlich. Es entsteht stabile Ordnung ohne klare inhaltliche Ausrichtung.";
     }
     else if (r <= 8) {
-        deutung = "Du treibst die Situation stark voran, aber ohne klare Orientierung.";
+        deutung = "Du treibst die Situation stark voran – aber ohne klare Orientierung.";
 
 
     }
@@ -5367,43 +5252,54 @@ else if (s <= 9) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 if (lageCode === "0N0") {
 
-  if (delta <= 1) {
-    deutung = "Eine leichte negative Tendenz ist vorhanden, bleibt jedoch ohne jede Gegenbewegung bestehen.";
- } 
- else if (delta <= 2) {
-    deutung = "Eine negative Situation zeigt sich und bleibt unverändert, da keine Gegenwirkung erfolgt.";
- } 
- else if (delta <= 3) {
-     deutung = "Die negative Lage ist klar erkennbar und hält sich stabil ohne Einfluss oder Veränderung.";
- } 
- else if (delta <= 4) {
-    deutung = "Die negative Realität wirkt spürbar und bleibt bestehen, da keine Reaktion erfolgt.";
- } 
-  else if (delta <= 5) {
-     deutung = "Die negative Situation verfestigt sich zunehmend, da keinerlei Gegensteuerung vorhanden ist.";
-  } 
-else if (delta <= 6) {
-     deutung = "Die negative Lage gewinnt an Stabilität und prägt die Situation immer deutlicher.";
- } 
- else if (delta <= 7) {
-    deutung = "Die negative Realität setzt sich klar durch und bleibt dauerhaft bestehen.";
- } 
-  else if (delta <= 8) {
-    deutung = "Die negative Situation dominiert die Lage vollständig, ohne dass ihr etwas entgegengesetzt wird.";
-  } 
-  else if (delta <= 9) {
-    deutung = "Die negative Realität ist massiv ausgeprägt und bleibt stabil bestehen.";
-  } 
-  else {
-    deutung = "Die negative Situation ist maximal ausgeprägt und vollständig verfestigt, da keinerlei Gegenwirkung existiert.";
-  }
+    const realitaet = Math.abs(R);
+
+    if (realitaet <= 2) {
+        deutung = "Du erlebst die aktuelle Realität leicht negativ, während deine eigene Ausrichtung und Umsetzung neutral bleiben. Prüfe, ob diese Neutralität für dich bewusst gewählt und stimmig ist.";
+    }
+    else if (realitaet <= 4) {
+        deutung = "Du erlebst die aktuelle Realität negativ, während deine eigene Ausrichtung und Umsetzung neutral bleiben. Prüfe, ob du die Situation bewusst so stehen lassen möchtest oder eine eigene Position entwickeln willst.";
+    }
+    else if (realitaet <= 6) {
+        deutung = "Du erlebst die aktuelle Realität deutlich negativ, während deine eigene Ausrichtung und Umsetzung neutral bleiben. Prüfe, ob diese Neutralität für dich stimmig ist oder ob du bewusst eine eigene Richtung entwickeln möchtest.";
+    }
+    else if (realitaet <= 8) {
+        deutung = "Du erlebst die aktuelle Realität stark negativ, während Ausrichtung und Umsetzung neutral bleiben. Prüfe, ob diese Neutralität deiner tatsächlichen Haltung entspricht oder ob du dich klarer positionieren möchtest.";
+    }
+    else {
+        deutung = "Du erlebst die aktuelle Realität sehr stark negativ, während deine eigene Ausrichtung und Umsetzung neutral bleiben. Prüfe bewusst, welche eigene Position für dich unter diesen Bedingungen stimmig wäre.";
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
@@ -5495,8 +5391,18 @@ else if (lageCode === "NP0") {
 }
 
 
+
+
+
+
+
+
+
+
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
 
 
 else if (lageCode === "N0P") {
@@ -5701,16 +5607,16 @@ if (delta <= 1) {
     deutung = "Du trägst eine negative Ausrichtung in dir, handelst aber nicht danach. Die Spannung zwischen dem, was du innerlich ausrichtest, und dem was du tust, wird spürbarer.";
 
 } else if (delta <= 6) {
-    deutung = "Eine deutlich negative Grundausrichtung ist vorhanden und wird nicht gelebt. Das erzeugt eine stille innere Zerrissenheit, du weißt, wo du tendenziell stehst, tust aber nichts damit.";
+    deutung = "Eine deutlich negative Grundausrichtung ist vorhanden und wird nicht gelebt. Das erzeugt eine stille innere Zerrissenheit – du weißt, wo du tendenziell stehst, tust aber nichts damit.";
 
 } else if (delta <= 7) {
-    deutung = "Ein starkes negatives Ideal bleibt ohne Rückgrat vollständig blockiert. Die Wirkung nach außen ist null, die innere Belastung durch den ungelebten Widerspruch ist deutlich spürbar.";
+    deutung = "Ein starkes negatives Ideal bleibt ohne Rückgrat vollständig blockiert. Die Wirkung nach außen ist null – die innere Belastung durch den ungelebten Widerspruch ist deutlich spürbar.";
 
 } else if (delta <= 9) {
     deutung = "Ein sehr starkes negatives Ideal wird nicht gelebt. Dieser Widerspruch zwischen innerer Ausrichtung und äußerem Verhalten erzeugt anhaltende innere Spannung, die auf Dauer zermürbt.";
 
 } else {
-    deutung = "Maximales negatives Ideal trifft auf völliges Fehlen von Rückgrat. Nach außen bleibt alles ruhig, innen ist die Spannung auf einem Höchststand. Dieser Zustand ist auf Dauer nicht haltbar und verlangt eine Entscheidung.";
+    deutung = "Maximales negatives Ideal trifft auf völliges Fehlen von Rückgrat. Nach außen bleibt alles ruhig – innen ist die Spannung auf einem Höchststand. Dieser Zustand ist auf Dauer nicht haltbar und verlangt eine Entscheidung.";
 }
 }
 
@@ -5745,7 +5651,7 @@ if (s <= 4) {
     } else if (intensitaet === "mittel") {
         deutung = "Negatives Ideal und fehlendes Rückgrat erzeugen eine stille innere Zerrissenheit. Du lebst nicht, was du innerlich ausrichtest.";
     } else {
-        deutung = "Die Spannung zwischen negativer Ausrichtung und fehlendem Rückgrat ist klar spürbar. Nach außen bleibt alles ruhig, innen nicht.";
+        deutung = "Die Spannung zwischen negativer Ausrichtung und fehlendem Rückgrat ist klar spürbar. Nach außen bleibt alles ruhig – innen nicht.";
     }
 } else if (s <= 29) {
     if (intensitaet === "leicht") {
@@ -5767,13 +5673,13 @@ if (s <= 4) {
     if (intensitaet === "leicht") {
         deutung = "Die innere Belastung ist deutlich. Ein starkes negatives Ideal ohne Rückgrat erzeugt anhaltende Zerrissenheit ohne Auflösung.";
     } else if (intensitaet === "mittel") {
-        deutung = "Du trägst einen massiven inneren Widerspruch und lässt ihn bestehen. Das blockiert dich innerlich auf einem tiefen Niveau.";
+        deutung = "Du trägst einen massiven inneren Widerspruch – und lässt ihn bestehen. Das blockiert dich innerlich auf einem tiefen Niveau.";
     } else {
         deutung = "Maximale innere Spannung ohne Entladung. Du weißt genau, was du willst – und stehst in keiner Weise dazu.";
     }
 } else if (s <= 79) {
     if (intensitaet === "leicht") {
-        deutung = "Der innere Widerspruch ist massiv. Starkes negatives Ideal trifft auf völligen Rückgrat-Ausfall, dauerhaft kaum haltbar.";
+        deutung = "Der innere Widerspruch ist massiv. Starkes negatives Ideal trifft auf völligen Rückgrat-Ausfall – dauerhaft kaum haltbar.";
     } else if (intensitaet === "mittel") {
         deutung = "Du trägst einen tiefen inneren Riss mit dir. Die Spannung zwischen Wollen und Nichttun hat ein Niveau erreicht, das Entscheidung fordert.";
     } else {
@@ -5783,7 +5689,7 @@ if (s <= 4) {
     if (intensitaet === "leicht") {
         deutung = "Maximaler innerer Widerspruch. Du weißt, was du willst – und tust es konsequent nicht. Dieser Zustand ist auf Dauer nicht haltbar.";
     } else if (intensitaet === "mittel") {
-        deutung = "Stärkstes negatives Ideal trifft auf völligen Rückgrat-Ausfall. Die innere Zerrissenheit ist maximal, eine Auflösung ist unvermeidlich.";
+        deutung = "Stärkstes negatives Ideal trifft auf völligen Rückgrat-Ausfall. Die innere Zerrissenheit ist maximal – eine Auflösung ist unvermeidlich.";
     } else {
         deutung = "Maximale innere Blockade. Du stehst in maximalem Widerspruch zu dir selbst – ohne Rückgrat, ohne Auflösung, ohne Ausweg. Dieser Zustand verlangt Konsequenz.";
     }
@@ -5852,8 +5758,6 @@ if (spannung === 0) {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
-
-
 const HEl = document.getElementById("H");
 if (HEl) {
   HEl.textContent = H.toFixed(2);
@@ -5885,9 +5789,6 @@ if (lageEl) {
      Ideal: ${idealTyp}, Realität: ${realTyp}, Rückgrat: ${rueckgratTyp}
      </span>`;
 }
-
-
-
 
 
 let deutungEl = document.getElementById("deutung");
@@ -5926,26 +5827,17 @@ if (deutungEl) {
 
 
 
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
 
-/* ===== Robust PDF: lokal / CDN / Print ===== */
-function ensureHtml2Pdf(callback){
-  if (typeof html2pdf !== 'undefined') { callback(); return; }
-  // Versuche, die Bibliothek aus CDN nachzuladen
-  const s = document.createElement('script');
-  s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
-  s.referrerPolicy = "no-referrer";
-  s.onload = () => callback();
-  s.onerror = () => {
-    // Fallback: Druckdialog (Nutzer kann "Als PDF speichern" wählen)
-    window.print();
-  };
-  document.head.appendChild(s);
-}
-
+/* ===== PDF Export ===== */
 function doPdfExport(){
-  const datumEl=document.getElementById('datum'); datumEl.textContent="Verfasst am: "+nowBerlin();
+  const datumEl=document.getElementById('datum');
+  datumEl.textContent="Verfasst am: "+nowBerlin();
   const element=document.getElementById('exportArea');
   const base=(document.getElementById('sessionTitle').value||'haltungsergebnis').replace(/[^\w\-]+/g,'_');
   const opt={
@@ -5955,7 +5847,6 @@ function doPdfExport(){
     jsPDF:{unit:'in',format:'a4',orientation:'portrait'},
     pagebreak:{mode:['css','legacy'],avoid:['.card','.info','.meter','.row']}
   };
-  if (typeof html2pdf === 'undefined') { window.print(); return; }
   html2pdf().set(opt).from(element).save();
 }
 
@@ -5963,25 +5854,44 @@ function doPdfExport(){
 [idealEl,realEl,ruckEl,notesEl,document.getElementById('yourName'),document.getElementById('sessionTitle')]
   .forEach(el=>{el.addEventListener('input',update,{passive:true});el.addEventListener('change',update)});
 
-
 snapBtn.addEventListener('click',()=>{location.hash=`I=${idealEl.value}&R=${realEl.value}&G=${ruckEl.value}`;const b=document.getElementById('snap');b.textContent="Gespeichert ✔";setTimeout(()=>b.textContent="Werte merken",1100)});
 
-/* Neu: Robust PDF-Button */
+
+/* PDF-Button */
 pdfBtn.addEventListener('click', ()=>{
-  ensureHtml2Pdf(()=>{
-    // kleiner Delay, damit Browser das Skript anhängt
-    setTimeout(doPdfExport, 30);
-  });
+  if(typeof html2pdf !== 'undefined'){
+    doPdfExport();
+    return;
+  }
+  const s = document.createElement('script');
+s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+  s.onload = ()=>{ setTimeout(doPdfExport, 300); };
+  s.onerror = ()=>{ window.print(); };
+  document.head.appendChild(s);
 });
+
+
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 /* ===== Init ===== */
 (function init(){
   const h=location.hash.replace(/^#/,''); if(h){const m=Object.fromEntries(h.split("&").map(p=>p.split("="))); if(m.I!=null)idealEl.value=m.I; if(m.R!=null)realEl.value=m.R; if(m.G!=null)ruckEl.value=m.G;}
   [idealEl,realEl,ruckEl].forEach(paintSlider);
+
   update();
 })();
 
 </script>
+
+
+
+
+
+
 
 
 
@@ -6010,7 +5920,9 @@ pdfBtn.addEventListener('click', ()=>{
 
 
 
-	
+
+
+
 
 <strong>📝 Worum es bei diesem Tool geht:</strong><br>
 Die Haltungsformel ist kein psychologischer Test und kein Messgerät.
@@ -6068,7 +5980,8 @@ Frage dich:
 
 <p>
 Die Realität beschreibt,
-wie die Situation momentan erlebt wird, nicht die absolute Wahrheit.
+wie die Situation momentan erlebt wird —
+nicht die absolute Wahrheit.
 </p>
 
 <p>
@@ -6141,8 +6054,7 @@ sondern zur strukturierten Selbstreflexion.
 
 <p>
 Ein einzelnes Szenario zeigt nur einen Ausschnitt.
-Erst mehrere Situationen zusammen
-können Hinweise auf wiederkehrende Muster geben.
+Erst mehrere Situationen zusammen können Hinweise auf wiederkehrende Muster geben.
 </p>
 
 <p>
@@ -6150,7 +6062,7 @@ Beispiele:
 </p>
 
 <div style="line-height:1.8;">
-Beruf / Beziehung / Verantwortung / Gesundheit / Werte / Alltag / Freiheit / Konflikte / Führung etc.
+Beruf / Beziehung / Verantwortung / Gesundheit / Werte / Alltag / Freiheit / Konflikte / Führung
 </div>
 
 <p>
@@ -6161,7 +6073,7 @@ Dabei können Fragen entstehen wie:
 <li>Wo verliere ich unter Druck Klarheit?</li>
 <li>Wo bleibe ich stabil?</li>
 <li>Wo wiederholen sich ähnliche Spannungen?</li>
-<li>Welche Situationen geben Energie, welche ziehen sie?</li>
+<li>Welche Situationen geben Energie. Welche ziehen sie?</li>
 </ul>
 
 <p>
@@ -6212,8 +6124,7 @@ sondern durch ehrliche Reflexion.
 
 <p style="line-height:1.7;">
 Die Haltungsformel soll keine Menschen bewerten,
-sondern innere Spannungen,
-Motive und Handlungstendenzen sichtbar machen.
+sondern innere Spannungen, Motive und Handlungstendenzen sichtbar machen.
 </p>
 
 <p style="line-height:1.7;">
@@ -6224,15 +6135,22 @@ Sie ist kein Urteil, sondern ein Spiegel zur Selbstreflexion.
 
 
 
-	
+
+
 <hr/>
 <hr/>
 <hr/>
+
+
+
+
 
 </p></p></p></p></p></p></p></div>
 </div>
 </div>
 <script>
+
+
 
   (function(){
     const modal = document.getElementById('helpModal');
@@ -6259,6 +6177,7 @@ Sie ist kein Urteil, sondern ein Spiegel zur Selbstreflexion.
   </a>.
 
 
+
 </p>
 <button id="toggleEinsatzbereiche" style="display:none;">
 
@@ -6269,7 +6188,7 @@ style="margin:20px auto; display:block; font-size:1.1em; padding:10px 20px; bord
 <div id="einsatzBox" style="display:none; max-width:800px; margin:20px auto; padding:20px; border:1px solid #ccc; border-radius:8px; background-color:#f9f9f9; font-family:sans-serif;">
 
 
-	
+
 
 <h2>🛠️ Praktische Anwendungsfelder der Haltungsformel</h2>
 
@@ -6452,7 +6371,8 @@ Die Haltungsformel soll Reflexion fördern, nicht Menschen vereinfachen.
 
 
 
-	
+
+
 </ul>
 </div>
 <script>
@@ -6466,7 +6386,6 @@ document.getElementById("toggleEinsatzbereiche").addEventListener("click", funct
         this.textContent = "Einsatzbereiche anzeigen";
     }
 });
-
 
 
 <script>
@@ -6629,7 +6548,7 @@ Die Realität ist das, was dir unterwegs begegnet: Stau, Baustelle, gesperrte Au
 → Also der Unterschied zwischen dem, was du wolltest (freie Autobahn), und dem, was du wirklich hast (Stop-and-Go).
 
 <strong>Rückgrat</strong> = Fahrer am Steuer<br/>
-Jetzt kommt’s: Dein Rückgrat ist der Fahrer, du entscheidest, wie du mit dem Gap umgehst.
+Jetzt kommt’s: Dein Rückgrat ist der Fahrer – du entscheidest, wie du mit dem Gap umgehst.
 Bleibst du im Stau stehen und jammerst?
 Nimmst du eine Umleitung?
 Fährst du trotzig trotzdem durch?
@@ -6638,7 +6557,7 @@ Fährst du trotzig trotzdem durch?
 z. B. Kategorie <strong> Konsequent</strong> : Du folgst der Umleitung klar und ruhig, auch wenn’s länger dauert.
 Rückzug: Du stellst den Motor ab und sagst: „Dann eben nicht.“
 
-....oder <strong>Inspirierend</strong>: Du bleibst gelassen, motivierst die Mitfahrer: „Keine Sorge, wir kommen an, auch mit Umweg!“
+....oder <strong>Inspirierend</strong>: Du bleibst gelassen, motivierst die Mitfahrer: „Keine Sorge, wir kommen an – auch mit Umweg!“
 
 <p>
  👉 Die <em>Differenz</em> zwischen <strong>Ideal</strong> und <strong>Realität</strong> ist das<strong> Spannungsfeld</strong>:
@@ -6667,7 +6586,7 @@ Die Formel macht aus dieser Mischung sichtbar, wie deine Haltung wirkt.
 <div style="margin-top:8px; padding:10px; border:1px solid #e5e7eb; border-radius:8px; background:#f9fafb">
 <p><strong>Die Situation:</strong><br/>
 		
- Du bist kurz vor Feierabend, aber dein Kollege bittet dich, noch schnell über seine Zeichnung zu schauen. Du siehst sofort, dass ein Maß fehlt. Es wäre eigentlich deine Pflicht, das zu korrigieren.
+ Du bist kurz vor Feierabend, aber dein Kollege bittet dich, noch schnell über seine Zeichnung zu schauen. Du siehst sofort, dass ein Maß fehlt – es wäre eigentlich deine Pflicht, das zu korrigieren.
 		
 		
 <p><strong>Innere Reaktion:</strong><br/>
@@ -6764,7 +6683,7 @@ Haltung = (Ideal – Realität) × Rückgrat = ______<br/>
 <div style="margin-top:8px; padding:10px; border:1px solid #e5e7eb; border-radius:8px; background:#f9fafb">
 <p><strong>Die Situation:</strong><br/>
 		
- In einer WhatsApp-Gruppe wird über eine Kollegin gespottet. Du weißt, es ist unfair, aber du willst auch nicht der Spaßbremser sein.
+ In einer WhatsApp-Gruppe wird über eine Kollegin gespottet. Du weißt, es ist unfair – aber du willst auch nicht der Spaßbremser sein.
 		
 <p><strong>Innere Reaktion:</strong><br/>
 		Wo beginnt Zivilcourage im digitalen Alltag?</p>
@@ -6794,7 +6713,7 @@ Haltung = (Ideal – Realität) × Rückgrat = ______<br/>
 <div style="margin-top:8px; padding:10px; border:1px solid #e5e7eb; border-radius:8px; background:#f9fafb">
 <p><strong>Die Situation:</strong><br/>
 		
- Du merkst, dass du seit Tagen für andere funktionierst – Familie, Arbeit, Verpflichtungen und innerlich leer wirst.
+ Du merkst, dass du seit Tagen für andere funktionierst – Familie, Arbeit, Verpflichtungen – und innerlich leer wirst.
 		
 <p><strong>Innere Reaktion:</strong><br/>
 		Was brauchst du, um deine Energie zu schützen?</p>
@@ -6814,6 +6733,10 @@ Wie ist die Realität? ______<br/>
 Wie viel Rückgrat hast du? ______<br/>
 
 Haltung = (Ideal – Realität) × Rückgrat = ______<br/>
+
+
+
+
 
 
 
@@ -7680,6 +7603,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
+
 <script>
 (function(){
 
@@ -7937,7 +7865,6 @@ function toggleEinsatz() {
 
 
 
-
 <script>
 /* PDF-Button – eigenständiger Block */
 (function(){
@@ -7978,7 +7905,6 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
 
 
 
-
 <script>
 /* ===== Was jetzt? Button ===== */
 (function(){
@@ -7987,7 +7913,9 @@ s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bund
 
 
 
-	
+
+
+
 // PPP
 "PPP_hoch": `
 Deine Ausrichtung, deine erlebte Realität und deine Umsetzung liegen im positiven Bereich. Gleichzeitig besteht zwischen Ideal und Realität eine große Spannung. Deine Umsetzung weist weiterhin in Richtung deiner positiven Ausrichtung. Prüfe deshalb, wodurch die deutliche Differenz entsteht und was du tatsächlich beeinflussen kannst.
@@ -9089,16 +9017,18 @@ Ideal, Realität und Umsetzung stehen aktuell auf neutral. Damit besteht weder e
 </ul>
 `,
 
+
   };
 
 
 
-	
+
+
   function getEmpfehlung(lageCode, spannung) {
     const sp = Math.abs(spannung);
     const niveau = sp >= 8 ? "hoch" : sp >= 4 ? "mittel" : "gering";
     const key = lageCode + "_" + niveau;
-    return empfehlungen[key] || empfehlungen[lageCode + "_mittel"] || "Nimm dir einen Moment – und sei ehrlich mit dir selbst.";
+    return empfehlungen[key] || empfehlungen[lageCode + "_mittel"] || "Nimm dir einen Moment und sei ehrlich mit dir selbst.";
   }
 
   // Button erstellen
@@ -9128,7 +9058,9 @@ Ideal, Realität und Umsetzung stehen aktuell auf neutral. Damit besteht weder e
   }
 }
 
-	
+
+
+
   // Klick-Event
   btn.addEventListener('click', function(){
     const I = parseInt(document.getElementById('ideal').value) || 0;
@@ -9150,6 +9082,8 @@ Ideal, Realität und Umsetzung stehen aktuell auf neutral. Damit besteht weder e
 
 })();
 </script>
+
+
 
 
 <!-- SPANNUNGSVERLAUF -->
@@ -9226,16 +9160,16 @@ Ideal, Realität und Umsetzung stehen aktuell auf neutral. Damit besteht weder e
         else
           trend = ' <span style="color:#6b7280;">→ Unverändert</span>';
       }
- 
-		
-		return `
+  
+
+    return `
  <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ccc;position:relative;">
 
 
- <button onclick="loescheEintrag(${i})" style="position:absolute;top:0;right:0;width:auto;display:inline-block;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:3px 8px;font-size:0.78rem;cursor:pointer;">🗑️</button> 
-
-
-		 
+ 
+  
+ 
+          <button onclick="loescheEintrag(${i})" style="position:absolute;top:0;right:0;width:auto;display:inline-block;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:3px 8px;font-size:0.78rem;cursor:pointer;">🗑️</button>       
           <strong>${e.datum}</strong><br>
           Spannung: <strong>${e.spannung}</strong>${trend}<br>
           Haltungswert: <strong>${e.haltung}</strong><br>
@@ -9259,6 +9193,8 @@ window.loescheEintrag = function(index) {
     renderVerlauf();
   };
 
+
+
   window.speichereSpannungsverlauf = function() {
     const I = parseInt((document.getElementById('ideal')||{}).value) || 0;
     const R = parseInt((document.getElementById('real')||{}).value)  || 0;
@@ -9270,8 +9206,10 @@ window.loescheEintrag = function(index) {
 
 
 
-	  
-	  
+
+
+
+
    const jetzt = new Date();
 
 const datum =
@@ -9292,11 +9230,8 @@ if(notesDiv){
 
 
 
-	  
 
-	  
-	  
- let status = '';
+let status = '';
     if(spannung >= 8)      status = '🔴 Hohe Aktivierung';
     else if(spannung >= 4) status = '🟠 Mittlere Spannung';
     else                   status = '🟢 Stabilisierung';
@@ -9320,7 +9255,13 @@ if(notesDiv){
 
 })();
 </script>
-	
+
+
+
+
+
+
+
 
 
 
@@ -9340,8 +9281,10 @@ if(notesDiv){
 
   const szenarioThemen = [
 
-	  
- {
+
+
+
+  {
   name: "Reklamation/Konsum",
   woerter: ["liefer","reklamat","reklamier","beschädig","mangel","mängel","bezug","muster","bestell","versand","rücksend","garantie","war"],
   lagen: {
@@ -11352,7 +11295,7 @@ if(notesDiv){
   }
 }
 
-	  
+
 ,{
   name: "Selbstwert/Identität",
 woerter: ["selbstw","selbstbewus","identit","wer bin ich","minderwer"],
@@ -13868,6 +13811,7 @@ stark:"Bewahre Respekt, Fairness und Gelassenheit. Gerade bei Erbschaften bleibe
 }
 
 
+
 ,{
 name: "Künstliche Intelligenz & Digitalisierung",
 
@@ -14043,9 +13987,6 @@ stark:"Bleibe neugierig, kritisch und offen. Die Zukunft der KI wird nicht nur d
 }
 
 
- 
-  
-
 
     /* =========================================================
        NEUES THEMA HIER ERGÄNZEN – Vorlage zum Kopieren:
@@ -14121,9 +14062,10 @@ stark:"Bleibe neugierig, kritisch und offen. Die Zukunft der KI wird nicht nur d
     const lageCode = berechneLageCode();
 
 
-	  
-	  
-     const G = parseInt((document.getElementById('ruck')||{}).value) || 0;
+
+
+
+  const G = parseInt((document.getElementById('ruck')||{}).value) || 0;
 const absG = Math.abs(G);
 const intensitaet = absG <= 3 ? 'leicht' : absG <= 6 ? 'mittel' : 'stark';
 const lagenEintrag = thema.lagen[lageCode];
@@ -14131,9 +14073,9 @@ const zusatzText = typeof lagenEintrag === 'object'
   ? lagenEintrag[intensitaet] 
   : lagenEintrag;
 
-     
-	  
-	  if(!zusatzText) return;
+
+
+    if(!zusatzText) return;
 
     const alterZusatz = box.querySelector('.szenario-zusatz');
     if(alterZusatz) alterZusatz.remove();
@@ -14143,9 +14085,7 @@ const zusatzText = typeof lagenEintrag === 'object'
     div.style.marginTop = '12px';
     div.style.paddingTop = '12px';
     div.style.borderTop = '1px dashed #d97706';
-
-div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + thema.name + '):</strong><br>' + zusatzText;
-	  
+    div.innerHTML = '<strong>📝 ...zu deinem mögl. Szenario (' + thema.name + '):</strong><br>' + zusatzText;
     box.appendChild(div);
   }
 
@@ -14166,76 +14106,6 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
 
 
 
-	
-
-			
-
-<style>
-#digitalClock{
-  position:fixed;
-  top:10px;
-  right:12px;
-  z-index:500;
-  font-family:ui-monospace,Menlo,Consolas,monospace;
-  font-size:14px;
-  font-weight:700;
-  letter-spacing:.04em;
-  color:#fff;
-  background:rgba(0,0,0,.28);
-  padding:6px 12px;
-  border-radius:999px;
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
-  pointer-events:none;
-  user-select:none;
-  text-align:right;
-  line-height:1.4;
-}
-#digitalClock .clock-date{
-  display:block;
-  font-size:10px;
-  font-weight:500;
-  opacity:.75;
-  letter-spacing:.02em;
-}
-@media (max-width:640px){
-  #digitalClock{font-size:12px;padding:5px 10px;top:8px;right:8px}
-  #digitalClock .clock-date{font-size:9px}
-}
-@media print{
-  #digitalClock{display:none!important}
-}
-</style>
-
-<div id="digitalClock">
-  --:--:--
-  <span class="clock-date" id="digitalClockDate">–</span>
-</div>
-
-<script>
-(function(){
-  function tick(){
-    const el = document.getElementById('digitalClock');
-    const dateEl = document.getElementById('digitalClockDate');
-    if(!el) return;
-    const n = new Date();
-    const h = String(n.getHours()).padStart(2,'0');
-    const m = String(n.getMinutes()).padStart(2,'0');
-    const s = String(n.getSeconds()).padStart(2,'0');
-    el.childNodes[0].textContent = h+':'+m+':'+s+' ';
-    if(dateEl){
-      dateEl.textContent = n.toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric'});
-    }
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
-</script>
-
-
-
-
-	
 
 <script>
 // ============================================================
@@ -14271,7 +14141,7 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
   micButton.style.borderRadius = '6px';
   micButton.style.border = '1px solid #c0392b';
   micButton.style.background = '#16A34A';
-  micButton.style.color = '#ffffff';
+  micButton.style.color = '#15803D';
   micButton.style.fontSize = '14px';
   micButton.style.fontWeight = 'bold';
 
@@ -14530,7 +14400,6 @@ div.innerHTML = '<strong>📝 Mögliche Übertragung auf dein Szenario (' + them
 </script>
 
 
-	
-
 </body>
 </html>
+
