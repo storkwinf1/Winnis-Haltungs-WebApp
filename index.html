@@ -4456,18 +4456,28 @@ if (lageCode === "P00") {
     const ideal = Math.abs(I);
 
     if (ideal <= 2) {
+        category = "Leicht positive Ausrichtung";
+        effect = "Eine positive Ausrichtung ist erkennbar, während Realität und Umsetzung neutral bleiben.";
         deutung = "Du hast eine leicht positive Ausrichtung, während Realität und Umsetzung neutral bleiben. Prüfe, ob diese Ausrichtung für dich stimmig ist oder ob daraus ein konkreter Schritt entstehen soll.";
     }
     else if (ideal <= 4) {
+        category = "Positive Ausrichtung";
+        effect = "Deine positive Ausrichtung ist erkennbar, während Realität und Umsetzung neutral bleiben.";
         deutung = "Du hast eine erkennbare positive Ausrichtung, während Realität und Umsetzung neutral bleiben. Prüfe, ob du diese Ausrichtung bewusst so stehen lassen möchtest oder ob daraus eine konkrete Umsetzung entstehen soll.";
     }
     else if (ideal <= 6) {
+        category = "Deutlich positive Ausrichtung";
+        effect = "Deine positive Ausrichtung ist deutlich ausgeprägt, während Realität und Umsetzung neutral bleiben.";
         deutung = "Deine positive Ausrichtung ist deutlich ausgeprägt, während Realität und Umsetzung neutral bleiben. Prüfe, welche konkrete Handlung zu dieser Ausrichtung passen würde.";
     }
     else if (ideal <= 8) {
+        category = "Stark positive Ausrichtung";
+        effect = "Eine starke positive Ausrichtung ist vorhanden, während Realität und Umsetzung neutral bleiben.";
         deutung = "Du hast eine starke positive Ausrichtung, während Realität und Umsetzung neutral bleiben. Prüfe, ob und wie du dieser Ausrichtung bewusst Ausdruck geben möchtest.";
     }
     else {
+        category = "Sehr stark positive Ausrichtung";
+        effect = "Deine positive Ausrichtung ist sehr stark ausgeprägt, während Realität und Umsetzung neutral bleiben.";
         deutung = "Deine positive Ausrichtung ist sehr stark ausgeprägt, während Realität und Umsetzung neutral bleiben. Prüfe, welche Umsetzung dieser klaren Ausrichtung tatsächlich entsprechen würde.";
     }
 }
