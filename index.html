@@ -2120,104 +2120,6 @@ if (lageCode === "PP0") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
-
-
-
-if (lageCode === "PP0") {
-
-  lageText = "Ideal: positiv, Realität: positiv, Rückgrat: neutral";
-
-  const spannung = I - R;
-  const s = Math.abs(spannung);
-
-  if (spannung === 0) {
-    category = "Übereinstimmend neutral";
-    effect = "Ideal und Realität stimmen überein. Gleichzeitig zeigt sich aktuell keine gerichtete Umsetzung.";
-  }
-
-  else if (spannung > 0) {
-    if (s <= 1) {
-      category = "Leichte offene Differenz";
-      effect = "Dein positives Ideal liegt leicht über der positiv erlebten Realität, ohne dass aktuell eine gerichtete Umsetzung erfolgt.";
-    }
-    else if (s <= 2) {
-      category = "Kleine offene Differenz";
-      effect = "Zwischen Ideal und Realität besteht eine kleine Differenz bei neutraler Umsetzung.";
-    }
-    else if (s <= 3) {
-      category = "Erkennbare offene Differenz";
-      effect = "Ideal und Realität unterscheiden sich erkennbar, während deine Umsetzung neutral bleibt.";
-    }
-    else if (s <= 4) {
-      category = "Mittlere offene Differenz";
-      effect = "Die Differenz zwischen Ideal und Realität ist spürbar; aktuell erfolgt keine gerichtete Umsetzung.";
-    }
-    else if (s <= 5) {
-      category = "Deutliche offene Differenz";
-      effect = "Dein Ideal liegt deutlich über der Realität, während die Umsetzung neutral bleibt.";
-    }
-    else if (s <= 6) {
-      category = "Starke offene Differenz";
-      effect = "Zwischen deinem positiven Ideal und der Realität besteht eine starke Differenz ohne gerichtete Umsetzung.";
-    }
-    else if (s <= 7) {
-      category = "Sehr starke offene Differenz";
-      effect = "Die Differenz zwischen Ideal und Realität ist sehr deutlich, während die Umsetzung neutral bleibt.";
-    }
-    else if (s <= 8) {
-      category = "Intensive offene Differenz";
-      effect = "Ideal und Realität liegen weit auseinander. Eine gerichtete Umsetzung zeigt sich aktuell nicht.";
-    }
-    else {
-      category = "Maximale offene Differenz";
-      effect = "Zwischen positivem Ideal und positiv erlebter Realität besteht innerhalb dieses Lagecodes eine sehr große Differenz bei neutraler Umsetzung.";
-    }
-  }
-
-  else {
-    if (s <= 1) {
-      category = "Leicht realitätsseitig neutral";
-      effect = "Die positiv erlebte Realität liegt leicht über deinem Ideal; deine Umsetzung bleibt neutral.";
-    }
-    else if (s <= 2) {
-      category = "Realitätsseitig neutral";
-      effect = "Die Realität liegt über deinem Ideal, ohne dass aktuell eine gerichtete Umsetzung erfolgt.";
-    }
-    else if (s <= 3) {
-      category = "Erkennbar realitätsseitig";
-      effect = "Die positive Realität liegt erkennbar über deinem gesetzten Ideal.";
-    }
-    else if (s <= 4) {
-      category = "Deutlich realitätsseitig";
-      effect = "Zwischen Realität und Ideal besteht eine deutliche Differenz zugunsten der Realität.";
-    }
-    else if (s <= 5) {
-      category = "Stark realitätsseitig";
-      effect = "Die Realität liegt deutlich über deinem Ideal, während die Umsetzung neutral bleibt.";
-    }
-    else if (s <= 6) {
-      category = "Sehr stark realitätsseitig";
-      effect = "Die Differenz zugunsten der Realität ist stark ausgeprägt.";
-    }
-    else if (s <= 7) {
-      category = "Intensiv realitätsseitig";
-      effect = "Die positiv erlebte Realität liegt weit über deinem derzeitigen Ideal.";
-    }
-    else if (s <= 8) {
-      category = "Sehr intensiv realitätsseitig";
-      effect = "Die Differenz zwischen Realität und Ideal ist sehr groß.";
-    }
-    else {
-      category = "Extrem realitätsseitig";
-      effect = "Die positiv erlebte Realität liegt innerhalb dieses Lagecodes außergewöhnlich weit über deinem Ideal.";
-    }
-  }
-}
-
-
-
-
-
 //.............................................................................
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
@@ -4551,45 +4453,22 @@ else {
 
 if (lageCode === "P00") {
 
-    if (I === 1) {
-        category = "Minimal ungenutzt";
-        effect = "Ein positives Ideal ist angedeutet, bleibt aber ohne Rückgrat praktisch wirkungslos.";
+    const ideal = Math.abs(I);
 
-    } else if (I === 2) {
-        category = "Leicht ungenutzt";
-        effect = "Du hast ein positives Ideal, setzt es aber kaum um.";
-
-    } else if (I === 3) {
-        category = "Mäßig ungenutzt";
-        effect = "Eine gute Richtung ist erkennbar, bleibt aber ohne Umsetzung schwach.";
-
-    } else if (I === 4) {
-        category = "Ungenutzt";
-        effect = "Du erkennst eine gute Richtung, bringst sie aber nicht in Umsetzung.";
-
-    } else if (I === 5) {
-        category = "Spürbar ungenutzt";
-        effect = "Dein positives Ideal ist klar vorhanden, bleibt aber ohne Rückgrat weitgehend liegen.";
-
-    } else if (I === 6) {
-        category = "Deutlich ungenutzt";
-        effect = "Du weißt, was richtig wäre, lässt es aber ohne Umsetzung stehen.";
-
-    } else if (I === 7) {
-        category = "Stark ungenutzt";
-        effect = "Du hast eine klare Richtung, setzt sie aber nicht in Handlung um.";
-
-    } else if (I === 8) {
-        category = "Sehr stark ungenutzt";
-        effect = "Ein starkes positives Ideal bleibt ohne Rückgrat deutlich unter seiner möglichen Wirkung.";
-
-    } else if (I === 9) {
-        category = "Massiv ungenutzt";
-        effect = "Ein sehr starkes positives Ideal bleibt nahezu vollständig ohne Umsetzung.";
-
-    } else {
-        category = "Vollständig liegengeblieben";
-        effect = "Du hast ein maximal positives Ideal, setzt es aber überhaupt nicht um.";
+    if (ideal <= 2) {
+        deutung = "Du hast eine leicht positive Ausrichtung, während Realität und Umsetzung neutral bleiben. Prüfe, ob diese Ausrichtung für dich stimmig ist oder ob daraus ein konkreter Schritt entstehen soll.";
+    }
+    else if (ideal <= 4) {
+        deutung = "Du hast eine erkennbare positive Ausrichtung, während Realität und Umsetzung neutral bleiben. Prüfe, ob du diese Ausrichtung bewusst so stehen lassen möchtest oder ob daraus eine konkrete Umsetzung entstehen soll.";
+    }
+    else if (ideal <= 6) {
+        deutung = "Deine positive Ausrichtung ist deutlich ausgeprägt, während Realität und Umsetzung neutral bleiben. Prüfe, welche konkrete Handlung zu dieser Ausrichtung passen würde.";
+    }
+    else if (ideal <= 8) {
+        deutung = "Du hast eine starke positive Ausrichtung, während Realität und Umsetzung neutral bleiben. Prüfe, ob und wie du dieser Ausrichtung bewusst Ausdruck geben möchtest.";
+    }
+    else {
+        deutung = "Deine positive Ausrichtung ist sehr stark ausgeprägt, während Realität und Umsetzung neutral bleiben. Prüfe, welche Umsetzung dieser klaren Ausrichtung tatsächlich entsprechen würde.";
     }
 }
 
