@@ -14323,6 +14323,56 @@ const zusatzText = typeof lagenEintrag === 'object'
 </script>
 
 
+
+
+	
+<!-- Kleine dynamische Datums- und Uhrzeitanzeige -->
+<div id="datetimeDisplay" style="
+    position: fixed;
+    top: 6px;
+    right: 7px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+    color: #64748b;
+    background: rgba(255,255,255,0.82);
+    padding: 3px 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    white-space: nowrap;
+    width: auto;
+    max-width: max-content;
+">
+</div>
+
+<script>
+function updateDateTime() {
+    const now = new Date();
+
+    const date = now.toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+
+    const time = now.toLocaleTimeString('de-DE', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+
+    document.getElementById('datetimeDisplay').textContent =
+        date + ' · ' + time;
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+</script>
+
+	
+
 </body>
 </html>
 
