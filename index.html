@@ -647,10 +647,15 @@ winni@stork-amoeneburg.de
 </a>
 </div>
 
+
+
+	
+
 <img
 src="Winni1.jpg"
 alt="Winni Stork"
-title="Winni Stork"
+title="Zum Vergrößern anklicken"
+onclick="openProfileImage(this.src)"
 
 style="
 width:85px;
@@ -659,19 +664,68 @@ border-radius:50%;
 object-fit:cover;
 border:2px solid #ffffff;
 box-shadow:0 2px 6px rgba(0,0,0,.2);
+cursor:pointer;
 ">
 
-</div>
 
+<!-- Profilbild Großansicht -->
+<div id="profileImageOverlay"
+onclick="closeProfileImage()"
+style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.75);
+z-index:99999;
+align-items:center;
+justify-content:center;
+padding:25px;
+box-sizing:border-box;
+cursor:pointer;
+">
+
+<img
+id="profileImageLarge"
+alt="Winni Stork"
+style="
+width:min(80vw,400px);
+height:auto;
+max-height:80vh;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+box-shadow:0 10px 35px rgba(0,0,0,0.45);
+">
+
+
+
+	
+</div>
 
 </section>
 
-
 </div>
-
 
 <script>
 
+	
+	
+function openProfileImage(src) {
+    const overlay = document.getElementById("profileImageOverlay");
+    const image = document.getElementById("profileImageLarge");
+
+    image.src = src;
+    overlay.style.display = "flex";
+}
+
+function closeProfileImage() {
+    document.getElementById("profileImageOverlay").style.display = "none";
+}
+
+
+
+	
+	
 function getIdealRichtung(I){
   if (I > 0) return "positives Ideal";
   if (I < 0) return "negatives Ideal";
