@@ -14057,16 +14057,7 @@ const zusatzText = typeof lagenEintrag === 'object'
 
     if(!zusatzText) return;
 
-    const alterZusatz = box.querySelector('.szenario-zusatz');
-    if(alterZusatz) alterZusatz.remove();
-
-    const div = document.createElement('div');
-    div.className = 'szenario-zusatz';
-    div.style.marginTop = '12px';
-    div.style.paddingTop = '12px';
-    div.style.borderTop = '1px dashed #d97706';
-    div.innerHTML = '<strong>📝 ...zu deinem mögl. Szenario (' + thema.name + '):</strong><br>' + zusatzText;
-    box.appendChild(div);
+   	
   }
 
   /* ===== An bestehenden Button hängen ===== */
@@ -14081,9 +14072,6 @@ const zusatzText = typeof lagenEintrag === 'object'
 
 })();
 </script>
-
-
-
 
 
 
