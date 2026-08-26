@@ -2933,22 +2933,11 @@ const grad = gradText(s);
 
 
 
-
-
-
-
-
-
-
-
-
+	
 
 /* =========================================================
    Deutung Deutung
 ========================================================= */
-
-
-
 
 
 if (lageCode === "PPP") {
@@ -2960,194 +2949,197 @@ if (lageCode === "PPP") {
   // 1. BALANCE (H = 0)
   // =========================
   if (H === 0) {
+
     if (kraft >= 8) {
-      deutung = "Was du dir wünschst und wie du die Situation erlebst, stimmt überein. Du stehst sehr klar hinter dieser positiven Richtung – zusätzliche Anstrengung ist im Moment kaum nötig.";
+      deutung = "Ideal und Realität liegen beide im positiven Bereich und stimmen miteinander überein. Deine Reaktion ist ebenfalls deutlich positiv ausgerichtet. Damit passen Ausrichtung, erlebte Situation und Reaktion sehr klar zusammen.";
     } else {
-      deutung = "Was du dir wünschst und wie du die Situation erlebst, stimmt überein. Du stehst hinter dieser positiven Richtung, ohne dass aktuell eine Veränderung nötig erscheint.";
+      deutung = "Ideal und Realität liegen beide im positiven Bereich und stimmen miteinander überein. Auch deine Reaktion weist in die positive Richtung. Innerhalb des Modells besteht damit keine Differenz zwischen Ideal und Realität.";
     }
   }
 
   // =========================
-  // 2. TRAGKRAFT (H > 0)
+  // 2. H > 0
+  // Ideal liegt über Realität
+  // positive Reaktionsrichtung
   // =========================
   else if (H > 0) {
 
     if (s <= 4) {
       if (intensitaet === "leicht") {
-        deutung = "Was du dir wünschst und wie du die Situation erlebst, passt grundsätzlich zusammen. Dein Handeln beginnt, diese positive Richtung zu unterstützen.";
+        deutung = "Ideal und Realität liegen beide im positiven Bereich und relativ nah beieinander. Dein Ideal liegt etwas über der Realität und deine Reaktion weist leicht in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Dein Wunsch und deine erlebte Realität passen gut zusammen. Du unterstützt diese positive Richtung bereits bewusst durch dein Handeln.";
+        deutung = "Ideal und Realität werden positiv bewertet und liegen relativ nah beieinander. Dein Ideal liegt etwas höher, während deine Reaktion erkennbar in die positive Richtung weist.";
       } else {
-        deutung = "Dein Wunsch und deine erlebte Realität passen gut zusammen. Du stehst klar dahinter und unterstützt diese Richtung aktiv.";
+        deutung = "Ideal und Realität liegen beide positiv und relativ nah beieinander. Dein Ideal liegt etwas über der Realität und deine Reaktion ist deutlich positiv ausgerichtet.";
       }
     }
 
     else if (s <= 9) {
       if (intensitaet === "leicht") {
-        deutung = "Du erlebst eine grundsätzlich positive Situation und beginnst, sie durch dein eigenes Handeln bewusst mitzutragen.";
+        deutung = "Dein positives Ideal liegt etwas über der ebenfalls positiven Realität. Deine Reaktion weist dabei leicht in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Was du dir wünschst, findest du in der Realität deutlich wieder. Dein Handeln unterstützt diese Richtung und gibt ihr zusätzlichen Halt.";
+        deutung = "Zwischen deinem positiven Ideal und der positiven Realität besteht eine erkennbare Differenz. Deine Reaktion ist ebenfalls positiv ausgerichtet.";
       } else {
-        deutung = "Deine gewünschte Richtung zeigt sich deutlich in der Realität. Du stehst klar dahinter und stärkst sie aktiv durch dein Handeln.";
+        deutung = "Dein Ideal liegt über der positiv erlebten Realität. Gleichzeitig weist deine Reaktion deutlich in die positive Richtung.";
       }
     }
 
     else if (s <= 14) {
       if (intensitaet === "leicht") {
-        deutung = "Deine gewünschte Richtung und die erlebte Realität passen gut zusammen. Du trägst dazu bei, diese positive Entwicklung weiterzuführen.";
+        deutung = "Ideal und Realität bleiben positiv bewertet, unterscheiden sich jedoch zunehmend. Deine Reaktion weist weiterhin leicht in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du erkennst deine gewünschte Richtung deutlich in der Realität wieder und unterstützt ihre weitere Entwicklung bewusst.";
+        deutung = "Dein positives Ideal liegt erkennbar über der ebenfalls positiven Realität. Deine Reaktion folgt dabei einer positiven Richtung.";
       } else {
-        deutung = "Dein Wunsch, deine erlebte Realität und dein Handeln greifen deutlich ineinander. Du gestaltest diese positive Entwicklung aktiv mit.";
+        deutung = "Zwischen deinem positiven Ideal und der positiven Realität besteht eine deutliche Differenz. Deine Reaktion ist gleichzeitig stark positiv ausgerichtet.";
       }
     }
 
     else if (s <= 29) {
       if (intensitaet === "leicht") {
-        deutung = "Die Situation entwickelt sich in eine Richtung, die zu deinem Wunsch passt. Du beginnst, diese Entwicklung bewusst mitzugestalten.";
+        deutung = "Dein positives Ideal liegt deutlich über der positiv bewerteten Realität. Deine Reaktion weist leicht in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Was du dir wünschst und was du erlebst, passt deutlich zusammen. Dein Handeln verstärkt diese positive Entwicklung.";
+        deutung = "Zwischen deiner positiven Vorstellung und der ebenfalls positiven Realität besteht eine deutliche Differenz. Deine Reaktion ist erkennbar positiv ausgerichtet.";
       } else {
-        deutung = "Deine gewünschte Richtung ist in der Realität klar erkennbar. Du stehst deutlich dahinter und gestaltest die weitere Entwicklung aktiv mit.";
+        deutung = "Ideal und Realität liegen beide positiv, aber deutlich auseinander. Gleichzeitig weist deine Reaktion stark in die positive Richtung.";
       }
     }
 
     else if (s <= 49) {
       if (intensitaet === "leicht") {
-        deutung = "Deine gewünschte Richtung und die Realität unterstützen sich deutlich. Dein eigenes Handeln trägt zunehmend dazu bei, diese Entwicklung zu stabilisieren.";
+        deutung = "Ideal und Realität werden positiv bewertet, liegen jedoch deutlich auseinander. Dein Ideal liegt höher und deine Reaktion bleibt positiv ausgerichtet.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du erlebst eine deutlich positive Übereinstimmung zwischen deinem Wunsch und der Realität. Dein Handeln trägt diese Entwicklung klar mit.";
+        deutung = "Deine positive Vorstellung liegt deutlich über der positiv erlebten Realität. Deine Reaktion weist ebenfalls klar in die positive Richtung.";
       } else {
-        deutung = "Was du dir wünschst, wie du die Situation erlebst und wie du handelst, passt sehr deutlich zusammen. Du stärkst diese Entwicklung konsequent.";
+        deutung = "Zwischen deinem positiven Ideal und der positiven Realität besteht eine große Differenz. Gleichzeitig ist deine Reaktion stark positiv ausgerichtet.";
       }
     }
 
     else if (s <= 64) {
       if (intensitaet === "leicht") {
-        deutung = "Deine positive Ausrichtung zeigt sich sehr deutlich in der Realität. Dein Handeln hat einen spürbaren Anteil daran, diese Richtung weiterzutragen.";
+        deutung = "Dein positives Ideal liegt weit über der ebenfalls positiven Realität. Deine Reaktion weist weiterhin in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Wunsch, Realität und eigenes Handeln stimmen stark miteinander überein. Du gestaltest die positive Entwicklung deutlich mit.";
+        deutung = "Ideal und Realität liegen beide positiv, aber weit auseinander. Deine Reaktion ist dabei deutlich positiv ausgerichtet.";
       } else {
-        deutung = "Deine gewünschte Richtung, die erlebte Realität und dein Handeln greifen sehr stark ineinander. Dein Einfluss auf die weitere Entwicklung ist deutlich.";
+        deutung = "Zwischen deinem positiven Ideal und der positiv bewerteten Realität besteht eine sehr große Differenz. Deine Reaktion weist gleichzeitig stark in die positive Richtung.";
       }
     }
 
     else if (s <= 79) {
       if (intensitaet === "leicht") {
-        deutung = "Dein Wunsch und die erlebte Realität stimmen sehr stark überein. Dein Handeln unterstützt diese positive Richtung sichtbar.";
+        deutung = "Deine positive Vorstellung und die positive Realität liegen sehr weit auseinander. Dein Ideal liegt höher und deine Reaktion bleibt positiv gerichtet.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du erlebst eine sehr starke Übereinstimmung zwischen deiner gewünschten Richtung und der Realität und vertrittst diese konsequent.";
+        deutung = "Dein positives Ideal liegt sehr deutlich über der positiv erlebten Realität. Gleichzeitig ist deine Reaktion klar positiv ausgerichtet.";
       } else {
-        deutung = "Wunsch, Realität und eigenes Handeln stimmen sehr stark überein. Du gestaltest diese Richtung mit hoher Konsequenz mit.";
+        deutung = "Ideal und Realität sind beide positiv, unterscheiden sich jedoch sehr stark. Deine Reaktion weist dabei sehr deutlich in die positive Richtung.";
       }
     }
 
     else {
       if (intensitaet === "leicht") {
-        deutung = "Deine gewünschte Richtung, die erlebte Realität und dein Handeln stimmen außergewöhnlich stark überein. Dein Beitrag zu dieser Entwicklung ist sehr deutlich.";
+        deutung = "Dein positives Ideal liegt außergewöhnlich weit über der ebenfalls positiven Realität. Deine Reaktion weist weiterhin in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Zwischen deinem Wunsch, deiner erlebten Realität und deinem Handeln besteht eine sehr starke Übereinstimmung. Du trägst diese Richtung mit großer Konsequenz.";
+        deutung = "Zwischen deinem positiven Ideal und der positiv bewerteten Realität besteht eine außergewöhnlich große Differenz. Deine Reaktion ist deutlich positiv ausgerichtet.";
       } else {
-        deutung = "Du hast eine sehr klare positive Vorstellung davon, wie es sein sollte, während die erlebte Realität noch deutlich dahinter zurückliegt. Gleichzeitig stehst du mit großer Konsequenz hinter deiner Ausrichtung und handelst entsprechend.";
+        deutung = "Du hast eine sehr positive Vorstellung davon, wie es sein sollte, während die Realität ebenfalls positiv, aber deutlich niedriger bewertet wird. Gleichzeitig ist deine Reaktion sehr stark positiv ausgerichtet.";
       }
     }
   }
 
   // =========================
-  // 3. UNTERFORDERUNG (H < 0)
+  // 3. H < 0
+  // Realität liegt über Ideal
+  // positive Reaktionsrichtung
   // =========================
   else {
 
     if (s <= 4) {
       if (intensitaet === "leicht") {
-        deutung = "Die Realität entwickelt sich etwas positiver, als du es selbst erwartet oder angestrebt hast. Daraus könnte sich zusätzlicher Spielraum ergeben.";
+        deutung = "Ideal und Realität liegen beide im positiven Bereich und relativ nah beieinander. Die Realität liegt etwas über deinem Ideal und deine Reaktion weist leicht in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Die erlebte Realität liegt etwas über deinem eigenen positiven Anspruch. Du könntest prüfen, ob du deine Möglichkeiten bereits vollständig nutzt.";
+        deutung = "Ideal und Realität werden positiv bewertet. Die Realität liegt etwas über deinem eigenen Ideal, während deine Reaktion erkennbar positiv ausgerichtet ist.";
       } else {
-        deutung = "Die Realität bietet dir etwas mehr, als dein bisheriger Anspruch vorsieht. Obwohl du klar hinter deiner Richtung stehst, könnte zusätzlicher Spielraum vorhanden sein.";
+        deutung = "Die positive Realität liegt etwas über deinem positiven Ideal. Gleichzeitig weist deine Reaktion deutlich in die positive Richtung.";
       }
     }
 
     else if (s <= 9) {
       if (intensitaet === "leicht") {
-        deutung = "Die Realität entwickelt sich positiver, als du es selbst eingefordert hast. Möglicherweise stehen dir Möglichkeiten offen, die du bisher noch wenig nutzt.";
+        deutung = "Die positiv bewertete Realität liegt etwas über deinem eigenen positiven Ideal. Deine Reaktion bleibt dabei leicht positiv ausgerichtet.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du erlebst gute Bedingungen und stehst hinter deiner Richtung. Gleichzeitig könnte dein eigener Anspruch noch nicht alle vorhandenen Möglichkeiten ausschöpfen.";
+        deutung = "Zwischen deinem positiven Ideal und der noch positiver bewerteten Realität besteht eine erkennbare Differenz. Deine Reaktion weist ebenfalls in die positive Richtung.";
       } else {
-        deutung = "Du stehst sehr klar hinter deiner positiven Richtung, während die Realität bereits mehr ermöglicht, als du bisher von ihr erwartest.";
+        deutung = "Die Realität wird positiver bewertet als dein eigenes Ideal. Gleichzeitig ist deine Reaktion deutlich positiv ausgerichtet.";
       }
     }
 
     else if (s <= 14) {
       if (intensitaet === "leicht") {
-        deutung = "Die Situation bietet etwas mehr, als dein derzeitiger Anspruch verlangt. Du könntest prüfen, ob du diesen zusätzlichen Spielraum nutzen möchtest.";
+        deutung = "Die Realität liegt erkennbar über deinem positiven Ideal. Deine Reaktion weist weiterhin leicht in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Die Realität bietet dir deutlich positive Möglichkeiten. Dein eigener Anspruch könnte noch wachsen, wenn du diesen Spielraum nutzen möchtest.";
+        deutung = "Deine Realität wird deutlicher positiv bewertet als dein eigenes Ideal. Deine Reaktion bleibt dabei positiv ausgerichtet.";
       } else {
-        deutung = "Du stehst klar hinter deiner Richtung, während die Realität bereits mehr Möglichkeiten bietet, als dein bisheriges Ideal einfordert.";
+        deutung = "Zwischen deinem positiven Ideal und der noch positiver bewerteten Realität besteht eine deutliche Differenz. Gleichzeitig ist deine Reaktion stark positiv.";
       }
     }
 
     else if (s <= 29) {
       if (intensitaet === "leicht") {
-        deutung = "Die Realität bietet eine gute Grundlage und du stehst grundsätzlich dahinter. Dein eigener Anspruch bleibt jedoch etwas hinter den vorhandenen Möglichkeiten zurück.";
+        deutung = "Die positiv erlebte Realität liegt deutlich über deinem positiven Ideal. Deine Reaktion weist weiterhin in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du erlebst gute Bedingungen und handelst mit klarer Haltung. Gleichzeitig könntest du prüfen, ob du dir selbst mehr zutrauen oder mehr anstreben möchtest.";
+        deutung = "Dein positives Ideal und die noch positiver bewertete Realität liegen deutlich auseinander. Deine Reaktion ist ebenfalls positiv ausgerichtet.";
       } else {
-        deutung = "Die Realität bietet deutlich mehr Möglichkeiten, als dein derzeitiges Ideal vorsieht. Deine klare Haltung könnte dir helfen, diesen Spielraum bewusster zu nutzen.";
+        deutung = "Die Realität liegt deutlich über deinem positiven Ideal. Gleichzeitig weist deine Reaktion stark in die positive Richtung.";
       }
     }
 
     else if (s <= 49) {
       if (intensitaet === "leicht") {
-        deutung = "Die vorhandenen Möglichkeiten gehen deutlich über deinen derzeitigen Anspruch hinaus. Du könntest prüfen, ob deine gewünschte Richtung noch zu dem passt, was inzwischen möglich ist.";
+        deutung = "Die Realität wird deutlich positiver bewertet als dein eigenes Ideal. Deine Reaktion bleibt positiv gerichtet.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du erlebst gute Bedingungen und stehst klar hinter deiner Richtung. Dein bisheriger Anspruch nutzt den vorhandenen Spielraum jedoch nur teilweise.";
+        deutung = "Zwischen deinem positiven Ideal und der deutlich positiver erlebten Realität besteht eine große Differenz. Deine Reaktion weist ebenfalls positiv.";
       } else {
-        deutung = "Die Realität bietet dir deutlich mehr Möglichkeiten, als dein bisheriges Ideal beschreibt. Es könnte sinnvoll sein, deinen eigenen Anspruch neu zu prüfen.";
+        deutung = "Deine Realität liegt weit über deinem positiven Ideal, während deine Reaktion stark positiv ausgerichtet ist. Prüfe, ob dein bisheriger Maßstab die aktuelle Situation noch passend beschreibt.";
       }
     }
 
     else if (s <= 64) {
       if (intensitaet === "leicht") {
-        deutung = "Zwischen den vorhandenen Möglichkeiten und deinem eigenen Anspruch entsteht ein deutlicher Abstand. Du könntest prüfen, ob dein Ideal noch zu deiner heutigen Situation passt.";
+        deutung = "Deine positiv bewertete Realität liegt weit über deinem positiven Ideal. Deine Reaktion bleibt dabei positiv ausgerichtet.";
       } else if (intensitaet === "mittel") {
-        deutung = "Die Realität eröffnet dir deutlich mehr Möglichkeiten, als du derzeit von dir oder der Situation erwartest. Dein eigener Anspruch könnte diesen Spielraum stärker aufnehmen.";
+        deutung = "Ideal und Realität liegen beide positiv, aber weit auseinander. Die Realität liegt höher und deine Reaktion weist klar in die positive Richtung.";
       } else {
-        deutung = "Du verfügst über eine klare Haltung und erlebst sehr gute Möglichkeiten. Gleichzeitig bleibt dein bisheriger Anspruch deutlich hinter diesem Spielraum zurück.";
+        deutung = "Die Realität wird wesentlich positiver bewertet als dein eigenes Ideal. Gleichzeitig ist deine Reaktion stark positiv ausgerichtet. Dein bisheriger Maßstab könnte deshalb eine erneute Betrachtung wert sein.";
       }
     }
 
     else if (s <= 79) {
       if (intensitaet === "leicht") {
-        deutung = "Die Realität bietet einen sehr großen Spielraum, während dein eigener Anspruch deutlich darunter bleibt. Es lohnt sich zu prüfen, ob deine Ziele noch zu deinen Möglichkeiten passen.";
+        deutung = "Die Realität liegt sehr deutlich über deinem positiven Ideal. Deine Reaktion weist weiterhin in die positive Richtung.";
       } else if (intensitaet === "mittel") {
-        deutung = "Du erlebst sehr gute Möglichkeiten und stehst klar hinter deiner Richtung. Dein derzeitiges Ideal schöpft diesen Spielraum jedoch nur teilweise aus.";
+        deutung = "Zwischen deinem positiven Ideal und der sehr positiv bewerteten Realität besteht eine sehr große Differenz. Deine Reaktion bleibt positiv ausgerichtet.";
       } else {
-        deutung = "Zwischen deinen vorhandenen Möglichkeiten und deinem eigenen Anspruch besteht ein sehr großer Abstand. Du könntest prüfen, ob du deine Ziele bewusster weiterentwickeln möchtest.";
+        deutung = "Deine Realität wird sehr viel positiver bewertet als dein eigenes Ideal, während deine Reaktion stark positiv bleibt. Prüfe, ob dein bisheriges Ideal noch ein passender Maßstab für diese Realität ist.";
       }
     }
 
     else {
       if (intensitaet === "leicht") {
-        deutung = "Die Realität bietet außergewöhnlich viel positiven Spielraum, während dein eigener Anspruch deutlich darunter bleibt. Prüfe, ob dein Ideal noch zu deinen heutigen Möglichkeiten passt.";
+        deutung = "Die positiv bewertete Realität liegt außergewöhnlich weit über deinem positiven Ideal. Deine Reaktion bleibt dabei positiv ausgerichtet.";
       } else if (intensitaet === "mittel") {
-        deutung = "Deine Möglichkeiten sind sehr groß und du stehst klar hinter deiner Richtung. Gleichzeitig nutzt dein derzeitiger Anspruch diesen Spielraum nur zu einem kleinen Teil.";
+        deutung = "Zwischen deinem positiven Ideal und der außergewöhnlich positiv bewerteten Realität besteht eine sehr große Differenz. Deine Reaktion weist ebenfalls deutlich positiv.";
       } else {
-        deutung = "Du erlebst außergewöhnlich gute Möglichkeiten und vertrittst deine Richtung mit großer Klarheit. Dein bisheriges Ideal bleibt jedoch deutlich darunter – die zentrale Frage ist, ob du deine Ziele neu bestimmen möchtest.";
+        deutung = "Die Realität wird außergewöhnlich viel positiver bewertet als dein eigenes Ideal, während deine Reaktion sehr stark positiv ausgerichtet ist. Prüfe besonders, ob dein bisheriges Ideal die aktuelle Realität noch angemessen abbildet.";
       }
     }
   }
 }
 
-
-
+	
 
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-
-
+	
 
 if (lageCode === "PPN") {
 
