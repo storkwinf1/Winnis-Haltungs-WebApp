@@ -6973,11 +6973,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-
-
 <script>
 (function(){
 
@@ -7003,171 +6998,176 @@ const rub = document.getElementById("szn-rubrik");
 const leit = document.getElementById("szn-leitfrage");
 const out = document.getElementById("szn-out");
 
+
+
+
+	
 /* ================= KATALOG ================= */
 const KATALOG = {
-  
+
 "1) Beruf & Verantwortung": [
-  "Handelst du aus innerer Überzeugung, wenn du eine berufliche Anweisung erhältst, die du persönlich für ineffizient hältst? (Innere Überzeugung)",
-  "Ich übernehme Verantwortung auch bei unsicherem Ausgang. (Mut zur Verantwortung)",
-  "Sprichst du die unbequeme Wahrheit über einen Fehler der Geschäftsführung aus, um größeren Schaden zu verhindern? (Unbequeme Wahrheiten)",
-  "Ich halte an Qualität fest, auch wenn Zeitdruck entsteht. (Qualität vor Tempo)",
-  "Bleibst du deinem Gewissen treu und lehnst einen Auftrag ab, der ethisch fragwürdig, aber hochprofitabel ist? (Gewissen vor Gewinn)"
+  "Was passiert, wenn meine berufliche Überzeugung mit den Erwartungen anderer kollidiert?",
+  "Wie gehe ich mit Verantwortung um, wenn der Ausgang unsicher ist?",
+  "Was mache ich, wenn ich einen Fehler oder Missstand erkenne?",
+  "Wie gehe ich mit meinen Qualitätsansprüchen unter Zeitdruck um?",
+  "Was passiert, wenn berufliche Anforderungen meinen persönlichen Überzeugungen widersprechen?"
 ],
+
 "2) Umwelt & Nachhaltigkeit": [
-  "Kaufst du aus innerer Überzeugung ein teureres, nachhaltiges Produkt, auch wenn das Budget eng ist? (Konsequente Haltung)",
-  "Ich erkenne, wenn mein Konsum meinen Werten widerspricht. (Konsumspiegel)",
-  "Konfrontierst du Freunde oder Familie mit der unbequemen Wahrheit über ihr umweltschädliches Verhalten? (Ökologische Verantwortung)",
-  "Widmest du Zeit und Mühe der korrekten Mülltrennung und Reduzierung, obwohl es viel schneller und einfacher wäre, alles wegzuwerfen? (Qualität vor Tempo)",
-  "Ich denke bei meinen Entscheidungen an die nächsten Generationen. (Blick nach vorn)"
+  "Welche Rolle spielt Nachhaltigkeit bei meinen alltäglichen Entscheidungen?",
+  "Wie gehe ich mit dem Konflikt zwischen Nachhaltigkeit und Bequemlichkeit um?",
+  "Wie bewerte ich meinen eigenen Ressourcenverbrauch?",
+  "Wie gehe ich mit Umweltproblemen um, die ich in meinem Umfeld wahrnehme?",
+  "Welche Bedeutung haben langfristige Folgen bei meinen Entscheidungen?"
 ],
 
 "3) Beziehungen & Empathie": [
-  "Handelst du aus innerer Überzeugung, indem du einem Freund in einer schwierigen Situation ehrlich deine Meinung sagst, obwohl diese wehtut? (Ehrliche Nähe)",
-  "Ich höre Kritik offen zu, ohne in Verteidigung zu gehen. (Offenes Ohr)",
-  "Sprichst du die unbequeme Wahrheit über die toxische Dynamik in einer Beziehung aus, die du eigentlich aufrechterhalten möchtest? (Unbequeme Wahrheiten)",
-  "Ich gehe verantwortungsvoll mit Vertrauen um. (Vertrauenspflege)",
-  "Bleibst du deinem Gewissen treu und verteidigst einen Freund in einer Gruppe, auch wenn du dadurch in Ungnade fällst? (Gewissen vor Gewinn)"
-  ],
+  "Wie gehe ich mit Dingen um, die mich in einer Beziehung beschäftigen?",
+  "Wie erlebe ich Kritik durch Menschen, die mir nahestehen?",
+  "Wie gehe ich mit unterschiedlichen eigenen und fremden Bedürfnissen um?",
+  "Was passiert, wenn mir eine Beziehung oder ein Verhalten nicht guttut?",
+  "Wie gehe ich mit Konflikten in engen Beziehungen um?"
+],
 
 "4) Gerechtigkeit & Gesellschaft": [
-  "Unterstützt du aus innerer Überzeugung eine gesellschaftliche Sache, die dir persönlich keine Vorteile bringt, sondern Nachteile? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung als Whistleblower, um eine große Ungerechtigkeit aufzudecken, obwohl du dadurch zur Zielscheibe wirst? (Mut zur Verantwortung)",
-  "Konfrontierst du öffentliche Missstände oder Ungerechtigkeiten, auch wenn dies unbequeme Diskussionen und Gegenwind bedeutet? (Innere Standfestigkeit)",
-  "Gibst du dir die Mühe, einen komplexen Rechts- oder Sachverhalt gründlich zu verstehen, anstatt schnelle, populistische Urteile zu fällen? (Qualität vor Tempo)",
-  "Ich engagiere mich für das Gemeinwohl ohne Eigeninteresse. (Dienen statt Nutzen)"
+  "Wie gehe ich mit Ungerechtigkeit um, die ich wahrnehme?",
+  "Was passiert mit meiner Überzeugung, wenn sie mir persönlich Nachteile bringt?",
+  "Wie gehe ich mit unterschiedlichen Sichtweisen auf gesellschaftliche Fragen um?",
+  "Welche Verantwortung empfinde ich gegenüber gemeinschaftlichen Interessen?",
+  "Was passiert mit meiner Haltung, wenn ich deutlichen Gegenwind bekomme?"
 ],
+
 "5) Freiheit & Selbstbestimmung": [
-  "Folgst du aus innerer Überzeugung deinen eigenen Lebenszielen, auch wenn deine Familie einen anderen, konventionelleren Weg erwartet? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung für einen radikalen Lebenswandel (z. B. Ausstieg aus dem Job), obwohl der Ausgang deiner Freiheit unsicher ist? (Bewusstes Handeln)",
-  "Ich gehe meinen Weg, auch wenn andere Erwartungen haben. (Eigenkurs halten)",
-  "Ich bin bereit, Risiken für Neues einzugehen. (Risiko als Wachstum)",
-  "Ich bewahre innere Freiheit trotz äußerem Druck. (Innere Unabhängigkeit)"
+  "Wie entstehen meine wichtigen persönlichen Entscheidungen?",
+  "Wie gehe ich mit Erwartungen anderer um, die nicht zu meinen Vorstellungen passen?",
+  "Wie gehe ich mit den Konsequenzen eigener Entscheidungen um?",
+  "Was passiert, wenn meine Lebenssituation nicht mehr zu meinen Vorstellungen passt?",
+  "Wie erlebe ich meine Selbstbestimmung unter äußerem Druck?"
 ],
+
 "6) Bildung & Wissen": [
-  "Ich lasse zu, dass neues Wissen alte Überzeugungen verändert. (Offen für Wandel)",
-  "Ich lerne aus meinen Fehlern. (Lernbereitschaft)",
-  "Ich prüfe Informationen sorgfältig, bevor ich sie weitergebe. (Informationsklarheit)",
-  "Ich teile Wissen, ohne mich über andere zu stellen. (Wissen teilen)",
-  "Ich halte meinen Geist wach und neugierig. (Geist in Bewegung)"
+  "Was passiert mit meiner Meinung, wenn neue Erkenntnisse ihr widersprechen?",
+  "Wie gehe ich mit Informationen um, deren Zuverlässigkeit ich nicht kenne?",
+  "Wie gehe ich damit um, etwas nicht zu wissen?",
+  "Was mache ich mit Erkenntnissen aus eigenen Fehlern?",
+  "Wie gehe ich mit Informationen um, die meiner bisherigen Überzeugung widersprechen?"
 ],
+
 "7) Werte & Konsum": [
-  "Kaufst du aus innerer Überzeugung nur Produkte, deren Werte (Tierwohl, Umweltstandards) mit deinen eigenen übereinstimmen? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung, auf deinen persönlichen Konsum zu verzichten, um die Umwelt oder soziale Standards zu schützen? (Mut zur Verantwortung)",
-  "Konfrontierst du Händler mit der unbequemen Wahrheit über die Herkunft ihrer Waren (z. B. Kinderarbeit oder schlechte Bedingungen)? (Unbequeme Wahrheiten)",
-  "Bevorzugst du langlebige, qualitativ hochwertige Produkte, anstatt schnell billige Wegwerfartikel zu kaufen? (Qualität vor Tempo)",
-  "Bleibst du deinem Gewissen treu und lehnst einen Kauf ab, obwohl der Preis unschlagbar ist, aber die Herkunft fragwürdig? (Gewissen vor Gewinn)"
+  "Wie passen meine Kaufentscheidungen zu meinen persönlichen Werten?",
+  "Was passiert, wenn ein gewünschtes Produkt meinen Überzeugungen widerspricht?",
+  "Wie gehe ich mit dem Konflikt zwischen Preis, Bequemlichkeit und meinen Werten um?",
+  "Wie unterscheide ich zwischen dem, was ich brauche, und dem, was ich haben möchte?",
+  "Welche Rolle spielen meine Werte bei Entscheidungen, die niemand außer mir sieht?"
 ],
+
 "8) Zeit & Sinn": [
-  "Widmest du deine kostbare Zeit aus innerer Überzeugung einer Tätigkeit, die dir persönlich sinnvoll erscheint, aber gesellschaftlich wenig Anerkennung findet? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung für die Gestaltung deiner freien Zeit (statt sie einfach verstreichen zu lassen), auch wenn das Anstrengung bedeutet? (Mut zur Verantwortung)",
-  "Ich gönne mir Ruhe, ohne Schuldgefühle. (Ruhe erlauben)",
-  "Konfrontierst du dich mit der unbequemen Wahrheit, dass deine aktuellen Zeitinvestitionen dir keinen wirklichen Sinn geben? (Unbequeme Wahrheiten)",
-  "Priorisierst du deine Zeit für Beziehungen oder persönliches Wachstum, auch wenn das deine berufliche Erfolgsleiter verlangsamt? (Gewissen vor Gewinn)"
+  "Wie passt meine tatsächliche Zeitverwendung zu dem, was mir wichtig ist?",
+  "Wie gehe ich mit Anforderungen um, die Zeit beanspruchen, mir aber wenig bedeuten?",
+  "Welchen Stellenwert hat Erholung in meinem Alltag?",
+  "Was geschieht mit Dingen, die mir eigentlich Bedeutung geben, im täglichen Leben?",
+  "Wie gut entspricht mein Alltag meinen persönlichen Prioritäten?"
 ],
 
 "9) Alltag & Selbstdisziplin": [
-  "Hältst du aus innerer Überzeugung eine gesunde Gewohnheit ein (z. B. Ernährung/Sport), auch wenn dein Umfeld dies nicht tut? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung für deine Prokrastination und zwingst dich zur Einhaltung wichtiger, aber unangenehmer Aufgaben? (Mut zur Verantwortung)",
-  "Konfrontierst du dich mit der unbequemen Wahrheit über deine mangelnde Disziplin oder ungesunde Gewohnheiten? (Unbequeme Wahrheiten)",
-  "Nimmst du dir die Zeit für eine sorgfältige Erledigung von Alltagsaufgaben, anstatt sie schnell und nachlässig zu erledigen? (Qualität vor Tempo)",
-  "Bleibst du deinem Gewissen treu und verzichtest auf eine schnelle Belohnung (z. B. Junk Food), um deine langfristigen Ziele zu erreichen? (Gewissen vor Gewinn)"
+  "Was geschieht mit Dingen, die ich mir selbst vorgenommen habe?",
+  "Wie gehe ich mit Aufgaben um, die ich unangenehm finde?",
+  "Wie entscheide ich zwischen kurzfristiger Belohnung und langfristigem Ziel?",
+  "Was passiert mit meinen Vorhaben, wenn meine Motivation nachlässt?",
+  "Wie gehe ich damit um, wenn ich erkenne, dass ich selbst meinem Ziel im Weg stehe?"
 ],
 
-
-"10) Tierlieb & Mitgefühl": [
-"Handelst du aus innerer Überzeugung und unterstützt Tierschutzorganisationen, auch wenn es finanzielle Einschränkungen bedeutet? (Innere Überzeugung)",  
-"Übernimmst du die Verantwortung, einem verletzten Tier zu helfen, obwohl du es eilig hast oder die Situation gefährlich ist? (Mut zur Verantwortung)",  
-"Sprichst du die unbequeme Wahrheit über die Massentierhaltung oder Tierquälerei an, auch wenn dies zu Konflikten am Esstisch führt? (Unbequeme Wahrheiten)",  
-"Nimmst du dir die Zeit, um die Herkunft von tierischen Produkten sorgfältig zu prüfen, anstatt schnell im Supermarkt zuzugreifen? (Qualität vor Tempo)",  
-"Verzichtet du auf den Konsum von Tierprodukten, weil dein Gewissen es verlangt, obwohl dies teurer oder unpraktischer ist? (Gewissen vor Gewinn)"  
+"10) Tierwohl & Mitgefühl": [
+  "Welche Rolle spielt Tierwohl bei meinen Entscheidungen?",
+  "Wie gehe ich mit einem Konflikt zwischen Tierwohl und eigenen Vorteilen um?",
+  "Was passiert, wenn ich Leid wahrnehme und Einfluss darauf nehmen könnte?",
+  "Welche Bedeutung hat die Herkunft tierischer Produkte für mich?",
+  "Wie gut passen mein Mitgefühl und mein tatsächliches Verhalten zusammen?"
 ],
-
 
 "11) Digitalisierung": [
-"Triffst du aus innerer Überzeugung bewusste Entscheidungen über Datenschutz, auch wenn es bequemer wäre, einfach zuzustimmen? (Innere Überzeugung)",  
-"Übernimmst du die Verantwortung, andere über die Risiken der Digitalisierung (z. B. Fake News) aufzuklären, auch wenn du selbst kein Experte bist? (Unbequeme Wahrheiten)",  
-"Nimmst du dir die Zeit, digitale Werkzeuge qualitativ zu beherrschen, anstatt sie nur oberflächlich zu nutzen? (Qualität vor Tempo)",  
-"Ich prüfe Informationen, bevor ich sie weitertrage. (Verantwortung)",  
-"Ich bleibe Mensch, auch wenn der Algorithmus mich kennt. (Identität)"  
+  "Wie gehe ich mit meinen persönlichen Daten im digitalen Alltag um?",
+  "Wie gehe ich mit digitalen Informationen um, deren Wahrheitsgehalt unklar ist?",
+  "Wie erlebe ich den Einfluss digitaler Medien auf meine Aufmerksamkeit?",
+  "Wie gehe ich mit dem Einfluss von Algorithmen auf meine Wahrnehmung und Entscheidungen um?",
+  "Welche Rolle sollen digitale Werkzeuge in meinem Leben spielen – und welche spielen sie tatsächlich?"
 ],
 
-
-  "12) Bewusstsein & Emotion": [
-    "Ich handle im Beruf aus innerer Überzeugung. (Innere Überzeugung)",
-    "Ich übernehme Verantwortung auch bei unsicherem Ausgang. (Mut zur Verantwortung)",
-    "Ich spreche Wahrheiten aus, selbst wenn sie unbequem sind. (Unbequeme Wahrheiten)",
-    "Ich halte an Qualität fest, auch wenn Zeitdruck entsteht. (Qualität vor Tempo)",
-    "Ich bleibe meinem Gewissen treu, auch wenn es Erfolg kostet. (Gewissen vor Gewinn)"
+"12) Bewusstsein & Emotion": [
+  "Welche Rolle spielen Gefühle bei meinen Entscheidungen?",
+  "Wie unterscheide ich zwischen einer spontanen Emotion und meiner tieferen Überzeugung?",
+  "Wie gehe ich mit Gefühlen um, die ich nur ungern zeige?",
+  "Was passiert mit meinem Verhalten, wenn Emotionen besonders stark werden?",
+  "Wie gehe ich mit meiner ersten Reaktion auf emotional belastende Situationen um?"
 ],
 
- "13) Verletzlichkeit": [
-    "Ich zeige meine Verletzlichkeit, ohne mich zu verlieren. (Selbstannahme) ",
-    "Ich spreche über das, was weh tut, bevor es mich verhärtet. (Mut zur Offenheit) ",
-    "Ich erkenne, dass Stärke auch im Nicht-Perfekten liegt. (Echtheit) ",
-    "Ich lasse Nähe zu, auch wenn Vertrauen Zeit braucht. (Vertrauensfähigkeit)",
-    "Ich vergebe mir, wenn ich nicht stark war. (Selbstmitgefühl) "
+"13) Verletzlichkeit": [
+  "Wie gehe ich damit um, wenn mich etwas verletzt?",
+  "Was passiert, wenn ich Unterstützung brauche?",
+  "Wie gehe ich mit eigener Unsicherheit oder eigenen Fehlern um?",
+  "Wie erlebe ich Nähe, wenn damit auch das Risiko einer Enttäuschung verbunden ist?",
+  "Wie gehe ich mit Seiten an mir um, die ich als Schwäche empfinde?"
 ],
 
- "14) Verzeihen & Nachtragend": [
-    "Verzeihst du aus innerer Überzeugung jemandem, der dich tief verletzt hat, um deinen eigenen Frieden zu finden? (Innere Überzeugung)  ",
-    "Ich verzeihe, aber ich vergesse nicht, was ich gelernt habe. (Erfahrungswert) ",
-    "Ich bin nicht nachtragend, ich bin achtsam geworden. (Selbstschutz) ",
-    "Ich lasse los, was mich lähmt, und halte fest, was mich stärkt. (Innere Balance)",
-    "Ich verstehe, dass Frieden nicht heißt, alles gutzuheißen. (Klarheit)  "
+"14) Verzeihen & Loslassen": [
+  "Wie gehe ich mit Verletzungen aus der Vergangenheit um?",
+  "Welche Bedeutung haben Verzeihen und erneutes Vertrauen für mich?",
+  "Wie gehe ich nach einer Verletzung mit meinen persönlichen Grenzen um?",
+  "Was geschieht mit vergangenen Konflikten, die mich heute noch beschäftigen?",
+  "Wie gehe ich mit Dingen um, die ich nicht gutheißen kann, aber nicht dauerhaft mit mir tragen möchte?"
 ],
-
-
 
 "15) Gesundheit & Körperbewusstsein": [
-  "Triffst du aus innerer Überzeugung gesunde Entscheidungen für deinen Körper, auch wenn sie gesellschaftlich nicht hip sind (z. B. Verzicht auf Alkohol)? (Innere Überzeugung)",
-  "Ich erkenne früh körperliche Warnsignale. (Frühwarnsystem)",
-  "Ich ändere Gewohnheiten, die mir schaden. (Gesunde Veränderung)",
-  "Nimmst du dir die Zeit für eine hochwertige Ernährung und ausreichend Schlaf, anstatt schnell zu ungesunden Alternativen zu greifen? (Qualität vor Tempo)",
-  "Ich finde Ruhe, auch in hektischen Zeiten. (Innere Ruhe)"
+  "Wie gehe ich mit körperlichen Warnsignalen um?",
+  "Was passiert, wenn ich erkenne, dass mir eine Gewohnheit nicht guttut?",
+  "Welchen Stellenwert hat Erholung gegenüber meinen anderen Verpflichtungen?",
+  "Wie passen meine Vorstellungen von Gesundheit und mein tatsächlicher Alltag zusammen?",
+  "Was passiert mit gesundheitsbezogenen Entscheidungen unter Alltagsdruck?"
 ],
 
-
 "16) Gerechtigkeit & Verteilung": [
-  "Forderst du aus innerer Überzeugung eine gerechtere Verteilung, auch wenn du selbst zu den Profiteuren des aktuellen Systems gehörst? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung und unterstützt Benachteiligte, auch wenn der Erfolg deiner Bemühungen unsicher ist? (Mut zur Verantwortung)",
-  "Sprichst du die unbequeme Wahrheit über die Ungleichheit in deiner Gemeinde/Gesellschaft aus, die von vielen ignoriert wird? (Unbequeme Wahrheiten)",
-  "Nimmst du dir die Zeit, die Ursachen von Ungerechtigkeit (z. B. komplexe Gesetze) wirklich zu verstehen, anstatt schnelle Lösungen zu fordern? (Qualität vor Tempo)",
-  "Triffst du eine Entscheidung, die deinem Gewissen entspricht und zur Gerechtigkeit beiträgt, auch wenn sie dir finanzielle Einbußen bringt? (Gewissen vor Gewinn)"
+  "Wie bewerte ich Regeln, von denen ich selbst Nachteile habe?",
+  "Welche Rolle spielt die Situation benachteiligter Menschen bei meinen Urteilen?",
+  "Wie gehe ich mit unterschiedlichen Erklärungen für gesellschaftliche Ungleichheit um?",
+  "Wie bewerte ich eigene Vorteile, wenn sie einer faireren Lösung entgegenstehen?",
+  "Wie gehe ich mit begründeten Gegenpositionen zu meinen Vorstellungen von Gerechtigkeit um?"
 ],
 
 "17) Technologie": [
-  "Entwickelst oder nutzt du Technologien aus innerer Überzeugung nur dann, wenn sie dem Gemeinwohl dienen? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung, eine technologische Innovation zu stoppen, die Risiken birgt, obwohl die Forschung Millionen gekostet hat?? (Mut zur Verantwortung)",
-  "Konfrontierst du Technologie-Giganten mit der unbequemen Wahrheit über ihre ethisch fragwürdigen Algorithmen oder Praktiken? (Unbequeme Wahrheiten)",
-  "Entwickelst du eine Software mit höchster Sicherheit und ethischer Qualität, auch wenn der Wettbewerber schneller eine fehlerhafte Version auf den Markt bringt? (Qualität vor Tempo)",
-  "Weigerst du dich, eine Technologie zu verkaufen, die dein Gewissen belastet, auch wenn der Gewinn immens wäre? (Gewissen vor Gewinn)"
+  "Wie gewichte ich Nutzen und mögliche Risiken neuer Technologien?",
+  "Was passiert, wenn eine technisch mögliche Lösung meinen Vorstellungen von Verantwortung widerspricht?",
+  "Wie gehe ich mit dem Konflikt zwischen Sicherheit, Qualität und Geschwindigkeit um?",
+  "Welche Verantwortung empfinde ich für mögliche Folgen technischer Entscheidungen?",
+  "Was passiert mit meiner Haltung, wenn neue Erkenntnisse meine bisherige Einschätzung einer Technologie infrage stellen?"
 ],
 
 "18) Macht & Hierarchie": [
-  "Nutzt du deine Macht- oder Autoritätsposition aus innerer Überzeugung, um die Schwächeren zu schützen, anstatt eigene Vorteile zu sichern? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung und stellst dich gegen eine mächtige Autorität, auch wenn die Konsequenzen für dich drastisch sein können? (Mut zur Verantwortung)",
-  "Konfrontierst du Hierarchien mit der unbequemen Wahrheit über ihre Missstände oder Korruption? (Unbequeme Wahrheiten)",
-  "Triffst du Entscheidungen in deiner Führungsposition nach gründlicher Abwägung und Qualität, anstatt schnell die populärste Lösung zu wählen? (Qualität vor Tempo)",
-  "Triffst du eine Entscheidung, die dein Gewissen beruhigt und die Macht der Schwächeren stärkt, auch wenn sie deinen eigenen Einfluss schwächt? (Gewissen vor Gewinn)"
+  "Wie gehe ich damit um, wenn ich eine Entscheidung einer Autorität für falsch halte?",
+  "Wie gehe ich mit eigener Macht oder Verantwortung gegenüber anderen um?",
+  "Wie erlebe ich Kritik von Menschen mit weniger Einfluss oder niedrigerer Position?",
+  "Was passiert mit meiner eigenen Meinung unter hierarchischem Druck?",
+  "Wie gehe ich mit Verantwortung für Entscheidungen innerhalb einer Hierarchie um?"
 ],
 
 "19) Krisenfestigkeit & Widerstandsfähigkeit": [
-  "Hältst du aus innerer Überzeugung an deinen Werten fest, auch wenn eine Krise alle rationalen Überlegungen in den Hintergrund drängt? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung für deine Gemeinschaft in einer Krise (Naturkatastrophe, Pandemie), auch wenn der Ausgang unsicher ist? (Mut zur Verantwortung)",
-  "Konfrontierst du die Realität einer Krise mit der unbequemen Wahrheit über das Versagen von Systemen oder Personen? (Unbequeme Wahrheiten)",
-  "Nimmst du dir die Zeit, um in einer Krise emotional und mental wirklich zu heilen, anstatt schnell zur Tagesordnung überzugehen? (Qualität vor Tempo)",
-  "Priorisierst du dein Gewissen und hilfst anderen in Not, auch wenn das bedeutet, dass du deine eigenen knappen Ressourcen opfern musst? (Gewissen vor Gewinn)"
+  "Wie verändern sich meine Prioritäten unter starkem Druck?",
+  "Was passiert mit meinen grundlegenden Überzeugungen in schwierigen Situationen?",
+  "Wie gehe ich mit neuen Fakten um, die während einer Krise meine bisherige Einschätzung verändern?",
+  "Wie gehe ich mit meinen eigenen Belastungsgrenzen um?",
+  "Was passiert nach einem größeren Rückschlag mit meiner Handlungsfähigkeit?"
 ],
 
-"20) Kultur & Diversität": [
-  "Trittst du aus innerer Überzeugung für die Rechte einer kulturellen Minderheit ein, wenn du dadurch in deinem eigenen Freundes- oder Arbeitskreis zu einem unbequemen Außenseiter wirst? (Innere Überzeugung)",
-  "Übernimmst du die Verantwortung, eine gesellschaftliche Debatte über diskriminierende Traditionen anzustoßen, auch wenn dies heftige Gegenreaktionen aus der betroffenen oder deiner eigenen Community hervorruft? (Mut zur Verantwortung)",
-  "Sprichst du die unbequeme Wahrheit über unbewusste (inhärente) Vorurteile in deinem sozialen Umfeld aus, wenn du weißt, dass dies den sozialen Frieden und die Harmonie der Gruppe sofort zerstört? (Unbequeme Wahrheiten)",
-  "Nimmst du dir die Zeit, die komplexen Hintergründe und Identitätsansprüche einer anderen Kultur qualitativ zu verstehen, anstatt schnell einen oberflächlichen Diversity - Slogan zu übernehmen, um rasch konform zu wirken? (Qualität vor Tempo)",
-  "Bleibst du deinem Gewissen treu und lehnst eine Partnerschaft oder eine Einladung zu einem Event ab, wenn bekannt ist, dass die Ausrichter:innen Diskriminierung tolerieren – und du dadurch wichtige berufliche Kontakte verlierst? (Gewissen vor Gewinn)"
+"20) Kultur & Vielfalt": [
+  "Wie gehe ich mit Lebensweisen um, die mir fremd sind?",
+  "Was passiert, wenn ich bei mir selbst Vorurteile oder vorschnelle Bewertungen bemerke?",
+  "Wie gehe ich mit Diskriminierung um, die ich in meinem eigenen Umfeld wahrnehme?",
+  "Wie gehe ich mit kulturellen Unterschieden um, die meinen eigenen Wertvorstellungen widersprechen?",
+  "Was passiert mit meiner Sichtweise, wenn andere Menschen völlig andere Erfahrungen gemacht haben als ich?"
 ]
 
 };
+
+	
 
 /* ================= RUBRIKEN LADEN ================= */
 Object.keys(KATALOG).forEach(k=>{
