@@ -6752,14 +6752,34 @@ function exportSavedAsJSON() {
   URL.revokeObjectURL(url);
 }
 
+	
+/* ================= Export ================= */
+/* ================= Export ================= */
+
+
+
 function exportSavedAsCSV() {
   const saved = getSavedEvaluations();
+
   if (!saved.length) {
     alert("Keine gespeicherten Auswertungen vorhanden.");
     return;
   }
 
-  const headers = ["datum", "titel", "name", "ideal", "real", "ruck", "h", "kategorie", "wirkung", "lage", "deutung"];
+  const headers = [
+    "datum",
+    "titel",
+    "name",
+    "szenario",
+    "ideal",
+    "real",
+    "ruck",
+    "h",
+    "kategorie",
+    "wirkung",
+    "lage",
+    "deutung"
+  ];
 
   const escapeCsv = (value) => {
     const v = String(value ?? "");
@@ -6768,11 +6788,19 @@ function exportSavedAsCSV() {
 
   const rows = [
     headers.join(";"),
-    ...saved.map(item => headers.map(h => escapeCsv(item[h])).join(";"))
+    ...saved.map(item =>
+      headers.map(h => escapeCsv(item[h])).join(";")
+    )
   ];
 
-  const csv = rows.join("\n");
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  // UTF-8-BOM + Windows-Zeilenumbruch für Excel
+  const csv = "\uFEFF" + rows.join("\r\n");
+
+  const blob = new Blob(
+    [csv],
+    { type: "text/csv;charset=utf-8;" }
+  );
+
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement("a");
@@ -6783,6 +6811,11 @@ function exportSavedAsCSV() {
   URL.revokeObjectURL(url);
 }
 
+/* ================================== */
+/* ================================== */
+
+
+	
 function showSavedEvaluations() {
   const saved = getSavedEvaluations();
   const modal = document.getElementById("savedModal");
