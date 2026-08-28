@@ -13830,6 +13830,232 @@ setInterval(updateDateTime, 1000);
 </script>
 
 
+<!-- =========================================================
+     EXCEL-EXPORT FÜR GESPEICHERTE HALTUNGSANALYSEN
+     Kompletten Block direkt VOR </body> einfügen
+========================================================= -->
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------------------------------------------------
+     1. Excel-Button automatisch neben CSV einfügen
+  --------------------------------------------------------- */
+
+  function createExcelButton() {
+
+    if (document.getElementById("exportExcelBtn")) {
+      return;
+    }
+
+    const csvBtn = document.getElementById("exportCsvBtn");
+
+    if (!csvBtn) {
+      console.warn("CSV-Button wurde nicht gefunden.");
+      return;
+    }
+
+    const excelBtn = document.createElement("button");
+
+    excelBtn.id = "exportExcelBtn";
+    excelBtn.type = "button";
+    excelBtn.className = csvBtn.className;
+    excelBtn.textContent = "Export (Excel)";
+
+    csvBtn.insertAdjacentElement("afterend", excelBtn);
+
+    excelBtn.addEventListener("click", exportSavedAsExcel);
+  }
+
+
+  /* ---------------------------------------------------------
+     2. Gespeicherte Daten aus localStorage holen
+  --------------------------------------------------------- */
+
+  function getExcelData() {
+
+    let saved = [];
+
+    try {
+      saved = JSON.parse(
+        localStorage.getItem("hf_evaluations") || "[]"
+      );
+    } catch (error) {
+      console.error(
+        "Gespeicherte Auswertungen konnten nicht gelesen werden:",
+        error
+      );
+
+      return [];
+    }
+
+    return Array.isArray(saved) ? saved : [];
+  }
+
+
+  /* ---------------------------------------------------------
+     3. Excel-Datei erzeugen
+  --------------------------------------------------------- */
+
+  function exportSavedAsExcel() {
+
+    const saved = getExcelData();
+
+    if (!saved.length) {
+      alert("Keine gespeicherten Auswertungen vorhanden.");
+      return;
+    }
+
+    if (typeof XLSX === "undefined") {
+      alert(
+        "Die Excel-Funktion konnte nicht geladen werden. " +
+        "Bitte Internetverbindung prüfen und die Seite neu laden."
+      );
+      return;
+    }
+
+
+    /* -------------------------------------------------------
+       Daten sauber für Excel aufbauen
+    ------------------------------------------------------- */
+
+    const excelData = saved.map(function (item) {
+
+      return {
+
+        "Datum":
+          item.datum || "",
+
+        "Titel":
+          item.titel || "",
+
+        "Name":
+          item.name || "",
+
+        "Szenario / Situation":
+          item.szenario || "",
+
+        "Ideal":
+          item.ideal ?? "",
+
+        "Realität":
+          item.real ?? "",
+
+        "Rückgrat":
+          item.ruck ?? "",
+
+        "H":
+          item.h ?? "",
+
+        "Kategorie":
+          item.kategorie || "",
+
+        "Wirkung":
+          item.wirkung || "",
+
+        "Lage":
+          item.lage || "",
+
+        "Deutung":
+          item.deutung || ""
+      };
+
+    });
+
+    /* -------------------------------------------------------
+       Arbeitsblatt erzeugen
+    ------------------------------------------------------- */
+    const worksheet =
+      XLSX.utils.json_to_sheet(excelData);
+
+    /* -------------------------------------------------------
+       Spaltenbreiten festlegen
+    ------------------------------------------------------- */
+
+    worksheet["!cols"] = [
+
+      { wch: 20 },  // Datum
+      { wch: 22 },  // Titel
+      { wch: 18 },  // Name
+      { wch: 45 },  // Szenario / Situation
+
+      { wch: 10 },  // Ideal
+      { wch: 10 },  // Realität
+      { wch: 10 },  // Rückgrat
+      { wch: 10 },  // H
+
+      { wch: 22 },  // Kategorie
+      { wch: 35 },  // Wirkung
+      { wch: 18 },  // Lage
+      { wch: 55 }   // Deutung
+    ];
+
+    /* -------------------------------------------------------
+       Autofilter über komplette Tabelle
+    ------------------------------------------------------- */
+
+    if (worksheet["!ref"]) {
+
+      const range =
+        XLSX.utils.decode_range(worksheet["!ref"]);
+
+      worksheet["!autofilter"] = {
+        ref: XLSX.utils.encode_range({
+          s: { r: 0, c: 0 },
+          e: { r: range.e.r, c: range.e.c }
+        })
+      };
+
+    }
+
+    /* -------------------------------------------------------
+       Arbeitsmappe erzeugen
+    ------------------------------------------------------- */
+
+    const workbook =
+      XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+      workbook,
+      worksheet,
+      "Haltungsanalysen"
+    );
+
+
+    /* -------------------------------------------------------
+       Excel-Datei herunterladen
+    ------------------------------------------------------- */
+
+    XLSX.writeFile(
+      workbook,
+      "hf_evaluations.xlsx"
+    );
+  }
+
+  /* ---------------------------------------------------------
+     4. Button nach Laden der Seite erzeugen
+  --------------------------------------------------------- */
+
+  if (document.readyState === "loading") {
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      createExcelButton
+    );
+
+  } else {
+
+    createExcelButton();
+  }
+
+})();
+</script>
+
+
+	
 
 </body>
 </html>
