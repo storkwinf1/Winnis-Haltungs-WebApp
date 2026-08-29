@@ -7018,175 +7018,178 @@ const out = document.getElementById("szn-out");
 
 
 
+	
 
 	
 /* ================= KATALOG ================= */
+
 const KATALOG = {
 
-"1) Beruf & Verantwortung": [
-  "Was passiert, wenn meine berufliche Überzeugung mit den Erwartungen anderer kollidiert?",
-  "Wie gehe ich mit Verantwortung um, wenn der Ausgang unsicher ist?",
-  "Was mache ich, wenn ich einen Fehler oder Missstand erkenne?",
-  "Wie gehe ich mit meinen Qualitätsansprüchen unter Zeitdruck um?",
-  "Was passiert, wenn berufliche Anforderungen meinen persönlichen Überzeugungen widersprechen?"
-],
+  "1) Beruf & Verantwortung": [
+    "Raum für meine eigenen Vorstellungen von guter Arbeit im beruflichen Alltag.",
+    "Verantwortung für Entscheidungen, deren Ausgang nicht vollständig vorhersehbar ist.",
+    "Fehler oder Missstände, die ich in meinem beruflichen Umfeld wahrnehme.",
+    "Mein eigener Qualitätsanspruch unter Zeit- und Leistungsdruck.",
+    "Meine fachliche Überzeugung, wenn andere etwas anderes von mir erwarten."
+  ],
 
-"2) Umwelt & Nachhaltigkeit": [
-  "Welche Rolle spielt Nachhaltigkeit bei meinen alltäglichen Entscheidungen?",
-  "Wie gehe ich mit dem Konflikt zwischen Nachhaltigkeit und Bequemlichkeit um?",
-  "Wie bewerte ich meinen eigenen Ressourcenverbrauch?",
-  "Wie gehe ich mit Umweltproblemen um, die ich in meinem Umfeld wahrnehme?",
-  "Welche Bedeutung haben langfristige Folgen bei meinen Entscheidungen?"
-],
+  "2) Umwelt & Nachhaltigkeit": [
+    "Nachhaltigkeit bei meinen alltäglichen Entscheidungen.",
+    "Umweltbewusstes Verhalten, wenn die bequemere Lösung einfacher wäre.",
+    "Mein persönlicher Verbrauch von Energie und anderen Ressourcen.",
+    "Umweltprobleme, die ich in meinem direkten Umfeld wahrnehme.",
+    "Langfristige Umweltfolgen bei Entscheidungen, die heute Vorteile bringen."
+  ],
 
-"3) Beziehungen & Empathie": [
-  "Wie gehe ich mit Dingen um, die mich in einer Beziehung beschäftigen?",
-  "Wie erlebe ich Kritik durch Menschen, die mir nahestehen?",
-  "Wie gehe ich mit unterschiedlichen eigenen und fremden Bedürfnissen um?",
-  "Was passiert, wenn mir eine Beziehung oder ein Verhalten nicht guttut?",
-  "Wie gehe ich mit Konflikten in engen Beziehungen um?"
-],
+  "3) Beziehungen & Empathie": [
+    "Nähe und Verbundenheit in einer Beziehung, die mir wichtig ist.",
+    "Kritik durch einen Menschen, der mir nahesteht.",
+    "Meine eigenen Bedürfnisse, wenn sie mit den Bedürfnissen eines anderen Menschen kollidieren.",
+    "Eine Beziehung oder ein Verhalten, das mir in bestimmten Punkten nicht guttut.",
+    "Meine eigene Position in einem Konflikt mit einem Menschen, der mir wichtig ist."
+  ],
 
-"4) Gerechtigkeit & Gesellschaft": [
-  "Wie gehe ich mit Ungerechtigkeit um, die ich wahrnehme?",
-  "Was passiert mit meiner Überzeugung, wenn sie mir persönlich Nachteile bringt?",
-  "Wie gehe ich mit unterschiedlichen Sichtweisen auf gesellschaftliche Fragen um?",
-  "Welche Verantwortung empfinde ich gegenüber gemeinschaftlichen Interessen?",
-  "Was passiert mit meiner Haltung, wenn ich deutlichen Gegenwind bekomme?"
-],
+  "4) Gerechtigkeit & Gesellschaft": [
+    "Eine Situation, die ich als ungerecht empfinde.",
+    "Eine Überzeugung, die für mich persönlich Nachteile mit sich bringen könnte.",
+    "Meine eigene Sichtweise bei gesellschaftlichen Themen mit stark unterschiedlichen Meinungen.",
+    "Meine persönlichen Interessen gegenüber den Interessen einer Gemeinschaft.",
+    "Eine gesellschaftliche Überzeugung von mir, die auf deutlichen Widerstand stößt."
+  ],
 
-"5) Freiheit & Selbstbestimmung": [
-  "Wie entstehen meine wichtigen persönlichen Entscheidungen?",
-  "Wie gehe ich mit Erwartungen anderer um, die nicht zu meinen Vorstellungen passen?",
-  "Wie gehe ich mit den Konsequenzen eigener Entscheidungen um?",
-  "Was passiert, wenn meine Lebenssituation nicht mehr zu meinen Vorstellungen passt?",
-  "Wie erlebe ich meine Selbstbestimmung unter äußerem Druck?"
-],
+  "5) Freiheit & Selbstbestimmung": [
+    "Eigene Entscheidungen über die Richtung meines Lebens.",
+    "Erwartungen anderer, die nicht zu meinen persönlichen Vorstellungen passen.",
+    "Konsequenzen einer Entscheidung, die ich selbst getroffen habe.",
+    "Eine Lebenssituation, die nicht mehr zu meinen eigenen Vorstellungen passt.",
+    "Meine persönliche Entscheidungsfreiheit unter äußerem Druck."
+  ],
 
-"6) Bildung & Wissen": [
-  "Was passiert mit meiner Meinung, wenn neue Erkenntnisse ihr widersprechen?",
-  "Wie gehe ich mit Informationen um, deren Zuverlässigkeit ich nicht kenne?",
-  "Wie gehe ich damit um, etwas nicht zu wissen?",
-  "Was mache ich mit Erkenntnissen aus eigenen Fehlern?",
-  "Wie gehe ich mit Informationen um, die meiner bisherigen Überzeugung widersprechen?"
-],
+  "6) Bildung & Wissen": [
+    "Neue Erkenntnisse, die meiner bisherigen Meinung widersprechen.",
+    "Informationen, deren Zuverlässigkeit ich nicht sicher beurteilen kann.",
+    "Eine Situation, in der mein eigenes Wissen nicht ausreicht.",
+    "Erkenntnisse, die sich aus einem eigenen Fehler ergeben.",
+    "Gute Argumente für eine Sichtweise, die meiner bisherigen Überzeugung widerspricht."
+  ],
 
-"7) Werte & Konsum": [
-  "Wie passen meine Kaufentscheidungen zu meinen persönlichen Werten?",
-  "Was passiert, wenn ein gewünschtes Produkt meinen Überzeugungen widerspricht?",
-  "Wie gehe ich mit dem Konflikt zwischen Preis, Bequemlichkeit und meinen Werten um?",
-  "Wie unterscheide ich zwischen dem, was ich brauche, und dem, was ich haben möchte?",
-  "Welche Rolle spielen meine Werte bei Entscheidungen, die niemand außer mir sieht?"
-],
+  "7) Werte & Konsum": [
+    "Meine persönlichen Werte bei alltäglichen Kaufentscheidungen.",
+    "Ein Produkt, das ich gerne hätte, obwohl ein Aspekt meinen Überzeugungen widerspricht.",
+    "Preis und Bequemlichkeit, wenn meine persönlichen Werte für eine andere Wahl sprechen.",
+    "Der Unterschied zwischen Dingen, die ich wirklich brauche, und Dingen, die ich einfach gerne besitzen möchte.",
+    "Eine Konsumentscheidung, bei der niemand außer mir weiß, wie ich mich entscheide."
+  ],
 
-"8) Zeit & Sinn": [
-  "Wie passt meine tatsächliche Zeitverwendung zu dem, was mir wichtig ist?",
-  "Wie gehe ich mit Anforderungen um, die Zeit beanspruchen, mir aber wenig bedeuten?",
-  "Welchen Stellenwert hat Erholung in meinem Alltag?",
-  "Was geschieht mit Dingen, die mir eigentlich Bedeutung geben, im täglichen Leben?",
-  "Wie gut entspricht mein Alltag meinen persönlichen Prioritäten?"
-],
+  "8) Zeit & Sinn": [
+    "Zeit für die Dinge, die meinem Leben persönlich Bedeutung geben.",
+    "Anforderungen, die viel meiner Zeit beanspruchen, mir selbst aber wenig bedeuten.",
+    "Erholung zwischen Aufgaben, Verpflichtungen und persönlichen Interessen.",
+    "Dinge, die mir wichtig sind und im täglichen Ablauf trotzdem zu kurz kommen.",
+    "Meine tatsächliche Zeitverwendung im Vergleich zu meinen persönlichen Prioritäten."
+  ],
 
-"9) Alltag & Selbstdisziplin": [
-  "Was geschieht mit Dingen, die ich mir selbst vorgenommen habe?",
-  "Wie gehe ich mit Aufgaben um, die ich unangenehm finde?",
-  "Wie entscheide ich zwischen kurzfristiger Belohnung und langfristigem Ziel?",
-  "Was passiert mit meinen Vorhaben, wenn meine Motivation nachlässt?",
-  "Wie gehe ich damit um, wenn ich erkenne, dass ich selbst meinem Ziel im Weg stehe?"
-],
+  "9) Alltag & Selbstdisziplin": [
+    "Ein Vorhaben, das ich mir selbst vorgenommen habe.",
+    "Eine notwendige Aufgabe, die ich am liebsten aufschieben würde.",
+    "Eine kurzfristige Belohnung gegenüber einem langfristigen Ziel.",
+    "Ein wichtiges Vorhaben, nachdem die anfängliche Motivation nachgelassen hat.",
+    "Eine Situation, in der mein eigenes Verhalten meinem Ziel im Weg steht."
+  ],
 
-"10) Tierwohl & Mitgefühl": [
-  "Welche Rolle spielt Tierwohl bei meinen Entscheidungen?",
-  "Wie gehe ich mit einem Konflikt zwischen Tierwohl und eigenen Vorteilen um?",
-  "Was passiert, wenn ich Leid wahrnehme und Einfluss darauf nehmen könnte?",
-  "Welche Bedeutung hat die Herkunft tierischer Produkte für mich?",
-  "Wie gut passen mein Mitgefühl und mein tatsächliches Verhalten zusammen?"
-],
+  "10) Tierwohl & Mitgefühl": [
+    "Tierwohl bei meinen persönlichen Entscheidungen.",
+    "Das Wohlergehen von Tieren, wenn eine andere Entscheidung für mich bequemer oder vorteilhafter wäre.",
+    "Tierleid, das ich wahrnehme und auf das ich zumindest begrenzt Einfluss nehmen könnte.",
+    "Die Herkunft und Haltung von Tieren bei Produkten, die ich kaufe oder nutze.",
+    "Mein tatsächliches Verhalten gegenüber Tieren im Vergleich zu meinem persönlichen Mitgefühl."
+  ],
 
-"11) Digitalisierung": [
-  "Wie gehe ich mit meinen persönlichen Daten im digitalen Alltag um?",
-  "Wie gehe ich mit digitalen Informationen um, deren Wahrheitsgehalt unklar ist?",
-  "Wie erlebe ich den Einfluss digitaler Medien auf meine Aufmerksamkeit?",
-  "Wie gehe ich mit dem Einfluss von Algorithmen auf meine Wahrnehmung und Entscheidungen um?",
-  "Welche Rolle sollen digitale Werkzeuge in meinem Leben spielen – und welche spielen sie tatsächlich?"
-],
+  "11) Digitalisierung": [
+    "Der Umgang mit meinen persönlichen Daten im digitalen Alltag.",
+    "Digitale Informationen, deren Wahrheitsgehalt für mich nicht eindeutig erkennbar ist.",
+    "Der Einfluss digitaler Medien auf meine Aufmerksamkeit und meine Zeit.",
+    "Der Einfluss von Algorithmen auf die Informationen und Angebote, die mir begegnen.",
+    "Die Rolle digitaler Werkzeuge in meinem persönlichen Alltag."
+  ],
 
-"12) Bewusstsein & Emotion": [
-  "Welche Rolle spielen Gefühle bei meinen Entscheidungen?",
-  "Wie unterscheide ich zwischen einer spontanen Emotion und meiner tieferen Überzeugung?",
-  "Wie gehe ich mit Gefühlen um, die ich nur ungern zeige?",
-  "Was passiert mit meinem Verhalten, wenn Emotionen besonders stark werden?",
-  "Wie gehe ich mit meiner ersten Reaktion auf emotional belastende Situationen um?"
-],
+  "12) Bewusstsein & Emotion": [
+    "Der Einfluss starker Gefühle auf meine Entscheidungen.",
+    "Meine erste emotionale Reaktion im Vergleich zu meiner späteren Einschätzung einer Situation.",
+    "Gefühle, die ich deutlich empfinde, aber nur ungern nach außen zeige.",
+    "Meine eigene Richtung in Situationen mit besonders starken Emotionen.",
+    "Eine emotional belastende Situation, bevor genügend Abstand zum Nachdenken entstanden ist."
+  ],
 
-"13) Verletzlichkeit": [
-  "Wie gehe ich damit um, wenn mich etwas verletzt?",
-  "Was passiert, wenn ich Unterstützung brauche?",
-  "Wie gehe ich mit eigener Unsicherheit oder eigenen Fehlern um?",
-  "Wie erlebe ich Nähe, wenn damit auch das Risiko einer Enttäuschung verbunden ist?",
-  "Wie gehe ich mit Seiten an mir um, die ich als Schwäche empfinde?"
-],
+  "13) Verletzlichkeit": [
+    "Eine Situation, die mich persönlich stärker verletzt, als ich nach außen zeigen möchte.",
+    "Unterstützung durch andere, wenn ich etwas nicht alleine bewältigen kann.",
+    "Eigene Unsicherheiten oder Fehler, die für andere sichtbar werden.",
+    "Nähe zu einem Menschen, obwohl damit auch das Risiko einer Enttäuschung verbunden ist.",
+    "Eine Seite an mir, die ich selbst als Schwäche empfinde."
+  ],
 
-"14) Verzeihen & Loslassen": [
-  "Wie gehe ich mit Verletzungen aus der Vergangenheit um?",
-  "Welche Bedeutung haben Verzeihen und erneutes Vertrauen für mich?",
-  "Wie gehe ich nach einer Verletzung mit meinen persönlichen Grenzen um?",
-  "Was geschieht mit vergangenen Konflikten, die mich heute noch beschäftigen?",
-  "Wie gehe ich mit Dingen um, die ich nicht gutheißen kann, aber nicht dauerhaft mit mir tragen möchte?"
-],
+  "14) Verzeihen & Loslassen": [
+    "Eine Verletzung aus der Vergangenheit, die mich heute noch beschäftigt.",
+    "Verzeihen nach einer Enttäuschung, ohne automatisch wieder vollständig zu vertrauen.",
+    "Meine persönlichen Grenzen gegenüber einem Menschen, der mich verletzt hat.",
+    "Ein vergangener Konflikt, der eigentlich beendet ist, innerlich aber noch nachwirkt.",
+    "Etwas Geschehenes loszulassen, obwohl ich es weiterhin nicht gutheiße."
+  ],
 
-"15) Gesundheit & Körperbewusstsein": [
-  "Wie gehe ich mit körperlichen Warnsignalen um?",
-  "Was passiert, wenn ich erkenne, dass mir eine Gewohnheit nicht guttut?",
-  "Welchen Stellenwert hat Erholung gegenüber meinen anderen Verpflichtungen?",
-  "Wie passen meine Vorstellungen von Gesundheit und mein tatsächlicher Alltag zusammen?",
-  "Was passiert mit gesundheitsbezogenen Entscheidungen unter Alltagsdruck?"
-],
+  "15) Gesundheit & Körperbewusstsein": [
+    "Körperliche Warnsignale in einem Alltag voller anderer Anforderungen.",
+    "Eine Gewohnheit, von der ich weiß, dass sie mir nicht besonders guttut.",
+    "Mein persönlicher Bedarf an Erholung gegenüber meinen Verpflichtungen.",
+    "Mein tatsächlicher Alltag im Vergleich zu meinen Vorstellungen von einem gesunden Leben.",
+    "Entscheidungen für meine Gesundheit unter Zeit-, Leistungs- oder Alltagsdruck."
+  ],
 
-"16) Gerechtigkeit & Verteilung": [
-  "Wie bewerte ich Regeln, von denen ich selbst Nachteile habe?",
-  "Welche Rolle spielt die Situation benachteiligter Menschen bei meinen Urteilen?",
-  "Wie gehe ich mit unterschiedlichen Erklärungen für gesellschaftliche Ungleichheit um?",
-  "Wie bewerte ich eigene Vorteile, wenn sie einer faireren Lösung entgegenstehen?",
-  "Wie gehe ich mit begründeten Gegenpositionen zu meinen Vorstellungen von Gerechtigkeit um?"
-],
+  "16) Gerechtigkeit & Verteilung": [
+    "Eine Regel, die ich grundsätzlich für richtig halte, obwohl sie mir selbst einen Nachteil bringt.",
+    "Die Interessen benachteiligter Menschen bei Entscheidungen, die mich ebenfalls betreffen.",
+    "Unterschiedliche Erklärungen für gesellschaftliche Ungleichheit.",
+    "Ein eigener Vorteil, der einer aus meiner Sicht faireren Lösung entgegensteht.",
+    "Eine gut begründete Gegenposition zu meiner persönlichen Vorstellung von Gerechtigkeit."
+  ],
 
-"17) Technologie": [
-  "Wie gewichte ich Nutzen und mögliche Risiken neuer Technologien?",
-  "Was passiert, wenn eine technisch mögliche Lösung meinen Vorstellungen von Verantwortung widerspricht?",
-  "Wie gehe ich mit dem Konflikt zwischen Sicherheit, Qualität und Geschwindigkeit um?",
-  "Welche Verantwortung empfinde ich für mögliche Folgen technischer Entscheidungen?",
-  "Was passiert mit meiner Haltung, wenn neue Erkenntnisse meine bisherige Einschätzung einer Technologie infrage stellen?"
-],
+  "17) Technologie": [
+    "Nutzen und mögliche Risiken einer neuen Technologie.",
+    "Eine technisch mögliche Lösung, bei der ich Zweifel an ihrer Verantwortbarkeit habe.",
+    "Sicherheit, Qualität und Geschwindigkeit, wenn nicht alles gleichzeitig erreichbar ist.",
+    "Mögliche Folgen einer technischen Entscheidung für andere Menschen.",
+    "Neue Erkenntnisse, die meine bisherige Einschätzung einer Technologie infrage stellen."
+  ],
 
-"18) Macht & Hierarchie": [
-  "Wie gehe ich damit um, wenn ich eine Entscheidung einer Autorität für falsch halte?",
-  "Wie gehe ich mit eigener Macht oder Verantwortung gegenüber anderen um?",
-  "Wie erlebe ich Kritik von Menschen mit weniger Einfluss oder niedrigerer Position?",
-  "Was passiert mit meiner eigenen Meinung unter hierarchischem Druck?",
-  "Wie gehe ich mit Verantwortung für Entscheidungen innerhalb einer Hierarchie um?"
-],
+  "18) Macht & Hierarchie": [
+    "Eine Entscheidung einer Autorität, die ich selbst für falsch halte.",
+    "Eigene Entscheidungsbefugnis, wenn meine Entscheidung Auswirkungen auf andere Menschen hat.",
+    "Kritik von jemandem, der weniger Einfluss oder eine niedrigere Position hat als ich.",
+    "Meine eigene fachliche oder persönliche Einschätzung unter hierarchischem Druck.",
+    "Verantwortung innerhalb einer Hierarchie, obwohl ich die Rahmenbedingungen nicht vollständig selbst bestimmen kann."
+  ],
 
-"19) Krisenfestigkeit & Widerstandsfähigkeit": [
-  "Wie verändern sich meine Prioritäten unter starkem Druck?",
-  "Was passiert mit meinen grundlegenden Überzeugungen in schwierigen Situationen?",
-  "Wie gehe ich mit neuen Fakten um, die während einer Krise meine bisherige Einschätzung verändern?",
-  "Wie gehe ich mit meinen eigenen Belastungsgrenzen um?",
-  "Was passiert nach einem größeren Rückschlag mit meiner Handlungsfähigkeit?"
-],
+  "19) Krisenfestigkeit & Widerstandsfähigkeit": [
+    "Meine persönlichen Prioritäten in einer Situation mit starkem Druck.",
+    "Eine grundlegende Überzeugung von mir, die durch eine schwierige Situation auf die Probe gestellt wird.",
+    "Neue Fakten während einer Krise, die meiner bisherigen Einschätzung widersprechen.",
+    "Meine persönliche Belastungsgrenze bei weiterhin bestehenden Anforderungen.",
+    "Meine Handlungsfähigkeit nach einem größeren Rückschlag."
+  ],
 
-"20) Kultur & Vielfalt": [
-  "Wie gehe ich mit Lebensweisen um, die mir fremd sind?",
-  "Was passiert, wenn ich bei mir selbst Vorurteile oder vorschnelle Bewertungen bemerke?",
-  "Wie gehe ich mit Diskriminierung um, die ich in meinem eigenen Umfeld wahrnehme?",
-  "Wie gehe ich mit kulturellen Unterschieden um, die meinen eigenen Wertvorstellungen widersprechen?",
-  "Was passiert mit meiner Sichtweise, wenn andere Menschen völlig andere Erfahrungen gemacht haben als ich?"
-]
+  "20) Kultur & Vielfalt": [
+    "Eine Lebensweise, die sich deutlich von dem unterscheidet, was mir selbst vertraut ist.",
+    "Eine spontane Bewertung eines Menschen, bevor ich seine persönliche Situation wirklich kenne.",
+    "Benachteiligung eines Menschen aufgrund seiner Herkunft, Lebensweise oder Zugehörigkeit in meinem Umfeld.",
+    "Eine kulturelle Vorstellung, die einem meiner persönlichen Werte widerspricht.",
+    "Die Sichtweise eines Menschen, der dieselbe Situation aufgrund anderer Erfahrungen völlig anders beurteilt als ich."
+  ]
 
 };
 
-	
 
+
+	
 /* ================= RUBRIKEN LADEN ================= */
 Object.keys(KATALOG).forEach(k=>{
   const opt = document.createElement("option");
