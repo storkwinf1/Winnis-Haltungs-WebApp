@@ -7021,170 +7021,250 @@ const out = document.getElementById("szn-out");
 	
 /* ================= KATALOG ================= */
 
+
 const KATALOG = {
 
   "1) Beruf & Verantwortung": [
-    "Freiraum für eigene Entscheidungen in meinem beruflichen Alltag.",
-    "Eigenständigkeit bei wichtigen beruflichen Entscheidungen.",
-    "Offenheit im Umgang mit Fehlern und Missständen bei meiner Arbeit.",
-    "Festhalten an meinem Qualitätsanspruch unter Zeitdruck.",
-    "Vertreten meiner fachlichen Überzeugung gegenüber anderen Erwartungen."
+    "Dein Vorgesetzter gibt für eine Aufgabe ein bestimmtes Vorgehen vor. Du kennst aus deiner Erfahrung eine andere Lösung, die ebenfalls funktionieren könnte und die du für geeigneter hältst. Du musst entscheiden, wie du vorgehst.",
+
+    "In einem laufenden Projekt muss kurzfristig eine Entscheidung getroffen werden. Du könntest aufgrund deiner Erfahrung selbst entscheiden oder zunächst die betroffenen Kollegen einbeziehen. Eine Abstimmung würde allerdings Zeit kosten.",
+
+    "Du bemerkst einen Fehler in der Arbeit eines Kollegen. Aktuell hat er keine Folgen, könnte später aber Probleme verursachen. Du kannst ihn direkt ansprechen, zunächst beobachten oder die Sache auf anderem Weg klären.",
+
+    "Eine wichtige Aufgabe soll heute fertig werden. Eine schnelle Lösung würde funktionieren und den Termin einhalten. Für eine sorgfältigere Lösung, die deinem üblichen Qualitätsanspruch entspricht, bräuchtest du mehr Zeit.",
+
+    "In einer Besprechung bevorzugt die Mehrheit eine technische Lösung. Du hältst aufgrund deiner Erfahrung eine andere Variante für geeigneter. Beide Lösungen haben Vor- und Nachteile und eine gemeinsame Entscheidung muss getroffen werden."
   ],
 
   "2) Umwelt & Nachhaltigkeit": [
-    "Berücksichtigung von Nachhaltigkeit in meinem persönlichen Alltag.",
-    "Entscheiden für umweltfreundlichere Lösungen trotz zusätzlichem Aufwand.",
-    "Sparsamer Umgang mit Energie und Ressourcen.",
-    "Reagieren auf Umweltprobleme in meinem unmittelbaren Umfeld.",
-    "Berücksichtigung langfristiger Umweltfolgen bei meinen Entscheidungen."
+    "Für deinen täglichen Arbeitsweg kannst du das Auto nehmen und schnell sowie flexibel unterwegs sein. Bus oder Fahrrad würden weniger Ressourcen benötigen, aber deutlich mehr Zeit oder Planung erfordern.",
+
+    "Du benötigst kurzfristig ein neues Gerät. Ein günstiges Modell ist sofort verfügbar. Eine langlebigere und ressourcenschonendere Alternative kostet deutlich mehr und müsste bestellt werden.",
+
+    "Du könntest zu Hause weniger Energie verbrauchen, müsstest dafür aber Raumtemperatur, Warmwassernutzung oder andere Gewohnheiten verändern. Finanziell kannst du dir den bisherigen Komfort leisten.",
+
+    "Bei der Arbeit bemerkst du regelmäßig unnötigen Energie- oder Materialverbrauch. Du bist für diesen Bereich nicht verantwortlich. Du könntest das Thema trotzdem ansprechen oder dich auf deinen eigenen Aufgabenbereich konzentrieren.",
+
+    "Du musst zwischen zwei technischen Lösungen wählen. Eine ist in der Anschaffung günstiger, verbraucht langfristig aber mehr Energie. Die andere kostet zunächst mehr, benötigt im Betrieb jedoch weniger Ressourcen."
   ],
 
   "3) Beziehungen & Empathie": [
-    "Zulassen von Nähe in einer Beziehung, die mir wichtig ist.",
-    "Offenheit für Kritik eines Menschen, der mir nahesteht.",
-    "Vertreten meiner eigenen Bedürfnisse gegenüber den Bedürfnissen meines Gegenübers.",
-    "Setzen persönlicher Grenzen in einer Beziehung, die mir viel bedeutet.",
-    "Einbeziehen der Sicht meines Gegenübers bei persönlichen Konflikten."
+    "Ein dir nahestehender Mensch möchte momentan sehr viel Zeit mit dir verbringen. Du magst die Nähe, brauchst gleichzeitig aber mehr Zeit für dich selbst. Beides lässt sich derzeit nicht vollständig miteinander verbinden.",
+
+    "Dein Partner kritisiert ein Verhalten von dir. Du hältst einen Teil der Kritik für ungerecht, kannst andere Punkte aber nachvollziehen. Ihr müsst mit dem Konflikt weiter umgehen.",
+
+    "Du hast dich auf einen freien Abend für dich gefreut. Ein dir wichtiger Mensch hat einen schlechten Tag und möchte dich sehen und mit dir sprechen.",
+
+    "Eine Beziehung wird zunehmend enger. Du genießt die Verbundenheit, merkst gleichzeitig aber, dass du dadurch einen Teil deiner bisherigen persönlichen Freiheit aufgeben müsstest.",
+
+    "Nach einem Streit seid ihr beide weiterhin überzeugt, gute Gründe für eure jeweilige Sicht zu haben. Ihr müsst entscheiden, wie ihr miteinander weitergeht, obwohl keiner die Situation genauso sieht wie der andere."
   ],
 
   "4) Gerechtigkeit & Gesellschaft": [
-    "Eintreten gegen eine Situation, die ich als ungerecht empfinde.",
-    "Festhalten an meinem Gerechtigkeitsempfinden trotz eigener Nachteile.",
-    "Vertreten meiner gesellschaftlichen Überzeugung gegenüber anderen Meinungen.",
-    "Berücksichtigung der Interessen anderer neben meinen eigenen Interessen.",
-    "Festhalten an einer wichtigen Überzeugung trotz Gegenwind."
+    "In einer Gruppe wird eine Person bei einer Entscheidung anders behandelt als die übrigen. Du kennst nicht alle Hintergründe. Du kannst nachfragen oder eingreifen, dich aber auch zunächst zurückhalten.",
+
+    "Eine neue Regelung verschafft dir persönlich einen deutlichen Vorteil. Andere Beteiligte werden dadurch schlechter gestellt. Die Regelung ist jedoch offiziell zulässig und gilt für alle nach denselben Vorgaben.",
+
+    "Bei einer Diskussion vertritt fast die gesamte Gruppe eine andere gesellschaftliche Position als du. Du kannst deine eigene Auffassung deutlich vertreten, dich aus der Diskussion heraushalten oder deine Position aufgrund der Argumente noch einmal überprüfen.",
+
+    "In deinem Wohnort soll Geld entweder für ein Projekt verwendet werden, von dem du persönlich stark profitieren würdest, oder für ein anderes Projekt, das einer größeren Gruppe zugutekäme.",
+
+    "Eine gesellschaftliche Überzeugung ist dir seit Jahren wichtig. Im Gespräch mit anderen hörst du erstmals mehrere Argumente, die deine bisherige Position ernsthaft infrage stellen."
   ],
 
   "5) Freiheit & Selbstbestimmung": [
-    "Selbstbestimmung bei wichtigen Entscheidungen über meinen Lebensweg.",
-    "Festhalten an meinen eigenen Vorstellungen gegenüber den Erwartungen anderer.",
-    "Übernehmen von Verantwortung für die Folgen meiner eigenen Entscheidungen.",
-    "Verändern einer Lebenssituation, die nicht mehr zu meinen Vorstellungen passt.",
-    "Nutzen meines persönlichen Entscheidungsspielraums trotz äußerer Begrenzungen."
+    "Deine Familie hält einen bestimmten beruflichen oder privaten Weg für vernünftig und erwartet, dass du ihn einschlägst. Du selbst möchtest lieber eine andere Richtung wählen, die für dich jedoch unsicherer wäre.",
+
+    "Von dir wird erwartet, eine zusätzliche Verantwortung zu übernehmen, weil andere sich auf dich verlassen. Du könntest sie übernehmen, müsstest dafür aber eigene Pläne zurückstellen.",
+
+    "Eine von dir frei getroffene Entscheidung hat nicht zum gewünschten Ergebnis geführt. Äußere Umstände spielten dabei eine Rolle, aber auch deine eigene Entscheidung hatte Einfluss.",
+
+    "Deine derzeitige Lebenssituation ist sicher und gut planbar, entspricht aber nicht mehr vollständig dem, was du dir für dein Leben wünschst. Eine Veränderung würde Chancen eröffnen, aber Sicherheit kosten.",
+
+    "In deinem Arbeits- oder Privatleben gibt es Vorgaben, die du nicht verändern kannst. Innerhalb dieser Grenzen könntest du deinen eigenen Spielraum stärker nutzen, würdest damit aber möglicherweise Konflikte auslösen."
   ],
 
   "6) Bildung & Wissen": [
-    "Offenheit für Erkenntnisse, die meiner bisherigen Meinung widersprechen.",
-    "Prüfen von Informationen, deren Zuverlässigkeit für mich unklar ist.",
-    "Eingestehen eigener Wissenslücken bei einem wichtigen Thema.",
-    "Lernen aus einem eigenen Fehler.",
-    "Offenheit für gute Argumente, die meiner bisherigen Überzeugung widersprechen."
+    "Du bist aufgrund jahrelanger Erfahrung von einer bestimmten Vorgehensweise überzeugt. Eine neue Untersuchung kommt zu einem anderen Ergebnis und liefert dafür nachvollziehbare Daten.",
+
+    "Eine Person, der du normalerweise vertraust, gibt dir eine wichtige Information. Sie überrascht dich und du könntest sie sofort übernehmen oder zunächst selbst überprüfen.",
+
+    "Du musst heute eine Entscheidung treffen und glaubst, genügend Informationen zu besitzen. Eine zusätzliche fachliche Einschätzung wäre möglich, würde die Entscheidung aber verzögern.",
+
+    "Du hast eine Entscheidung getroffen, die sich später als problematisch erweist. Damals hattest du nachvollziehbare Gründe dafür. Inzwischen liegen Informationen vor, die für eine Änderung sprechen.",
+
+    "In einer Diskussion widerspricht jemand einer Überzeugung, die du seit Jahren vertrittst. Sein Argument ist gut begründet und du findest darauf zunächst keine überzeugende Antwort."
   ],
 
   "7) Werte & Konsum": [
-    "Ausrichten meiner Kaufentscheidungen an meinen persönlichen Werten.",
-    "Festhalten an meinen Überzeugungen trotz eines starken Kaufwunsches.",
-    "Festhalten an meinen persönlichen Werten trotz Preis- oder Bequemlichkeitsvorteilen.",
-    "Abwägen zwischen tatsächlichem Bedarf und persönlichem Wunsch.",
-    "Festhalten an meinen Werten bei Kaufentscheidungen, die niemand außer mir beurteilt."
+    "Du möchtest ein bestimmtes Produkt kaufen. Die günstigste Variante erfüllt alle deine Anforderungen. Eine teurere Alternative entspricht bei Herstellung oder Herkunft stärker deinen persönlichen Wertvorstellungen.",
+
+    "Du möchtest dir schon lange etwas Bestimmtes gönnen und kannst es problemlos bezahlen. Gleichzeitig passt der Kauf nicht zu einem Grundsatz, nach dem du deinen Konsum eigentlich reduzieren möchtest.",
+
+    "Du brauchst kurzfristig ein Produkt. Eine günstige und bequeme Lösung ist sofort verfügbar. Eine Alternative entspricht deinen Wertvorstellungen stärker, kostet aber mehr Zeit und Geld.",
+
+    "Du siehst einen Gegenstand, den du sehr gerne besitzen würdest. Zu Hause hast du bereits etwas, das denselben Zweck erfüllt und noch einwandfrei funktioniert.",
+
+    "Mehrere Freunde empfehlen dir begeistert ein bestimmtes Produkt und die Werbung spricht dich ebenfalls an. Du bist jedoch unsicher, ob du es nach deinen eigenen Kriterien überhaupt brauchst."
   ],
 
   "8) Zeit & Sinn": [
-    "Zeit für die Dinge, die mir persönlich wichtig sind.",
-    "Zeit für Tätigkeiten, die für mich persönlich Sinn haben.",
-    "Einräumen ausreichender Zeit für Erholung trotz anderer Aufgaben.",
-    "Raum für Dinge, die meinem Leben persönliche Bedeutung geben.",
-    "Ausrichten meiner Zeitverwendung an meinen persönlichen Prioritäten."
+    "Nach der Arbeit stehen mehrere notwendige Aufgaben an. Gleichzeitig möchtest du den Abend für etwas nutzen, das dir persönlich wichtig ist und dir Freude bereitet. Für alles reicht die Zeit nicht.",
+
+    "Du hast einen freien Nachmittag. Du könntest eine längst fällige Aufgabe erledigen oder die Zeit für ein persönliches Projekt verwenden, das dir viel bedeutet.",
+
+    "Du hast noch mehrere Aufgaben zu erledigen, merkst aber deutlich, dass deine Konzentration nachlässt. Du kannst weiterarbeiten oder eine längere Pause machen und dafür später fertig werden.",
+
+    "Du hast einem Bekannten für einen bestimmten Termin zugesagt. Kurzfristig ergibt sich am selben Tag eine seltene Gelegenheit, die dir persönlich sehr wichtig wäre.",
+
+    "Du stellst fest, dass Termine und Verpflichtungen fast deine gesamte Woche bestimmen. Du könntest einige davon reduzieren, müsstest dafür aber Menschen absagen oder Erwartungen enttäuschen."
   ],
 
   "9) Alltag & Selbstdisziplin": [
-    "Konsequentes Verfolgen eines Vorhabens, das ich mir selbst vorgenommen habe.",
-    "Zeitnahes Erledigen wichtiger, aber unangenehmer Aufgaben.",
-    "Festhalten an langfristigen Zielen trotz kurzfristiger Verlockungen.",
-    "Dranbleiben an einem wichtigen Ziel, wenn meine Motivation nachlässt.",
-    "Verändern von Gewohnheiten, die meinen eigenen Zielen im Weg stehen."
+    "Du arbeitest seit Monaten auf ein persönliches Ziel hin. Die Fortschritte bleiben deutlich hinter deinen Erwartungen zurück. Du könntest weiter investieren, dein Ziel verändern oder das Vorhaben beenden.",
+
+    "Eine unangenehme Aufgabe muss bis Ende der Woche erledigt sein. Heute hättest du ausreichend Zeit dafür, möchtest den Abend aber lieber für etwas anderes nutzen.",
+
+    "Du sparst seit Monaten auf ein langfristiges Ziel. Jetzt bietet sich spontan eine Ausgabe an, die dir große Freude machen würde, dein Sparziel aber deutlich zurückwerfen würde.",
+
+    "Du hast mit großer Motivation ein neues Vorhaben begonnen. Nach einigen Wochen macht es dir kaum noch Freude. Du kannst dich weiter daran halten oder deine ursprüngliche Entscheidung verändern.",
+
+    "Eine vertraute Gewohnheit macht deinen Alltag angenehm. Gleichzeitig steht sie einem Ziel im Weg, das du dir selbst gesetzt hast."
   ],
 
   "10) Tierwohl & Mitgefühl": [
-    "Berücksichtigung des Tierwohls bei meinen persönlichen Entscheidungen.",
-    "Entscheiden für tierfreundlichere Lösungen trotz zusätzlichen Aufwands.",
-    "Reagieren auf wahrgenommenes Tierleid, wenn ich etwas beeinflussen kann.",
-    "Berücksichtigung der Herkunft tierischer Produkte bei meinen Entscheidungen.",
-    "Ausrichten meines Verhaltens gegenüber Tieren an meinem persönlichen Mitgefühl."
+    "Du kannst zwischen einer günstigen und praktischen Lösung und einer aufwendigeren Alternative wählen, bei der das Tierwohl stärker berücksichtigt wird. Beide Möglichkeiten haben für dich nachvollziehbare Vor- und Nachteile.",
+
+    "Bei einem Einkauf stehen zwei vergleichbare Produkte zur Auswahl. Eines ist günstiger und leichter erhältlich, beim anderen werden die Haltungsbedingungen stärker berücksichtigt. Beide erfüllen denselben Zweck.",
+
+    "Du beobachtest eine Situation, bei der du unsicher bist, ob ein Tier angemessen behandelt wird. Du könntest dich einmischen oder zunächst davon ausgehen, dass die verantwortliche Person die Situation besser beurteilen kann.",
+
+    "Ein tierisches Produkt überzeugt dich bei Preis und Qualität. Über die Haltungs- oder Produktionsbedingungen weißt du jedoch wenig. Eine Alternative mit nachvollziehbarer Herkunft wäre verfügbar, kostet aber mehr.",
+
+    "Eine Gewohnheit gehört seit Jahren selbstverständlich zu deinem Alltag. Inzwischen weißt du mehr über ihre möglichen Auswirkungen auf Tiere. Du kannst die Gewohnheit beibehalten oder sie verändern, obwohl dir die bisherige Form vertraut und angenehm ist."
   ],
 
   "11) Digitalisierung": [
-    "Schutz meiner persönlichen Daten trotz digitaler Bequemlichkeit.",
-    "Prüfen von Informationen, denen ich online begegne.",
-    "Begrenzen digitaler Medien, wenn sie viel meiner Aufmerksamkeit beanspruchen.",
-    "Eigenständiges Entscheiden trotz digitaler Empfehlungen und Algorithmen.",
-    "Bestimmen der Rolle digitaler Technik in meinem Leben."
+    "Eine App würde dir den Alltag deutlich erleichtern. Dafür verlangt sie Zugriff auf Standort, Kontakte und Nutzungsdaten. Ohne diese Freigaben kannst du einige Funktionen nicht verwenden.",
+
+    "Du liest in sozialen Medien eine Nachricht, die genau zu deiner bisherigen Meinung passt. Du kennst die ursprüngliche Quelle nicht und müsstest zusätzliche Zeit investieren, um die Aussage zu überprüfen.",
+
+    "Du greifst abends häufig zum Smartphone und bleibst länger online als geplant. Gleichzeitig nutzt du diese Zeit zur Unterhaltung, für Informationen und für den Kontakt mit Freunden.",
+
+    "Ein digitales System empfiehlt dir bei einer wichtigen Entscheidung eine bestimmte Lösung. Die Daten sprechen dafür, dein eigener Eindruck führt dich jedoch eher in eine andere Richtung.",
+
+    "Eine neue digitale Lösung könnte einen großen Teil deiner bisherigen Arbeit automatisch erledigen. Sie würde Zeit sparen, gleichzeitig würdest du einen Teil der direkten Kontrolle über den Ablauf abgeben."
   ],
 
   "12) Bewusstsein & Emotion": [
-    "Wahrnehmen meiner Gefühle in einer wichtigen Situation.",
-    "Überprüfen meiner ersten emotionalen Reaktion mit etwas Abstand.",
-    "Offenheit im Umgang mit meinen Gefühlen.",
-    "Bewahren innerer Klarheit bei emotional belastenden Entscheidungen.",
-    "Einbeziehen meiner Gefühle neben sachlichen Überlegungen."
+    "Du erhältst eine Nachricht, die dich stark ärgert. Du möchtest sofort antworten, könntest das Gespräch aber auch zunächst ruhen lassen und später reagieren.",
+
+    "Eine Bemerkung verletzt dich im ersten Moment deutlich. Einige Stunden später bist du nicht mehr sicher, ob sie tatsächlich so gemeint war, wie du sie zunächst verstanden hast.",
+
+    "In einem wichtigen Gespräch bist du emotional stark berührt. Du kannst offen zeigen, was du empfindest, oder deine Gefühle zunächst zurückhalten und das Gespräch sachlicher weiterführen.",
+
+    "Für eine Entscheidung sprechen sachlich mehrere gute Gründe. Trotzdem fühlt sie sich für dich nicht richtig an. Eine andere Möglichkeit fühlt sich besser an, bringt aber erkennbare Nachteile mit sich.",
+
+    "Du erhältst ein interessantes berufliches oder privates Angebot. Die Bedingungen sind objektiv attraktiv, trotzdem hast du ein ungutes Bauchgefühl, dessen Ursache du nicht genau benennen kannst."
   ],
 
   "13) Verletzlichkeit": [
-    "Offenheit im Umgang mit persönlichen Verletzungen.",
-    "Annehmen von Unterstützung, wenn ich sie brauche.",
-    "Offenheit im Umgang mit eigenen Unsicherheiten und Fehlern.",
-    "Zulassen emotionaler Nähe trotz möglicher Enttäuschung.",
-    "Annehmen eigener Seiten, die ich als Schwäche empfinde."
+    "Ein dir nahestehender Mensch sagt etwas, das dich deutlich verletzt. Er scheint nicht bemerkt zu haben, was seine Worte bei dir ausgelöst haben. Du kannst es ihm zeigen oder zunächst für dich behalten.",
+
+    "Du hast eine schwierige Aufgabe vor dir und möchtest sie eigentlich allein bewältigen. Jemand bietet dir Unterstützung an, dafür müsstest du aber offen sagen, dass du Hilfe gebrauchen könntest.",
+
+    "Du bemerkst, dass dir bei einer wichtigen Aufgabe möglicherweise ein Fehler unterlaufen ist. Du könntest zunächst versuchen, ihn selbst zu beheben oder andere sofort darüber informieren.",
+
+    "Du lernst jemanden kennen, zu dem du zunehmend Vertrauen entwickelst. Du könntest dich emotional stärker öffnen, weißt aber, dass dadurch auch das Risiko einer Enttäuschung steigt.",
+
+    "In einer Gruppe wird über ein Thema gesprochen, bei dem du selbst unsicher bist. Du kannst souverän auftreten und deine Unsicherheit für dich behalten oder offen sagen, dass du darauf keine sichere Antwort hast."
   ],
 
   "14) Verzeihen & Loslassen": [
-    "Loslassen einer vergangenen persönlichen Verletzung.",
-    "Zulassen von neuem Vertrauen nach einer Enttäuschung.",
-    "Wahren meiner persönlichen Grenzen nach einer Verletzung.",
-    "Inneres Abschließen mit einem vergangenen Konflikt.",
-    "Loslassen eines Geschehens, das ich weiterhin nicht gutheiße."
+    "Ein Mensch hat dich vor längerer Zeit stark verletzt. Ihr habt heute kaum noch Kontakt, trotzdem beschäftigt dich das Geschehene immer wieder. Du kannst weiter daran festhalten oder versuchen, ihm weniger Raum in deinem heutigen Leben zu geben.",
+
+    "Jemand hat dein Vertrauen enttäuscht und bemüht sich inzwischen glaubhaft um einen Neuanfang. Du erkennst positive Veränderungen, kannst aber nicht wissen, ob sich die frühere Situation wiederholen wird.",
+
+    "Nach einem schweren Streit sucht ein dir wichtiger Mensch wieder Kontakt. Du vermisst die frühere Nähe, möchtest dich gleichzeitig aber vor einer erneuten Verletzung schützen.",
+
+    "Ein alter Konflikt beschäftigt dich noch immer. Die andere Person steht für eine weitere Aussprache nicht mehr zur Verfügung. Du musst für dich entscheiden, welchen Raum die ungeklärte Sache weiterhin bekommen soll.",
+
+    "Du hältst das frühere Verhalten eines Menschen weiterhin für falsch. Eine Entschuldigung würde daran für dich nichts ändern. Gleichzeitig merkst du, dass dein Festhalten an der Sache dein heutiges Wohlbefinden beeinflusst."
   ],
 
   "15) Gesundheit & Körperbewusstsein": [
-    "Beachten der Warnsignale meines Körpers.",
-    "Verändern einer Gewohnheit, die meiner Gesundheit nicht guttut.",
-    "Einräumen ausreichender Erholung trotz meiner Verpflichtungen.",
-    "Ausrichten meines Alltags an meinen Vorstellungen von einem gesunden Leben.",
-    "Berücksichtigung meiner Gesundheit bei Entscheidungen unter Zeitdruck."
+    "Du fühlst dich nach mehreren anstrengenden Tagen deutlich erschöpft. Gleichzeitig muss eine wichtige Aufgabe fertig werden, die sich nur schwer verschieben lässt.",
+
+    "Eine langjährige Gewohnheit bereitet dir Freude und hilft dir beim Entspannen. Gleichzeitig weißt du, dass sie nicht zu dem Lebensstil passt, den du langfristig für dich möchtest.",
+
+    "Du hast einen Termin zugesagt, auf den sich andere verlassen. Am selben Tag merkst du, dass du eigentlich dringend Ruhe und Erholung gebrauchen könntest.",
+
+    "Dein Alltag funktioniert gut, lässt aber kaum Zeit für Bewegung und Erholung. Du könntest deine Abläufe verändern, müsstest dafür jedoch andere Aktivitäten oder Verpflichtungen reduzieren.",
+
+    "In einer arbeitsreichen Phase schläfst du weniger und hast kaum Zeit für Erholung. Die Aufgaben sind tatsächlich wichtig, gleichzeitig merkst du zunehmend die körperliche Belastung."
   ],
 
   "16) Gerechtigkeit & Verteilung": [
-    "Festhalten an einer für mich fairen Regel trotz eigener Nachteile.",
-    "Berücksichtigung benachteiligter Menschen bei Entscheidungen, die mich betreffen.",
-    "Offenheit für unterschiedliche Erklärungen gesellschaftlicher Ungleichheit.",
-    "Verzicht auf einen eigenen Vorteil zugunsten einer für mich faireren Lösung.",
-    "Offenheit für Vorstellungen von Gerechtigkeit, die meiner eigenen widersprechen."
+    "In deinem Team soll eine neue Regel für alle gleichermaßen gelten. Für dich persönlich wäre sie deutlich ungünstiger als die bisherige Lösung, obwohl du das Prinzip dahinter nachvollziehen kannst.",
+
+    "Es steht nur ein begrenztes Budget zur Verfügung. Eine Verwendung würde dir oder deiner Gruppe unmittelbar helfen, eine andere würde Menschen zugutekommen, die deutlich weniger Möglichkeiten haben.",
+
+    "In einer Diskussion erklärt jemand soziale Unterschiede hauptsächlich mit persönlicher Leistung. Eine andere Person betont dagegen unterschiedliche Ausgangsbedingungen. Beide bringen nachvollziehbare Beispiele vor.",
+
+    "Du könntest eine bestehende Regel völlig legal zu deinem persönlichen Vorteil nutzen. Gleichzeitig würdest du eine andere Verteilung grundsätzlich ebenfalls als fair empfinden, hättest dadurch aber selbst weniger.",
+
+    "Zwei Mitarbeiter haben unterschiedlich viel zu einem gemeinsamen Ergebnis beigetragen. Der verfügbare Bonus kann entweder gleich verteilt oder stärker nach individuellem Beitrag aufgeteilt werden."
   ],
 
   "17) Technologie": [
-    "Berücksichtigung möglicher Risiken bei der Nutzung neuer Technologien.",
-    "Begrenzen technischer Möglichkeiten, wenn ich ihre Anwendung nicht für verantwortbar halte.",
-    "Festhalten an Sicherheit und Qualität trotz Zeit- oder Leistungsdruck.",
-    "Berücksichtigung möglicher Folgen technischer Entscheidungen für andere Menschen.",
-    "Überprüfen meiner technischen Einschätzung bei neuen Erkenntnissen."
+    "Eine neue Technologie könnte einen Arbeitsablauf erheblich beschleunigen. Einige mögliche langfristige Risiken sind jedoch noch nicht vollständig untersucht.",
+
+    "Eine technisch machbare Lösung würde ein bestehendes Problem schnell lösen. Eine einfachere Alternative wäre weniger leistungsfähig, dafür aber leichter zu kontrollieren und zu verstehen.",
+
+    "Eine Maschine muss kurzfristig wieder laufen. Eine schnelle technische Lösung wäre möglich. Für eine umfassend geprüfte und dauerhaft ausgelegte Variante würde deutlich mehr Zeit benötigt.",
+
+    "Eine Automatisierung könnte einen Prozess günstiger und effizienter machen. Dadurch würden sich jedoch die Aufgaben mehrerer Mitarbeiter deutlich verändern oder teilweise entfallen.",
+
+    "Du hast aufgrund deiner Erfahrung eine bestimmte technische Lösung vorgeschlagen. Neue Messwerte sprechen inzwischen für eine andere Variante, obwohl deine ursprüngliche Lösung weiterhin funktionieren könnte."
   ],
 
   "18) Macht & Hierarchie": [
-    "Vertreten meiner eigenen Einschätzung gegenüber einer Entscheidung von oben.",
-    "Berücksichtigung anderer bei Entscheidungen, die ich für sie treffen darf.",
-    "Offenheit für Kritik von Menschen mit weniger Einfluss als ich.",
-    "Vertreten meiner eigenen Einschätzung gegenüber einer Autorität oder einem Vorgesetzten.",
-    "Nutzen meines Handlungsspielraums innerhalb vorgegebener Rahmenbedingungen."
+    "Dein Vorgesetzter entscheidet sich für eine Lösung, die du fachlich anders beurteilst. Die Verantwortung liegt bei ihm. Du kannst die Entscheidung akzeptieren oder deine Bedenken erneut deutlich vertreten.",
+
+    "Du darfst eine Entscheidung allein treffen, die mehrere Mitarbeiter betrifft. Du könntest deine Befugnis nutzen oder die Betroffenen vorher einbeziehen, wodurch sich die Entscheidung verzögern könnte.",
+
+    "Ein weniger erfahrener Mitarbeiter kritisiert eine Entscheidung von dir. Einige seiner Argumente hältst du für schwach, einen Punkt kannst du jedoch nachvollziehen.",
+
+    "Eine sehr erfahrene Führungskraft empfiehlt dir eine Vorgehensweise. Deine eigene fachliche Einschätzung führt zu einer anderen Lösung. Für beide Varianten gibt es nachvollziehbare Gründe.",
+
+    "Für deine Aufgabe gibt es klare betriebliche Vorgaben. Innerhalb dieser Grenzen wäre eine eigene Vorgehensweise erlaubt, würde aber deutlich von der üblichen Praxis des Teams abweichen."
   ],
 
   "19) Krisenfestigkeit & Widerstandsfähigkeit": [
-    "Festhalten an meinen persönlichen Prioritäten unter starkem Druck.",
-    "Überprüfen meiner Überzeugungen, wenn eine Krise sie infrage stellt.",
-    "Anpassen meiner Einschätzung an wichtige neue Informationen während einer Krise.",
-    "Schützen meiner persönlichen Belastungsgrenze bei hohen Anforderungen.",
-    "Neuorientierung nach einem wichtigen Rückschlag."
+    "Mehrere dringende Probleme treten gleichzeitig auf und können nicht alle sofort gelöst werden. Andere Menschen erwarten von dir schnelle Entscheidungen, während du selbst andere Prioritäten setzen würdest.",
+
+    "Eine unerwartete Krise stellt einen Plan infrage, an dem du lange gearbeitet hast. Du kannst versuchen, den bisherigen Weg trotzdem weiterzuführen oder deine Planung grundlegend verändern.",
+
+    "Du hast dich in einer schwierigen Situation bereits für einen Weg entschieden. Kurz danach erhältst du neue Informationen, die für eine andere Vorgehensweise sprechen.",
+
+    "In einer schwierigen Phase verlassen sich mehrere Menschen auf dich. Gleichzeitig merkst du deutlich, dass deine eigene Belastungsgrenze erreicht wird.",
+
+    "Ein Projekt, in das du viel Zeit und Energie investiert hast, erleidet einen schweren Rückschlag. Du könntest weiter daran arbeiten oder deine Energie künftig in eine andere Richtung investieren."
   ],
 
   "20) Kultur & Vielfalt": [
-    "Offenheit gegenüber einer Lebensweise, die mir fremd ist.",
-    "Hinterfragen meiner ersten Bewertung eines Menschen, dessen Geschichte ich kaum kenne.",
-    "Eintreten gegen Benachteiligung aufgrund von Herkunft oder Lebensweise.",
-    "Offenheit für kulturelle Vorstellungen, die meinen persönlichen Werten widersprechen.",
-    "Einbeziehen einer Perspektive, die sich deutlich von meiner eigenen unterscheidet."
+    "Du arbeitest mit einem Kollegen zusammen, der aufgrund seines kulturellen Hintergrunds einen deutlich anderen Umgang mit Hierarchie gewohnt ist. Er erwartet klare Vorgaben durch die Führungskraft, während du eigenständige Entscheidungen bevorzugst. Ihr müsst euch auf eine gemeinsame Vorgehensweise einigen.",
+
+    "Du lernst einen Menschen kennen, dessen Lebensweise sich deutlich von deiner eigenen unterscheidet. Einige seiner Entscheidungen kannst du nur schwer nachvollziehen, während er deine Lebensweise ebenfalls in manchen Punkten ungewöhnlich findet.",
+
+    "In einer Gruppe wird ein Kollege aufgrund seiner Herkunft häufiger mit bestimmten Eigenschaften in Verbindung gebracht. Er selbst äußert sich nicht dazu. Du bist unsicher, ob du die Situation ansprechen oder dich zunächst zurückhalten solltest.",
+
+    "Ein Kollege ist es aus seinem kulturellen Umfeld gewohnt, Konflikte eher indirekt und zurückhaltend anzusprechen. Du bevorzugst eine offene und direkte Klärung. Bei einem gemeinsamen Problem müsst ihr einen Umgang miteinander finden.",
+
+    "Bei einer gemeinsamen Entscheidung vertritt ein Mensch mit einem anderen kulturellen Hintergrund eine andere Sicht als du. Seine Haltung beruht auf anderen Erfahrungen und Wertvorstellungen. Du musst entscheiden, wie weit du dich auf seine Perspektive einlässt oder an deiner eigenen festhältst."
   ]
 
 };
-
 
 
 /* ================= RUBRIKEN LADEN ================= */
