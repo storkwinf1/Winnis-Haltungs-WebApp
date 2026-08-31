@@ -7194,172 +7194,174 @@ const out = document.getElementById("szn-out");
 
 
 	
+	
 /* ================= KATALOG ================= */
 /* ================= KATALOG ================= */
 
 const KATALOG = {
 
   "1) Beruf & Verantwortung": [
-    "Soll ich Verantwortung übernehmen oder mich bewusst zurückhalten?",
-    "Soll ich etwas offen ansprechen oder es zunächst für mich behalten?",
-    "Soll ich bei meiner beruflichen Position bleiben oder mich anpassen?",
-    "Soll ich eine berufliche Veränderung wagen oder beim Vertrauten bleiben?",
-    "Soll ich selbst entscheiden oder die Entscheidung anderen überlassen?"
+    "Übernehme ich Verantwortung oder halte ich mich zurück?",
+    "Spreche ich ein Problem an oder lasse ich es zunächst ruhen?",
+    "Bleibe ich bei meiner Meinung oder passe ich mich an?",
+    "Wage ich eine berufliche Veränderung oder bleibe ich beim Vertrauten?",
+    "Entscheide ich selbst oder überlasse ich die Entscheidung anderen?"
   ],
 
   "2) Umwelt & Nachhaltigkeit": [
-    "Soll ich stärker auf Nachhaltigkeit achten oder meinen bisherigen Weg beibehalten?",
-    "Soll ich auf etwas verzichten oder meinen persönlichen Komfort beibehalten?",
-    "Soll ich mehr Aufwand für eine nachhaltigere Lösung akzeptieren oder die einfachere Lösung wählen?",
-    "Soll ich eine umweltfreundlichere Alternative wählen oder bei der gewohnten Lösung bleiben?",
-    "Soll ich mein eigenes Verhalten verändern oder die Situation zunächst so akzeptieren?"
+    "Handle ich nachhaltiger oder bleibe ich bei meiner bisherigen Lösung?",
+    "Verzichte ich bewusst oder wähle ich den persönlichen Komfort?",
+    "Nehme ich mehr Aufwand in Kauf oder wähle ich den einfacheren Weg?",
+    "Wähle ich die umweltfreundlichere Alternative oder bleibe ich beim Gewohnten?",
+    "Verändere ich mein Verhalten oder lasse ich es zunächst wie es ist?"
   ],
 
   "3) Beziehung & Partnerschaft": [
-    "Soll ich mehr Nähe suchen oder mehr Abstand halten?",
-    "Soll ich offen aussprechen, was mich beschäftigt, oder es zunächst für mich behalten?",
-    "Soll ich auf den anderen zugehen oder abwarten?",
-    "Soll ich an der Beziehung festhalten oder mich stärker lösen?",
-    "Soll ich mich stärker auf den anderen einlassen oder meine eigenen Bedürfnisse stärker schützen?"
+    "Suche ich mehr Nähe oder halte ich Abstand?",
+    "Spreche ich offen aus, was mich beschäftigt, oder behalte ich es für mich?",
+    "Gehe ich auf den anderen zu oder warte ich ab?",
+    "Halte ich an der Beziehung fest oder lasse ich los?",
+    "Lasse ich mich stärker ein oder schütze ich meine eigenen Bedürfnisse?"
   ],
 
   "4) Familie & Angehörige": [
-    "Soll ich mich stärker einbringen oder mehr Abstand halten?",
-    "Soll ich helfen oder die Verantwortung beim anderen lassen?",
-    "Soll ich einen familiären Konflikt ansprechen oder ihn zunächst ruhen lassen?",
-    "Soll ich den Erwartungen meiner Familie folgen oder meinen eigenen Weg gehen?",
-    "Soll ich nachgeben oder bei meiner eigenen Position bleiben?"
+    "Bringe ich mich stärker ein oder halte ich mehr Abstand?",
+    "Helfe ich oder lasse ich die Verantwortung beim anderen?",
+    "Spreche ich den Konflikt an oder lasse ich ihn ruhen?",
+    "Folge ich den Erwartungen meiner Familie oder gehe ich meinen eigenen Weg?",
+    "Gebe ich nach oder bleibe ich bei meiner Position?"
   ],
 
   "5) Freundschaft & soziales Umfeld": [
-    "Soll ich auf jemanden zugehen oder Abstand halten?",
-    "Soll ich meine Meinung offen sagen oder mich zurückhalten?",
-    "Soll ich eine Freundschaft weiter pflegen oder mich daraus lösen?",
-    "Soll ich Unterstützung anbieten oder den anderen selbst entscheiden lassen?",
-    "Soll ich mich der Gruppe anschließen oder meinen eigenen Weg gehen?"
+    "Gehe ich auf jemanden zu oder halte ich Abstand?",
+    "Sage ich offen meine Meinung oder halte ich mich zurück?",
+    "Halte ich an der Freundschaft fest oder löse ich mich?",
+    "Biete ich meine Hilfe an oder lasse ich den anderen selbst entscheiden?",
+    "Schließe ich mich der Gruppe an oder gehe ich meinen eigenen Weg?"
   ],
 
   "6) Gesundheit & Wohlbefinden": [
-    "Soll ich stärker auf meine Bedürfnisse achten oder meinen bisherigen Alltag beibehalten?",
-    "Soll ich mir mehr Ruhe erlauben oder meine bisherigen Verpflichtungen weiter erfüllen?",
-    "Soll ich eine Gewohnheit verändern oder sie zunächst beibehalten?",
-    "Soll ich eine Belastung reduzieren oder sie weiterhin in Kauf nehmen?",
-    "Soll ich meinem eigenen Wohlbefinden mehr Raum geben oder andere Anforderungen stärker berücksichtigen?"
+    "Achte ich stärker auf mich oder mache ich weiter wie bisher?",
+    "Gönne ich mir Ruhe oder erfülle ich weiterhin meine Verpflichtungen?",
+    "Verändere ich eine Gewohnheit oder behalte ich sie bei?",
+    "Reduziere ich die Belastung oder halte ich sie weiter aus?",
+    "Stelle ich mein Wohlbefinden stärker in den Vordergrund oder andere Anforderungen?"
   ],
 
   "7) Geld & Finanzen": [
-    "Soll ich das Geld ausgeben oder lieber zurückhalten?",
-    "Soll ich finanziell mehr Sicherheit wählen oder mehr Risiko eingehen?",
-    "Soll ich jemanden finanziell unterstützen oder mich klarer abgrenzen?",
-    "Soll ich jetzt investieren oder zunächst abwarten?",
-    "Soll ich mir etwas gönnen oder stärker auf meine finanzielle Zukunft achten?"
+    "Gebe ich das Geld aus oder halte ich es zurück?",
+    "Wähle ich finanzielle Sicherheit oder gehe ich mehr Risiko ein?",
+    "Unterstütze ich jemanden finanziell oder setze ich eine Grenze?",
+    "Investiere ich jetzt oder warte ich ab?",
+    "Gönne ich mir etwas oder spare ich lieber für später?"
   ],
 
   "8) Konsum & persönliche Werte": [
-    "Soll ich die günstigere Lösung wählen oder diejenige, die stärker meinen Werten entspricht?",
-    "Soll ich etwas kaufen oder bewusst darauf verzichten?",
-    "Soll ich Bequemlichkeit wählen oder mehr Aufwand für meine Überzeugungen akzeptieren?",
-    "Soll ich bei einem gewohnten Produkt bleiben oder eine andere Alternative wählen?",
-    "Soll ich mich stärker am Preis orientieren oder stärker an meinen persönlichen Wertvorstellungen?"
+    "Wähle ich den günstigeren Preis oder das Produkt, das besser zu meinen Werten passt?",
+    "Kaufe ich es oder verzichte ich darauf?",
+    "Wähle ich Bequemlichkeit oder nehme ich mehr Aufwand in Kauf?",
+    "Bleibe ich beim gewohnten Produkt oder wähle ich eine Alternative?",
+    "Entscheide ich stärker nach dem Preis oder nach meinen persönlichen Werten?"
   ],
 
   "9) Konflikt & Auseinandersetzung": [
-    "Soll ich den Konflikt ansprechen oder ihn zunächst ruhen lassen?",
-    "Soll ich deutlich widersprechen oder mich zurückhalten?",
-    "Soll ich auf einen Kompromiss zugehen oder bei meiner Position bleiben?",
-    "Soll ich die Auseinandersetzung weiterführen oder sie beenden?",
-    "Soll ich klare Grenzen setzen oder mehr Entgegenkommen zeigen?"
+    "Spreche ich den Konflikt an oder lasse ich ihn ruhen?",
+    "Widerspreche ich deutlich oder halte ich mich zurück?",
+    "Gehe ich einen Kompromiss ein oder bleibe ich bei meiner Position?",
+    "Führe ich die Auseinandersetzung weiter oder beende ich sie?",
+    "Setze ich eine klare Grenze oder komme ich dem anderen entgegen?"
   ],
 
   "10) Veränderung & Neubeginn": [
-    "Soll ich etwas Neues beginnen oder beim Vertrauten bleiben?",
-    "Soll ich eine Veränderung jetzt angehen oder noch abwarten?",
-    "Soll ich einen bisherigen Weg verlassen oder ihn weiterverfolgen?",
-    "Soll ich ein Risiko eingehen oder Sicherheit bevorzugen?",
-    "Soll ich eine alte Entscheidung überdenken oder daran festhalten?"
+    "Beginne ich etwas Neues oder bleibe ich beim Vertrauten?",
+    "Gehe ich die Veränderung jetzt an oder warte ich noch?",
+    "Verlasse ich meinen bisherigen Weg oder gehe ich ihn weiter?",
+    "Gehe ich ein Risiko ein oder wähle ich Sicherheit?",
+    "Überdenke ich meine Entscheidung oder halte ich daran fest?"
   ],
 
   "11) Entscheidungen & Zweifel": [
-    "Soll ich jetzt entscheiden oder noch abwarten?",
-    "Soll ich meinem Gefühl folgen oder stärker auf sachliche Argumente achten?",
-    "Soll ich bei meiner bisherigen Entscheidung bleiben oder sie noch einmal ändern?",
-    "Soll ich mich festlegen oder mir weitere Möglichkeiten offenhalten?",
-    "Soll ich selbst entscheiden oder stärker auf den Rat anderer hören?"
+    "Entscheide ich jetzt oder warte ich noch?",
+    "Folge ich meinem Gefühl oder den sachlichen Argumenten?",
+    "Bleibe ich bei meiner Entscheidung oder ändere ich sie?",
+    "Lege ich mich fest oder halte ich mir Möglichkeiten offen?",
+    "Entscheide ich selbst oder höre ich stärker auf den Rat anderer?"
   ],
 
   "12) Grenzen & Selbstbehauptung": [
-    "Soll ich klar Nein sagen oder entgegenkommen?",
-    "Soll ich meine Grenze deutlich zeigen oder mehr Spielraum lassen?",
-    "Soll ich meine Bedürfnisse vertreten oder die Bedürfnisse anderer stärker berücksichtigen?",
-    "Soll ich mich gegen eine Forderung stellen oder sie akzeptieren?",
-    "Soll ich konsequent bei meiner Position bleiben oder einen Schritt auf den anderen zugehen?"
+    "Sage ich klar Nein oder komme ich entgegen?",
+    "Setze ich eine klare Grenze oder lasse ich mehr Spielraum?",
+    "Vertrete ich meine Bedürfnisse oder stelle ich die Bedürfnisse anderer stärker in den Vordergrund?",
+    "Lehne ich die Forderung ab oder akzeptiere ich sie?",
+    "Bleibe ich bei meiner Position oder gehe ich einen Schritt auf den anderen zu?"
   ],
 
   "13) Vertrauen & Kontrolle": [
-    "Soll ich vertrauen oder stärker kontrollieren?",
-    "Soll ich Verantwortung abgeben oder sie selbst behalten?",
-    "Soll ich dem anderen mehr Freiheit geben oder klare Grenzen setzen?",
-    "Soll ich mich auf eine Zusage verlassen oder mich zusätzlich absichern?",
-    "Soll ich loslassen oder die Entwicklung stärker selbst steuern?"
+    "Vertraue ich oder kontrolliere ich stärker?",
+    "Gebe ich Verantwortung ab oder behalte ich sie selbst?",
+    "Gebe ich mehr Freiheit oder setze ich klare Grenzen?",
+    "Verlasse ich mich auf die Zusage oder sichere ich mich zusätzlich ab?",
+    "Lasse ich los oder steuere ich die Entwicklung selbst?"
   ],
 
   "14) Nähe & Distanz": [
-    "Soll ich mehr Nähe zulassen oder mehr Abstand halten?",
-    "Soll ich mich öffnen oder mich stärker schützen?",
-    "Soll ich Kontakt suchen oder zunächst abwarten?",
-    "Soll ich jemanden stärker in mein Leben einbeziehen oder meine Eigenständigkeit bewahren?",
-    "Soll ich meine Gefühle zeigen oder sie zunächst für mich behalten?"
+    "Lasse ich mehr Nähe zu oder halte ich Abstand?",
+    "Öffne ich mich oder schütze ich mich stärker?",
+    "Suche ich den Kontakt oder warte ich ab?",
+    "Lasse ich jemanden stärker in mein Leben oder bewahre ich meine Eigenständigkeit?",
+    "Zeige ich meine Gefühle oder behalte ich sie für mich?"
   ],
 
   "15) Arbeit & Zusammenarbeit": [
-    "Soll ich mich stärker einbringen oder mich bewusst zurücknehmen?",
-    "Soll ich eine andere Arbeitsweise ansprechen oder sie akzeptieren?",
-    "Soll ich eine Aufgabe selbst übernehmen oder sie abgeben?",
-    "Soll ich meine eigene Lösung verfolgen oder mich der gemeinsamen Lösung anschließen?",
-    "Soll ich einen Kollegen direkt ansprechen oder zunächst beobachten?"
+    "Bringe ich mich stärker ein oder halte ich mich zurück?",
+    "Spreche ich die Arbeitsweise an oder akzeptiere ich sie?",
+    "Übernehme ich die Aufgabe selbst oder gebe ich sie ab?",
+    "Verfolge ich meine eigene Lösung oder schließe ich mich der gemeinsamen Lösung an?",
+    "Spreche ich den Kollegen direkt an oder beobachte ich zunächst?"
   ],
 
   "16) Führung & Verantwortung für andere": [
-    "Soll ich eine klare Entscheidung treffen oder mehr Mitsprache zulassen?",
-    "Soll ich stärker eingreifen oder meinem Team mehr Freiraum geben?",
-    "Soll ich einen Fehler deutlich ansprechen oder zunächst Verständnis zeigen?",
-    "Soll ich Verantwortung selbst übernehmen oder sie stärker übertragen?",
-    "Soll ich konsequent an einer Vorgabe festhalten oder eine Ausnahme zulassen?"
+    "Treffe ich eine klare Entscheidung oder lasse ich mehr Mitsprache zu?",
+    "Greife ich stärker ein oder gebe ich meinem Team mehr Freiraum?",
+    "Spreche ich den Fehler deutlich an oder zeige ich zunächst Verständnis?",
+    "Übernehme ich die Verantwortung selbst oder übertrage ich sie?",
+    "Halte ich an der Vorgabe fest oder lasse ich eine Ausnahme zu?"
   ],
 
   "17) Zeit & Prioritäten": [
-    "Soll ich meine Zeit stärker für mich nutzen oder für andere verfügbar sein?",
-    "Soll ich eine Aufgabe sofort erledigen oder bewusst auf später verschieben?",
-    "Soll ich einer Verpflichtung nachkommen oder einer persönlichen Priorität Vorrang geben?",
-    "Soll ich mein Tempo erhöhen oder mir mehr Zeit lassen?",
-    "Soll ich etwas zusätzlich übernehmen oder bewusst darauf verzichten?"
+    "Nutze ich meine Zeit für mich oder bin ich stärker für andere da?",
+    "Erledige ich die Aufgabe jetzt oder verschiebe ich sie bewusst?",
+    "Erfülle ich die Verpflichtung oder gebe ich meiner eigenen Priorität Vorrang?",
+    "Erhöhe ich mein Tempo oder lasse ich mir mehr Zeit?",
+    "Übernehme ich noch etwas oder sage ich bewusst Nein?"
   ],
 
   "18) Mut & Sicherheit": [
-    "Soll ich den nächsten Schritt wagen oder auf mehr Sicherheit warten?",
-    "Soll ich ein Risiko eingehen oder beim sicheren Weg bleiben?",
-    "Soll ich meine Meinung deutlich vertreten oder mich zunächst zurückhalten?",
-    "Soll ich eine unbekannte Möglichkeit ausprobieren oder beim Bewährten bleiben?",
-    "Soll ich trotz meiner Unsicherheit handeln oder noch abwarten?"
+    "Wage ich den nächsten Schritt oder warte ich auf mehr Sicherheit?",
+    "Gehe ich das Risiko ein oder bleibe ich auf dem sicheren Weg?",
+    "Vertrete ich meine Meinung deutlich oder halte ich mich zurück?",
+    "Probiere ich etwas Neues aus oder bleibe ich beim Bewährten?",
+    "Handle ich trotz Unsicherheit oder warte ich noch?"
   ],
 
   "19) Werte & persönliche Haltung": [
-    "Soll ich bei meiner Überzeugung bleiben oder mich auf eine andere Sicht einlassen?",
-    "Soll ich nach meinen persönlichen Werten entscheiden oder stärker praktische Gründe berücksichtigen?",
-    "Soll ich meine Haltung offen zeigen oder sie für mich behalten?",
-    "Soll ich einen Kompromiss eingehen oder an meinem Grundsatz festhalten?",
-    "Soll ich die Erwartungen anderer berücksichtigen oder meiner eigenen Überzeugung folgen?"
+    "Bleibe ich bei meiner Überzeugung oder lasse ich mich auf eine andere Sicht ein?",
+    "Entscheide ich nach meinen Werten oder stärker nach praktischen Gründen?",
+    "Zeige ich meine Haltung offen oder behalte ich sie für mich?",
+    "Gehe ich einen Kompromiss ein oder halte ich an meinem Grundsatz fest?",
+    "Folge ich den Erwartungen anderer oder meiner eigenen Überzeugung?"
   ],
 
   "20) Unterschiede & andere Perspektiven": [
-    "Soll ich mich stärker auf eine andere Sichtweise einlassen oder bei meiner eigenen bleiben?",
-    "Soll ich einen Unterschied offen ansprechen oder ihn zunächst stehen lassen?",
-    "Soll ich mich an die andere Person anpassen oder meine eigene Art beibehalten?",
-    "Soll ich einen anderen Lebensweg stärker akzeptieren oder meine eigenen Maßstäbe deutlicher vertreten?",
-    "Soll ich einen Schritt auf die andere Position zugehen oder meine eigene Position klar halten?"
+    "Lasse ich mich auf eine andere Sichtweise ein oder bleibe ich bei meiner eigenen?",
+    "Spreche ich den Unterschied an oder lasse ich ihn stehen?",
+    "Passe ich mich dem anderen an oder bleibe ich bei meiner eigenen Art?",
+    "Akzeptiere ich den anderen Weg oder vertrete ich meine eigenen Maßstäbe?",
+    "Gehe ich auf die andere Position zu oder bleibe ich bei meiner eigenen?"
   ]
 
 };
+
 
 
 
