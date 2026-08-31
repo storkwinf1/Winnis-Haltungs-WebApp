@@ -741,160 +741,335 @@ function getIdealRichtung(I){
 }
 
 
+
+	
 /* ===== SKALEN 1:1 ===== */
+/* ===== SKALEN 1:1 ===== */
+
 window.idealskala = {
-  "-10": {name:"Zerstörerisch", desc:"<strong>Privat:</strong> Sabotiert Familie. <strong>Politik:</strong> Hitler vernichtet bewusst Millionenleben. <strong>Arbeit:</strong> Sabotiert Projekt absichtlich. <strong>Sport:</strong> Spieler verletzt Gegner mit Absicht. "},
 
+  "-10": {
+    name:"Grundlegend zerstörerisch",
+    desc:"<strong>Privat:</strong> Stellt eigene Ziele bewusst über das Wohlergehen anderer. <strong>Politik:</strong> Verfolgt Ziele ohne Rücksicht auf schwerwiegende Folgen. <strong>Arbeit:</strong> Nimmt erhebliche Schäden für ein eigenes Ziel bewusst in Kauf. <strong>Sport:</strong> Setzt Erfolg bewusst über Fairness und Gesundheit."
+  },
 
-  "-9":  {name:"Systematisch manipulativ", desc:"<strong>Privat:</strong> Lügt bewusst zur Kontrolle. <strong>Politik:</strong> Hetze gegen Minderheiten zur Stimmungsmache. <strong>Arbeit:</strong>  Intrigant manipuliert Projekte. <strong>Sport:</strong> Bestechung von Schiedsrichtern."},
+  "-9": {
+    name:"Stark manipulativ",
+    desc:"<strong>Privat:</strong> Beeinflusst andere bewusst zum eigenen Vorteil. <strong>Politik:</strong> Nutzt gezielte Stimmungsmache zur Durchsetzung eigener Ziele. <strong>Arbeit:</strong> Beeinflusst Entscheidungen gezielt hinter den Kulissen. <strong>Sport:</strong> Versucht Ergebnisse auf unfaire Weise zu beeinflussen."
+  },
 
+  "-8": {
+    name:"Feindselig aggressiv",
+    desc:"<strong>Privat:</strong> Reagiert anderen gegenüber deutlich feindselig. <strong>Politik:</strong> Vertritt eine sehr harte Gegenposition. <strong>Arbeit:</strong> Geht stark konfrontativ mit anderen um. <strong>Sport:</strong> Geht bewusst sehr hart gegen Gegner vor."
+  },
 
-  "-8":  {name:"Feindselig aggressiv", desc:"<strong>Privat:</strong> Dauerstreit mit Nachbarn. <strong>Politik:</strong>Hardliner ohne Kompromisse. <strong>Arbeit:</strong> Chef mobbt Mitarbeiter. <strong>Sport:</strong> Spieler foult brutal."},
+  "-7": {
+    name:"Kontrollierend dominant",
+    desc:"<strong>Privat:</strong> Möchte Entscheidungen stark bestimmen. <strong>Politik:</strong> Bevorzugt sehr starke Führung und wenig Widerspruch. <strong>Arbeit:</strong> Kontrolliert Abläufe und Entscheidungen sehr eng. <strong>Sport:</strong> Gibt anderen nur wenig eigenen Entscheidungsspielraum."
+  },
 
+  "-6": {
+    name:"Stark eigennützig",
+    desc:"<strong>Privat:</strong> Richtet Entscheidungen deutlich am eigenen Vorteil aus. <strong>Politik:</strong> Stellt eigene Interessen stark in den Vordergrund. <strong>Arbeit:</strong> Gewichtet persönlichen Nutzen deutlich stärker als gemeinsame Interessen. <strong>Sport:</strong> Orientiert sich stärker am eigenen Erfolg als am Team."
+  },
 
-  "-7":  {name:"Kontrollierend dominant", desc:"<strong>Privat:</strong> Dominiert Familie. <strong>Politik:</strong> Autoritärer Herrscher. <strong>Arbeit:</strong> Chef kontrolliert jeden Schritt. <strong>Sport:</strong> : Trainer unterdrückt Spieler."},
+  "-5": {
+    name:"Misstrauisch abwehrend",
+    desc:"<strong>Privat:</strong> Begegnet anderen mit deutlichem Misstrauen. <strong>Politik:</strong> Reagiert gegenüber anderen Positionen stark skeptisch. <strong>Arbeit:</strong> Hinterfragt Absichten anderer zunächst deutlich. <strong>Sport:</strong> Vertraut Mitspielern oder Verantwortlichen nur begrenzt."
+  },
 
+  "-4": {
+    name:"Kritisch abwertend",
+    desc:"<strong>Privat:</strong> Bewertet andere häufig kritisch. <strong>Politik:</strong> Geht mit Gegenpositionen eher abwertend um. <strong>Arbeit:</strong> Hebt Schwächen anderer stärker hervor. <strong>Sport:</strong> Reagiert auf Fehler anderer deutlich kritisch."
+  },
 
-  "-6":  {name:"Manipulativ eigennützig", desc:"<strong>Privat:</strong> Handelt nur für eigenen Vorteil. <strong>Politik:</strong> Korruptes Machtspiel. <strong>Arbeit:</strong> Karriereorientiert ohne Rücksicht. <strong>Sport:</strong>  Spieler nutzt Lücken eigennützig."},
+  "-3": {
+    name:"Abgrenzend",
+    desc:"<strong>Privat:</strong> Hält bewusst Abstand zu bestimmten Menschen oder Sichtweisen. <strong>Politik:</strong> Bevorzugt eine klare Abgrenzung gegenüber anderen Positionen. <strong>Arbeit:</strong> Denkt stärker in eigenen Zuständigkeiten und Bereichen. <strong>Sport:</strong> Bleibt eher bei der eigenen Gruppe."
+  },
 
+  "-2": {
+    name:"Eher eigennützig",
+    desc:"<strong>Privat:</strong> Gewichtet eigene Wünsche etwas stärker. <strong>Politik:</strong> Bevorzugt eher den eigenen Vorteil oder das eigene Umfeld. <strong>Arbeit:</strong> Denkt bei Entscheidungen stärker an den persönlichen Nutzen. <strong>Sport:</strong> Stellt eigene Interessen etwas vor die des Teams."
+  },
 
-  "-5":  {name:"Misstrauisch abwehrend", desc:"<strong>Privat:</strong> Traut niemandem. <strong>Politik:</strong> Paranoider Führer. <strong>Arbeit:</strong>  Misstrauischer Vorgesetzter. <strong>Sport:</strong> Spieler sabotiert Teamgeist."},
+  "-1": {
+    name:"Leicht orientierungslos",
+    desc:"<strong>Privat:</strong> Ist sich über die eigene Wunschrichtung noch nicht ganz klar. <strong>Politik:</strong> Schwankt leicht zwischen verschiedenen Positionen. <strong>Arbeit:</strong> Hat noch keine vollständig klare Linie. <strong>Sport:</strong> Ist sich über die bevorzugte Richtung noch unsicher."
+  },
 
+  "0": {
+    name:"Orientierungsoffen",
+    desc:"<strong>Privat:</strong> Hat momentan keine klare Wunschrichtung. <strong>Politik:</strong> Sieht mehrere mögliche Positionen. <strong>Arbeit:</strong> Ist zwischen verschiedenen Wegen offen. <strong>Sport:</strong> Hat noch keine eindeutige Präferenz."
+  },
 
-  "-4":  {name:"Kleinlich abwertend", desc:"<strong>Privat:</strong> Kritisiert ständig andere. <strong>Politik:</strong> Populist verspottet Gegner. <strong>Arbeit:</strong>  Kollege redet andere schlecht."},
+  "1": {
+    name:"Angepasst freundlich",
+    desc:"<strong>Privat:</strong> Orientiert sich leicht an einem harmonischen Miteinander. <strong>Politik:</strong> Sucht eher einen verträglichen Mittelweg. <strong>Arbeit:</strong> Verhält sich kooperativ und zurückhaltend. <strong>Sport:</strong> Fügt sich eher in das Team ein."
+  },
 
-  "-3":  {name:"Abgrenzend ausschließend", desc:"<strong>Privat:</strong> Schließt Nachbarn aus. <strong>Politik:</strong>  Nationalistische Politik. <strong>Arbeit:</strong> Abteilungsdenken gegen Kollegen."},
+  "2": {
+    name:"Gefällig harmoniesuchend",
+    desc:"<strong>Privat:</strong> Möchte Konflikte möglichst vermeiden. <strong>Politik:</strong> Sucht eher Zustimmung und Ausgleich. <strong>Arbeit:</strong> Versucht, möglichst viele Beteiligte mitzunehmen. <strong>Sport:</strong> Bevorzugt ein harmonisches Miteinander."
+  },
 
-  "-2":  {name:"Eigensüchtig", desc:"<strong>Privat:</strong> Stellt eigene Wünsche über Familie. <strong>Politik:</strong>  Selbstbereicherung. <strong>Arbeit:</strong>  Mitarbeiter denkt nur an Bonus."},
+  "3": {
+    name:"Anerkennungsorientiert",
+    desc:"<strong>Privat:</strong> Legt Wert auf Zustimmung und positive Rückmeldung. <strong>Politik:</strong> Orientiert sich teilweise an öffentlicher Zustimmung. <strong>Arbeit:</strong> Freut sich sichtbar über Anerkennung und Lob. <strong>Sport:</strong> Wird durch Anerkennung zusätzlich motiviert."
+  },
 
-  "-1":  {name:"Orientierungslos negativ", desc:"<strong>Privat:</strong> Handelt widersprüchlich. <strong>Politik:</strong> Führer ohne Linie. <strong>Arbeit:</strong> Kollege ohne Prinzipien."},
+  "4": {
+    name:"Werteorientiert",
+    desc:"<strong>Privat:</strong> Richtet Entscheidungen an persönlichen Werten aus. <strong>Politik:</strong> Orientiert sich an klaren Grundsätzen. <strong>Arbeit:</strong> Bezieht Fairness und eigene Werte in Entscheidungen ein. <strong>Sport:</strong> Orientiert sich an Fairness und eigenen Prinzipien."
+  },
 
-  "0":   {name:"Orientierungslos", desc:"<strong>Privat:</strong> Unentschlossen in Werten. <strong>Politik:</strong> Unauffälliger Abgeordneter. <strong>Arbeit:</strong> Azubi ohne Richtung."},
+  "5": {
+    name:"Verantwortungsbewusst",
+    desc:"<strong>Privat:</strong> Bezieht Verantwortung für sich und andere ein. <strong>Politik:</strong> Gewichtet Folgen einer Entscheidung bewusst. <strong>Arbeit:</strong> Hält Zusagen ein und berücksichtigt Auswirkungen. <strong>Sport:</strong> Übernimmt Verantwortung für den eigenen Beitrag."
+  },
 
-  "1":   {name:"Angepasst freundlich", desc:"<strong>Privat:</strong> Tut niemandem weh. <strong>Politik:</strong>  Unauffälliger Politiker. <strong>Arbeit:</strong>  Hilfsbereiter Kollege."},
+  "6": {
+    name:"Ethisch orientiert",
+    desc:"<strong>Privat:</strong> Richtet Entscheidungen deutlich an persönlichen moralischen Grundsätzen aus. <strong>Politik:</strong> Gewichtet ethische Gesichtspunkte deutlich. <strong>Arbeit:</strong> Bezieht Integrität und Fairness stark ein. <strong>Sport:</strong> Stellt Fairness deutlich über einen kurzfristigen Vorteil."
+  },
 
-  "2":   {name:"Gefällig harmoniesuchend", desc:"<strong>Privat:</strong> Immer nett, um Konflikte zu vermeiden. <strong>Politik:</strong> Anpassung an Stimmungen. <strong>Arbeit:</strong> Kollege will es allen recht machen."},
+  "7": {
+    name:"Integritätsstark",
+    desc:"<strong>Privat:</strong> Hält deutlich an eigenen Prinzipien fest. <strong>Politik:</strong> Vertritt Grundsätze auch bei Gegenwind. <strong>Arbeit:</strong> Bleibt klar bei vereinbarten Werten und Prinzipien. <strong>Sport:</strong> Bleibt auch unter Druck der eigenen Haltung treu."
+  },
 
-  "3":   {name:"Anerkennungshungrig", desc:"<strong>Privat:</strong> Lebt für Likes.	<strong>Politik:</strong>  Populist sucht Applaus. <strong>Arbeit:</strong> Mitarbeiter buhlt um Lob."},
+  "8": {
+    name:"Strategisch visionär",
+    desc:"<strong>Privat:</strong> Denkt bei Entscheidungen weit über den Augenblick hinaus. <strong>Politik:</strong> Bezieht langfristige Entwicklungen stark ein. <strong>Arbeit:</strong> Richtet Entscheidungen deutlich an langfristigen Zielen aus. <strong>Sport:</strong> Verfolgt eine langfristige Entwicklung statt nur kurzfristiger Erfolge."
+  },
 
-  "4":   {name:"Werteorientiert", desc:"<strong>Privat:</strong> Hält an moralischen Werten fest. <strong>Politik:</strong>  Programmtreue Partei. <strong>Arbeit:</strong> Kollege handelt fair."},
+  "9": {
+    name:"Leuchtend / vorbildlich",
+    desc:"<strong>Privat:</strong> Möchte eigene Werte besonders konsequent leben. <strong>Politik:</strong> Verbindet klare Grundsätze mit einer starken Vorbildwirkung. <strong>Arbeit:</strong> Möchte durch Haltung und Verlässlichkeit Orientierung geben. <strong>Sport:</strong> Möchte auch für andere ein klares Beispiel sein."
+  },
 
-  "5":   {name:"Verantwortlich", desc:"<strong>Privat:</strong> Trägt Verantwortung in Familie.	<strong>Politik:</strong> Verantwortungsvolle Entscheidung. <strong>Arbeit:</strong> Projektleiter hält Zusagen."},
-
-  "6":   {name:"Ethisch fundiert", desc:"<strong>Privat:</strong> Lebt nach moralischen Prinzipien. <strong>Politik:</strong> Gesetzgeber mit Ethik. <strong>Arbeit:</strong> Chef mit Integrität."},
-
-  "7":   {name:"Integritätsstark", desc:"<strong>Privat:</strong> Verlässlich und integer. <strong>Politik:</strong>  Vertrauenswürdiger Staatsmann. <strong>Arbeit:</strong> Kollege mit Rückgrat."},
-
-  "8":   {name:"Strategisch visionär", desc:"<strong>Privat:</strong> Plant Generationen voraus. <strong>Politik:</strong> Staatsmann mit langfristiger Strategie. <strong>Arbeit:</strong> Unternehmer baut Zukunftsmärkte."},
-
-  "9":   {name:"Leuchtend/Vorbildlich", desc:"<strong>Privat:</strong> Lebt klare Moral. <strong>Politik:</strong> Leader mit moralischer Strahlkraft. <strong>Arbeit:</strong> Führungskraft mit Prinzipien."},
-
-  "10":  {name:"Legendär / Weltverändernd", desc:"<strong>Privat:</strong> Erfinder prägt Generationen. <strong>Politik:</strong> Gandhi prägt dauerhaft die Welt mit Gewaltlosigkeit. <strong>Arbeit:</strong> Steve Jobs inspiriert Welt."}
+  "10": {
+    name:"Außergewöhnlich prägend",
+    desc:"<strong>Privat:</strong> Möchte mit der eigenen Haltung langfristig etwas Bedeutendes bewirken. <strong>Politik:</strong> Verfolgt eine sehr weitreichende gesellschaftliche Vision. <strong>Arbeit:</strong> Möchte Entwicklungen nachhaltig und über die eigene Aufgabe hinaus prägen. <strong>Sport:</strong> Strebt eine außergewöhnlich nachhaltige Wirkung an."
+  }
 };
-
-
-
 
 
 window.realitaetsskala = {
-  "-10": {name:"Katastrophal", desc:"<strong>Privat:</strong> Wohnung unbewohnbar. <strong>Politik:</strong> Staat im Zerfall. <strong>Arbeit:</strong> Unternehmen insolvent."},
 
-  "-9":  {name:"Zerrüttet", desc:"<strong>Privat:</strong> Familie bricht auseinander. <strong>Politik:</strong> Gesellschaft im Bürgerkrieg. <strong>Arbeit:</strong> Führung zerfällt."},
+  "-10": {
+    name:"Äußerst kritisch",
+    desc:"<strong>Privat:</strong> Die Lebenssituation ist in wesentlichen Bereichen kaum tragfähig. <strong>Politik:</strong> Zentrale gesellschaftliche Strukturen funktionieren kaum noch. <strong>Arbeit:</strong> Der Betrieb oder Arbeitsbereich ist existenziell gefährdet."
+  },
 
-  "-8":  {name:"Feindselig zerstörend", desc:"<strong>Privat:</strong> Giftige Beziehung. <strong>Politik:</strong> Aggressive Außenpolitik. <strong>Arbeit:</strong> Chef zerstört Strukturen."},
- 
-  "-7":  {name:"Destruktiv", desc:"<strong>Privat:</strong> Streit eskaliert täglich. <strong>Politik:</strong> Blockadepolitik. <strong>Arbeit:</strong> Projekt wird torpediert."},
+  "-9": {
+    name:"Stark zerrüttet",
+    desc:"<strong>Privat:</strong> Beziehungen oder Lebensumstände sind stark auseinandergebrochen. <strong>Politik:</strong> Gesellschaftliche Strukturen sind sehr schwer belastet. <strong>Arbeit:</strong> Führung und Zusammenarbeit funktionieren nur noch eingeschränkt."
+  },
 
-  "-6":  {name:" Schwer belastend", desc:"<strong>Privat:</strong> Dauerkrankheit in Familie. <strong>Politik:</strong> Korruption lähmt Staat. <strong>Arbeit:</strong> Hohe Fluktuation."},
+  "-8": {
+    name:"Stark belastend",
+    desc:"<strong>Privat:</strong> Die Situation ist dauerhaft konfliktreich und belastend. <strong>Politik:</strong> Die Lage ist von starken Spannungen geprägt. <strong>Arbeit:</strong> Konflikte beeinträchtigen Strukturen und Zusammenarbeit erheblich."
+  },
 
- 
- "-5":  {name:"Instabil", desc:"<strong>Privat:</strong> Unsichere Wohnsituation. <strong>Politik:</strong> Instabile Regierung. <strong>Arbeit:</strong> Hohe Unsicherheit."},
+  "-7": {
+    name:"Deutlich destruktiv",
+    desc:"<strong>Privat:</strong> Konflikte verschärfen sich regelmäßig. <strong>Politik:</strong> Gegensätze blockieren wichtige Entwicklungen. <strong>Arbeit:</strong> Zusammenarbeit oder Projekte werden deutlich behindert."
+  },
 
+  "-6": {
+    name:"Schwer belastend",
+    desc:"<strong>Privat:</strong> Anhaltende Belastungen prägen den Alltag stark. <strong>Politik:</strong> Strukturelle Probleme erschweren verlässliche Lösungen. <strong>Arbeit:</strong> Dauerhafte Probleme belasten das Arbeitsumfeld deutlich."
+  },
 
-  "-4":  {name:"Schwächend", desc:"<strong>Privat:</strong> Dauerstress im Alltag. <strong>Politik:</strong> Bürokratie lähmt Bürger. <strong>Arbeit:</strong> Arbeitsumfeld zermürbend."},
+  "-5": {
+    name:"Instabil",
+    desc:"<strong>Privat:</strong> Die Lebenssituation ist deutlich unsicher. <strong>Politik:</strong> Entscheidungen und Rahmenbedingungen sind wenig verlässlich. <strong>Arbeit:</strong> Die Situation ist von spürbarer Unsicherheit geprägt."
+  },
 
-  "-3":  {name:"Kontraproduktiv hinderlich", desc:"<strong>Privat:</strong> Unpraktische Entscheidungen. <strong>Politik:</strong> Politik blockiert Fortschritt. <strong>Arbeit:</strong> Ineffiziente Prozesse."},
- 
- "-2":  {name:"Beeinträchtigend", desc:"<strong>Privat:</strong> Schlafmangel stört Alltag. <strong>Politik:</strong> Fehlende Ressourcen. <strong>Arbeit:</strong> Schlechtes Arbeitsklima."},
+  "-4": {
+    name:"Schwächend",
+    desc:"<strong>Privat:</strong> Dauerhafte Belastungen kosten merklich Kraft. <strong>Politik:</strong> Rahmenbedingungen erschweren Entwicklungen. <strong>Arbeit:</strong> Das Umfeld wirkt auf Dauer eher zermürbend."
+  },
 
- 
- "-1":  {name:" Ungünstig", desc:"<strong>Privat:</strong> Falsche Routine. <strong>Politik:</strong> Kleine Fehlentscheidungen. <strong>Arbeit:</strong> Planungsfehler."},
+  "-3": {
+    name:"Hinderlich",
+    desc:"<strong>Privat:</strong> Einzelne Bedingungen erschweren den Alltag. <strong>Politik:</strong> Strukturen bremsen gewünschte Entwicklungen. <strong>Arbeit:</strong> Abläufe oder Prozesse erschweren gute Ergebnisse."
+  },
 
-  "0":   {name:"Neutral durchschnittlich", desc:"<strong>Privat:</strong> Routine ohne Auf oder Ab. <strong>Politik:</strong> Unauffällige Verwaltung. <strong>Arbeit:</strong> Standardleistung."},
+  "-2": {
+    name:"Etwas erschwert",
+    desc:"<strong>Privat:</strong> Einzelne Umstände beeinträchtigen den Alltag leicht. <strong>Politik:</strong> Begrenzte Rahmenbedingungen erschweren einzelne Vorhaben etwas. <strong>Arbeit:</strong> Einige Bedingungen erschweren den Arbeitsalltag leicht."
+  },
 
+  "-1": {
+    name:"Leicht ungünstig",
+    desc:"<strong>Privat:</strong> Kleine Umstände passen noch nicht ganz. <strong>Politik:</strong> Einzelne Bedingungen wirken leicht ungünstig. <strong>Arbeit:</strong> Kleinere Planungs- oder Abstimmungsprobleme treten auf."
+  },
 
-  "1":   {name:"Leicht förderlich", desc:"<strong>Privat:</strong> Kleine Hilfen. <strong>Politik:</strong> Lokale Verbesserungen. <strong>Arbeit:</strong> Hilfreiche Tools."},
- 
-  "2":   {name:"Funktional", desc:"<strong>Privat:</strong> Tägliche Abläufe funktionieren. <strong>Politik:</strong> Behörden arbeiten verlässlich. <strong>Arbeit:</strong> Produktive Prozesse."},
- 
-  "3":   {name:"Stützend", desc:"<strong>Privat:</strong> Freunde helfen. <strong>Politik:</strong> Konstruktive Gesetze. <strong>Arbeit:</strong> Team unterstützt."},
-  
-  "4":   {name:"Konstruktiv", desc:"<strong>Privat:</strong> Lösungen im Alltag. <strong>Politik:</strong> Reformen greifen. <strong>Arbeit:</strong> Konstruktive Zusammenarbeit."},
+  "0": {
+    name:"Neutral durchschnittlich",
+    desc:"<strong>Privat:</strong> Der Alltag verläuft ohne deutliche positive oder negative Tendenz. <strong>Politik:</strong> Strukturen funktionieren durchschnittlich. <strong>Arbeit:</strong> Abläufe entsprechen weitgehend dem üblichen Standard."
+  },
 
-  "5":   {name:"Förderlich", desc:"<strong>Privat:</strong> Partner unterstützt Ziele. <strong>Politik:</strong> Politik stärkt Bürger. <strong>Arbeit:</strong> Chef fördert Mitarbeiter."},
- 
-  "6":   {name:"Robust unterstützend", desc:"<strong>Privat:</strong> Freundeskreis gibt dir richtig Rückhalt. <strong>Politik:</strong> Gute Verwaltungsstruktur. <strong>Arbeit:</strong> Team hält bei Stress zusammen."},
+  "1": {
+    name:"Leicht förderlich",
+    desc:"<strong>Privat:</strong> Kleine Hilfen erleichtern den Alltag. <strong>Politik:</strong> Einzelne Verbesserungen zeigen Wirkung. <strong>Arbeit:</strong> Hilfreiche Werkzeuge oder Abläufe unterstützen etwas."
+  },
 
+  "2": {
+    name:"Funktional",
+    desc:"<strong>Privat:</strong> Die täglichen Abläufe funktionieren verlässlich. <strong>Politik:</strong> Grundlegende Strukturen arbeiten zuverlässig. <strong>Arbeit:</strong> Prozesse funktionieren insgesamt gut."
+  },
 
-  "7":   {name:"Kraftvoll förderlich", desc:"<strong>Privat:</strong> Familie treibt an. <strong>Politik:</strong> Politische Maßnahmen wirken stark. <strong>Arbeit:</strong> Starke Firmenkultur."},
-  
-  "8":   {name:"Stark", desc:"<strong>Privat:</strong> Umfeld gibt Kraft. <strong>Politik:</strong> Gesellschaft funktioniert gut. <strong>Arbeit:</strong> Teamleistung hoch."},
-  
-  "9":   {name:"Exzellent inspirierend", desc:"<strong>Privat:</strong> Optimale Bedingungen. <strong>Politik:</strong> Sehr stabile Demokratie. <strong>Arbeit:</strong> Branchenführer."},
+  "3": {
+    name:"Stützend",
+    desc:"<strong>Privat:</strong> Menschen oder Bedingungen geben spürbare Unterstützung. <strong>Politik:</strong> Strukturen unterstützen sinnvolle Entwicklungen. <strong>Arbeit:</strong> Das Team hilft sich gegenseitig."
+  },
 
-  "10":  {name:" Herausragend-exzellent", desc:"<strong>Privat:</strong> Familie stabil und glücklich. </strong>Politik:</strong> Demokratie, Wohlstand und Frieden im Gleichgewicht. <strong>Arbeit:</strong> Weltklasse-Unternehmen."}
+  "4": {
+    name:"Konstruktiv",
+    desc:"<strong>Privat:</strong> Probleme werden überwiegend lösungsorientiert angegangen. <strong>Politik:</strong> Maßnahmen zeigen nachvollziehbare Verbesserungen. <strong>Arbeit:</strong> Die Zusammenarbeit ist deutlich lösungsorientiert."
+  },
+
+  "5": {
+    name:"Förderlich",
+    desc:"<strong>Privat:</strong> Das Umfeld unterstützt persönliche Ziele merklich. <strong>Politik:</strong> Rahmenbedingungen unterstützen Entwicklungen. <strong>Arbeit:</strong> Führung und Umfeld fördern gute Arbeit."
+  },
+
+  "6": {
+    name:"Robust unterstützend",
+    desc:"<strong>Privat:</strong> Das persönliche Umfeld gibt auch bei Belastung verlässlichen Rückhalt. <strong>Politik:</strong> Strukturen funktionieren stabil und verlässlich. <strong>Arbeit:</strong> Das Team hält auch bei höherer Belastung zusammen."
+  },
+
+  "7": {
+    name:"Kraftvoll förderlich",
+    desc:"<strong>Privat:</strong> Das Umfeld unterstützt Entwicklung und Motivation deutlich. <strong>Politik:</strong> Maßnahmen entfalten eine klare unterstützende Wirkung. <strong>Arbeit:</strong> Eine starke Zusammenarbeit trägt Ergebnisse deutlich."
+  },
+
+  "8": {
+    name:"Stark",
+    desc:"<strong>Privat:</strong> Das Umfeld bietet sehr gute und stabile Unterstützung. <strong>Politik:</strong> Gesellschaftliche Strukturen funktionieren sehr verlässlich. <strong>Arbeit:</strong> Team und Prozesse arbeiten auf hohem Niveau."
+  },
+
+  "9": {
+    name:"Exzellent unterstützend",
+    desc:"<strong>Privat:</strong> Die Bedingungen sind außergewöhnlich günstig und stabil. <strong>Politik:</strong> Strukturen arbeiten auf sehr hohem und verlässlichem Niveau. <strong>Arbeit:</strong> Bedingungen und Zusammenarbeit sind außergewöhnlich stark."
+  },
+
+  "10": {
+    name:"Herausragend",
+    desc:"<strong>Privat:</strong> Die Lebensbedingungen sind in nahezu allen wichtigen Bereichen sehr stimmig. <strong>Politik:</strong> Zentrale gesellschaftliche Strukturen funktionieren außergewöhnlich stabil. <strong>Arbeit:</strong> Zusammenarbeit, Führung und Rahmenbedingungen funktionieren auf sehr hohem Niveau."
+  }
 };
 
 
-
-
 window.rueckgratskala = {
-  "-10": {name:"Total verräterisch", desc:"<strong>Privat:</strong> Verrat am eigenen Land. <strong>Politik:</strong> Verrat am eigenen Land. <strong>Arbeit:</strong> Mitarbeiter sabotiert Projekte."},
 
-  "-9":  {name:"Feige", desc:"<strong>Privat:</strong> Verlässt Freunde in Not. <strong>Politik:</strong> Deserteur. <strong>Arbeit:</strong> Kollege verweigert Hilfe."},
+  "-10": {
+    name:"Äußerst entschieden dagegen",
+    desc:"<strong>Privat:</strong> Vertritt eine Gegenposition mit größter Konsequenz. <strong>Politik:</strong> Steht sehr entschieden für die entgegengesetzte Richtung ein. <strong>Arbeit:</strong> Setzt sich mit maximaler Konsequenz für eine andere Vorgehensweise ein."
+  },
 
-  "-8":  {name:"Zynisch abweisend", desc:"<strong>Privat:</strong> Spottet über andere. <strong>Politik:</strong> Zynischer Führer. <strong>Arbeit:</strong> Chef entwertet Mitarbeiter."},
- 
-  "-7":  {name:" Duckmäuserisch-haltungslos", desc:"<strong>Privat:</strong> Knickt vor jedem ein. <strong>Politik:</strong> Abgeordneter ohne Rückgrat. <strong>Arbeit:</strong> Unterwürfiger Angestellter."},
+  "-9": {
+    name:"Sehr entschieden dagegen",
+    desc:"<strong>Privat:</strong> Hält sehr deutlich an der Gegenposition fest. <strong>Politik:</strong> Vertritt eine sehr klare Gegenhaltung. <strong>Arbeit:</strong> Setzt sich mit großer Konsequenz für die andere Richtung ein."
+  },
 
-  "-6":  {name:"Konfliktmeidend", desc:"<strong>Privat:</strong> Geht jedem Streit aus dem Weg. <strong>Politik:</strong> Regierung vermeidet klare Haltung bei Menschenrechten. <strong>Arbeit:</strong> Chef duldet Missstände."},
+  "-8": {
+    name:"Standhaft dagegen",
+    desc:"<strong>Privat:</strong> Bleibt auch bei Widerstand deutlich bei der Gegenposition. <strong>Politik:</strong> Hält klar an einer Gegenposition fest. <strong>Arbeit:</strong> Vertritt eine alternative Lösung sehr konsequent."
+  },
 
-  "-5":  {name:"Unsicher", desc:"<strong>Privat:</strong> Schwankt in Entscheidungen. <strong>Politik:</strong> Politiker laviert. <strong>Arbeit:</strong> Mitarbeiter ohne Standpunkt."},
+  "-7": {
+    name:"Klar dagegenstehend",
+    desc:"<strong>Privat:</strong> Vertritt die Gegenposition deutlich. <strong>Politik:</strong> Positioniert sich klar dagegen. <strong>Arbeit:</strong> Bleibt bei einer anderen Vorgehensweise."
+  },
 
+  "-6": {
+    name:"Konfliktbereit abgrenzend",
+    desc:"<strong>Privat:</strong> Setzt erkennbare Grenzen und vertritt die Gegenposition auch bei Widerstand. <strong>Politik:</strong> Vertritt eine deutliche Gegenposition. <strong>Arbeit:</strong> Grenzt sich klar von einer Vorgehensweise ab."
+  },
 
+  "-5": {
+    name:"Klar ablehnend",
+    desc:"<strong>Privat:</strong> Zeigt deutlich, dass eine Richtung nicht mitgetragen wird. <strong>Politik:</strong> Vertritt eine erkennbare Gegenposition. <strong>Arbeit:</strong> Unterstützt eine bestimmte Vorgehensweise eher nicht."
+  },
 
+  "-4": {
+    name:"Eher gegensteuernd",
+    desc:"<strong>Privat:</strong> Handelt eher in die entgegengesetzte Richtung. <strong>Politik:</strong> Positioniert sich überwiegend dagegen. <strong>Arbeit:</strong> Versucht, eine andere Richtung einzubringen."
+  },
 
-  "-4":  {name:"Anpasserisch", desc:"<strong>Privat:</strong> Will nur gefallen. <strong>Politik:</strong> Parteigänger ohne Meinung. <strong>Arbeit:</strong> Ja-Sager."},
+  "-3": {
+    name:"Leicht gegensteuernd",
+    desc:"<strong>Privat:</strong> Zeigt eine erkennbare, aber noch zurückhaltende Gegenposition. <strong>Politik:</strong> Äußert vorsichtig Widerspruch. <strong>Arbeit:</strong> Bringt eine alternative Sicht ein."
+  },
 
-  "-3":  {name:"Haltungsschwach", desc:"<strong>Privat:</strong> Lässt sich leicht umstimmen. <strong>Politik:</strong> Wankelmütiger Abgeordneter. <strong>Arbeit:</strong> Unentschlossener Kollege."},
+  "-2": {
+    name:"Vorsichtig gegenhaltend",
+    desc:"<strong>Privat:</strong> Handelt leicht in die Gegenrichtung. <strong>Politik:</strong> Zeigt eine zurückhaltende Gegenposition. <strong>Arbeit:</strong> Äußert einzelne Bedenken."
+  },
 
+  "-1": {
+    name:"Leicht gegenhaltend",
+    desc:"<strong>Privat:</strong> Zeigt nur eine geringe Gegenbewegung. <strong>Politik:</strong> Positioniert sich vorsichtig dagegen. <strong>Arbeit:</strong> Äußert leichte Vorbehalte."
+  },
 
-  "-2":  {name:"Defensiv passiv", desc:"<strong>Privat:</strong> Geht Konflikten aus dem Weg. <strong>Politik:</strong> Keine eigene Linie. <strong>Arbeit:</strong> Meidet Verantwortung."},
+  "0": {
+    name:"Neutral / abwartend",
+    desc:"<strong>Privat:</strong> Zeigt momentan keine klare Handlungsrichtung. <strong>Politik:</strong> Bezieht noch keine eindeutige Position. <strong>Arbeit:</strong> Beobachtet die Situation zunächst."
+  },
 
-  "-1":  {name:"Orientierungslos", desc:"<strong>Privat:</strong> Zieht keine Linie. <strong>Politik:</strong> Haltung unklar. <strong>Arbeit:</strong> Mitarbeiter ohne Rückgrat."},
+  "1": {
+    name:"Leicht mutig",
+    desc:"<strong>Privat:</strong> Steht vorsichtig für die eigene Position ein. <strong>Politik:</strong> Äußert erste klare Worte. <strong>Arbeit:</strong> Spricht kleinere Bedenken offen an."
+  },
 
+  "2": {
+    name:"Selbstbewusst",
+    desc:"<strong>Privat:</strong> Vertritt die eigene Meinung erkennbar. <strong>Politik:</strong> Spricht die eigene Position offen aus. <strong>Arbeit:</strong> Bringt die eigene Sicht klar ein."
+  },
 
-  "0":   {name:"Neutral", desc:"<strong>Privat:</strong> Geht Konflikten aus dem Weg. <strong>Politik:</strong> Abgeordneter ohne Meinung. <strong>Arbeit:</strong> Mitarbeiter nickt alles ab."},
+  "3": {
+    name:"Standhaft",
+    desc:"<strong>Privat:</strong> Bleibt auch bei leichterem Gegenwind bei der eigenen Position. <strong>Politik:</strong> Hält an einer begründeten Linie fest. <strong>Arbeit:</strong> Bleibt bei einer nachvollziehbaren Einschätzung."
+  },
 
-  "1":   {name:"Leicht mutig", desc:"<strong>Privat:</strong> Steht manchmal für sich ein. <strong>Politik:</strong> Gelegentlich klare Worte. <strong>Arbeit:</strong> Kollege wagt kleine Kritik."},
+  "4": {
+    name:"Verantwortung tragend",
+    desc:"<strong>Privat:</strong> Steht verlässlich für eigene Entscheidungen ein. <strong>Politik:</strong> Übernimmt Verantwortung für eine vertretene Position. <strong>Arbeit:</strong> Steht für getroffene Entscheidungen und deren Folgen ein."
+  },
 
+  "5": {
+    name:"Mutig",
+    desc:"<strong>Privat:</strong> Spricht auch schwierige Themen offen an. <strong>Politik:</strong> Vertritt eine Position trotz öffentlicher Kritik. <strong>Arbeit:</strong> Bringt neue oder unbequeme Wege offen zur Sprache."
+  },
 
-  "2":   {name:"Selbstbewusst", desc:"<strong>Privat:</strong> Tritt klar auf. <strong>Politik:</strong> Politiker spricht offen. <strong>Arbeit:</strong> Mitarbeiter vertritt Meinung."},
+  "6": {
+    name:"Verlässlich stark",
+    desc:"<strong>Privat:</strong> Bleibt einer wichtigen Haltung auch unter Druck treu. <strong>Politik:</strong> Bleibt bei einer nachvollziehbaren Position verlässlich. <strong>Arbeit:</strong> Hält Zusagen und vertritt Entscheidungen auch bei Widerstand."
+  },
 
-  "3":   {name:"Standhaft", desc:"<strong>Privat:</strong> Beharrt auf Meinung. <strong>Politik:</strong> Opposition hält Kurs. <strong>Arbeit:</strong> Kollege bleibt bei Prinzipien."},
+  "7": {
+    name:"Integrität bewahrend",
+    desc:"<strong>Privat:</strong> Bleibt den eigenen Prinzipien auch in schwierigen Situationen treu. <strong>Politik:</strong> Hält an begründeten Werten und Positionen fest. <strong>Arbeit:</strong> Verbindet Verlässlichkeit mit einer klaren Haltung."
+  },
 
-  "4":   {name:"Verantwortung tragend", desc:"<strong>Privat:</strong> Übernimmt Aufgaben zuverlässig. <strong>Politik:</strong> Minister trägt Verantwortung. <strong>Arbeit:</strong> Projektleiter steht ein."},
+  "8": {
+    name:"Inspirierend standhaft",
+    desc:"<strong>Privat:</strong> Gibt anderen durch die eigene Haltung Orientierung. <strong>Politik:</strong> Kann andere durch klare und glaubwürdige Haltung mitnehmen. <strong>Arbeit:</strong> Motiviert andere durch Konsequenz und Verlässlichkeit."
+  },
 
-  "5":   {name:"Mutig", desc:"<strong>Privat:</strong> Wagt schwierige Gespräche. <strong>Politik:</strong> Stellt sich öffentlicher Kritik. <strong>Arbeit:</strong> Probiert neue Wege."},
+  "9": {
+    name:"Wegweisend leuchtend",
+    desc:"<strong>Privat:</strong> Ist in schwierigen Situationen ein deutliches Vorbild. <strong>Politik:</strong> Gibt durch eine sehr klare Haltung Orientierung. <strong>Arbeit:</strong> Prägt durch glaubwürdige Haltung die Zusammenarbeit und Kultur."
+  },
 
-  "6":   {name:"Verlässlich stark", desc:"<strong>Privat:</strong> Steht immer zu Freunden. <strong>Politik:</strong> Verlässlicher Staatsmann. <strong>Arbeit:</strong> Chef hält Wort."},
-
-  "7":   {name:"Integrität bewahren", desc:"<strong>Privat:</strong> Bleibt Prinzipien treu. <strong>Politik:</strong> Hält an Werten fest. <strong>Arbeit:</strong> Verlässliche Führung."},
-
-  "8":   {name:"Inspirierend motivierend", desc:"<strong>Privat:</strong> Ermutigt andere. <strong>Politik:</strong> Motivierender Redner. <strong>Arbeit:</strong> Chef inspiriert Team."},
-  "9":   {name:"Wegweisend leuchtend", desc:"<strong>Privat:</strong> Vorbild in schwierigen Zeiten. <strong>Politik:</strong> Moralischer Leuchtturm. <strong>Arbeit:</strong> Führungskraft prägt Kultur."},
-
-  "10":  {name:"Legendär standhaft", desc:"<strong>Privat:</strong> Opfert sich für Werte auf. <strong>Politik:</strong> Dissident widersteht Diktatur trotz Gefängnis. <strong>Arbeit:</strong> Führungsfigur mit Prinzipien."}
+  "10": {
+    name:"Außergewöhnlich standhaft",
+    desc:"<strong>Privat:</strong> Bleibt auch bei sehr großem Druck konsequent bei einer zentralen Haltung. <strong>Politik:</strong> Hält auch unter außergewöhnlichem Druck an einer klaren Position fest. <strong>Arbeit:</strong> Steht selbst bei erheblichem Widerstand konsequent für eine begründete Vorgehensweise ein."
+  }
 };
 
 
