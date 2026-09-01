@@ -7200,168 +7200,174 @@ const out = document.getElementById("szn-out");
 
 const KATALOG = {
 
-  "1) Beruf & Verantwortung": [
-    "Übernehme ich Verantwortung oder halte ich mich zurück?",
-    "Spreche ich ein Problem an oder lasse ich es zunächst ruhen?",
-    "Bleibe ich bei meiner Meinung oder passe ich mich an?",
-    "Wage ich eine berufliche Veränderung oder bleibe ich beim Vertrauten?",
-    "Entscheide ich selbst oder überlasse ich die Entscheidung anderen?"
-  ],
+ 
 
-  "2) Umwelt & Nachhaltigkeit": [
-    "Ändere ich eine Gewohnheit oder bleibe ich beim Gewohnten?",
-    "Verzichte ich bewusst oder wähle ich den persönlichen Komfort?",
-    "Nehme ich mehr Aufwand in Kauf oder wähle ich den einfacheren Weg?",
-    "Wähle ich die umweltfreundlichere Alternative oder bleibe ich beim Gewohnten?",
-    "Handle ich selbst oder überlasse ich Veränderungen eher anderen?"
-  ],
+"1) Beruf & Verantwortung": [
+  "1.1 Frage: Sprichst du ein fachliches Problem an, auch wenn dadurch zusätzlicher Aufwand entsteht? | Szenario: Du erkennst kurz vor der Umsetzung Schwächen an einer bereits freigegebenen Lösung. Eine Änderung könnte zusätzlichen Aufwand und Terminprobleme verursachen. | Deine innere Haltung: Du willst fachlich sauber handeln, möchtest aber unnötige Unruhe vermeiden. Gleichzeitig beschäftigt dich, ob du deine Bedenken offen ansprechen solltest.",
 
-  "3) Beziehung & Partnerschaft": [
-    "Suche ich mehr Nähe oder halte ich Abstand?",
-    "Spreche ich offen aus, was mich beschäftigt, oder behalte ich es für mich?",
-    "Gehe ich auf den anderen zu oder warte ich ab?",
-    "Halte ich an der Beziehung fest oder lasse ich los?",
-    "Lasse ich mich stärker ein oder schütze ich meine eigenen Bedürfnisse?"
-  ],
+  "1.2 Frage: Übernimmst du Verantwortung für einen eigenen Fehler, auch wenn er unangenehme Folgen haben kann? | Szenario: Du bemerkst einen eigenen Fehler, der bisher niemandem aufgefallen ist. Offenheit könnte Rückfragen, Mehrarbeit oder Kritik auslösen. | Deine innere Haltung: Du willst verantwortlich mit Fehlern umgehen, spürst aber den Wunsch, unangenehme Konsequenzen möglichst zu vermeiden.",
 
-  "4) Familie & Angehörige": [
-    "Bringe ich mich stärker ein oder halte ich mehr Abstand?",
-    "Helfe ich oder lasse ich die Verantwortung beim anderen?",
-    "Spreche ich den Konflikt an oder lasse ich ihn ruhen?",
-    "Richte ich mich nach meiner Familie oder gehe ich meinen eigenen Weg?",
-    "Gebe ich nach oder bleibe ich bei meiner Position?"
-  ],
+  "1.3 Frage: Vertrittst du deine fachliche Einschätzung, wenn andere eine andere Richtung bevorzugen? | Szenario: Im Team wird eine Lösung favorisiert, die du fachlich kritisch siehst. Deine Gegenposition könnte Diskussionen auslösen oder dich isolieren. | Deine innere Haltung: Dir sind Zusammenarbeit und fachliche Qualität wichtig. Gleichzeitig fragst du dich, wie deutlich du deine eigene Einschätzung vertreten willst.",
 
-  "5) Freundschaft & soziales Umfeld": [
-    "Gehe ich auf jemanden zu oder halte ich Abstand?",
-    "Sage ich offen meine Meinung oder halte ich mich zurück?",
-    "Halte ich an der Freundschaft fest oder löse ich mich?",
-    "Biete ich meine Hilfe an oder lasse ich den anderen selbst entscheiden?",
-    "Schließe ich mich der Gruppe an oder gehe ich meinen eigenen Weg?"
-  ],
+  "1.4 Frage: Setzt du eine Grenze, wenn Anforderungen aus deiner Sicht nicht mehr verantwortbar sind? | Szenario: Zeitdruck und zusätzliche Anforderungen nehmen zu. Du könntest weiter mitziehen, obwohl du die Vorgehensweise zunehmend für problematisch hältst. | Deine innere Haltung: Du möchtest zuverlässig sein und das Projekt unterstützen. Gleichzeitig spürst du, dass für dich eine fachliche oder persönliche Grenze näher rückt.",
 
-  "6) Gesundheit & Wohlbefinden": [
-    "Achte ich stärker auf mich oder mache ich weiter wie bisher?",
-    "Gönne ich mir Ruhe oder erfülle ich weiterhin meine Verpflichtungen?",
-    "Verändere ich eine Gewohnheit oder behalte ich sie bei?",
-    "Reduziere ich die Belastung oder nehme ich sie weiterhin in Kauf?",
-    "Achte ich stärker auf mein Wohlbefinden oder auf andere Anforderungen?"
-  ],
+  "1.5 Frage: Triffst du eine notwendige Entscheidung, obwohl du damit Widerstand auslösen könntest? | Szenario: Du musst zwischen einer bequemen Lösung und einer aus deiner Sicht langfristig besseren Lösung entscheiden. Die bessere Variante dürfte zunächst auf Widerstand stoßen. | Deine innere Haltung: Du möchtest eine tragfähige Entscheidung treffen, willst aber Konflikte und unnötige Belastungen für andere möglichst vermeiden."
+],
 
-  "7) Geld & Finanzen": [
-    "Gebe ich das Geld aus oder halte ich es zurück?",
-    "Wähle ich finanzielle Sicherheit oder gehe ich mehr Risiko ein?",
-    "Unterstütze ich finanziell oder halte ich mein Geld zurück?",
-    "Investiere ich jetzt oder warte ich ab?",
-    "Gönne ich mir etwas oder spare ich lieber für später?"
-  ],
 
-  "8) Konsum & persönliche Werte": [
-    "Entscheide ich nach dem Preis oder nach meinen persönlichen Werten?",
-    "Kaufe ich es oder verzichte ich darauf?",
-    "Wähle ich Bequemlichkeit oder nehme ich mehr Aufwand in Kauf?",
-    "Bleibe ich beim gewohnten Produkt oder wähle ich eine Alternative?",
-    "Folge ich meinem spontanen Wunsch oder überlege ich länger?"
-  ],
+ "2) Umwelt & Nachhaltigkeit": [
+  "2.1 Frage: Ändere ich eine Gewohnheit, obwohl das meinen Alltag unbequemer macht? | Szenario: Eine vertraute Gewohnheit ist bequem, obwohl eine nachhaltigere Alternative möglich wäre. Die Umstellung würde etwas mehr Planung verlangen. | Deine innere Haltung: Nachhaltigkeit ist dir wichtig, gleichzeitig möchtest du deinen Alltag nicht unnötig erschweren.",
+  "2.2 Frage: Verzichte ich bewusst, wenn persönlicher Komfort dagegensteht? | Szenario: Du könntest auf etwas verzichten, das angenehm, aber nicht wirklich notwendig ist. Der Verzicht hätte für dich einen spürbaren Komfortverlust. | Deine innere Haltung: Du möchtest bewusster handeln, willst aber Lebensqualität und persönliche Bedürfnisse nicht einfach ausblenden.",
+  "2.3 Frage: Nehme ich mehr Aufwand für eine nachhaltigere Lösung in Kauf? | Szenario: Eine nachhaltigere Möglichkeit ist verfügbar, kostet dich aber mehr Zeit, Geld oder Organisation als der einfache Weg. | Deine innere Haltung: Du möchtest verantwortlich handeln, fragst dich aber, welcher zusätzliche Aufwand für dich noch angemessen ist.",
+  "2.4 Frage: Wähle ich die umweltfreundlichere Alternative, obwohl das Gewohnheiten verändert? | Szenario: Du kannst zwischen deiner gewohnten Lösung und einer umweltfreundlicheren Alternative wählen. Beide haben nachvollziehbare Vor- und Nachteile. | Deine innere Haltung: Dir ist Nachhaltigkeit wichtig, gleichzeitig schätzt du Verlässlichkeit und vertraute Abläufe.",
+  "2.5 Frage: Verändere ich selbst etwas oder warte ich darauf, dass andere handeln? | Szenario: Du siehst Verbesserungsmöglichkeiten, weißt aber, dass dein eigener Beitrag allein nur begrenzte Wirkung hat. | Deine innere Haltung: Du möchtest einen sinnvollen Beitrag leisten, fragst dich aber, wie viel Verantwortung tatsächlich bei dir liegt."
+],
 
-  "9) Konflikt & Auseinandersetzung": [
-    "Spreche ich den Konflikt an oder lasse ich ihn ruhen?",
-    "Widerspreche ich deutlich oder halte ich mich zurück?",
-    "Gehe ich einen Kompromiss ein oder bleibe ich bei meiner Position?",
-    "Führe ich die Auseinandersetzung weiter oder beende ich sie?",
-    "Setze ich eine klare Grenze oder komme ich dem anderen entgegen?"
-  ],
+"3) Beziehung & Partnerschaft": [
+  "3.1 Frage: Suche ich mehr Nähe oder gebe ich dem anderen und mir Abstand? | Szenario: Du wünschst dir mehr Nähe, spürst aber, dass der andere momentan zurückhaltender ist. Mehr Kontakt könnte verbinden oder zusätzlichen Druck erzeugen. | Deine innere Haltung: Nähe bedeutet dir viel, gleichzeitig möchtest du die Grenzen des anderen und deine eigenen Bedürfnisse respektieren.",
+  "3.2 Frage: Spreche ich offen aus, was mich beschäftigt, obwohl das unangenehm werden könnte? | Szenario: Etwas in der Beziehung beschäftigt dich schon länger. Ein offenes Gespräch könnte Klarheit schaffen, aber auch Spannungen auslösen. | Deine innere Haltung: Du möchtest ehrlich und verbunden sein, hast aber gleichzeitig den Wunsch nach Ruhe und Harmonie.",
+  "3.3 Frage: Gehe ich auf den anderen zu oder warte ich zunächst ab? | Szenario: Nach einer angespannten Situation herrscht Distanz. Du könntest den ersten Schritt machen oder dem anderen Zeit lassen. | Deine innere Haltung: Du möchtest Verbindung ermöglichen, willst aber weder hinterherlaufen noch den anderen bedrängen.",
+  "3.4 Frage: Halte ich an der Beziehung fest oder lasse ich zunehmend los? | Szenario: Eine Beziehung gibt dir noch etwas, belastet dich aber zugleich. Du bist unsicher, ob weitere Anstrengung sinnvoll ist. | Deine innere Haltung: Dir sind Verbundenheit und Loyalität wichtig, gleichzeitig möchtest du dich selbst und deine Grenzen ernst nehmen.",
+  "3.5 Frage: Lasse ich mich stärker ein oder schütze ich meine eigenen Bedürfnisse? | Szenario: Mehr Einlassen könnte die Beziehung vertiefen, würde dich aber auch verletzlicher und abhängiger von der Reaktion des anderen machen. | Deine innere Haltung: Du möchtest Nähe zulassen, ohne dabei deine Eigenständigkeit und Selbstachtung zu verlieren."
+],
 
-  "10) Veränderung & Neubeginn": [
-    "Beginne ich etwas Neues oder bleibe ich beim Vertrauten?",
-    "Gehe ich die Veränderung jetzt an oder warte ich noch?",
-    "Verlasse ich meinen bisherigen Weg oder gehe ich ihn weiter?",
-    "Gehe ich ein Risiko ein oder wähle ich Sicherheit?",
-    "Überdenke ich meine Entscheidung oder halte ich daran fest?"
-  ],
+"4) Familie & Angehörige": [
+  "4.1 Frage: Bringe ich mich stärker ein oder halte ich bewusst mehr Abstand? | Szenario: In deiner Familie gibt es eine Situation, bei der deine Unterstützung hilfreich wäre, die dich aber auch stärker hineinziehen könnte. | Deine innere Haltung: Familie ist dir wichtig, gleichzeitig möchtest du nicht jede Belastung automatisch zu deiner eigenen machen.",
+  "4.2 Frage: Helfe ich oder lasse ich die Verantwortung beim anderen? | Szenario: Ein Angehöriger hat ein Problem, bei dem du unterstützen könntest. Gleichzeitig könnte deine Hilfe dazu führen, dass du Verantwortung übernimmst, die eigentlich nicht deine ist. | Deine innere Haltung: Du möchtest helfen, ohne dem anderen seine Eigenverantwortung abzunehmen.",
+  "4.3 Frage: Spreche ich einen familiären Konflikt an oder lasse ich ihn zunächst ruhen? | Szenario: Zwischen dir und einem Angehörigen steht etwas Ungeklärtes. Ein Gespräch könnte entlasten, aber auch alte Spannungen wieder öffnen. | Deine innere Haltung: Du möchtest Klarheit, gleichzeitig ist dir der familiäre Frieden wichtig.",
+  "4.4 Frage: Richte ich mich nach meiner Familie oder gehe ich meinen eigenen Weg? | Szenario: Deine Familie erwartet eine Entscheidung von dir, die nicht vollständig zu deinen eigenen Vorstellungen passt. | Deine innere Haltung: Zugehörigkeit bedeutet dir viel, gleichzeitig möchtest du dein Leben nach eigenen Maßstäben gestalten.",
+  "4.5 Frage: Gebe ich nach oder bleibe ich bei meiner Position? | Szenario: In einer familiären Frage bestehen unterschiedliche Vorstellungen. Nachgeben würde Ruhe schaffen, könnte sich für dich aber falsch anfühlen. | Deine innere Haltung: Du möchtest die Beziehung bewahren und zugleich deine eigene Position ernst nehmen."
+],
 
-  "11) Entscheidungen & Zweifel": [
-    "Entscheide ich jetzt oder warte ich noch?",
-    "Folge ich meinem Gefühl oder den sachlichen Argumenten?",
-    "Bleibe ich bei meiner Entscheidung oder ändere ich sie?",
-    "Lege ich mich fest oder halte ich mir weitere Möglichkeiten offen?",
-    "Entscheide ich selbst oder höre ich stärker auf den Rat anderer?"
-  ],
+"5) Freundschaft & soziales Umfeld": [
+  "5.1 Frage: Gehe ich auf jemanden zu oder halte ich zunächst Abstand? | Szenario: Zu einer Person ist der Kontakt schwächer geworden. Du könntest aktiv auf sie zugehen oder beobachten, ob auch von ihr etwas kommt. | Deine innere Haltung: Dir ist die Verbindung wichtig, gleichzeitig möchtest du Gegenseitigkeit spüren.",
+  "5.2 Frage: Sage ich offen meine Meinung oder halte ich mich zurück? | Szenario: Ein Freund vertritt eine Sicht oder verhält sich so, dass du deutliche Bedenken hast. Offenheit könnte die Freundschaft belasten. | Deine innere Haltung: Ehrlichkeit ist dir wichtig, gleichzeitig möchtest du respektvoll bleiben und die Beziehung nicht unnötig beschädigen.",
+  "5.3 Frage: Halte ich an einer Freundschaft fest oder löse ich mich davon? | Szenario: Eine Freundschaft fühlt sich zunehmend einseitig oder belastend an, hat für dich aber weiterhin Bedeutung. | Deine innere Haltung: Loyalität ist dir wichtig, gleichzeitig möchtest du Beziehungen nicht allein aus Gewohnheit aufrechterhalten.",
+  "5.4 Frage: Biete ich Hilfe an oder lasse ich den anderen selbst entscheiden? | Szenario: Du siehst, dass ein Freund Schwierigkeiten hat. Du könntest eingreifen, weißt aber nicht, ob deine Unterstützung überhaupt gewünscht ist. | Deine innere Haltung: Du möchtest da sein, ohne dich aufzudrängen oder Verantwortung zu übernehmen, die nicht bei dir liegt.",
+  "5.5 Frage: Schließe ich mich der Gruppe an oder gehe ich meinen eigenen Weg? | Szenario: Dein soziales Umfeld entscheidet sich für etwas, das nicht vollständig deiner eigenen Vorstellung entspricht. | Deine innere Haltung: Zugehörigkeit ist dir wichtig, gleichzeitig möchtest du dich nicht gegen deine eigene Überzeugung anpassen."
+],
 
-  "12) Grenzen & Selbstbehauptung": [
-    "Sage ich klar Nein oder komme ich entgegen?",
-    "Setze ich eine klare Grenze oder lasse ich mehr Spielraum?",
-    "Vertrete ich meine Bedürfnisse oder stelle ich die Bedürfnisse anderer stärker in den Vordergrund?",
-    "Lehne ich die Forderung ab oder akzeptiere ich sie?",
-    "Bleibe ich bei meiner Position oder gehe ich einen Schritt auf den anderen zu?"
-  ],
+"6) Gesundheit & Wohlbefinden": [
+  "6.1 Frage: Achte ich stärker auf mich oder mache ich weiter wie bisher? | Szenario: Du merkst, dass Belastung oder Erschöpfung zunimmt. Dein Alltag würde aber auch funktionieren, wenn du zunächst weitermachst. | Deine innere Haltung: Du möchtest leistungsfähig und zuverlässig bleiben, gleichzeitig willst du deine eigenen Grenzen ernst nehmen.",
+  "6.2 Frage: Gönne ich mir Ruhe oder erfülle ich weiterhin meine Verpflichtungen? | Szenario: Du könntest eine Pause gebrauchen, hast aber Aufgaben oder Zusagen, die dir ebenfalls wichtig sind. | Deine innere Haltung: Verantwortung bedeutet dir viel, gleichzeitig weißt du, dass Erholung ebenfalls einen Wert hat.",
+  "6.3 Frage: Verändere ich eine Gewohnheit oder behalte ich sie bei? | Szenario: Eine alltägliche Gewohnheit tut dir vermutlich nicht besonders gut, ist aber angenehm und fest in deinem Alltag verankert. | Deine innere Haltung: Du möchtest gut mit dir umgehen, willst aber nicht jede Gewohnheit unter ständigen Optimierungsdruck stellen.",
+  "6.4 Frage: Reduziere ich meine Belastung oder nehme ich sie weiterhin in Kauf? | Szenario: Eine Belastung lässt sich reduzieren, allerdings nur durch Veränderungen, Abgrenzung oder Verzicht an anderer Stelle. | Deine innere Haltung: Du möchtest deine Aufgaben bewältigen, gleichzeitig soll deine Belastbarkeit nicht selbstverständlich unbegrenzt sein.",
+  "6.5 Frage: Stelle ich mein Wohlbefinden stärker in den Vordergrund oder andere Anforderungen? | Szenario: Eigene Bedürfnisse und äußere Anforderungen stehen gleichzeitig im Raum. Beides lässt sich momentan nicht vollständig erfüllen. | Deine innere Haltung: Du möchtest weder egoistisch handeln noch dich selbst dauerhaft hinten anstellen."
+],
 
-  "13) Vertrauen & Kontrolle": [
-    "Vertraue ich oder kontrolliere ich stärker?",
-    "Gebe ich Verantwortung ab oder behalte ich sie selbst?",
-    "Gebe ich mehr Freiheit oder setze ich klare Grenzen?",
-    "Verlasse ich mich auf eine Zusage oder sichere ich mich zusätzlich ab?",
-    "Lasse ich los oder steuere ich die Entwicklung selbst?"
-  ],
+"7) Geld & Finanzen": [
+  "7.1 Frage: Gebe ich das Geld aus oder halte ich es bewusst zurück? | Szenario: Du möchtest dir etwas leisten und könntest es bezahlen. Gleichzeitig würde der Kauf deine finanziellen Reserven verringern. | Deine innere Haltung: Du möchtest dein Geld auch genießen können, gleichzeitig sind dir Sicherheit und Kontrolle wichtig.",
+  "7.2 Frage: Wähle ich finanzielle Sicherheit oder gehe ich bewusst mehr Risiko ein? | Szenario: Eine Entscheidung bietet bessere Chancen, ist aber finanziell weniger vorhersehbar als die sichere Alternative. | Deine innere Haltung: Du möchtest Möglichkeiten nutzen, ohne deine finanzielle Stabilität leichtfertig aufs Spiel zu setzen.",
+  "7.3 Frage: Unterstütze ich jemanden finanziell oder halte ich mein Geld zurück? | Szenario: Jemand, der dir wichtig ist, könnte finanzielle Unterstützung gebrauchen. Du könntest helfen, würdest damit aber eigenes Geld und möglicherweise Verantwortung binden. | Deine innere Haltung: Du möchtest großzügig sein, gleichzeitig sollen Hilfe, Grenzen und Eigenverantwortung in einem vernünftigen Verhältnis bleiben.",
+  "7.4 Frage: Investiere ich jetzt oder warte ich zunächst ab? | Szenario: Eine Investitionsmöglichkeit erscheint interessant, aber zukünftige Entwicklung und richtiger Zeitpunkt sind nicht sicher. | Deine innere Haltung: Du möchtest Chancen nicht verpassen, gleichzeitig willst du nicht aus Ungeduld oder Druck entscheiden.",
+  "7.5 Frage: Gönne ich mir etwas oder spare ich lieber für später? | Szenario: Ein Wunsch ist finanziell machbar, steht aber gegen ein längerfristiges Sparziel. | Deine innere Haltung: Lebensqualität heute ist dir wichtig, ebenso die Freiheit, die dir finanzielle Reserven später geben."
+],
 
-  "14) Nähe & Distanz": [
-    "Lasse ich mehr Nähe zu oder halte ich Abstand?",
-    "Öffne ich mich oder schütze ich mich stärker?",
-    "Suche ich den Kontakt oder warte ich ab?",
-    "Lasse ich jemanden stärker in mein Leben oder bewahre ich meine Eigenständigkeit?",
-    "Zeige ich meine Gefühle oder behalte ich sie für mich?"
-  ],
+"8) Konsum & persönliche Werte": [
+  "8.1 Frage: Entscheide ich nach dem Preis oder stärker nach meinen persönlichen Werten? | Szenario: Ein günstiges Angebot steht einer teureren Alternative gegenüber, die deinen persönlichen Vorstellungen besser entspricht. | Deine innere Haltung: Du möchtest vernünftig mit Geld umgehen, gleichzeitig sollen deine Kaufentscheidungen zu deinen Werten passen.",
+  "8.2 Frage: Kaufe ich etwas oder verzichte ich bewusst darauf? | Szenario: Du möchtest etwas haben, brauchst es aber nicht unbedingt. Der Kauf würde Freude machen, ein Verzicht wäre ebenfalls problemlos möglich. | Deine innere Haltung: Du möchtest dir Wünsche erlauben, gleichzeitig nicht jedem spontanen Bedürfnis automatisch folgen.",
+  "8.3 Frage: Wähle ich Bequemlichkeit oder nehme ich bewusst mehr Aufwand in Kauf? | Szenario: Die bequemere Lösung ist einfach verfügbar, eine andere Variante entspricht deinen Vorstellungen besser, verlangt aber mehr Aufwand. | Deine innere Haltung: Komfort ist für dich legitim, gleichzeitig möchtest du nicht aus Bequemlichkeit gegen eigene Werte entscheiden.",
+  "8.4 Frage: Bleibe ich beim gewohnten Produkt oder wähle ich eine Alternative? | Szenario: Mit einem bekannten Produkt hast du gute Erfahrungen, eine Alternative könnte jedoch besser zu deinen heutigen Ansprüchen passen. | Deine innere Haltung: Verlässlichkeit ist dir wichtig, gleichzeitig bist du offen dafür, Gewohnheiten sinnvoll zu hinterfragen.",
+  "8.5 Frage: Folge ich meinem spontanen Wunsch oder überlege ich länger? | Szenario: Etwas spricht dich unmittelbar an und du könntest sofort entscheiden. Es besteht aber kein Zeitdruck. | Deine innere Haltung: Du möchtest Spontaneität zulassen, gleichzeitig soll eine Entscheidung auch nach etwas Abstand noch stimmig sein."
+],
 
-  "15) Arbeit & Zusammenarbeit": [
-    "Bringe ich mich stärker ein oder halte ich mich zurück?",
-    "Spreche ich die Arbeitsweise an oder akzeptiere ich sie?",
-    "Übernehme ich die Aufgabe selbst oder gebe ich sie ab?",
-    "Verfolge ich meine eigene Lösung oder schließe ich mich der gemeinsamen Lösung an?",
-    "Spreche ich den Kollegen direkt an oder beobachte ich zunächst?"
-  ],
+"9) Konflikt & Auseinandersetzung": [
+  "9.1 Frage: Spreche ich den Konflikt an oder lasse ich ihn zunächst ruhen? | Szenario: Zwischen dir und einer anderen Person besteht eine erkennbare Spannung. Ein Gespräch könnte Klarheit schaffen oder die Situation zunächst verschärfen. | Deine innere Haltung: Du möchtest Dinge nicht unter den Teppich kehren, gleichzeitig willst du Konflikte nicht unnötig eskalieren.",
+  "9.2 Frage: Widerspreche ich deutlich oder halte ich mich bewusst zurück? | Szenario: Eine Aussage oder Entscheidung widerspricht deiner Sicht. Dein Widerspruch wäre berechtigt, könnte aber Gegenwind erzeugen. | Deine innere Haltung: Du möchtest für deine Sicht einstehen und gleichzeitig offen dafür bleiben, dass auch die andere Seite Gründe hat.",
+  "9.3 Frage: Gehe ich einen Kompromiss ein oder bleibe ich bei meiner Position? | Szenario: Eine Einigung wäre möglich, wenn beide Seiten nachgeben. Der mögliche Kompromiss entspricht jedoch nicht vollständig deiner Vorstellung. | Deine innere Haltung: Dir ist eine tragfähige Lösung wichtig, gleichzeitig möchtest du nicht aus bloßer Konfliktvermeidung wesentliche Punkte aufgeben.",
+  "9.4 Frage: Führe ich die Auseinandersetzung weiter oder beende ich sie? | Szenario: Ein Konflikt dreht sich zunehmend im Kreis. Weitere Diskussion könnte noch etwas klären, aber auch zusätzliche Energie kosten. | Deine innere Haltung: Du möchtest wichtige Dinge klären, gleichzeitig erkennst du, dass nicht jede Auseinandersetzung bis zum Ende geführt werden muss.",
+  "9.5 Frage: Setze ich eine klare Grenze oder komme ich dem anderen entgegen? | Szenario: Jemand erwartet etwas von dir, das über deine bisherige Bereitschaft hinausgeht. Ein Entgegenkommen wäre möglich, fühlt sich aber nicht selbstverständlich richtig an. | Deine innere Haltung: Du möchtest fair und entgegenkommend sein, ohne dabei deine eigenen Grenzen zu übergehen."
+],
 
-  "16) Führung & Verantwortung für andere": [
-    "Treffe ich eine klare Entscheidung oder lasse ich mehr Mitsprache zu?",
-    "Greife ich stärker ein oder gebe ich meinem Team mehr Freiraum?",
-    "Spreche ich den Fehler deutlich an oder zeige ich zunächst Verständnis?",
-    "Übernehme ich die Verantwortung selbst oder übertrage ich sie?",
-    "Halte ich an der Vorgabe fest oder lasse ich eine Ausnahme zu?"
-  ],
+"10) Veränderung & Neubeginn": [
+  "10.1 Frage: Beginne ich etwas Neues oder bleibe ich beim Vertrauten? | Szenario: Eine neue Möglichkeit reizt dich, während dein bisheriger Weg Sicherheit und Erfahrung bietet. Beide Optionen haben einen nachvollziehbaren Wert. | Deine innere Haltung: Du möchtest dich weiterentwickeln, gleichzeitig schätzt du Stabilität und möchtest Bewährtes nicht grundlos aufgeben.",
+  "10.2 Frage: Gehe ich die Veränderung jetzt an oder warte ich noch? | Szenario: Du weißt, dass eine Veränderung sinnvoll sein könnte. Es gibt aber keinen eindeutigen Zeitpunkt, an dem sie zwingend beginnen muss. | Deine innere Haltung: Du möchtest nicht unnötig aufschieben, gleichzeitig willst du eine wichtige Veränderung nicht überstürzen.",
+  "10.3 Frage: Verlasse ich meinen bisherigen Weg oder gehe ich ihn weiter? | Szenario: Dein bisheriger Weg funktioniert grundsätzlich, entspricht aber nicht mehr vollständig dem, was du heute möchtest. | Deine innere Haltung: Du respektierst das bisher Erreichte, gleichzeitig möchtest du dich nicht allein deshalb daran binden.",
+  "10.4 Frage: Gehe ich ein Risiko für Veränderung ein oder wähle ich Sicherheit? | Szenario: Eine Veränderung eröffnet Chancen, deren Ausgang aber nicht sicher ist. Die bestehende Situation ist berechenbarer. | Deine innere Haltung: Du möchtest Chancen nutzen, ohne Sicherheit leichtfertig gegen Hoffnung einzutauschen.",
+  "10.5 Frage: Überdenke ich meine Entscheidung oder halte ich daran fest? | Szenario: Nach einer getroffenen Entscheidung kommen neue Zweifel auf, ohne dass sich die Fakten grundlegend verändert haben. | Deine innere Haltung: Du möchtest offen für Korrekturen bleiben, gleichzeitig nicht jede Entscheidung wegen späterer Unsicherheit wieder infrage stellen."
+],
 
-  "17) Zeit & Prioritäten": [
-    "Nutze ich meine Zeit stärker für mich oder bin ich stärker für andere da?",
-    "Erledige ich die Aufgabe jetzt oder verschiebe ich sie bewusst?",
-    "Erfülle ich die Verpflichtung oder gebe ich meiner eigenen Priorität Vorrang?",
-    "Erhöhe ich mein Tempo oder lasse ich mir mehr Zeit?",
-    "Übernehme ich noch etwas oder sage ich bewusst Nein?"
-  ],
+"11) Entscheidungen & Zweifel": [
+  "11.1 Frage: Entscheide ich jetzt oder warte ich noch? | Szenario: Die wichtigsten Informationen liegen vor, trotzdem gibt es keine vollkommen sichere Lösung. Weiteres Warten könnte Klarheit bringen oder nur die Entscheidung vertagen. | Deine innere Haltung: Du möchtest bewusst entscheiden, ohne Sicherheit zu verlangen, die es möglicherweise gar nicht geben kann.",
+  "11.2 Frage: Folge ich meinem Gefühl oder stärker den sachlichen Argumenten? | Szenario: Dein Bauchgefühl und die sachlichen Gründe weisen nicht eindeutig in dieselbe Richtung. | Deine innere Haltung: Du möchtest weder dein Gefühl ignorieren noch Fakten passend machen, nur damit sie zu deinem Wunsch passen.",
+  "11.3 Frage: Bleibe ich bei meiner Entscheidung oder ändere ich sie? | Szenario: Du hast dich entschieden, bemerkst aber danach Zweifel oder neue Gesichtspunkte. Eine Änderung wäre noch möglich. | Deine innere Haltung: Du möchtest standfest sein und gleichzeitig fähig bleiben, eine Entscheidung bei guten Gründen zu korrigieren.",
+  "11.4 Frage: Lege ich mich fest oder halte ich mir weitere Möglichkeiten offen? | Szenario: Eine klare Festlegung würde Orientierung schaffen, gleichzeitig aber andere Möglichkeiten ausschließen. | Deine innere Haltung: Du möchtest Klarheit, ohne dich aus Angst vor Unsicherheit vorschnell auf nur einen Weg festzulegen.",
+  "11.5 Frage: Entscheide ich selbst oder höre ich stärker auf den Rat anderer? | Szenario: Menschen, denen du vertraust, geben dir deutliche Empfehlungen. Die endgültigen Folgen der Entscheidung trägst jedoch du. | Deine innere Haltung: Du möchtest guten Rat ernst nehmen und gleichzeitig die Verantwortung für deine eigene Entscheidung behalten."
+],
 
-  "18) Mut & Sicherheit": [
-    "Wage ich den nächsten Schritt oder warte ich auf mehr Sicherheit?",
-    "Gehe ich das Risiko ein oder bleibe ich auf dem sicheren Weg?",
-    "Vertrete ich meine Meinung deutlich oder halte ich mich zurück?",
-    "Probiere ich etwas Neues aus oder bleibe ich beim Bewährten?",
-    "Handle ich trotz Unsicherheit oder warte ich noch?"
-  ],
+"12) Grenzen & Selbstbehauptung": [
+  "12.1 Frage: Sage ich klar Nein oder komme ich dem anderen entgegen? | Szenario: Jemand bittet oder fordert etwas von dir, das du grundsätzlich erfüllen könntest, aber eigentlich nicht übernehmen möchtest. | Deine innere Haltung: Du möchtest hilfsbereit und fair sein, gleichzeitig soll ein Nein möglich sein, ohne dich dafür rechtfertigen zu müssen.",
+  "12.2 Frage: Setze ich eine klare Grenze oder lasse ich bewusst mehr Spielraum? | Szenario: Eine Situation nähert sich deiner persönlichen Grenze, ist aber noch nicht eindeutig untragbar. | Deine innere Haltung: Du möchtest dich schützen, gleichzeitig nicht unnötig starr reagieren.",
+  "12.3 Frage: Vertrete ich meine Bedürfnisse oder stelle ich die Bedürfnisse anderer stärker in den Vordergrund? | Szenario: Deine Bedürfnisse und die einer anderen Person lassen sich momentan nicht vollständig miteinander vereinbaren. | Deine innere Haltung: Du möchtest andere berücksichtigen, ohne deine eigenen Bedürfnisse automatisch als weniger wichtig zu behandeln.",
+  "12.4 Frage: Lehne ich eine Forderung ab oder akzeptiere ich sie? | Szenario: Eine Forderung wird an dich gestellt, die nachvollziehbar ist, für dich aber spürbare Nachteile oder Belastungen bedeutet. | Deine innere Haltung: Du möchtest fair bleiben, gleichzeitig nicht allein aus Druck etwas akzeptieren, das für dich nicht stimmt.",
+  "12.5 Frage: Bleibe ich bei meiner Position oder gehe ich einen Schritt auf den anderen zu? | Szenario: Du hast deine Grenze oder Position deutlich gemacht. Ein Entgegenkommen könnte die Situation entspannen, würde deine Position aber verändern. | Deine innere Haltung: Du möchtest standfest sein, ohne Kompromissbereitschaft grundsätzlich mit Schwäche zu verwechseln."
+],
 
-  "19) Werte & persönliche Haltung": [
-    "Bleibe ich bei meiner Überzeugung oder lasse ich mich auf eine andere Sicht ein?",
-    "Entscheide ich nach meinen Werten oder stärker nach praktischen Gründen?",
-    "Zeige ich meine Haltung offen oder behalte ich sie für mich?",
-    "Gehe ich einen Kompromiss ein oder halte ich an meinem Grundsatz fest?",
-    "Folge ich den Erwartungen anderer oder meiner eigenen Überzeugung?"
-  ],
+"13) Vertrauen & Kontrolle": [
+  "13.1 Frage: Vertraue ich oder kontrolliere ich stärker? | Szenario: Du bist auf die Zuverlässigkeit einer anderen Person angewiesen. Zusätzliche Kontrolle wäre möglich, könnte aber als Misstrauen wirken. | Deine innere Haltung: Du möchtest vertrauen können und gleichzeitig nicht naiv mit Verantwortung umgehen.",
+  "13.2 Frage: Gebe ich Verantwortung ab oder behalte ich sie selbst? | Szenario: Eine andere Person könnte eine Aufgabe eigenständig übernehmen. Wenn du sie abgibst, hast du weniger direkten Einfluss auf das Ergebnis. | Deine innere Haltung: Du möchtest Verantwortung teilen können, gleichzeitig ist dir ein verlässliches Ergebnis wichtig.",
+  "13.3 Frage: Gebe ich mehr Freiheit oder setze ich klare Grenzen? | Szenario: Jemand braucht Handlungsspielraum, könnte diesen aber anders nutzen, als du es selbst tun würdest. | Deine innere Haltung: Du möchtest Eigenständigkeit ermöglichen und gleichzeitig dort Orientierung geben, wo sie wirklich nötig ist.",
+  "13.4 Frage: Verlasse ich mich auf eine Zusage oder sichere ich mich zusätzlich ab? | Szenario: Du hast eine klare Zusage erhalten. Eine zusätzliche Absicherung wäre möglich, würde aber Zeit oder Vertrauen kosten. | Deine innere Haltung: Du möchtest Zusagen ernst nehmen können, gleichzeitig wichtige Folgen nicht unnötig dem Zufall überlassen.",
+  "13.5 Frage: Lasse ich die Entwicklung laufen oder steuere ich selbst stärker? | Szenario: Eine Situation entwickelt sich grundsätzlich weiter, aber nicht vollständig in der Geschwindigkeit oder Richtung, die du bevorzugst. | Deine innere Haltung: Du möchtest nicht alles kontrollieren, gleichzeitig willst du Einfluss nutzen, wenn er wirklich sinnvoll ist."
+],
 
-  "20) Unterschiede & andere Perspektiven": [
-    "Lasse ich mich auf eine andere Sichtweise ein oder bleibe ich bei meiner eigenen?",
-    "Spreche ich den Unterschied an oder lasse ich ihn stehen?",
-    "Passe ich mich dem anderen an oder bleibe ich bei meiner eigenen Art?",
-    "Orientiere ich mich am anderen Weg oder an meinen eigenen Maßstäben?",
-    "Gehe ich auf die andere Position zu oder bleibe ich bei meiner eigenen?"
-  ]
+"14) Nähe & Distanz": [
+  "14.1 Frage: Lasse ich mehr Nähe zu oder halte ich bewusst Abstand? | Szenario: Eine Person sucht oder ermöglicht mehr Nähe. Du empfindest Verbundenheit, bemerkst aber zugleich ein Bedürfnis nach Schutz oder Eigenraum. | Deine innere Haltung: Du möchtest Nähe erleben können, ohne dabei deine eigenen Grenzen zu verlieren.",
+  "14.2 Frage: Öffne ich mich oder schütze ich mich stärker? | Szenario: Du könntest etwas Persönliches teilen, weißt aber nicht sicher, wie die andere Person damit umgehen wird. | Deine innere Haltung: Du möchtest authentisch sein und Vertrauen zulassen, gleichzeitig nicht jede Verletzlichkeit ungeprüft preisgeben.",
+  "14.3 Frage: Suche ich den Kontakt oder warte ich zunächst ab? | Szenario: Du möchtest Kontakt zu jemandem, bist aber unsicher, ob die Initiative auf Gegenseitigkeit beruht. | Deine innere Haltung: Verbindung ist dir wichtig, gleichzeitig möchtest du nicht aus innerer Unruhe ständig den ersten Schritt machen.",
+  "14.4 Frage: Lasse ich jemanden stärker in mein Leben oder bewahre ich mehr Eigenständigkeit? | Szenario: Eine Beziehung könnte enger werden und mehr gemeinsamen Raum bekommen. Dadurch würden sich auch Gewohnheiten und Freiheiten verändern. | Deine innere Haltung: Du möchtest Verbundenheit und gleichzeitig einen Teil deines Lebens selbstbestimmt gestalten.",
+  "14.5 Frage: Zeige ich meine Gefühle oder behalte ich sie zunächst für mich? | Szenario: Du empfindest etwas deutlich, bist aber unsicher, ob und wie offen du es der anderen Person zeigen möchtest. | Deine innere Haltung: Du möchtest ehrlich mit deinen Gefühlen umgehen, gleichzeitig den richtigen Zeitpunkt und deine eigene Verletzlichkeit berücksichtigen."
+],
+
+"15) Arbeit & Zusammenarbeit": [
+  "15.1 Frage: Bringe ich mich stärker ein oder halte ich mich bewusst zurück? | Szenario: In einer gemeinsamen Aufgabe könntest du deutlich mehr Initiative übernehmen. Dadurch würdest du aber auch mehr Verantwortung und Arbeit an dich ziehen. | Deine innere Haltung: Du möchtest zum Erfolg beitragen, ohne automatisch alles selbst übernehmen zu müssen.",
+  "15.2 Frage: Spreche ich eine problematische Arbeitsweise an oder akzeptiere ich sie? | Szenario: Eine Arbeitsweise funktioniert, verursacht aus deiner Sicht aber unnötige Probleme oder Aufwand. Eine Diskussion darüber könnte Unruhe erzeugen. | Deine innere Haltung: Dir sind gute Zusammenarbeit und gute Ergebnisse wichtig, gleichzeitig möchtest du nicht jede Abweichung zu einem Grundsatzproblem machen.",
+  "15.3 Frage: Übernehme ich die Aufgabe selbst oder gebe ich sie ab? | Szenario: Du könntest eine Aufgabe vermutlich zuverlässig selbst erledigen. Eine andere Person könnte sie ebenfalls übernehmen, möglicherweise aber anders als du. | Deine innere Haltung: Du möchtest Qualität sichern und gleichzeitig Verantwortung sinnvoll verteilen.",
+  "15.4 Frage: Verfolge ich meine eigene Lösung oder schließe ich mich der gemeinsamen Lösung an? | Szenario: Deine bevorzugte Lösung unterscheidet sich von der Richtung des Teams. Beide Ansätze sind grundsätzlich vertretbar. | Deine innere Haltung: Du möchtest deine fachliche Sicht einbringen und gleichzeitig gemeinsame Entscheidungen mittragen können.",
+  "15.5 Frage: Spreche ich einen Kollegen direkt an oder beobachte ich zunächst? | Szenario: Dir fällt bei einem Kollegen etwas auf, das Zusammenarbeit oder Ergebnis beeinträchtigen könnte. Noch ist unklar, ob es sich wiederholt. | Deine innere Haltung: Du möchtest Probleme offen ansprechen, ohne vorschnell aus einer einzelnen Beobachtung ein Urteil zu machen."
+],
+
+"16) Führung & Verantwortung für andere": [
+  "16.1 Frage: Treffe ich eine klare Entscheidung oder lasse ich mehr Mitsprache zu? | Szenario: Dein Team braucht eine Richtung. Du könntest selbst entscheiden oder zusätzliche Meinungen einholen, was Zeit kostet. | Deine innere Haltung: Du möchtest Führung übernehmen und gleichzeitig die Erfahrung und Verantwortung anderer sinnvoll einbeziehen.",
+  "16.2 Frage: Greife ich stärker ein oder gebe ich meinem Team mehr Freiraum? | Szenario: Eine Aufgabe entwickelt sich nicht genau so, wie du es selbst geplant hättest. Das Ergebnis ist aber noch nicht gefährdet. | Deine innere Haltung: Du möchtest Verantwortung wahrnehmen, ohne Selbstständigkeit durch unnötige Kontrolle zu verhindern.",
+  "16.3 Frage: Spreche ich einen Fehler deutlich an oder zeige ich zunächst Verständnis? | Szenario: Ein Mitarbeiter hat einen Fehler gemacht, dessen Folgen relevant sind. Die Gründe dafür sind zumindest teilweise nachvollziehbar. | Deine innere Haltung: Dir sind Verantwortlichkeit und Lernen wichtig, gleichzeitig möchtest du Menschen nicht auf einen Fehler reduzieren.",
+  "16.4 Frage: Übernehme ich Verantwortung selbst oder übertrage ich sie bewusst? | Szenario: Eine wichtige Aufgabe könnte bei dir bleiben oder an jemanden übertragen werden, der daran wachsen könnte. | Deine innere Haltung: Du möchtest Ergebnisse absichern und gleichzeitig anderen echte Verantwortung zutrauen.",
+  "16.5 Frage: Halte ich an einer Vorgabe fest oder lasse ich eine begründete Ausnahme zu? | Szenario: Eine bestehende Regel ist grundsätzlich sinnvoll, passt aber in einem konkreten Einzelfall nur eingeschränkt. | Deine innere Haltung: Verlässliche Regeln sind dir wichtig, gleichzeitig möchtest du nachvollziehbare Besonderheiten nicht ignorieren."
+],
+
+"17) Zeit & Prioritäten": [
+  "17.1 Frage: Nutze ich meine Zeit stärker für mich oder bin ich für andere da? | Szenario: Eigene Pläne und der Wunsch oder Bedarf anderer fallen in denselben Zeitraum. Beides lässt sich nicht vollständig erfüllen. | Deine innere Haltung: Du möchtest für andere da sein, ohne deine eigene Zeit automatisch als weniger wichtig zu behandeln.",
+  "17.2 Frage: Erledige ich die Aufgabe jetzt oder verschiebe ich sie bewusst? | Szenario: Eine Aufgabe muss erledigt werden, aber nicht zwingend sofort. Andere Dinge beanspruchen gerade ebenfalls deine Aufmerksamkeit. | Deine innere Haltung: Du möchtest zuverlässig bleiben und gleichzeitig bewusst entscheiden, was tatsächlich jetzt Priorität hat.",
+  "17.3 Frage: Erfülle ich eine Verpflichtung oder gebe ich meiner eigenen Priorität Vorrang? | Szenario: Eine bestehende Verpflichtung kollidiert mit etwas, das für dich persönlich gerade hohe Bedeutung hat. | Deine innere Haltung: Zusagen sind dir wichtig, gleichzeitig möchtest du eigene Prioritäten nicht grundsätzlich hinten anstellen.",
+  "17.4 Frage: Erhöhe ich mein Tempo oder lasse ich mir bewusst mehr Zeit? | Szenario: Du könntest eine Aufgabe schneller abschließen, würdest dadurch aber mehr Druck oder möglicherweise Qualitätsverlust erzeugen. | Deine innere Haltung: Du möchtest vorankommen, gleichzeitig sollen Geschwindigkeit, Qualität und Belastung in einem vernünftigen Verhältnis bleiben.",
+  "17.5 Frage: Übernehme ich noch etwas oder sage ich bewusst Nein? | Szenario: Eine weitere Aufgabe wird an dich herangetragen. Du könntest sie wahrscheinlich noch bewältigen, deine verfügbare Zeit würde dadurch aber deutlich enger. | Deine innere Haltung: Du möchtest verlässlich und hilfsbereit sein, gleichzeitig deine vorhandenen Prioritäten schützen."
+],
+
+"18) Mut & Sicherheit": [
+  "18.1 Frage: Wage ich den nächsten Schritt oder warte ich auf mehr Sicherheit? | Szenario: Du möchtest etwas tun, kannst den Ausgang aber nicht vollständig vorhersehen. Weiteres Warten könnte Sicherheit bringen oder nur die Unsicherheit verlängern. | Deine innere Haltung: Du möchtest mutig handeln, ohne Vorsicht mit Feigheit oder Risiko mit Mut zu verwechseln.",
+  "18.2 Frage: Gehe ich das Risiko ein oder bleibe ich auf dem sicheren Weg? | Szenario: Eine Chance erfordert, einen Teil deiner bisherigen Sicherheit aufzugeben. Der mögliche Gewinn ist real, aber nicht garantiert. | Deine innere Haltung: Du möchtest Chancen nutzen und gleichzeitig Risiken tragen können, statt sie nur zu hoffen.",
+  "18.3 Frage: Vertrete ich meine Meinung deutlich oder halte ich mich zurück? | Szenario: Deine Meinung unterscheidet sich von der Mehrheit oder einer einflussreichen Person. Offenheit könnte Gegenwind erzeugen. | Deine innere Haltung: Du möchtest zu deiner Sicht stehen, gleichzeitig bereit bleiben, gute Gegenargumente ernst zu nehmen.",
+  "18.4 Frage: Probiere ich etwas Neues aus oder bleibe ich beim Bewährten? | Szenario: Eine neue Möglichkeit könnte Vorteile bringen, während das Bewährte zuverlässig funktioniert. | Deine innere Haltung: Du möchtest offen für Neues sein, ohne Veränderung allein deshalb für besser zu halten, weil sie neu ist.",
+  "18.5 Frage: Handle ich trotz Unsicherheit oder warte ich noch? | Szenario: Du hast keine vollständige Gewissheit, aber genügend Informationen, um grundsätzlich handeln zu können. | Deine innere Haltung: Du möchtest Unsicherheit aushalten können und gleichzeitig erkennen, wann weiteres Abwarten tatsächlich sinnvoll ist."
+],
+
+"19) Werte & persönliche Haltung": [
+  "19.1 Frage: Bleibe ich bei meiner Überzeugung oder lasse ich mich auf eine andere Sicht ein? | Szenario: Eine andere Person stellt eine Überzeugung infrage, die dir wichtig ist, und bringt nachvollziehbare Argumente vor. | Deine innere Haltung: Du möchtest deinen Werten treu bleiben und gleichzeitig offen genug sein, die eigene Sicht ehrlich zu prüfen.",
+  "19.2 Frage: Entscheide ich nach meinen Werten oder stärker nach praktischen Gründen? | Szenario: Eine praktische Lösung wäre einfacher oder vorteilhafter, passt aber nicht vollständig zu deinen persönlichen Maßstäben. | Deine innere Haltung: Du möchtest nach deinen Werten leben, ohne praktische Realität grundsätzlich als moralisch minderwertig zu behandeln.",
+  "19.3 Frage: Zeige ich meine Haltung offen oder behalte ich sie für mich? | Szenario: Deine persönliche Haltung unterscheidet sich von deinem Umfeld. Du könntest sie offen zeigen, obwohl daraus Diskussionen entstehen könnten. | Deine innere Haltung: Authentizität ist dir wichtig, gleichzeitig musst du nicht jede Überzeugung in jeder Situation öffentlich vertreten.",
+  "19.4 Frage: Gehe ich einen Kompromiss ein oder halte ich an meinem Grundsatz fest? | Szenario: Ein Kompromiss würde eine Lösung ermöglichen, berührt aber einen Grundsatz, der für dich Bedeutung hat. | Deine innere Haltung: Du möchtest lösungsfähig bleiben, gleichzeitig soll ein Kompromiss nicht unbemerkt zur Aufgabe deiner wesentlichen Werte werden.",
+  "19.5 Frage: Folge ich den Erwartungen anderer oder meiner eigenen Überzeugung? | Szenario: Menschen in deinem Umfeld erwarten eine bestimmte Entscheidung von dir, während deine eigene Vorstellung davon abweicht. | Deine innere Haltung: Du möchtest andere ernst nehmen, ohne ihnen die Verantwortung für dein eigenes Leben zu überlassen."
+],
+
+"20) Unterschiede & andere Perspektiven": [
+  "20.1 Frage: Lasse ich mich auf eine andere Sichtweise ein oder bleibe ich bei meiner eigenen? | Szenario: Jemand beurteilt dieselbe Situation deutlich anders als du und kann seine Sicht nachvollziehbar begründen. | Deine innere Haltung: Du möchtest deine eigene Wahrnehmung ernst nehmen und gleichzeitig verstehen, was die andere Perspektive sichtbar macht.",
+  "20.2 Frage: Spreche ich einen Unterschied an oder lasse ich ihn stehen? | Szenario: Zwischen dir und einer anderen Person besteht ein deutlicher Unterschied in Sichtweise oder Verhalten, der nicht zwingend gelöst werden muss. | Deine innere Haltung: Du möchtest Klarheit, gleichzeitig akzeptieren können, dass Unterschiede nicht immer beseitigt werden müssen.",
+  "20.3 Frage: Passe ich mich dem anderen an oder bleibe ich bei meiner eigenen Art? | Szenario: Die Art einer anderen Person unterscheidet sich deutlich von deiner. Anpassung könnte den Umgang erleichtern, würde sich für dich aber teilweise ungewohnt anfühlen. | Deine innere Haltung: Du möchtest anderen entgegenkommen, ohne dich dabei unnötig zu verbiegen.",
+  "20.4 Frage: Orientiere ich mich am anderen Weg oder an meinen eigenen Maßstäben? | Szenario: Eine andere Person erreicht mit einem anderen Vorgehen gute Ergebnisse. Du fragst dich, ob du deinen eigenen Weg deshalb verändern solltest. | Deine innere Haltung: Du möchtest von anderen lernen und gleichzeitig unterscheiden, was wirklich zu dir und deiner Situation passt.",
+  "20.5 Frage: Gehe ich auf die andere Position zu oder bleibe ich bei meiner eigenen? | Szenario: Zwei unterschiedliche Positionen stehen nebeneinander. Eine Annäherung wäre möglich, ohne dass eine Seite vollständig recht oder unrecht haben muss. | Deine innere Haltung: Du möchtest Verständigung ermöglichen und gleichzeitig deine eigene Position nicht nur für Harmonie aufgeben."
+]
 
 };
-
 
 
 
