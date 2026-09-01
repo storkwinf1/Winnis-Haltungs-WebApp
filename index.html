@@ -14239,6 +14239,393 @@ setInterval(updateDateTime, 1000);
 </script>
 
 
+
+	
+
+<!-- =========================================================
+     WINNIS HALTUNGSFORMEL
+     LEITFRAGEN-KARTEN V3
+     Komplett direkt VOR </body> einfügen
+========================================================= -->
+
+<style>
+
+/* ===== Leitfragen-Karten ===== */
+
+#winni-leitfragen-box{
+  width:100%;
+  max-width:760px;
+  margin:10px auto 16px auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:9px;
+}
+
+.winni-leitfrage{
+  box-sizing:border-box;
+  width:100%;
+  display:block;
+
+  padding:12px 16px;
+
+  border:1.5px solid #d7dee8;
+  border-radius:12px;
+
+  background:#ffffff;
+  color:#263445;
+
+  font-family:inherit;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.4;
+
+  text-align:center;
+
+  white-space:normal;
+  overflow-wrap:anywhere;
+
+  cursor:pointer;
+
+  box-shadow:0 2px 5px rgba(0,0,0,.05);
+
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    box-shadow .15s ease,
+    transform .15s ease;
+}
+
+.winni-leitfrage:hover{
+  background:#f5f9ff;
+  border-color:#8bb8f3;
+  box-shadow:0 3px 8px rgba(0,0,0,.08);
+  transform:translateY(-1px);
+}
+
+.winni-leitfrage.aktiv{
+  background:#eaf3ff;
+  border-color:#3b82f6;
+  color:#173f73;
+  box-shadow:0 0 0 2px rgba(59,130,246,.10);
+}
+
+.winni-leitfrage-hinweis{
+  box-sizing:border-box;
+  width:100%;
+
+  padding:12px;
+
+  text-align:center;
+  font-size:14px;
+  color:#64748b;
+
+  background:#f8fafc;
+
+  border:1px dashed #cbd5e1;
+  border-radius:12px;
+}
+
+/* ===== Smartphone ===== */
+
+@media (max-width:640px){
+
+  #winni-leitfragen-box{
+    width:100%;
+    max-width:100%;
+    margin:8px auto 14px auto;
+    gap:8px;
+  }
+
+  .winni-leitfrage{
+    width:100%;
+
+    padding:12px 10px;
+
+    font-size:14px;
+    line-height:1.35;
+
+    border-radius:10px;
+  }
+
+}
+
+</style>
+
+<script>
+(function(){
+
+  /* =====================================================
+     Originalelemente deiner App
+  ===================================================== */
+
+  const rubrik =
+    document.getElementById("szn-rubrik");
+
+  const leitfrage =
+    document.getElementById("szn-leitfrage");
+
+  const ausgabe =
+    document.getElementById("szn-out");
+
+
+  if(!rubrik || !leitfrage){
+
+    console.warn(
+      "Winni Leitfragen V3: Originalfelder nicht gefunden."
+    );
+
+    return;
+  }
+
+  /* =====================================================
+     Kartencontainer erzeugen
+  ===================================================== */
+
+  const box =
+    document.createElement("div");
+
+  box.id = "winni-leitfragen-box";
+
+  /*
+     Container direkt an die Stelle des bisherigen
+     Leitfragen-Dropdowns setzen.
+  */
+
+  leitfrage.parentNode.insertBefore(
+    box,
+    leitfrage
+  );
+
+  /*
+     Original-Dropdown NICHT löschen.
+     Es bleibt für die bestehende App-Logik vorhanden.
+  */
+
+  leitfrage.style.display = "none";
+
+  /* =====================================================
+     Nur Frage anzeigen
+
+     Aus:
+
+     1.1 Frage: .... | Szenario: .... |
+     Deine innere Haltung: ....
+
+     wird sichtbar nur:
+
+     1.1  ....
+  ===================================================== */
+
+  function kurzeFrage(text){
+
+    if(!text){
+      return "";
+    }
+
+    let sichtbar =
+      String(text)
+      .split("| Szenario:")[0]
+      .trim();
+
+    sichtbar =
+      sichtbar.replace(
+        /^(\d+\.\d+)\s+Frage:\s*/i,
+        "$1  "
+      );
+
+    return sichtbar;
+  }
+
+  /* =====================================================
+     Karten aus dem ORIGINAL-Dropdown aufbauen
+  ===================================================== */
+
+  function baueKarten(){
+
+    box.innerHTML = "";
+
+    /*
+       Wichtig:
+       Wir lesen NICHT den KATALOG selbst.
+
+       Wir nehmen exakt die Optionen, die dein
+       vorhandener Code bereits in szn-leitfrage
+       geschrieben hat.
+    */
+
+    const optionen =
+      Array.from(leitfrage.options || [])
+      .filter(function(opt){
+
+        return (
+          opt.value &&
+          !opt.disabled &&
+          !String(opt.textContent)
+            .includes("Leitfrage wählen")
+        );
+
+      });
+
+    if(optionen.length === 0){
+
+      box.innerHTML =
+        '<div class="winni-leitfrage-hinweis">' +
+        'Bitte eine Rubrik auswählen.' +
+        '</div>';
+
+      return;
+    }
+
+    optionen.forEach(function(opt){
+
+      const karte =
+        document.createElement("button");
+
+      karte.type = "button";
+
+      karte.className =
+        "winni-leitfrage";
+
+      karte.textContent =
+        kurzeFrage(opt.textContent || opt.value);
+
+
+      /* =================================================
+         Klick auf Leitfrage
+      ================================================= */
+
+      karte.addEventListener(
+        "click",
+        function(){
+
+          /* alte Markierung entfernen */
+
+          box
+            .querySelectorAll(".winni-leitfrage")
+            .forEach(function(el){
+
+              el.classList.remove("aktiv");
+
+            });
+
+          /* neue Auswahl markieren */
+
+          karte.classList.add("aktiv");
+
+          /* ---------------------------------------------
+             Original-Dropdown synchronisieren
+          --------------------------------------------- */
+
+          leitfrage.value =
+            opt.value;
+
+          /*
+             Originales Change-Ereignis auslösen.
+
+             Dadurch funktionieren deine vorhandenen
+             Funktionen weiterhin.
+          */
+
+          leitfrage.dispatchEvent(
+            new Event(
+              "change",
+              {
+                bubbles:true
+              }
+            )
+          );
+
+
+          /* ---------------------------------------------
+             Sicherheits-Fallback für Textausgabe
+          --------------------------------------------- */
+
+          if(
+            ausgabe &&
+            !ausgabe.value.trim()
+          ){
+
+            ausgabe.value =
+              "Rubrik: " +
+              rubrik.value +
+              "\n\n" +
+              opt.value;
+
+          }
+
+        }
+      );
+
+      box.appendChild(
+        karte
+      );
+
+    });
+
+  }
+  /* =====================================================
+     Rubrikwechsel
+
+     Erst läuft dein ORIGINAL-Code.
+     Danach lesen wir dessen fertiges Dropdown aus.
+  ===================================================== */
+
+  rubrik.addEventListener(
+    "change",
+    function(){
+
+      setTimeout(
+        baueKarten,
+        10
+      );
+
+    }
+  );
+
+  /* =====================================================
+     Zusätzliche Absicherung
+
+     Falls dein Originalcode das Dropdown etwas später
+     aktualisiert, beobachten wir dessen Änderungen.
+  ===================================================== */
+
+  const observer =
+    new MutationObserver(
+      function(){
+
+        baueKarten();
+
+      }
+    );
+
+  observer.observe(
+    leitfrage,
+    {
+      childList:true
+    }
+  );
+
+  /* =====================================================
+     Beim Öffnen / Laden einmal initialisieren
+  ===================================================== */
+
+  setTimeout(
+    baueKarten,
+    50
+  );
+
+  console.log(
+    "Winni Leitfragen-Karten V3 aktiv"
+  );
+
+})();
+</script>
+<!-- ===== ENDE WINNI LEITFRAGEN-KARTEN V3 ===== -->
+
+
+
+	
 	
 
 </body>
