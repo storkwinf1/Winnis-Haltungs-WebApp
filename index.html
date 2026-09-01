@@ -1202,30 +1202,37 @@ function getLageColor(code){
 function interpretLage(code){
   const map = {
 
-    "PPP": {
-      name: "Stabile positive Lage",
-      text: "Gute Ausgangslage mit klarer positiver Grundausrichtung."
+         "PPP": {
+      name: "Positive Lage mit unterstützender Reaktion",
+      text: "Positives Ideal und positiv erlebte Realität treffen auf eine Reaktion, die diese Richtung unterstützt."
     },
+
+
+        "PNP": {
+      name: "Positive Spannungslage mit unterstützender Reaktion",
+      text: "Ein positives Ideal trifft auf eine belastend erlebte Realität. Deine Reaktion unterstützt weiterhin deine positive Ausrichtung."
+    },
+
+
 
     "PPN": {
-      name: "Positive Lage mit schwachem Rückgrat",
-      text: "Gute Ausgangslage und positives Ideal, aber fehlende Standfestigkeit schwächt die Wirkung."
+      name: "Positive Lage mit Gegenreaktion",
+      text: "Positives Ideal und positiv erlebte Realität treffen auf eine Reaktion, die in die Gegenrichtung weist."
     },
 
-    "PNP": {
-      name: "Positive Spannungslage",
-      text: "Positives Ideal trifft auf belastende Realität, wird aber durch Rückgrat aktiv getragen."
+
+
+       "PNN": {
+      name: "Positive Spannungslage mit Gegenreaktion",
+      text: "Ein positives Ideal trifft auf eine belastend erlebte Realität. Deine Reaktion weist zusätzlich in die Gegenrichtung."
     },
 
-    "PNN": {
-      name: "Positive Spannungslage mit Rückgratverlust",
-      text: "Positives Ideal trifft auf belastende Realität, aber fehlende Standfestigkeit schwächt die Umsetzung."
+
+       "NPP": {
+      name: "Problematische Ausrichtung mit unterstützender Reaktion",
+      text: "Eine problematische innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion unterstützt diese Ausrichtung."
     },
 
-    "NPP": {
-      name: "Negatives Ideal mit positiver Durchsetzung",
-      text: "Eine negative Grundausrichtung wird unter günstigen Bedingungen aktiv und wirksam vertreten."
-    },
 
     "NPN": {
       name: "Negatives Ideal mit schwachem Rückgrat",
@@ -1233,89 +1240,93 @@ function interpretLage(code){
     },
 
     "NNP": {
-      name: "Negative Lage mit aktiver Verstärkung",
-      text: "Die negative Grundausrichtung wird aktiv in die Realität getragen und verstärkt die bestehende Problematik deutlich."
+      name: "Problematische Spannungslage mit unterstützender Reaktion",
+      text: "Eine problematische innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion unterstützt diese Ausrichtung."
     },
+
 
     "NNN": {
-      name: "Geschlossen negative Lage",
-      text: "Negative Grundausrichtung, belastende Realität und fehlgeleitete Reaktion verstärken sich gegenseitig."
+      name: "Problematische Spannungslage mit Gegenreaktion",
+      text: "Eine problematische innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion weist in die Gegenrichtung."
     },
+
     
-    "PP0": {
-  name: "Positive Lage ohne Rückgrat",
-  text: "Gute Ausgangslage und positives Ideal, aber fehlendes Rückgrat verhindert die Umsetzung."
-},
+      "PP0": {
+      name: "Positive Lage mit neutraler Reaktion",
+      text: "Positives Ideal und positiv erlebte Realität stimmen grundsätzlich überein. Deine Reaktion bleibt neutral oder abwartend."
+    },
 
-"P0P": {
-  name: "Positive Ausrichtung bei neutraler Realität",
-  text: "Ein positives Ideal trifft auf neutrale Realität und wird aktiv durch Rückgrat getragen."
-},
 
-"P00": {
-  name: "Positive Grundausrichtung ohne Wirkung",
-  text: "Ein positives Ideal ist vorhanden, bleibt aber ohne Realität und Rückgrat weitgehend wirkungslos."
-},
+    "P0P": {
+      name: "Positive Ausrichtung mit unterstützender Reaktion",
+      text: "Ein positives Ideal trifft auf eine neutral erlebte Realität. Deine Reaktion unterstützt deine positive Ausrichtung."
+    },
+
+    "P00": {
+      name: "Positive Ausrichtung bei neutraler Lage",
+      text: "Ein positives Ideal ist vorhanden, während Realität und Reaktion momentan neutral bleiben."
+    },
 
 "P0N": {
-  name: "Positive Ausrichtung mit Rückzug",
-  text: "Ein positives Ideal trifft auf neutrale Realität, wird aber durch fehlendes Rückgrat abgeschwächt."
-},
+      name: "Positive Ausrichtung mit Gegenreaktion",
+      text: "Ein positives Ideal trifft auf eine neutral erlebte Realität. Deine Reaktion weist jedoch in die Gegenrichtung."
+    },
 
-"PN0": {
-  name: "Positive Spannung ohne Umsetzung",
-  text: "Ein positives Ideal trifft auf belastende Realität, aber fehlendes Rückgrat verhindert Wirkung."
-},
+    "PN0": {
+      name: "Positive Spannungslage mit neutraler Reaktion",
+      text: "Ein positives Ideal trifft auf eine belastend erlebte Realität. Deine Reaktion bleibt momentan neutral oder abwartend."
+    },
 
-"0PP": {
-  name: "Neutrales Ideal mit positiver Wirkung",
-  text: "Keine klare innere Ausrichtung, aber gute Realität und starkes Rückgrat erzeugen Wirkung."
-},
+    "0PP": {
+      name: "Unklare Ausrichtung bei positiver Realität",
+      text: "Keine klare innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion weist in die Plus-Richtung."
+    },
 
 "0P0": {
-  name: "Neutrale Lage mit stabiler Realität",
-  text: "Neutrales Ideal trifft auf gute Realität, bleibt aber ohne Rückgrat begrenzt wirksam."
-},
+      name: "Unklare Ausrichtung bei positiver Realität",
+      text: "Keine klare innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion bleibt neutral."
+    },
 
-"0PN": {
-  name: "Neutrale Lage mit Rückzugsreaktion",
-  text: "Keine klare Ausrichtung, gute Realität wird durch fehlendes Rückgrat nicht genutzt."
-},
+    "0PN": {
+      name: "Unklare Ausrichtung mit Gegenreaktion",
+      text: "Keine klare innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion weist in die Minus-Richtung."
+    },
 
 "00P": {
-  name: "Neutrale Lage mit Aktivität",
-  text: "Ohne klares Ideal oder stabile Realität wird durch Rückgrat dennoch Aktivität erzeugt."
-},
+      name: "Neutrale Lage mit positiver Reaktion",
+      text: "Ideal und Realität sind neutral. Deine Reaktion weist erkennbar in die Plus-Richtung."
+    },
 
-"000": {
-  name: "Neutrale Ausgangslage",
-  text: "Keine klare Ausrichtung, keine starke Realität und kein aktives Rückgrat."
-},
+    "000": {
+      name: "Neutrale Lage",
+      text: "Ideal, Realität und Reaktion liegen momentan im neutralen Bereich."
+    },
 
-"00N": {
-  name: "Neutrale Lage mit Rückzug",
-  text: "Ohne klare Ausrichtung und stabile Realität führt fehlendes Rückgrat zur Passivität."
-},
+    "00N": {
+      name: "Neutrale Lage mit negativer Reaktion",
+      text: "Ideal und Realität sind neutral. Deine Reaktion weist erkennbar in die Minus-Richtung."
+    },
 
 "0NP": {
-  name: "Neutrales Ideal unter Druck mit Aktivität",
-  text: "Belastende Realität trifft auf fehlende innere Ausrichtung, wird aber aktiv beantwortet."
-},
+      name: "Unklare Ausrichtung bei belastender Realität",
+      text: "Keine klare innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion weist in die Plus-Richtung."
+    },
 
-"0N0": {
-  name: "Neutrales Ideal unter Belastung",
-  text: "Belastende Realität trifft auf fehlende innere Ausrichtung und bleibt ohne aktive Reaktion."
-},
+    "0N0": {
+      name: "Unklare Ausrichtung bei belastender Realität",
+      text: "Keine klare innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion bleibt neutral oder abwartend."
+    },
 
-"0NN": {
-  name: "Neutrales Ideal mit negativer Reaktion",
-  text: "Belastende Realität und fehlendes Rückgrat führen ohne innere Ausrichtung zu negativer Wirkung."
-},
+    "0NN": {
+      name: "Unklare Ausrichtung mit negativer Reaktion",
+      text: "Keine klare innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion weist in die Minus-Richtung."
+    },
 
-"NP0": {
-  name: "Negatives Ideal ohne Umsetzung",
-  text: "Eine negative Grundausrichtung trifft auf gute Realität, bleibt aber ohne Rückgrat begrenzt wirksam."
-},
+
+    "NP0": {
+      name: "Problematische Ausrichtung mit neutraler Reaktion",
+      text: "Eine problematische innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion bleibt neutral oder abwartend."
+    },
 
 "N0P": {
   name: "Negatives Ideal mit Aktivität",
@@ -1323,19 +1334,19 @@ function interpretLage(code){
 },
 
 "N00": {
-  name: "Negatives Ideal ohne Wirkung",
-  text: "Eine negative Grundausrichtung ist vorhanden, bleibt aber ohne Realität und Rückgrat schwach."
-},
+      name: "Problematische Ausrichtung mit neutraler Reaktion",
+      text: "Eine problematische innere Ausrichtung ist vorhanden, während Realität und Reaktion momentan neutral bleiben."
+    },
 
 "N0N": {
-  name: "Negatives Ideal mit Rückzug",
-  text: "Eine negative Grundausrichtung trifft auf neutrale Realität und wird nicht aktiv umgesetzt."
-},
+      name: "Problematische Ausrichtung mit Gegenreaktion",
+      text: "Eine problematische innere Ausrichtung trifft auf eine neutral erlebte Realität. Deine Reaktion weist in die Gegenrichtung."
+    },
 
-"NN0": {
-  name: "Negative Spannung ohne Umsetzung",
-  text: "Negative Grundausrichtung trifft auf belastende Realität, aber fehlendes Rückgrat verhindert aktive Wirkung."
-} 
+    "NN0": {
+      name: "Problematische Spannungslage mit neutraler Reaktion",
+      text: "Eine problematische innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion bleibt neutral oder abwartend."
+    }
 
   };
 
@@ -1344,6 +1355,7 @@ function interpretLage(code){
     text: "Uneindeutige Kombination"
   };
 }
+
 
 
 
