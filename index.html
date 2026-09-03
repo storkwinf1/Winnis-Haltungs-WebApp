@@ -5293,11 +5293,14 @@ if (kategorie) {
   kategorie.style.fontWeight = "700";
 }
 
+
+	
 if (wirkung) {
   wirkung.textContent = "Wirkung: " + effect;
-  wirkung.style.display = "block";
-  wirkung.style.color = color;
+  wirkung.style.setProperty("dispplay", "none", "important"); 
 }
+
+	
 
 const lageEl = ensureLageElement();
 if (lageEl) {
@@ -7070,8 +7073,7 @@ function showSavedEvaluations() {
         <div><strong>Name:</strong> ${name}</div>
         <div><strong>Lage:</strong> ${item.lage || "–"}</div>
         <div><strong>Kategorie:</strong> ${item.kategorie || "–"}</div>
-        <div><strong>Wirkung:</strong> ${item.wirkung || "–"}</div>
-        
+             
         
         <div><strong>Deutung:</strong> ${item.deutung || "–"}</div>
 <div><strong>Szenario:</strong> ${item.szenario || "–"}</div>
