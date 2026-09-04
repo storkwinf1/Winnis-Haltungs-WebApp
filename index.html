@@ -170,7 +170,6 @@ textarea {
 </style>
 
 
-
 <head>
 
 <meta charset="utf-8"/>
@@ -185,8 +184,7 @@ textarea {
       content="Kostenloses Reflexionstool: Vergleiche Ideal und Realität, reflektiere dein eigenes Handeln und prüfe dein Bauchgefühl. Winnis Haltungsformel macht innere Spannungen sichtbar – ohne psychologische Diagnostik.">
 
 <meta name="keywords"
- content="Selbsttest, Entscheidungshilfe, Selbstreflexion online, Selbstreflexion, Reflexionstool, Reflexion, Haltungsformel, Ideal, Realität, Rückgrat, Frühwarnsystem, Bauchgefühl, Entscheidungen reflektieren, innere Spannung, eigenes Handeln, Haltung, Lebensentscheidung, Innere Konflikte, Klarheit">
-
+         content="Selbsttest, Entscheidungshilfe, Selbstreflexion online, Selbstreflexion, Reflexionstool, Reflexion, Haltungsformel, Ideal, Realität, Rückgrat, Frühwarnsystem, Bauchgefühl, Entscheidungen reflektieren, innere Spannung, eigenes Handeln, Haltung, Lebensentscheidung, Innere Konflikte, Klarheit">
 
 <meta name="author" content="Winni Stork">
 <meta name="robots" content="index, follow">
@@ -204,8 +202,13 @@ content="https://storkwinf1.github.io/Winnis-Haltungs-WebApp/">
 
 
 
-	
+
+
+
+
+
 <meta property="og:locale" content="de_DE">
+
 
 <!-- Erweiterte SEO-Daten für Suchmaschinen -->
 <meta name="language" content="de">
@@ -249,14 +252,15 @@ content="https://storkwinf1.github.io/Winnis-Haltungs-WebApp/">
 
 
 
-	
+
+
+
+
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title"
       content="Winnis Haltungsformel – Selbstreflexion">
 <meta name="twitter:description"
       content="Ideal, Realität und eigenes Handeln vergleichen – für mehr Klarheit bei Entscheidungen und inneren Spannungen.">
-
-
 
 
 
@@ -439,7 +443,6 @@ Ein persönliches Frühwarnsystem für <i>innere SPANNUNG unter Druck.</i></stro
 
 
 
-
 <div style="margin-top:10px; padding:12px; border-radius:12px; background:#fffefb; font-size:14px;border:5px solid #e8d9a8;">
 
 <b><i>✨ So einfach geht’s:</i></b><br>
@@ -465,9 +468,11 @@ function toggleProfi(ev){
 }
 
 
+
 </script>
 </div>
 </section>
+
 
 
 <section class="card"
@@ -478,13 +483,12 @@ style="background:#fffdf6;border:2px solid #e6d8a0;">
 
 <label for="notes"><strong>📝 Szenario / Situation:</strong></label>
 
-	
 <div contenteditable="true" data-placeholder="Tipp: Was beschäftigt dich gerade?
 Welche Entscheidung möchtest du für dich klären?
 
 Beispiel: Warum zweifle ich an einer Entscheidung, von der ich eigentlich überzeugt bin?" id="notes"></div>
 
-	
+
 <div class="row" style="justify-content:space-between;margin-top:8px">
 
 <span class="badge">Autosave aktiv</span>
@@ -493,8 +497,6 @@ Beispiel: Warum zweifle ich an einer Entscheidung, von der ich eigentlich überz
 </section>
 
 </section>   <!-- Szenario Ende -->
-
-
 
 
 
@@ -543,7 +545,12 @@ Kategorie: —
 </div>
 
 
-<div class="wirkung" id="wirkung" style="display:none;">Wirkung: –</div> 
+
+
+<div class="wirkung" id="wirkung" style="display:none !important;">Wirkung: –</div> 
+
+
+
 
 
 <div class="info" id="logicBox" style="margin-top:10px; display:none;">
@@ -581,8 +588,10 @@ Kategorie: —
 
 
 
+
+
 <div class="info" id="kiBox" style="margin-top:10px;display:none">
-<strong>Interpretation (Detail)</strong>
+<strong>Vertiefte Reflexion</strong>
 <div id="kiInterpretation" style="margin-top:6px">–</div>
 </div>
 <div class="row" style="margin-top:6px">
@@ -591,6 +600,10 @@ Kategorie: —
 </div>
 
  
+
+
+
+
 <div class="row" style="align-self:flex-start; margin-bottom:12px;">
 
 <button id="reset" style="margin-top:14px;">🔄 Zurücksetzen</button>
@@ -669,10 +682,10 @@ display: none;
 
 <!-- Begleitheft-Verweis -->
 <section class="card">
-		
- <div class="info" style="background:#fff7ed;border-color:#fed7aa;color:green;text-align:center;">
+
+  <div class="info" style="background:#fff7ed;border-color:#fed7aa;color:green;text-align:center;">
     <strong>💬 Vertiefung:</strong> Der <em>"Leitfaden für Kreativköpfe"</em> ergänzt die Haltungsformel um weitere Reflexionsimpulse.
-	  
+  
   </div>
 </section>
 
@@ -701,12 +714,6 @@ winni@stork-amoeneburg.de
 
 
 
-
-
-
-
-
-
 <img
 src="Winni1.jpg"
 alt="Winni Stork"
@@ -722,9 +729,6 @@ border:2px solid #ffffff;
 box-shadow:0 2px 6px rgba(0,0,0,.2);
 cursor:pointer;
 ">
-
-
-
 
 
 
@@ -789,336 +793,345 @@ function getIdealRichtung(I){
 
 
 
-	
+
+
 /* ===== SKALEN 1:1 ===== */
 /* ===== SKALEN 1:1 ===== */
+
+
+
 
 window.idealskala = {
 
   "-10": {
-    name:"Grundlegend zerstörerisch",
-    desc:"<strong>Privat:</strong> Stellt eigene Ziele bewusst über das Wohlergehen anderer. <strong>Politik:</strong> Verfolgt Ziele ohne Rücksicht auf schwerwiegende Folgen. <strong>Arbeit:</strong> Nimmt erhebliche Schäden für ein eigenes Ziel bewusst in Kauf. <strong>Sport:</strong> Setzt Erfolg bewusst über Fairness und Gesundheit."
+    name: "Äußerst unstimmig",
+    desc: "<strong>Privat:</strong> Steht völlig im Widerspruch zu dem, was du eigentlich vertreten möchtest. <strong>Politik:</strong> Widerspricht fundamental deinen eigenen politischen Grundsätzen. <strong>Arbeit:</strong> Ist mit deinen beruflichen Maßstäben überhaupt nicht vereinbar. <strong>Sport:</strong> Widerspricht vollständig deinen eigenen Vorstellungen von verantwortbarem Sport."
   },
 
   "-9": {
-    name:"Stark manipulativ",
-    desc:"<strong>Privat:</strong> Beeinflusst andere bewusst zum eigenen Vorteil. <strong>Politik:</strong> Nutzt gezielte Stimmungsmache zur Durchsetzung eigener Ziele. <strong>Arbeit:</strong> Beeinflusst Entscheidungen gezielt hinter den Kulissen. <strong>Sport:</strong> Versucht Ergebnisse auf unfaire Weise zu beeinflussen."
+    name: "Sehr stark unstimmig",
+    desc: "<strong>Privat:</strong> Passt nahezu überhaupt nicht zu deinen eigenen Überzeugungen. <strong>Politik:</strong> Weicht sehr stark von deinen politischen Maßstäben ab. <strong>Arbeit:</strong> Steht sehr deutlich gegen deine beruflichen Grundsätze. <strong>Sport:</strong> Passt sehr deutlich nicht zu deinen sportlichen Maßstäben."
   },
 
   "-8": {
-    name:"Feindselig aggressiv",
-    desc:"<strong>Privat:</strong> Reagiert anderen gegenüber deutlich feindselig. <strong>Politik:</strong> Vertritt eine sehr harte Gegenposition. <strong>Arbeit:</strong> Geht stark konfrontativ mit anderen um. <strong>Sport:</strong> Geht bewusst sehr hart gegen Gegner vor."
+    name: "Stark unstimmig",
+    desc: "<strong>Privat:</strong> Ist mit wichtigen eigenen Maßstäben kaum vereinbar. <strong>Politik:</strong> Ist mit wichtigen politischen Überzeugungen kaum vereinbar. <strong>Arbeit:</strong> Kollidiert klar mit deinen beruflichen Maßstäben. <strong>Sport:</strong> Kollidiert deutlich mit deinen sportlichen Maßstäben."
   },
 
   "-7": {
-    name:"Kontrollierend dominant",
-    desc:"<strong>Privat:</strong> Möchte Entscheidungen stark bestimmen. <strong>Politik:</strong> Bevorzugt sehr starke Führung und wenig Widerspruch. <strong>Arbeit:</strong> Kontrolliert Abläufe und Entscheidungen sehr eng. <strong>Sport:</strong> Gibt anderen nur wenig eigenen Entscheidungsspielraum."
+    name: "Deutlich unstimmig",
+    desc: "<strong>Privat:</strong> Entspricht deutlich nicht der Haltung, die du vertreten möchtest. <strong>Politik:</strong> Entspricht deutlich nicht deiner gewünschten politischen Haltung. <strong>Arbeit:</strong> Entspricht deutlich nicht der beruflichen Haltung, die du vertreten möchtest. <strong>Sport:</strong> Entspricht deutlich nicht der sportlichen Haltung, die du vertreten möchtest."
   },
 
   "-6": {
-    name:"Stark eigennützig",
-    desc:"<strong>Privat:</strong> Richtet Entscheidungen deutlich am eigenen Vorteil aus. <strong>Politik:</strong> Stellt eigene Interessen stark in den Vordergrund. <strong>Arbeit:</strong> Gewichtet persönlichen Nutzen deutlich stärker als gemeinsame Interessen. <strong>Sport:</strong> Orientiert sich stärker am eigenen Erfolg als am Team."
+    name: "Klar unstimmig",
+    desc: "<strong>Privat:</strong> Wichtige persönliche Gründe sprechen dagegen. <strong>Politik:</strong> Wesentliche politische Maßstäbe sprechen dagegen. <strong>Arbeit:</strong> Wichtige berufliche Gründe sprechen dagegen. <strong>Sport:</strong> Wichtige sportliche Maßstäbe sprechen dagegen."
   },
 
   "-5": {
-    name:"Misstrauisch abwehrend",
-    desc:"<strong>Privat:</strong> Begegnet anderen mit deutlichem Misstrauen. <strong>Politik:</strong> Reagiert gegenüber anderen Positionen stark skeptisch. <strong>Arbeit:</strong> Hinterfragt Absichten anderer zunächst deutlich. <strong>Sport:</strong> Vertraut Mitspielern oder Verantwortlichen nur begrenzt."
+    name: "Unstimmig",
+    desc: "<strong>Privat:</strong> Passt insgesamt eher nicht zu deinen persönlichen Maßstäben. <strong>Politik:</strong> Passt insgesamt nicht gut zu deinen politischen Maßstäben. <strong>Arbeit:</strong> Passt insgesamt nicht gut zu deinem beruflichen Anspruch. <strong>Sport:</strong> Passt insgesamt nicht gut zu deinem sportlichen Anspruch."
   },
 
   "-4": {
-    name:"Kritisch abwertend",
-    desc:"<strong>Privat:</strong> Bewertet andere häufig kritisch. <strong>Politik:</strong> Geht mit Gegenpositionen eher abwertend um. <strong>Arbeit:</strong> Hebt Schwächen anderer stärker hervor. <strong>Sport:</strong> Reagiert auf Fehler anderer deutlich kritisch."
+    name: "Eher unstimmig",
+    desc: "<strong>Privat:</strong> Du hast mehr Gründe dagegen als dafür. <strong>Politik:</strong> Deine politische Abwägung spricht eher dagegen. <strong>Arbeit:</strong> Deine berufliche Abwägung spricht eher dagegen. <strong>Sport:</strong> Deine sportliche Abwägung spricht eher dagegen."
   },
 
   "-3": {
-    name:"Abgrenzend",
-    desc:"<strong>Privat:</strong> Hält bewusst Abstand zu bestimmten Menschen oder Sichtweisen. <strong>Politik:</strong> Bevorzugt eine klare Abgrenzung gegenüber anderen Positionen. <strong>Arbeit:</strong> Denkt stärker in eigenen Zuständigkeiten und Bereichen. <strong>Sport:</strong> Bleibt eher bei der eigenen Gruppe."
+    name: "Leicht unstimmig",
+    desc: "<strong>Privat:</strong> Es bestehen erkennbare persönliche Vorbehalte. <strong>Politik:</strong> Es bestehen einige politische Vorbehalte. <strong>Arbeit:</strong> Es bestehen einige berufliche Vorbehalte. <strong>Sport:</strong> Es bestehen einige sportliche Vorbehalte."
   },
 
   "-2": {
-    name:"Eher eigennützig",
-    desc:"<strong>Privat:</strong> Gewichtet eigene Wünsche etwas stärker. <strong>Politik:</strong> Bevorzugt eher den eigenen Vorteil oder das eigene Umfeld. <strong>Arbeit:</strong> Denkt bei Entscheidungen stärker an den persönlichen Nutzen. <strong>Sport:</strong> Stellt eigene Interessen etwas vor die des Teams."
+    name: "Etwas unstimmig",
+    desc: "<strong>Privat:</strong> Passt nicht ganz zu dem, was du vertreten möchtest. <strong>Politik:</strong> Passt nicht ganz zu deiner politischen Haltung. <strong>Arbeit:</strong> Passt nicht ganz zu deinem beruflichen Anspruch. <strong>Sport:</strong> Passt nicht ganz zu deiner sportlichen Haltung."
   },
 
   "-1": {
-    name:"Leicht orientierungslos",
-    desc:"<strong>Privat:</strong> Ist sich über die eigene Wunschrichtung noch nicht ganz klar. <strong>Politik:</strong> Schwankt leicht zwischen verschiedenen Positionen. <strong>Arbeit:</strong> Hat noch keine vollständig klare Linie. <strong>Sport:</strong> Ist sich über die bevorzugte Richtung noch unsicher."
+    name: "Minimal unstimmig",
+    desc: "<strong>Privat:</strong> Eine kleine innere Abweichung bleibt. <strong>Politik:</strong> Eine geringe Abweichung von deiner politischen Haltung bleibt. <strong>Arbeit:</strong> Eine geringe Abweichung von deinem beruflichen Anspruch bleibt. <strong>Sport:</strong> Eine geringe Abweichung von deinem sportlichen Anspruch bleibt."
   },
 
   "0": {
-    name:"Orientierungsoffen",
-    desc:"<strong>Privat:</strong> Hat momentan keine klare Wunschrichtung. <strong>Politik:</strong> Sieht mehrere mögliche Positionen. <strong>Arbeit:</strong> Ist zwischen verschiedenen Wegen offen. <strong>Sport:</strong> Hat noch keine eindeutige Präferenz."
+    name: "Offen / unentschieden",
+    desc: "<strong>Privat:</strong> Du erkennst momentan keine klar bevorzugte Haltung. <strong>Politik:</strong> Du hast dazu noch keine klare politische Position. <strong>Arbeit:</strong> Du bist fachlich oder persönlich noch offen. <strong>Sport:</strong> Du hast dazu noch keine klare sportliche Haltung."
   },
 
   "1": {
-    name:"Angepasst freundlich",
-    desc:"<strong>Privat:</strong> Orientiert sich leicht an einem harmonischen Miteinander. <strong>Politik:</strong> Sucht eher einen verträglichen Mittelweg. <strong>Arbeit:</strong> Verhält sich kooperativ und zurückhaltend. <strong>Sport:</strong> Fügt sich eher in das Team ein."
+    name: "Minimal stimmig",
+    desc: "<strong>Privat:</strong> Passt geringfügig zu dem, was du vertreten möchtest. <strong>Politik:</strong> Entspricht geringfügig deinen politischen Maßstäben. <strong>Arbeit:</strong> Entspricht geringfügig deinem beruflichen Anspruch. <strong>Sport:</strong> Entspricht geringfügig deinem sportlichen Anspruch."
   },
 
   "2": {
-    name:"Gefällig harmoniesuchend",
-    desc:"<strong>Privat:</strong> Möchte Konflikte möglichst vermeiden. <strong>Politik:</strong> Sucht eher Zustimmung und Ausgleich. <strong>Arbeit:</strong> Versucht, möglichst viele Beteiligte mitzunehmen. <strong>Sport:</strong> Bevorzugt ein harmonisches Miteinander."
+    name: "Etwas stimmig",
+    desc: "<strong>Privat:</strong> Passt etwas zu deinen persönlichen Maßstäben. <strong>Politik:</strong> Passt etwas zu deinen politischen Maßstäben. <strong>Arbeit:</strong> Passt etwas zu deinem beruflichen Anspruch. <strong>Sport:</strong> Passt etwas zu deinem sportlichen Anspruch."
   },
 
   "3": {
-    name:"Anerkennungsorientiert",
-    desc:"<strong>Privat:</strong> Legt Wert auf Zustimmung und positive Rückmeldung. <strong>Politik:</strong> Orientiert sich teilweise an öffentlicher Zustimmung. <strong>Arbeit:</strong> Freut sich sichtbar über Anerkennung und Lob. <strong>Sport:</strong> Wird durch Anerkennung zusätzlich motiviert."
+    name: "Leicht stimmig",
+    desc: "<strong>Privat:</strong> Dafür sprechen erkennbare persönliche Gründe. <strong>Politik:</strong> Dafür sprechen einige politische Gründe. <strong>Arbeit:</strong> Dafür sprechen einige berufliche Gründe. <strong>Sport:</strong> Dafür sprechen einige sportliche Gründe."
   },
 
   "4": {
-    name:"Werteorientiert",
-    desc:"<strong>Privat:</strong> Richtet Entscheidungen an persönlichen Werten aus. <strong>Politik:</strong> Orientiert sich an klaren Grundsätzen. <strong>Arbeit:</strong> Bezieht Fairness und eigene Werte in Entscheidungen ein. <strong>Sport:</strong> Orientiert sich an Fairness und eigenen Prinzipien."
+    name: "Eher stimmig",
+    desc: "<strong>Privat:</strong> Du hast mehr Gründe dafür als dagegen. <strong>Politik:</strong> Deine politische Abwägung spricht eher dafür. <strong>Arbeit:</strong> Deine berufliche Abwägung spricht eher dafür. <strong>Sport:</strong> Deine sportliche Abwägung spricht eher dafür."
   },
 
   "5": {
-    name:"Verantwortungsbewusst",
-    desc:"<strong>Privat:</strong> Bezieht Verantwortung für sich und andere ein. <strong>Politik:</strong> Gewichtet Folgen einer Entscheidung bewusst. <strong>Arbeit:</strong> Hält Zusagen ein und berücksichtigt Auswirkungen. <strong>Sport:</strong> Übernimmt Verantwortung für den eigenen Beitrag."
+    name: "Stimmig",
+    desc: "<strong>Privat:</strong> Passt insgesamt zu dem, was du vertreten möchtest. <strong>Politik:</strong> Passt insgesamt zu deinen politischen Maßstäben. <strong>Arbeit:</strong> Passt insgesamt zu deinem beruflichen Anspruch. <strong>Sport:</strong> Passt insgesamt zu deinem sportlichen Anspruch."
   },
 
   "6": {
-    name:"Ethisch orientiert",
-    desc:"<strong>Privat:</strong> Richtet Entscheidungen deutlich an persönlichen moralischen Grundsätzen aus. <strong>Politik:</strong> Gewichtet ethische Gesichtspunkte deutlich. <strong>Arbeit:</strong> Bezieht Integrität und Fairness stark ein. <strong>Sport:</strong> Stellt Fairness deutlich über einen kurzfristigen Vorteil."
+    name: "Klar stimmig",
+    desc: "<strong>Privat:</strong> Wichtige persönliche Gründe sprechen dafür. <strong>Politik:</strong> Wichtige politische Maßstäbe sprechen dafür. <strong>Arbeit:</strong> Wichtige berufliche Maßstäbe sprechen dafür. <strong>Sport:</strong> Wichtige sportliche Maßstäbe sprechen dafür."
   },
 
   "7": {
-    name:"Integritätsstark",
-    desc:"<strong>Privat:</strong> Hält deutlich an eigenen Prinzipien fest. <strong>Politik:</strong> Vertritt Grundsätze auch bei Gegenwind. <strong>Arbeit:</strong> Bleibt klar bei vereinbarten Werten und Prinzipien. <strong>Sport:</strong> Bleibt auch unter Druck der eigenen Haltung treu."
+    name: "Deutlich stimmig",
+    desc: "<strong>Privat:</strong> Entspricht deutlich der Haltung, die du vertreten möchtest. <strong>Politik:</strong> Entspricht deutlich deiner gewünschten politischen Haltung. <strong>Arbeit:</strong> Entspricht deutlich der beruflichen Haltung, die du vertreten möchtest. <strong>Sport:</strong> Entspricht deutlich der sportlichen Haltung, die du vertreten möchtest."
   },
 
   "8": {
-    name:"Strategisch visionär",
-    desc:"<strong>Privat:</strong> Denkt bei Entscheidungen weit über den Augenblick hinaus. <strong>Politik:</strong> Bezieht langfristige Entwicklungen stark ein. <strong>Arbeit:</strong> Richtet Entscheidungen deutlich an langfristigen Zielen aus. <strong>Sport:</strong> Verfolgt eine langfristige Entwicklung statt nur kurzfristiger Erfolge."
+    name: "Stark stimmig",
+    desc: "<strong>Privat:</strong> Ist mit wichtigen eigenen Maßstäben sehr gut vereinbar. <strong>Politik:</strong> Ist mit wichtigen politischen Überzeugungen sehr gut vereinbar. <strong>Arbeit:</strong> Ist mit wichtigen beruflichen Maßstäben sehr gut vereinbar. <strong>Sport:</strong> Ist mit wichtigen sportlichen Maßstäben sehr gut vereinbar."
   },
 
   "9": {
-    name:"Leuchtend / vorbildlich",
-    desc:"<strong>Privat:</strong> Möchte eigene Werte besonders konsequent leben. <strong>Politik:</strong> Verbindet klare Grundsätze mit einer starken Vorbildwirkung. <strong>Arbeit:</strong> Möchte durch Haltung und Verlässlichkeit Orientierung geben. <strong>Sport:</strong> Möchte auch für andere ein klares Beispiel sein."
+    name: "Sehr stark stimmig",
+    desc: "<strong>Privat:</strong> Passt nahezu vollständig zu deinen Überzeugungen. <strong>Politik:</strong> Passt nahezu vollständig zu deinen politischen Maßstäben. <strong>Arbeit:</strong> Passt nahezu vollständig zu deinem beruflichen Anspruch. <strong>Sport:</strong> Passt nahezu vollständig zu deinem sportlichen Anspruch."
   },
 
   "10": {
-    name:"Außergewöhnlich prägend",
-    desc:"<strong>Privat:</strong> Möchte mit der eigenen Haltung langfristig etwas Bedeutendes bewirken. <strong>Politik:</strong> Verfolgt eine sehr weitreichende gesellschaftliche Vision. <strong>Arbeit:</strong> Möchte Entwicklungen nachhaltig und über die eigene Aufgabe hinaus prägen. <strong>Sport:</strong> Strebt eine außergewöhnlich nachhaltige Wirkung an."
+    name: "Äußerst stimmig",
+    desc: "<strong>Privat:</strong> Entspricht vollständig der Haltung, die du vertreten möchtest. <strong>Politik:</strong> Entspricht vollständig deinen politischen Grundsätzen. <strong>Arbeit:</strong> Entspricht vollständig deinen beruflichen Grundsätzen. <strong>Sport:</strong> Entspricht vollständig deinen sportlichen Grundsätzen."
   }
+
 };
+
+
 
 
 window.realitaetsskala = {
 
   "-10": {
-    name:"Äußerst kritisch",
-    desc:"<strong>Privat:</strong> Die Lebenssituation ist in wesentlichen Bereichen kaum tragfähig. <strong>Politik:</strong> Zentrale gesellschaftliche Strukturen funktionieren kaum noch. <strong>Arbeit:</strong> Der Betrieb oder Arbeitsbereich ist existenziell gefährdet."
+    name: "Äußerst starke Abweichung",
+    desc: "<strong>Privat:</strong> Die tatsächliche Situation steht maximal im Gegensatz zu dem, was du für stimmig hältst. <strong>Politik:</strong> Die tatsächlichen Verhältnisse stehen maximal im Gegensatz zum angestrebten Zustand. <strong>Arbeit:</strong> Die Ist-Situation widerspricht dem angestrebten Zustand vollständig. <strong>Sport:</strong> Die tatsächliche Situation weicht maximal vom angestrebten Zustand ab."
   },
 
   "-9": {
-    name:"Stark zerrüttet",
-    desc:"<strong>Privat:</strong> Beziehungen oder Lebensumstände sind stark auseinandergebrochen. <strong>Politik:</strong> Gesellschaftliche Strukturen sind sehr schwer belastet. <strong>Arbeit:</strong> Führung und Zusammenarbeit funktionieren nur noch eingeschränkt."
+    name: "Sehr starke Abweichung",
+    desc: "<strong>Privat:</strong> Die tatsächliche Situation weicht sehr stark vom gewünschten Zustand ab. <strong>Politik:</strong> Es besteht eine sehr starke Abweichung vom angestrebten Zustand. <strong>Arbeit:</strong> Die Ist-Situation weicht sehr stark vom beruflich angestrebten Zustand ab. <strong>Sport:</strong> Die tatsächliche Situation weicht sehr stark vom sportlich angestrebten Zustand ab."
   },
 
   "-8": {
-    name:"Stark belastend",
-    desc:"<strong>Privat:</strong> Die Situation ist dauerhaft konfliktreich und belastend. <strong>Politik:</strong> Die Lage ist von starken Spannungen geprägt. <strong>Arbeit:</strong> Konflikte beeinträchtigen Strukturen und Zusammenarbeit erheblich."
+    name: "Starke Abweichung",
+    desc: "<strong>Privat:</strong> Die Realität passt kaum zum gewünschten Zustand. <strong>Politik:</strong> Die Realität entspricht den angestrebten Verhältnissen kaum. <strong>Arbeit:</strong> Die Ist-Situation entspricht dem gewünschten Zustand kaum. <strong>Sport:</strong> Die tatsächliche Situation entspricht dem gewünschten Zustand kaum."
   },
 
   "-7": {
-    name:"Deutlich destruktiv",
-    desc:"<strong>Privat:</strong> Konflikte verschärfen sich regelmäßig. <strong>Politik:</strong> Gegensätze blockieren wichtige Entwicklungen. <strong>Arbeit:</strong> Zusammenarbeit oder Projekte werden deutlich behindert."
+    name: "Deutliche Abweichung",
+    desc: "<strong>Privat:</strong> Die Situation ist deutlich vom gewünschten Zustand entfernt. <strong>Politik:</strong> Die tatsächlichen Verhältnisse sind deutlich vom angestrebten Zustand entfernt. <strong>Arbeit:</strong> Die Ist-Situation ist deutlich vom angestrebten Zustand entfernt. <strong>Sport:</strong> Die Situation ist deutlich vom gewünschten Zustand entfernt."
   },
 
   "-6": {
-    name:"Schwer belastend",
-    desc:"<strong>Privat:</strong> Anhaltende Belastungen prägen den Alltag stark. <strong>Politik:</strong> Strukturelle Probleme erschweren verlässliche Lösungen. <strong>Arbeit:</strong> Dauerhafte Probleme belasten das Arbeitsumfeld deutlich."
+    name: "Klare Abweichung",
+    desc: "<strong>Privat:</strong> Wesentliche Unterschiede zum gewünschten Zustand sind vorhanden. <strong>Politik:</strong> Wesentliche Unterschiede zum angestrebten Zustand sind vorhanden. <strong>Arbeit:</strong> Es besteht eine wesentliche Soll-Ist-Abweichung. <strong>Sport:</strong> Es besteht eine wesentliche Abweichung vom angestrebten Zustand."
   },
 
   "-5": {
-    name:"Instabil",
-    desc:"<strong>Privat:</strong> Die Lebenssituation ist deutlich unsicher. <strong>Politik:</strong> Entscheidungen und Rahmenbedingungen sind wenig verlässlich. <strong>Arbeit:</strong> Die Situation ist von spürbarer Unsicherheit geprägt."
+    name: "Erkennbare Abweichung",
+    desc: "<strong>Privat:</strong> Die Realität bleibt merklich hinter dem gewünschten Zustand zurück. <strong>Politik:</strong> Eine merkliche Abweichung ist vorhanden. <strong>Arbeit:</strong> Eine merkliche Soll-Ist-Abweichung ist vorhanden. <strong>Sport:</strong> Eine merkliche Abweichung ist vorhanden."
   },
 
   "-4": {
-    name:"Schwächend",
-    desc:"<strong>Privat:</strong> Dauerhafte Belastungen kosten merklich Kraft. <strong>Politik:</strong> Rahmenbedingungen erschweren Entwicklungen. <strong>Arbeit:</strong> Das Umfeld wirkt auf Dauer eher zermürbend."
+    name: "Eher abweichend",
+    desc: "<strong>Privat:</strong> Es besteht mehr Abweichung als Übereinstimmung. <strong>Politik:</strong> Die tatsächlichen Verhältnisse weichen überwiegend ab. <strong>Arbeit:</strong> Die Ist-Situation entspricht überwiegend nicht dem angestrebten Zustand. <strong>Sport:</strong> Die tatsächliche Situation ist überwiegend abweichend."
   },
 
   "-3": {
-    name:"Hinderlich",
-    desc:"<strong>Privat:</strong> Einzelne Bedingungen erschweren den Alltag. <strong>Politik:</strong> Strukturen bremsen gewünschte Entwicklungen. <strong>Arbeit:</strong> Abläufe oder Prozesse erschweren gute Ergebnisse."
+    name: "Leicht abweichend",
+    desc: "<strong>Privat:</strong> Einige Unterschiede sind erkennbar. <strong>Politik:</strong> Einige Unterschiede zum angestrebten Zustand sind erkennbar. <strong>Arbeit:</strong> Einige Soll-Ist-Unterschiede sind erkennbar. <strong>Sport:</strong> Einige Unterschiede sind erkennbar."
   },
 
   "-2": {
-    name:"Etwas erschwert",
-    desc:"<strong>Privat:</strong> Einzelne Umstände beeinträchtigen den Alltag leicht. <strong>Politik:</strong> Begrenzte Rahmenbedingungen erschweren einzelne Vorhaben etwas. <strong>Arbeit:</strong> Einige Bedingungen erschweren den Arbeitsalltag leicht."
+    name: "Etwas abweichend",
+    desc: "<strong>Privat:</strong> Kleine, aber erkennbare Unterschiede bestehen. <strong>Politik:</strong> Eine kleine Abweichung besteht. <strong>Arbeit:</strong> Eine kleine Soll-Ist-Abweichung besteht. <strong>Sport:</strong> Eine kleine Abweichung besteht."
   },
 
   "-1": {
-    name:"Leicht ungünstig",
-    desc:"<strong>Privat:</strong> Kleine Umstände passen noch nicht ganz. <strong>Politik:</strong> Einzelne Bedingungen wirken leicht ungünstig. <strong>Arbeit:</strong> Kleinere Planungs- oder Abstimmungsprobleme treten auf."
+    name: "Minimal abweichend",
+    desc: "<strong>Privat:</strong> Die Situation ist nahezu passend, mit geringer Abweichung. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen dem angestrebten Zustand nahezu. <strong>Arbeit:</strong> Die Ist-Situation entspricht dem angestrebten Zustand nahezu. <strong>Sport:</strong> Die Situation entspricht dem angestrebten Zustand nahezu."
   },
 
   "0": {
-    name:"Neutral durchschnittlich",
-    desc:"<strong>Privat:</strong> Der Alltag verläuft ohne deutliche positive oder negative Tendenz. <strong>Politik:</strong> Strukturen funktionieren durchschnittlich. <strong>Arbeit:</strong> Abläufe entsprechen weitgehend dem üblichen Standard."
+    name: "Neutral / nicht eindeutig",
+    desc: "<strong>Privat:</strong> Weder klare Übereinstimmung noch klare Abweichung ist erkennbar. <strong>Politik:</strong> Die tatsächlichen Verhältnisse lassen keine eindeutige Einordnung zu. <strong>Arbeit:</strong> Es besteht keine eindeutige Soll-Ist-Tendenz. <strong>Sport:</strong> Es besteht keine eindeutige Tendenz."
   },
 
   "1": {
-    name:"Leicht förderlich",
-    desc:"<strong>Privat:</strong> Kleine Hilfen erleichtern den Alltag. <strong>Politik:</strong> Einzelne Verbesserungen zeigen Wirkung. <strong>Arbeit:</strong> Hilfreiche Werkzeuge oder Abläufe unterstützen etwas."
+    name: "Minimale Übereinstimmung",
+    desc: "<strong>Privat:</strong> Eine geringe Übereinstimmung ist erkennbar. <strong>Politik:</strong> Eine geringe Übereinstimmung mit dem angestrebten Zustand ist erkennbar. <strong>Arbeit:</strong> Eine geringe Übereinstimmung mit dem angestrebten Zustand ist erkennbar. <strong>Sport:</strong> Eine geringe Übereinstimmung ist erkennbar."
   },
 
   "2": {
-    name:"Funktional",
-    desc:"<strong>Privat:</strong> Die täglichen Abläufe funktionieren verlässlich. <strong>Politik:</strong> Grundlegende Strukturen arbeiten zuverlässig. <strong>Arbeit:</strong> Prozesse funktionieren insgesamt gut."
+    name: "Etwas übereinstimmend",
+    desc: "<strong>Privat:</strong> Die Situation entspricht dem gewünschten Zustand teilweise. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen dem angestrebten Zustand teilweise. <strong>Arbeit:</strong> Die Ist-Situation entspricht dem angestrebten Zustand teilweise. <strong>Sport:</strong> Die tatsächliche Situation entspricht dem gewünschten Zustand teilweise."
   },
 
   "3": {
-    name:"Stützend",
-    desc:"<strong>Privat:</strong> Menschen oder Bedingungen geben spürbare Unterstützung. <strong>Politik:</strong> Strukturen unterstützen sinnvolle Entwicklungen. <strong>Arbeit:</strong> Das Team hilft sich gegenseitig."
+    name: "Leicht übereinstimmend",
+    desc: "<strong>Privat:</strong> Mehrere passende Aspekte sind erkennbar. <strong>Politik:</strong> Mehrere Aspekte entsprechen dem angestrebten Zustand. <strong>Arbeit:</strong> Mehrere Aspekte des angestrebten Zustands sind erfüllt. <strong>Sport:</strong> Mehrere passende Aspekte sind erkennbar."
   },
 
   "4": {
-    name:"Konstruktiv",
-    desc:"<strong>Privat:</strong> Probleme werden überwiegend lösungsorientiert angegangen. <strong>Politik:</strong> Maßnahmen zeigen nachvollziehbare Verbesserungen. <strong>Arbeit:</strong> Die Zusammenarbeit ist deutlich lösungsorientiert."
+    name: "Eher übereinstimmend",
+    desc: "<strong>Privat:</strong> Es besteht mehr Übereinstimmung als Abweichung. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen überwiegend dem angestrebten Zustand. <strong>Arbeit:</strong> Die Ist-Situation entspricht überwiegend dem angestrebten Zustand. <strong>Sport:</strong> Die Situation entspricht überwiegend dem angestrebten Zustand."
   },
 
   "5": {
-    name:"Förderlich",
-    desc:"<strong>Privat:</strong> Das Umfeld unterstützt persönliche Ziele merklich. <strong>Politik:</strong> Rahmenbedingungen unterstützen Entwicklungen. <strong>Arbeit:</strong> Führung und Umfeld fördern gute Arbeit."
+    name: "Übereinstimmend",
+    desc: "<strong>Privat:</strong> Die Situation entspricht insgesamt dem gewünschten Zustand. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen insgesamt dem angestrebten Zustand. <strong>Arbeit:</strong> Die Ist-Situation entspricht insgesamt dem angestrebten Zustand. <strong>Sport:</strong> Die Situation entspricht insgesamt dem angestrebten Zustand."
   },
 
   "6": {
-    name:"Robust unterstützend",
-    desc:"<strong>Privat:</strong> Das persönliche Umfeld gibt auch bei Belastung verlässlichen Rückhalt. <strong>Politik:</strong> Strukturen funktionieren stabil und verlässlich. <strong>Arbeit:</strong> Das Team hält auch bei höherer Belastung zusammen."
+    name: "Klar übereinstimmend",
+    desc: "<strong>Privat:</strong> Die Situation entspricht dem gewünschten Zustand weitgehend. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen dem angestrebten Zustand weitgehend. <strong>Arbeit:</strong> Die Ist-Situation entspricht dem angestrebten Zustand weitgehend. <strong>Sport:</strong> Die Situation entspricht dem angestrebten Zustand weitgehend."
   },
 
   "7": {
-    name:"Kraftvoll förderlich",
-    desc:"<strong>Privat:</strong> Das Umfeld unterstützt Entwicklung und Motivation deutlich. <strong>Politik:</strong> Maßnahmen entfalten eine klare unterstützende Wirkung. <strong>Arbeit:</strong> Eine starke Zusammenarbeit trägt Ergebnisse deutlich."
+    name: "Deutlich übereinstimmend",
+    desc: "<strong>Privat:</strong> Die Situation entspricht dem gewünschten Zustand deutlich. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen dem angestrebten Zustand deutlich. <strong>Arbeit:</strong> Die Ist-Situation entspricht dem angestrebten Zustand deutlich. <strong>Sport:</strong> Die Situation entspricht dem angestrebten Zustand deutlich."
   },
 
   "8": {
-    name:"Stark",
-    desc:"<strong>Privat:</strong> Das Umfeld bietet sehr gute und stabile Unterstützung. <strong>Politik:</strong> Gesellschaftliche Strukturen funktionieren sehr verlässlich. <strong>Arbeit:</strong> Team und Prozesse arbeiten auf hohem Niveau."
+    name: "Stark übereinstimmend",
+    desc: "<strong>Privat:</strong> Die Situation entspricht dem gewünschten Zustand sehr weitgehend. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen dem angestrebten Zustand sehr weitgehend. <strong>Arbeit:</strong> Die Ist-Situation entspricht dem angestrebten Zustand sehr weitgehend. <strong>Sport:</strong> Die Situation entspricht dem angestrebten Zustand sehr weitgehend."
   },
 
   "9": {
-    name:"Exzellent unterstützend",
-    desc:"<strong>Privat:</strong> Die Bedingungen sind außergewöhnlich günstig und stabil. <strong>Politik:</strong> Strukturen arbeiten auf sehr hohem und verlässlichem Niveau. <strong>Arbeit:</strong> Bedingungen und Zusammenarbeit sind außergewöhnlich stark."
+    name: "Sehr stark übereinstimmend",
+    desc: "<strong>Privat:</strong> Die Situation entspricht dem gewünschten Zustand nahezu vollständig. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen dem angestrebten Zustand nahezu vollständig. <strong>Arbeit:</strong> Die Ist-Situation entspricht dem angestrebten Zustand nahezu vollständig. <strong>Sport:</strong> Die Situation entspricht dem angestrebten Zustand nahezu vollständig."
   },
 
   "10": {
-    name:"Herausragend",
-    desc:"<strong>Privat:</strong> Die Lebensbedingungen sind in nahezu allen wichtigen Bereichen sehr stimmig. <strong>Politik:</strong> Zentrale gesellschaftliche Strukturen funktionieren außergewöhnlich stabil. <strong>Arbeit:</strong> Zusammenarbeit, Führung und Rahmenbedingungen funktionieren auf sehr hohem Niveau."
+    name: "Vollständig übereinstimmend",
+    desc: "<strong>Privat:</strong> Die tatsächliche Situation entspricht vollständig dem gewünschten Zustand. <strong>Politik:</strong> Die tatsächlichen Verhältnisse entsprechen vollständig dem angestrebten Zustand. <strong>Arbeit:</strong> Die Ist-Situation entspricht vollständig dem angestrebten Zustand. <strong>Sport:</strong> Die tatsächliche Situation entspricht vollständig dem angestrebten Zustand."
   }
+
 };
+
 
 
 window.rueckgratskala = {
 
   "-10": {
-    name:"Äußerst entschieden dagegen",
-    desc:"<strong>Privat:</strong> Vertritt eine Gegenposition mit größter Konsequenz. <strong>Politik:</strong> Steht sehr entschieden für die entgegengesetzte Richtung ein. <strong>Arbeit:</strong> Setzt sich mit maximaler Konsequenz für eine andere Vorgehensweise ein."
+    name: "Äußerst stark entgegen",
+    desc: "<strong>Privat:</strong> Du handelst vollständig entgegen der Haltung, die du eigentlich vertreten möchtest. <strong>Politik:</strong> Dein Handeln widerspricht vollständig deiner vertretenen Haltung. <strong>Arbeit:</strong> Dein Handeln widerspricht vollständig deinem eigenen beruflichen Anspruch. <strong>Sport:</strong> Dein Verhalten widerspricht vollständig deiner eigenen sportlichen Haltung."
   },
 
   "-9": {
-    name:"Sehr entschieden dagegen",
-    desc:"<strong>Privat:</strong> Hält sehr deutlich an der Gegenposition fest. <strong>Politik:</strong> Vertritt eine sehr klare Gegenhaltung. <strong>Arbeit:</strong> Setzt sich mit großer Konsequenz für die andere Richtung ein."
+    name: "Sehr stark entgegen",
+    desc: "<strong>Privat:</strong> Dein Handeln steht nahezu vollständig im Widerspruch zu deiner eigenen Haltung. <strong>Politik:</strong> Dein Handeln widerspricht deiner vertretenen Haltung sehr stark. <strong>Arbeit:</strong> Dein Handeln widerspricht deinem beruflichen Anspruch sehr stark. <strong>Sport:</strong> Dein Verhalten widerspricht deiner sportlichen Haltung sehr stark."
   },
 
   "-8": {
-    name:"Standhaft dagegen",
-    desc:"<strong>Privat:</strong> Bleibt auch bei Widerstand deutlich bei der Gegenposition. <strong>Politik:</strong> Hält klar an einer Gegenposition fest. <strong>Arbeit:</strong> Vertritt eine alternative Lösung sehr konsequent."
+    name: "Stark entgegen",
+    desc: "<strong>Privat:</strong> Du handelst überwiegend klar entgegen deiner eigenen Haltung. <strong>Politik:</strong> Dein Handeln läuft deiner vertretenen Haltung stark entgegen. <strong>Arbeit:</strong> Dein Handeln läuft deinem beruflichen Anspruch stark entgegen. <strong>Sport:</strong> Dein Verhalten läuft deiner sportlichen Haltung stark entgegen."
   },
 
   "-7": {
-    name:"Klar dagegenstehend",
-    desc:"<strong>Privat:</strong> Vertritt die Gegenposition deutlich. <strong>Politik:</strong> Positioniert sich klar dagegen. <strong>Arbeit:</strong> Bleibt bei einer anderen Vorgehensweise."
+    name: "Deutlich entgegen",
+    desc: "<strong>Privat:</strong> Dein Verhalten widerspricht deiner eigenen Haltung deutlich. <strong>Politik:</strong> Dein Handeln widerspricht deiner vertretenen Haltung deutlich. <strong>Arbeit:</strong> Dein Handeln widerspricht deinem beruflichen Anspruch deutlich. <strong>Sport:</strong> Dein Verhalten widerspricht deiner sportlichen Haltung deutlich."
   },
 
   "-6": {
-    name:"Konfliktbereit abgrenzend",
-    desc:"<strong>Privat:</strong> Setzt erkennbare Grenzen und vertritt die Gegenposition auch bei Widerstand. <strong>Politik:</strong> Vertritt eine deutliche Gegenposition. <strong>Arbeit:</strong> Grenzt sich klar von einer Vorgehensweise ab."
+    name: "Klar entgegen",
+    desc: "<strong>Privat:</strong> Eine klare Gegenbewegung zu deiner eigenen Haltung ist erkennbar. <strong>Politik:</strong> Dein Handeln läuft klar gegen deine vertretene Haltung. <strong>Arbeit:</strong> Dein Handeln läuft klar gegen deinen beruflichen Anspruch. <strong>Sport:</strong> Dein Verhalten läuft klar gegen deine sportliche Haltung."
   },
 
   "-5": {
-    name:"Klar ablehnend",
-    desc:"<strong>Privat:</strong> Zeigt deutlich, dass eine Richtung nicht mitgetragen wird. <strong>Politik:</strong> Vertritt eine erkennbare Gegenposition. <strong>Arbeit:</strong> Unterstützt eine bestimmte Vorgehensweise eher nicht."
+    name: "Entgegen",
+    desc: "<strong>Privat:</strong> Dein Verhalten und deine eigene Haltung passen merklich nicht zusammen. <strong>Politik:</strong> Zwischen vertretener Haltung und Handeln besteht ein merklicher Widerspruch. <strong>Arbeit:</strong> Zwischen beruflichem Anspruch und Handeln besteht ein merklicher Widerspruch. <strong>Sport:</strong> Zwischen sportlicher Haltung und Verhalten besteht ein merklicher Widerspruch."
   },
 
   "-4": {
-    name:"Eher gegensteuernd",
-    desc:"<strong>Privat:</strong> Handelt eher in die entgegengesetzte Richtung. <strong>Politik:</strong> Positioniert sich überwiegend dagegen. <strong>Arbeit:</strong> Versucht, eine andere Richtung einzubringen."
+    name: "Eher entgegen",
+    desc: "<strong>Privat:</strong> Du handelst häufiger entgegen deiner eigenen Haltung als entsprechend. <strong>Politik:</strong> Dein Handeln läuft eher gegen deine vertretene Haltung. <strong>Arbeit:</strong> Dein Verhalten läuft eher gegen deinen beruflichen Anspruch. <strong>Sport:</strong> Dein Verhalten läuft eher gegen deine sportliche Haltung."
   },
 
   "-3": {
-    name:"Leicht gegensteuernd",
-    desc:"<strong>Privat:</strong> Zeigt eine erkennbare, aber noch zurückhaltende Gegenposition. <strong>Politik:</strong> Äußert vorsichtig Widerspruch. <strong>Arbeit:</strong> Bringt eine alternative Sicht ein."
+    name: "Leicht entgegen",
+    desc: "<strong>Privat:</strong> Eine leicht gegenläufige Handlungstendenz ist erkennbar. <strong>Politik:</strong> Dein Handeln ist leicht gegenläufig zu deiner vertretenen Haltung. <strong>Arbeit:</strong> Dein Handeln ist leicht gegenläufig zu deinem beruflichen Anspruch. <strong>Sport:</strong> Dein Verhalten ist leicht gegenläufig zu deiner sportlichen Haltung."
   },
 
   "-2": {
-    name:"Vorsichtig gegenhaltend",
-    desc:"<strong>Privat:</strong> Handelt leicht in die Gegenrichtung. <strong>Politik:</strong> Zeigt eine zurückhaltende Gegenposition. <strong>Arbeit:</strong> Äußert einzelne Bedenken."
+    name: "Etwas entgegen",
+    desc: "<strong>Privat:</strong> Teilweise handelst du entgegen deiner eigenen Haltung. <strong>Politik:</strong> Teilweise handelst du entgegen deiner vertretenen Haltung. <strong>Arbeit:</strong> Teilweise handelst du entgegen deinem beruflichen Anspruch. <strong>Sport:</strong> Teilweise handelst du entgegen deiner sportlichen Haltung."
   },
 
   "-1": {
-    name:"Leicht gegenhaltend",
-    desc:"<strong>Privat:</strong> Zeigt nur eine geringe Gegenbewegung. <strong>Politik:</strong> Positioniert sich vorsichtig dagegen. <strong>Arbeit:</strong> Äußert leichte Vorbehalte."
+    name: "Minimal entgegen",
+    desc: "<strong>Privat:</strong> Eine geringe Abweichung zwischen Haltung und Handeln bleibt. <strong>Politik:</strong> Eine geringe Abweichung zwischen vertretener Haltung und Handeln bleibt. <strong>Arbeit:</strong> Eine geringe Abweichung zwischen beruflichem Anspruch und Handeln bleibt. <strong>Sport:</strong> Eine geringe Abweichung zwischen sportlicher Haltung und Verhalten bleibt."
   },
 
   "0": {
-    name:"Neutral / abwartend",
-    desc:"<strong>Privat:</strong> Zeigt momentan keine klare Handlungsrichtung. <strong>Politik:</strong> Bezieht noch keine eindeutige Position. <strong>Arbeit:</strong> Beobachtet die Situation zunächst."
+    name: "Neutral / noch ohne klare Umsetzung",
+    desc: "<strong>Privat:</strong> Es ist noch keine eindeutige Handlungsrichtung erkennbar. <strong>Politik:</strong> Eine eindeutige Umsetzung deiner vertretenen Haltung ist noch nicht erkennbar. <strong>Arbeit:</strong> Eine eindeutige Umsetzung deines beruflichen Anspruchs ist noch nicht erkennbar. <strong>Sport:</strong> Eine eindeutige Umsetzung deiner sportlichen Haltung ist noch nicht erkennbar."
   },
 
   "1": {
-    name:"Leicht mutig",
-    desc:"<strong>Privat:</strong> Steht vorsichtig für die eigene Position ein. <strong>Politik:</strong> Äußert erste klare Worte. <strong>Arbeit:</strong> Spricht kleinere Bedenken offen an."
+    name: "Minimal entsprechend",
+    desc: "<strong>Privat:</strong> Dein Handeln entspricht deiner Haltung in geringem Maß. <strong>Politik:</strong> Deine vertretene Haltung wird in geringem Maß umgesetzt. <strong>Arbeit:</strong> Dein beruflicher Anspruch wird in geringem Maß umgesetzt. <strong>Sport:</strong> Deine sportliche Haltung wird in geringem Maß umgesetzt."
   },
 
   "2": {
-    name:"Selbstbewusst",
-    desc:"<strong>Privat:</strong> Vertritt die eigene Meinung erkennbar. <strong>Politik:</strong> Spricht die eigene Position offen aus. <strong>Arbeit:</strong> Bringt die eigene Sicht klar ein."
+    name: "Etwas entsprechend",
+    desc: "<strong>Privat:</strong> Du handelst teilweise entsprechend deiner eigenen Haltung. <strong>Politik:</strong> Du setzt deine vertretene Haltung teilweise um. <strong>Arbeit:</strong> Du setzt deinen beruflichen Anspruch teilweise um. <strong>Sport:</strong> Du setzt deine sportliche Haltung teilweise um."
   },
 
   "3": {
-    name:"Standhaft",
-    desc:"<strong>Privat:</strong> Bleibt auch bei leichterem Gegenwind bei der eigenen Position. <strong>Politik:</strong> Hält an einer begründeten Linie fest. <strong>Arbeit:</strong> Bleibt bei einer nachvollziehbaren Einschätzung."
+    name: "Leicht entsprechend",
+    desc: "<strong>Privat:</strong> Eine entsprechende Handlungstendenz ist erkennbar. <strong>Politik:</strong> Eine erkennbare Umsetzung deiner vertretenen Haltung ist vorhanden. <strong>Arbeit:</strong> Eine erkennbare Umsetzung deines beruflichen Anspruchs ist vorhanden. <strong>Sport:</strong> Eine erkennbare Umsetzung deiner sportlichen Haltung ist vorhanden."
   },
 
   "4": {
-    name:"Verantwortung tragend",
-    desc:"<strong>Privat:</strong> Steht verlässlich für eigene Entscheidungen ein. <strong>Politik:</strong> Übernimmt Verantwortung für eine vertretene Position. <strong>Arbeit:</strong> Steht für getroffene Entscheidungen und deren Folgen ein."
+    name: "Eher entsprechend",
+    desc: "<strong>Privat:</strong> Du handelst häufiger entsprechend deiner Haltung als dagegen. <strong>Politik:</strong> Du setzt deine vertretene Haltung überwiegend um. <strong>Arbeit:</strong> Du setzt deinen beruflichen Anspruch überwiegend um. <strong>Sport:</strong> Du setzt deine sportliche Haltung überwiegend um."
   },
 
   "5": {
-    name:"Mutig",
-    desc:"<strong>Privat:</strong> Spricht auch schwierige Themen offen an. <strong>Politik:</strong> Vertritt eine Position trotz öffentlicher Kritik. <strong>Arbeit:</strong> Bringt neue oder unbequeme Wege offen zur Sprache."
+    name: "Entsprechend",
+    desc: "<strong>Privat:</strong> Dein Verhalten und deine eigene Haltung passen insgesamt zusammen. <strong>Politik:</strong> Deine vertretene Haltung und dein Handeln stimmen insgesamt überein. <strong>Arbeit:</strong> Dein beruflicher Anspruch und dein Handeln stimmen insgesamt überein. <strong>Sport:</strong> Deine sportliche Haltung und dein Verhalten stimmen insgesamt überein."
   },
 
   "6": {
-    name:"Verlässlich stark",
-    desc:"<strong>Privat:</strong> Bleibt einer wichtigen Haltung auch unter Druck treu. <strong>Politik:</strong> Bleibt bei einer nachvollziehbaren Position verlässlich. <strong>Arbeit:</strong> Hält Zusagen und vertritt Entscheidungen auch bei Widerstand."
+    name: "Klar entsprechend",
+    desc: "<strong>Privat:</strong> Du setzt deine eigene Haltung weitgehend um. <strong>Politik:</strong> Du setzt deine vertretene Haltung weitgehend um. <strong>Arbeit:</strong> Du setzt deinen beruflichen Anspruch weitgehend um. <strong>Sport:</strong> Du setzt deine sportliche Haltung weitgehend um."
   },
 
   "7": {
-    name:"Integrität bewahrend",
-    desc:"<strong>Privat:</strong> Bleibt den eigenen Prinzipien auch in schwierigen Situationen treu. <strong>Politik:</strong> Hält an begründeten Werten und Positionen fest. <strong>Arbeit:</strong> Verbindet Verlässlichkeit mit einer klaren Haltung."
+    name: "Deutlich entsprechend",
+    desc: "<strong>Privat:</strong> Dein Verhalten entspricht deiner eigenen Haltung deutlich. <strong>Politik:</strong> Dein Handeln entspricht deiner vertretenen Haltung deutlich. <strong>Arbeit:</strong> Dein Handeln entspricht deinem beruflichen Anspruch deutlich. <strong>Sport:</strong> Dein Verhalten entspricht deiner sportlichen Haltung deutlich."
   },
 
   "8": {
-    name:"Inspirierend standhaft",
-    desc:"<strong>Privat:</strong> Gibt anderen durch die eigene Haltung Orientierung. <strong>Politik:</strong> Kann andere durch klare und glaubwürdige Haltung mitnehmen. <strong>Arbeit:</strong> Motiviert andere durch Konsequenz und Verlässlichkeit."
+    name: "Stark entsprechend",
+    desc: "<strong>Privat:</strong> Du handelst sehr konsequent entsprechend deiner eigenen Haltung. <strong>Politik:</strong> Du setzt deine vertretene Haltung sehr konsequent um. <strong>Arbeit:</strong> Du setzt deinen beruflichen Anspruch sehr konsequent um. <strong>Sport:</strong> Du setzt deine sportliche Haltung sehr konsequent um."
   },
 
   "9": {
-    name:"Wegweisend leuchtend",
-    desc:"<strong>Privat:</strong> Ist in schwierigen Situationen ein deutliches Vorbild. <strong>Politik:</strong> Gibt durch eine sehr klare Haltung Orientierung. <strong>Arbeit:</strong> Prägt durch glaubwürdige Haltung die Zusammenarbeit und Kultur."
+    name: "Sehr stark entsprechend",
+    desc: "<strong>Privat:</strong> Deine Haltung und dein Handeln stimmen nahezu vollständig überein. <strong>Politik:</strong> Deine vertretene Haltung und dein Handeln stimmen nahezu vollständig überein. <strong>Arbeit:</strong> Dein beruflicher Anspruch und dein Handeln stimmen nahezu vollständig überein. <strong>Sport:</strong> Deine sportliche Haltung und dein Verhalten stimmen nahezu vollständig überein."
   },
 
   "10": {
-    name:"Außergewöhnlich standhaft",
-    desc:"<strong>Privat:</strong> Bleibt auch bei sehr großem Druck konsequent bei einer zentralen Haltung. <strong>Politik:</strong> Hält auch unter außergewöhnlichem Druck an einer klaren Position fest. <strong>Arbeit:</strong> Steht selbst bei erheblichem Widerstand konsequent für eine begründete Vorgehensweise ein."
+    name: "Vollständig entsprechend",
+    desc: "<strong>Privat:</strong> Du handelst vollständig entsprechend der Haltung, die du vertreten möchtest. <strong>Politik:</strong> Deine vertretene Haltung und dein Handeln stimmen vollständig überein. <strong>Arbeit:</strong> Dein beruflicher Anspruch und dein Handeln stimmen vollständig überein. <strong>Sport:</strong> Deine sportliche Haltung und dein Verhalten stimmen vollständig überein."
   }
-};
 
+};
 
 
 /* ===== Helpers ===== */
@@ -1164,12 +1177,6 @@ resetBtn.addEventListener('click', (e) => {
   // 👉 und UI aktualisieren
   update();
 });
-
-
-
-
-
-
 
 
 
@@ -1246,162 +1253,169 @@ function getLageColor(code){
   ========================================================= */
 
 
+/* =========================================================
+   LAGE – 27 LAGECODES
+   P = in Bezugsrichtung
+   0 = neutral / offen / nicht eindeutig
+   N = entgegen der Bezugsrichtung
+
+   P und N sind Richtungsangaben und keine moralische Wertung.
+========================================================= */
+
 function interpretLage(code){
   const map = {
 
-         "PPP": {
-      name: "Positive Lage mit unterstützender Reaktion",
-      text: "Positives Ideal und positiv erlebte Realität treffen auf eine Reaktion, die diese Richtung unterstützt."
+    "PPP": {
+      name: "Gemeinsame Richtung mit entsprechender Positionierung",
+      text: "Gewünschte Ausrichtung, wahrgenommene Realität und eigene Positionierung weisen gemeinsam in Bezugsrichtung."
     },
-
-
-        "PNP": {
-      name: "Positive Spannungslage mit unterstützender Reaktion",
-      text: "Ein positives Ideal trifft auf eine belastend erlebte Realität. Deine Reaktion unterstützt weiterhin deine positive Ausrichtung."
-    },
-
-
 
     "PPN": {
-      name: "Positive Lage mit Gegenreaktion",
-      text: "Positives Ideal und positiv erlebte Realität treffen auf eine Reaktion, die in die Gegenrichtung weist."
+      name: "Gemeinsame Richtung mit Gegenposition",
+      text: "Gewünschte Ausrichtung und wahrgenommene Realität weisen gemeinsam in Bezugsrichtung. Deine eigene Positionierung weist dagegen entgegen der Bezugsrichtung."
+    },
+
+    "PNP": {
+      name: "Spannung zwischen Ausrichtung und Realität mit entsprechender Positionierung",
+      text: "Deine gewünschte Ausrichtung weist in Bezugsrichtung, während die wahrgenommene Realität entgegen der Bezugsrichtung weist. Deine eigene Positionierung entspricht deiner gewünschten Ausrichtung."
+    },
+
+    "PNN": {
+      name: "Spannung zwischen Ausrichtung und Realität mit realitätsnaher Gegenposition",
+      text: "Deine gewünschte Ausrichtung weist in Bezugsrichtung, während wahrgenommene Realität und eigene Positionierung entgegen der Bezugsrichtung weisen."
     },
 
 
-
-       "PNN": {
-      name: "Positive Spannungslage mit Gegenreaktion",
-      text: "Ein positives Ideal trifft auf eine belastend erlebte Realität. Deine Reaktion weist zusätzlich in die Gegenrichtung."
+    "NPP": {
+      name: "Gegenläufiges Ideal bei gemeinsamer Richtung von Realität und Positionierung",
+      text: "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung. Wahrgenommene Realität und eigene Positionierung weisen dagegen in Bezugsrichtung."
     },
-
-
-       "NPP": {
-      name: "Problematische Ausrichtung mit unterstützender Reaktion",
-      text: "Eine problematische innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion unterstützt diese Ausrichtung."
-    },
-
 
     "NPN": {
-      name: "Negatives Ideal mit schwachem Rückgrat",
-      text: "Eine negative Grundausrichtung ist da, wird aber eher ausweichend, unsicher oder indirekt gelebt."
+      name: "Spannung zwischen Ideal und Realität mit idealnaher Positionierung",
+      text: "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung, während die wahrgenommene Realität in Bezugsrichtung weist. Deine eigene Positionierung entspricht deiner gewünschten Ausrichtung."
     },
 
     "NNP": {
-      name: "Problematische Spannungslage mit unterstützender Reaktion",
-      text: "Eine problematische innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion unterstützt diese Ausrichtung."
+      name: "Gemeinsame Gegenrichtung mit Gegenposition",
+      text: "Gewünschte Ausrichtung und wahrgenommene Realität weisen gemeinsam entgegen der Bezugsrichtung. Deine eigene Positionierung weist dagegen in Bezugsrichtung."
     },
-
 
     "NNN": {
-      name: "Problematische Spannungslage mit Gegenreaktion",
-      text: "Eine problematische innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion weist in die Gegenrichtung."
+      name: "Gemeinsame Gegenrichtung mit entsprechender Positionierung",
+      text: "Gewünschte Ausrichtung, wahrgenommene Realität und eigene Positionierung weisen gemeinsam entgegen der Bezugsrichtung."
     },
 
-    
-      "PP0": {
-      name: "Positive Lage mit neutraler Reaktion",
-      text: "Positives Ideal und positiv erlebte Realität stimmen grundsätzlich überein. Deine Reaktion bleibt neutral oder abwartend."
-    },
 
+    "PP0": {
+      name: "Gemeinsame Richtung ohne klare Positionierung",
+      text: "Gewünschte Ausrichtung und wahrgenommene Realität weisen gemeinsam in Bezugsrichtung. Deine eigene Positionierung bleibt neutral oder offen."
+    },
 
     "P0P": {
-      name: "Positive Ausrichtung mit unterstützender Reaktion",
-      text: "Ein positives Ideal trifft auf eine neutral erlebte Realität. Deine Reaktion unterstützt deine positive Ausrichtung."
+      name: "Klare Ausrichtung bei offener Realität",
+      text: "Deine gewünschte Ausrichtung und deine eigene Positionierung weisen in Bezugsrichtung. Die wahrgenommene Realität bleibt neutral, offen oder nicht eindeutig."
     },
 
     "P00": {
-      name: "Positive Ausrichtung bei neutraler Lage",
-      text: "Ein positives Ideal ist vorhanden, während Realität und Reaktion momentan neutral bleiben."
+      name: "Ausrichtung bei offener Lage",
+      text: "Deine gewünschte Ausrichtung weist in Bezugsrichtung. Wahrgenommene Realität und eigene Positionierung bleiben neutral oder offen."
     },
 
-"P0N": {
-      name: "Positive Ausrichtung mit Gegenreaktion",
-      text: "Ein positives Ideal trifft auf eine neutral erlebte Realität. Deine Reaktion weist jedoch in die Gegenrichtung."
+    "P0N": {
+      name: "Ausrichtung mit Gegenposition bei offener Realität",
+      text: "Deine gewünschte Ausrichtung weist in Bezugsrichtung. Die wahrgenommene Realität bleibt neutral oder offen, während deine eigene Positionierung entgegen der Bezugsrichtung weist."
     },
 
     "PN0": {
-      name: "Positive Spannungslage mit neutraler Reaktion",
-      text: "Ein positives Ideal trifft auf eine belastend erlebte Realität. Deine Reaktion bleibt momentan neutral oder abwartend."
-    },
-
-    "0PP": {
-      name: "Unklare Ausrichtung bei positiver Realität",
-      text: "Keine klare innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion weist in die Plus-Richtung."
-    },
-
-"0P0": {
-      name: "Unklare Ausrichtung bei positiver Realität",
-      text: "Keine klare innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion bleibt neutral."
-    },
-
-    "0PN": {
-      name: "Unklare Ausrichtung mit Gegenreaktion",
-      text: "Keine klare innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion weist in die Minus-Richtung."
-    },
-
-"00P": {
-      name: "Neutrale Lage mit positiver Reaktion",
-      text: "Ideal und Realität sind neutral. Deine Reaktion weist erkennbar in die Plus-Richtung."
-    },
-
-    "000": {
-      name: "Neutrale Lage",
-      text: "Ideal, Realität und Reaktion liegen momentan im neutralen Bereich."
-    },
-
-    "00N": {
-      name: "Neutrale Lage mit negativer Reaktion",
-      text: "Ideal und Realität sind neutral. Deine Reaktion weist erkennbar in die Minus-Richtung."
-    },
-
-"0NP": {
-      name: "Unklare Ausrichtung bei belastender Realität",
-      text: "Keine klare innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion weist in die Plus-Richtung."
-    },
-
-    "0N0": {
-      name: "Unklare Ausrichtung bei belastender Realität",
-      text: "Keine klare innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion bleibt neutral oder abwartend."
-    },
-
-    "0NN": {
-      name: "Unklare Ausrichtung mit negativer Reaktion",
-      text: "Keine klare innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion weist in die Minus-Richtung."
+      name: "Spannung zwischen Ausrichtung und Realität ohne klare Positionierung",
+      text: "Deine gewünschte Ausrichtung weist in Bezugsrichtung und die wahrgenommene Realität entgegen der Bezugsrichtung. Deine eigene Positionierung bleibt neutral oder offen."
     },
 
 
     "NP0": {
-      name: "Problematische Ausrichtung mit neutraler Reaktion",
-      text: "Eine problematische innere Ausrichtung trifft auf eine positiv erlebte Realität. Deine Reaktion bleibt neutral oder abwartend."
+      name: "Gegenläufiges Ideal bei gerichteter Realität",
+      text: "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung, während die wahrgenommene Realität in Bezugsrichtung weist. Deine eigene Positionierung bleibt neutral oder offen."
     },
 
-"N0P": {
-  name: "Negatives Ideal mit Aktivität",
-  text: "Eine negative Grundausrichtung trifft auf neutrale Realität und wird aktiv umgesetzt."
-},
-
-"N00": {
-      name: "Problematische Ausrichtung mit neutraler Reaktion",
-      text: "Eine problematische innere Ausrichtung ist vorhanden, während Realität und Reaktion momentan neutral bleiben."
+    "N0P": {
+      name: "Gegenläufiges Ideal mit Gegenposition bei offener Realität",
+      text: "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung. Die wahrgenommene Realität bleibt neutral oder offen, während deine eigene Positionierung in Bezugsrichtung weist."
     },
 
-"N0N": {
-      name: "Problematische Ausrichtung mit Gegenreaktion",
-      text: "Eine problematische innere Ausrichtung trifft auf eine neutral erlebte Realität. Deine Reaktion weist in die Gegenrichtung."
+    "N00": {
+      name: "Gegenläufiges Ideal bei offener Lage",
+      text: "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung. Wahrgenommene Realität und eigene Positionierung bleiben neutral oder offen."
+    },
+
+    "N0N": {
+      name: "Gegenläufiges Ideal mit entsprechender Positionierung",
+      text: "Deine gewünschte Ausrichtung und deine eigene Positionierung weisen entgegen der Bezugsrichtung. Die wahrgenommene Realität bleibt neutral oder offen."
     },
 
     "NN0": {
-      name: "Problematische Spannungslage mit neutraler Reaktion",
-      text: "Eine problematische innere Ausrichtung trifft auf eine belastend erlebte Realität. Deine Reaktion bleibt neutral oder abwartend."
+      name: "Gemeinsame Gegenrichtung ohne klare Positionierung",
+      text: "Gewünschte Ausrichtung und wahrgenommene Realität weisen gemeinsam entgegen der Bezugsrichtung. Deine eigene Positionierung bleibt neutral oder offen."
+    },
+
+
+    "0PP": {
+      name: "Offenes Ideal bei gerichteter Realität und Positionierung",
+      text: "Deine gewünschte Ausrichtung bleibt neutral oder offen. Wahrgenommene Realität und eigene Positionierung weisen gemeinsam in Bezugsrichtung."
+    },
+
+    "0P0": {
+      name: "Offenes Ideal bei gerichteter Realität",
+      text: "Deine gewünschte Ausrichtung bleibt neutral oder offen. Die wahrgenommene Realität weist in Bezugsrichtung, während deine eigene Positionierung neutral oder offen bleibt."
+    },
+
+    "0PN": {
+      name: "Offenes Ideal mit Gegenposition zur Realität",
+      text: "Deine gewünschte Ausrichtung bleibt neutral oder offen. Die wahrgenommene Realität weist in Bezugsrichtung, während deine eigene Positionierung entgegen der Bezugsrichtung weist."
+    },
+
+
+    "00P": {
+      name: "Offene Lage mit gerichteter Positionierung",
+      text: "Gewünschte Ausrichtung und wahrgenommene Realität bleiben neutral oder offen. Deine eigene Positionierung weist in Bezugsrichtung."
+    },
+
+    "000": {
+      name: "Offene Gesamtlage",
+      text: "Gewünschte Ausrichtung, wahrgenommene Realität und eigene Positionierung bleiben neutral, offen oder nicht eindeutig."
+    },
+
+    "00N": {
+      name: "Offene Lage mit Gegenposition",
+      text: "Gewünschte Ausrichtung und wahrgenommene Realität bleiben neutral oder offen. Deine eigene Positionierung weist entgegen der Bezugsrichtung."
+    },
+
+
+    "0NP": {
+      name: "Offenes Ideal mit Gegenbewegung zur Realität",
+      text: "Deine gewünschte Ausrichtung bleibt neutral oder offen. Die wahrgenommene Realität weist entgegen der Bezugsrichtung, während deine eigene Positionierung in Bezugsrichtung weist."
+    },
+
+    "0N0": {
+      name: "Offenes Ideal bei gegenläufiger Realität",
+      text: "Deine gewünschte Ausrichtung bleibt neutral oder offen. Die wahrgenommene Realität weist entgegen der Bezugsrichtung, während deine eigene Positionierung neutral oder offen bleibt."
+    },
+
+    "0NN": {
+      name: "Offenes Ideal bei gemeinsamer Gegenrichtung",
+      text: "Deine gewünschte Ausrichtung bleibt neutral oder offen. Wahrgenommene Realität und eigene Positionierung weisen gemeinsam entgegen der Bezugsrichtung."
     }
 
   };
 
   return map[code] || {
-    name: "Gemischte Lage",
-    text: "Uneindeutige Kombination"
+    name: "Nicht eindeutig zugeordnet",
+    text: "Für diese Konstellation liegt keine eindeutige Lagebeschreibung vor."
   };
 }
+
+
+
 
 
 
@@ -1933,65 +1947,65 @@ if (lageCode === "NPP") {
 
   if (spannung === 0) {
     if (kraft >= 8) {
-      category = "Stark negativ ausgerichtet";
-      effect = "Ideal und Realität stimmen auf der Skala überein. Gleichzeitig setzt du deine negative Ausrichtung mit hoher Intensität um.";
+      category = "Stark in Bezugsrichtung positioniert";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität stimmen auf der Skala überein. Deine eigene Positionierung weist mit hoher Intensität in Bezugsrichtung.";
     } else {
-      category = "Negativ ausgerichtet";
-      effect = "Ideal und Realität stimmen auf der Skala überein und deine Umsetzung folgt deiner negativen Ausrichtung.";
+      category = "In Bezugsrichtung positioniert";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität stimmen auf der Skala überein. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
   }
 
   else if (spannung < 0) {
     if (s <= 4) {
-      category = "Leicht negativ gegenläufig";
-      effect = "Deine Ausrichtung ist negativ, während du die Realität positiv erlebst. Deine Umsetzung folgt leicht dieser negativen Ausrichtung.";
+      category = "Leicht gegenläufig";
+      effect = "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung, während die wahrgenommene Realität in Bezugsrichtung weist. Deine eigene Positionierung folgt leicht der wahrgenommenen Realität.";
     }
     else if (s <= 9) {
-      category = "Negativ gegenläufig";
-      effect = "Zwischen deiner negativen Ausrichtung und der positiv erlebten Realität besteht eine erkennbare Differenz. Deine Umsetzung folgt deiner Ausrichtung.";
+      category = "Gegenläufig";
+      effect = "Zwischen deiner gewünschten Ausrichtung und der wahrgenommenen Realität besteht eine erkennbare Richtungsdifferenz. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 14) {
-      category = "Klar negativ gegenläufig";
-      effect = "Die positiv erlebte Realität unterscheidet sich deutlich von deiner negativen Ausrichtung, die du zugleich umsetzt.";
+      category = "Klar gegenläufig";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen klar in unterschiedliche Richtungen. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 29) {
-      category = "Deutlich negativ gegenläufig";
-      effect = "Zwischen negativer Ausrichtung und positiver Realität besteht eine deutliche Spannung. Deine Umsetzung folgt weiterhin deiner Ausrichtung.";
+      category = "Deutlich gegenläufig";
+      effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht eine deutliche Richtungsdifferenz. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 49) {
-      category = "Stark negativ gegenläufig";
-      effect = "Die wirksame Differenz zwischen negativer Ausrichtung und positiver Realität ist groß. Deine Umsetzung bleibt negativ gerichtet.";
+      category = "Stark gegenläufig";
+      effect = "Die wirksame Differenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist groß. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 64) {
-      category = "Sehr stark negativ gegenläufig";
-      effect = "Deine negative Ausrichtung steht einer deutlich positiv erlebten Realität gegenüber und wird mit hoher Intensität umgesetzt.";
+      category = "Sehr stark gegenläufig";
+      effect = "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung, während Realität und eigene Positionierung deutlich in Bezugsrichtung weisen.";
     }
     else if (s <= 79) {
-      category = "Intensiv negativ gegenläufig";
-      effect = "Die Gegenläufigkeit zwischen negativer Ausrichtung und positiver Realität ist sehr stark ausgeprägt.";
+      category = "Intensiv gegenläufig";
+      effect = "Die Gegenläufigkeit zwischen gewünschter Ausrichtung und wahrgenommener Realität ist sehr stark ausgeprägt. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else {
-      category = "Extrem negativ gegenläufig";
-      effect = "Negative Ausrichtung und positiv erlebte Realität liegen außergewöhnlich weit auseinander, während deine Umsetzung der negativen Ausrichtung folgt.";
+      category = "Extrem gegenläufig";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen außergewöhnlich weit in unterschiedlichen Richtungen. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
   }
 
   else {
     if (s <= 10) {
       category = "Leicht ausrichtungsseitig";
-      effect = "Deine negative Ausrichtung liegt auf der Skala über der Realität. Prüfe, wie diese Differenz zu deiner Umsetzung passt.";
+      effect = "Deine gewünschte Ausrichtung liegt auf der Skala über der wahrgenommenen Realität. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 30) {
       category = "Deutlich ausrichtungsseitig";
-      effect = "Zwischen deiner negativen Ausrichtung und der Realität besteht eine deutliche Differenz. Deine Umsetzung folgt weiterhin deiner Ausrichtung.";
+      effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht eine deutliche Differenz. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else {
       category = "Stark ausrichtungsseitig";
-      effect = "Deine negative Ausrichtung liegt deutlich über der Realität. Prüfe, ob diese Ausrichtung die Situation noch passend abbildet.";
+      effect = "Deine gewünschte Ausrichtung liegt auf der Skala deutlich über der wahrgenommenen Realität. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
   }
 
-  lageText = "Ideal: negativ, Realität: positiv, Rückgrat: positiv";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: in Bezugsrichtung, Rückgrat: in Bezugsrichtung";
 }
 
 
@@ -2010,43 +2024,43 @@ if (lageCode === "NPN") {
   const s = Math.abs(H);
   const kraft = Math.abs(G);
 
-  lageText = "Ideal: negativ, Realität: positiv, Rückgrat: negativ";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: in Bezugsrichtung, Rückgrat: entgegen der Bezugsrichtung";
 
   if (s <= 4) {
-    category = "Leichte Korrekturbewegung";
-    effect = "Deine Reaktion weist leicht gegen deine eigene negative Ausrichtung, während du die Realität positiv erlebst.";
+    category = "Leichte Spannungswirkung";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung weisen entgegen der Bezugsrichtung, während die wahrgenommene Realität in Bezugsrichtung weist. Die daraus entstehende Wirkung ist gering.";
   }
   else if (s <= 9) {
-    category = "Erkennbare Korrekturbewegung";
-    effect = "Du reagierst erkennbar gegen deine negative Ausrichtung. Die positiv erlebte Realität kann dabei Anlass zur Neubewertung geben.";
+    category = "Erkennbare Spannungswirkung";
+    effect = "Zwischen deiner gewünschten Ausrichtung und der wahrgenommenen Realität besteht eine erkennbare Richtungsdifferenz. Deine eigene Positionierung folgt deiner gewünschten Ausrichtung.";
   }
   else if (s <= 14) {
-    category = "Klare Korrekturbewegung";
-    effect = "Deine Reaktion weist klar gegen deine negative Ausrichtung und damit in eine andere Richtung als dein bisheriges Ideal.";
+    category = "Klare Spannungswirkung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen klar in unterschiedliche Richtungen. Deine eigene Positionierung entspricht deiner gewünschten Ausrichtung.";
   }
   else if (s <= 29) {
-    category = "Deutliche Korrekturbewegung";
-    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist deutlich ausgeprägt. Prüfe, welche neue Richtung sich daraus entwickelt.";
+    category = "Deutliche Spannungswirkung";
+    effect = "Die Richtungsdifferenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist deutlich ausgeprägt. Deine eigene Positionierung folgt der gewünschten Ausrichtung.";
   }
   else if (s <= 49) {
-    category = "Starke Korrekturbewegung";
-    effect = "Du reagierst stark gegen deine negative Ausrichtung, während die Realität positiv erlebt wird.";
+    category = "Starke Spannungswirkung";
+    effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht eine große Richtungsdifferenz. Deine eigene Positionierung entspricht dabei deiner gewünschten Ausrichtung.";
   }
   else if (s <= 79) {
-    category = "Sehr starke Korrekturbewegung";
-    effect = "Die Gegenbewegung zu deiner bisherigen negativen Ausrichtung ist sehr deutlich ausgeprägt.";
+    category = "Sehr starke Spannungswirkung";
+    effect = "Die Gegenläufigkeit zwischen gewünschter Ausrichtung und wahrgenommener Realität ist sehr stark ausgeprägt. Deine eigene Positionierung folgt der gewünschten Ausrichtung.";
   }
   else if (s <= 119) {
-    category = "Intensive Korrekturbewegung";
-    effect = "Deine Reaktion weist mit hoher Intensität gegen deine negative Ausrichtung. Eine bewusste Neubewertung deiner Richtung kann sinnvoll sein.";
+    category = "Intensive Spannungswirkung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen weit auseinander. Deine eigene Positionierung verstärkt die Wirkung dieser Differenz.";
   }
   else if (s <= 159) {
-    category = "Sehr intensive Korrekturbewegung";
-    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist außergewöhnlich stark ausgeprägt.";
+    category = "Sehr intensive Spannungswirkung";
+    effect = "Die Richtungsdifferenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist außergewöhnlich stark ausgeprägt und wird durch deine Positionierung deutlich wirksam.";
   }
   else {
-    category = "Maximale Korrekturbewegung";
-    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung erreicht innerhalb dieses Modells eine maximale Intensität.";
+    category = "Maximale Spannungswirkung";
+    effect = "Die Richtungsdifferenz zwischen gewünschter Ausrichtung und wahrgenommener Realität erreicht innerhalb dieses Modells eine maximale Wirkung.";
   }
 }
 
@@ -2069,65 +2083,65 @@ if (lageCode === "NNP") {
 
   if (spannung === 0) {
     if (kraft >= 8) {
-      category = "Stark negativ übereinstimmend";
-      effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein. Deine Umsetzung folgt dieser Ausrichtung mit hoher Intensität.";
+      category = "Starke Gegenposition bei gemeinsamer Gegenrichtung";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität stimmen entgegen der Bezugsrichtung überein. Deine eigene Positionierung weist mit hoher Intensität in Bezugsrichtung.";
     } else {
-      category = "Negativ übereinstimmend";
-      effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein und deine Umsetzung folgt dieser Richtung.";
+      category = "Gegenposition bei gemeinsamer Gegenrichtung";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität stimmen entgegen der Bezugsrichtung überein. Deine eigene Positionierung weist dagegen in Bezugsrichtung.";
     }
   }
 
   else if (spannung < 0) {
     if (s <= 4) {
-      category = "Leicht negativ verstärkend";
-      effect = "Deine Umsetzung folgt deiner negativen Ausrichtung bei einer leicht abweichenden negativ erlebten Realität.";
+      category = "Leichte Gegenposition";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen entgegen der Bezugsrichtung, während deine eigene Positionierung leicht in Bezugsrichtung weist.";
     }
     else if (s <= 9) {
-      category = "Negativ verstärkend";
-      effect = "Deine Umsetzung folgt der negativen Ausrichtung bei erkennbarer Spannung zur negativ erlebten Realität.";
+      category = "Erkennbare Gegenposition";
+      effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht eine erkennbare Differenz. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 14) {
-      category = "Klar negativ verstärkend";
-      effect = "Die negative Ausrichtung wird bei deutlicher Differenz zur Realität klar umgesetzt.";
+      category = "Klare Gegenposition";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität unterscheiden sich deutlich. Deine eigene Positionierung weist klar in Bezugsrichtung.";
     }
     else if (s <= 29) {
-      category = "Deutlich negativ verstärkend";
-      effect = "Deine Umsetzung folgt deutlich deiner negativen Ausrichtung. Prüfe, welche Wirkung diese Richtung auf die Situation hat.";
+      category = "Deutliche Gegenposition";
+      effect = "Die Differenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist deutlich ausgeprägt. Deine eigene Positionierung weist dabei in Bezugsrichtung.";
     }
     else if (s <= 49) {
-      category = "Stark negativ verstärkend";
-      effect = "Die negative Umsetzungsrichtung ist bei großer wirksamer Spannung stark ausgeprägt.";
+      category = "Starke Gegenposition";
+      effect = "Bei großer wirksamer Differenz zwischen gewünschter Ausrichtung und wahrgenommener Realität weist deine eigene Positionierung deutlich in Bezugsrichtung.";
     }
     else if (s <= 64) {
-      category = "Sehr stark negativ verstärkend";
-      effect = "Deine Umsetzung folgt deiner negativen Ausrichtung mit hoher Intensität.";
+      category = "Sehr starke Gegenposition";
+      effect = "Deine eigene Positionierung weist mit hoher Intensität in Bezugsrichtung, während Ideal und Realität entgegen der Bezugsrichtung liegen.";
     }
     else if (s <= 79) {
-      category = "Intensiv negativ verstärkend";
-      effect = "Die negative Ausrichtung wird bei sehr großer wirksamer Spannung intensiv umgesetzt.";
+      category = "Intensive Gegenposition";
+      effect = "Die Gegenposition zu der entgegen der Bezugsrichtung gerichteten Ausrichtung ist bei sehr großer wirksamer Differenz intensiv ausgeprägt.";
     }
     else {
-      category = "Extrem negativ verstärkend";
-      effect = "Die Umsetzung deiner negativen Ausrichtung erreicht bei außergewöhnlich großer wirksamer Spannung eine sehr hohe Intensität.";
+      category = "Extreme Gegenposition";
+      effect = "Deine eigene Positionierung in Bezugsrichtung erreicht bei außergewöhnlich großer wirksamer Differenz eine sehr hohe Intensität.";
     }
   }
 
   else {
     if (s <= 10) {
       category = "Leicht gegenläufig";
-      effect = "Zwischen deiner negativen Ausrichtung und der negativ erlebten Realität besteht eine gegenläufige Differenz.";
+      effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht innerhalb der gemeinsamen Gegenrichtung eine leichte Differenz. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 30) {
       category = "Deutlich gegenläufig";
-      effect = "Ausrichtung und Realität unterscheiden sich deutlich innerhalb des negativen Bereichs.";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität unterscheiden sich deutlich innerhalb ihrer gemeinsamen Gegenrichtung. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else {
       category = "Stark gegenläufig";
-      effect = "Zwischen deiner negativen Ausrichtung und der negativ erlebten Realität besteht eine große gegenläufige Differenz.";
+      effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht innerhalb ihrer gemeinsamen Gegenrichtung eine große Differenz. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
   }
 
-  lageText = "Ideal: negativ, Realität: negativ, Rückgrat: positiv";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: entgegen der Bezugsrichtung, Rückgrat: in Bezugsrichtung";
 }
 
 
@@ -2149,65 +2163,65 @@ if (lageCode === "NNN") {
 
   if (spannung === 0) {
     if (kraft >= 8) {
-      category = "Starke Gegenbewegung zur negativen Ausrichtung";
-      effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein. Gleichzeitig reagierst du stark gegen deine eigene negative Ausrichtung.";
+      category = "Starke gemeinsame Gegenrichtung";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität stimmen entgegen der Bezugsrichtung überein. Deine eigene Positionierung folgt dieser Richtung mit hoher Intensität.";
     } else {
-      category = "Gegenbewegung zur negativen Ausrichtung";
-      effect = "Negative Ausrichtung und Realität stimmen auf der Skala überein, während deine Reaktion gegen deine eigene Ausrichtung weist.";
+      category = "Gemeinsame Gegenrichtung";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität stimmen entgegen der Bezugsrichtung überein. Deine eigene Positionierung folgt ebenfalls dieser Richtung.";
     }
   }
 
   else if (spannung < 0) {
     if (s <= 4) {
-      category = "Leichte Korrekturbewegung";
-      effect = "Deine Reaktion weist leicht gegen deine negative Ausrichtung.";
+      category = "Leichte Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Alle drei Ebenen weisen entgegen der Bezugsrichtung. Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht dabei eine geringe Differenz.";
     }
     else if (s <= 9) {
-      category = "Erkennbare Korrekturbewegung";
-      effect = "Du reagierst erkennbar gegen deine eigene negative Ausrichtung.";
+      category = "Erkennbare Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Gewünschte Ausrichtung, wahrgenommene Realität und eigene Positionierung weisen entgegen der Bezugsrichtung. Die Differenz zwischen Ideal und Realität wird erkennbar wirksam.";
     }
     else if (s <= 14) {
-      category = "Klare Korrekturbewegung";
-      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist klar ausgeprägt.";
+      category = "Klare Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Alle drei Ebenen weisen entgegen der Bezugsrichtung. Die Differenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist klar ausgeprägt.";
     }
     else if (s <= 29) {
-      category = "Deutliche Korrekturbewegung";
-      effect = "Du reagierst deutlich gegen deine negative Ausrichtung. Prüfe, welche alternative Richtung daraus entstehen soll.";
+      category = "Deutliche Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität unterscheiden sich deutlich, obwohl beide entgegen der Bezugsrichtung weisen. Deine eigene Positionierung folgt dieser Gegenrichtung.";
     }
     else if (s <= 49) {
-      category = "Starke Korrekturbewegung";
-      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist stark ausgeprägt.";
+      category = "Starke Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Alle drei Ebenen weisen entgegen der Bezugsrichtung. Die wirksame Differenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist groß.";
     }
     else if (s <= 64) {
-      category = "Sehr starke Korrekturbewegung";
-      effect = "Du reagierst mit hoher Intensität gegen deine negative Ausrichtung.";
+      category = "Sehr starke Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Gewünschte Ausrichtung, wahrgenommene Realität und eigene Positionierung weisen deutlich entgegen der Bezugsrichtung. Die Differenz zwischen Ideal und Realität wird mit hoher Intensität wirksam.";
     }
     else if (s <= 79) {
-      category = "Intensive Korrekturbewegung";
-      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist bei großer wirksamer Spannung sehr deutlich.";
+      category = "Intensive Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Alle drei Ebenen weisen entgegen der Bezugsrichtung. Die wirksame Differenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist sehr stark ausgeprägt.";
     }
     else {
-      category = "Extreme Korrekturbewegung";
-      effect = "Die Gegenbewegung zu deiner negativen Ausrichtung erreicht eine außergewöhnlich hohe Intensität.";
+      category = "Extreme Spannungswirkung in gemeinsamer Gegenrichtung";
+      effect = "Gewünschte Ausrichtung, wahrgenommene Realität und eigene Positionierung weisen entgegen der Bezugsrichtung. Die daraus entstehende Spannungswirkung erreicht eine außergewöhnlich hohe Intensität.";
     }
   }
 
   else {
     if (s <= 10) {
-      category = "Leichte Gegenbewegung";
-      effect = "Deine Reaktion weist gegen deine negative Ausrichtung. Prüfe, welche Veränderung sich darin zeigt.";
+      category = "Leicht unterschiedliche Gegenrichtung";
+      effect = "Alle drei Ebenen weisen entgegen der Bezugsrichtung. Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht eine leichte Differenz.";
     }
     else if (s <= 30) {
-      category = "Deutliche Gegenbewegung";
-      effect = "Du reagierst deutlich gegen deine bisherige negative Ausrichtung.";
+      category = "Deutlich unterschiedliche Gegenrichtung";
+      effect = "Gewünschte Ausrichtung und wahrgenommene Realität unterscheiden sich deutlich innerhalb ihrer gemeinsamen Gegenrichtung. Deine eigene Positionierung weist ebenfalls entgegen der Bezugsrichtung.";
     }
     else {
-      category = "Starke Gegenbewegung";
-      effect = "Die Reaktion gegen deine negative Ausrichtung ist stark ausgeprägt und kann Anlass für eine Neubewertung sein.";
+      category = "Stark unterschiedliche Gegenrichtung";
+      effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht innerhalb ihrer gemeinsamen Gegenrichtung eine große Differenz. Deine eigene Positionierung folgt ebenfalls der Gegenrichtung.";
     }
   }
 
-  lageText = "Ideal: negativ, Realität: negativ, Rückgrat: negativ";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: entgegen der Bezugsrichtung, Rückgrat: entgegen der Bezugsrichtung";
 }
 
 
@@ -2221,7 +2235,7 @@ if (lageCode === "NNN") {
 
 if (lageCode === "P0P") {
 
-  lageText = "Ideal: positiv, Realität: neutral, Rückgrat: positiv";
+  lageText = "Ideal: in Bezugsrichtung, Realität: neutral / offen, Rückgrat: in Bezugsrichtung";
 
   const spannung = I - R;
   const H = spannung * G;
@@ -2230,85 +2244,84 @@ if (lageCode === "P0P") {
 
   if (spannung === 0) {
     if (kraft >= 8) {
-      category = "Stark positiv gerichtet";
-      effect = "Die Realität ist neutral bewertet, während deine Umsetzung deutlich positiv gerichtet ist.";
+      category = "Stark in Bezugsrichtung positioniert";
+      effect = "Die wahrgenommene Realität ist neutral oder offen, während deine eigene Positionierung mit hoher Intensität in Bezugsrichtung weist.";
     } else {
-      category = "Positiv gerichtet";
-      effect = "Die Realität ist neutral bewertet und deine Umsetzung weist in positive Richtung.";
+      category = "In Bezugsrichtung positioniert";
+      effect = "Die wahrgenommene Realität ist neutral oder offen, während deine eigene Positionierung in Bezugsrichtung weist.";
     }
   }
 
   else if (spannung > 0) {
     if (s <= 4) {
-      category = "Leicht initiierend";
-      effect = "Deine positive Ausrichtung unterscheidet sich leicht von der neutralen Realität und deine Umsetzung folgt dieser Richtung.";
+      category = "Leichte Spannungswirkung bei offener Realität";
+      effect = "Deine gewünschte Ausrichtung weist in Bezugsrichtung und unterscheidet sich leicht von der neutralen oder offenen Realität. Deine eigene Positionierung folgt deiner gewünschten Ausrichtung.";
     }
     else if (s <= 9) {
-      category = "Initiierend";
-      effect = "Du setzt deine positive Ausrichtung gegenüber der neutral bewerteten Realität erkennbar um.";
+      category = "Erkennbare Spannungswirkung bei offener Realität";
+      effect = "Zwischen deiner gewünschten Ausrichtung und der neutralen oder offenen Realität besteht eine erkennbare Differenz. Deine eigene Positionierung folgt deiner gewünschten Ausrichtung.";
     }
     else if (s <= 14) {
-      category = "Klar initiierend";
-      effect = "Die Umsetzung deiner positiven Ausrichtung ist klar erkennbar.";
+      category = "Klare Spannungswirkung bei offener Realität";
+      effect = "Deine gewünschte Ausrichtung und deine eigene Positionierung weisen klar in Bezugsrichtung, während die Realität neutral oder offen bleibt.";
     }
     else if (s <= 29) {
-      category = "Aktiv vorwärtsgerichtet";
-      effect = "Du setzt deine positive Ausrichtung gegenüber der neutralen Realität aktiv um.";
+      category = "Deutliche Spannungswirkung bei offener Realität";
+      effect = "Die Differenz zwischen deiner gewünschten Ausrichtung und der neutralen oder offenen Realität ist deutlich ausgeprägt. Deine eigene Positionierung folgt der gewünschten Ausrichtung.";
     }
     else if (s <= 49) {
-      category = "Stark vorwärtsgerichtet";
-      effect = "Deine Umsetzung folgt deiner positiven Ausrichtung mit deutlicher Intensität.";
+      category = "Starke Spannungswirkung bei offener Realität";
+      effect = "Deine gewünschte Ausrichtung und deine eigene Positionierung weisen deutlich in Bezugsrichtung. Die Differenz zur neutralen oder offenen Realität ist groß.";
     }
     else if (s <= 64) {
-      category = "Sehr stark vorwärtsgerichtet";
-      effect = "Die positive Umsetzungsrichtung ist bei großer wirksamer Spannung stark ausgeprägt.";
+      category = "Sehr starke Spannungswirkung bei offener Realität";
+      effect = "Die Differenz zwischen deiner gewünschten Ausrichtung und der neutralen oder offenen Realität wird durch deine Positionierung mit hoher Intensität wirksam.";
     }
     else if (s <= 79) {
-      category = "Intensiv vorwärtsgerichtet";
-      effect = "Du setzt deine positive Ausrichtung mit sehr hoher Intensität gegenüber der neutral bewerteten Realität um.";
+      category = "Intensive Spannungswirkung bei offener Realität";
+      effect = "Deine gewünschte Ausrichtung und deine eigene Positionierung weisen mit sehr hoher Intensität in Bezugsrichtung, während die Realität neutral oder offen bleibt.";
     }
     else {
-      category = "Extrem vorwärtsgerichtet";
-      effect = "Die Umsetzung deiner positiven Ausrichtung erreicht gegenüber der neutral bewerteten Realität eine außergewöhnlich hohe Intensität.";
+      category = "Extreme Spannungswirkung bei offener Realität";
+      effect = "Die Differenz zwischen deiner gewünschten Ausrichtung und der neutralen oder offenen Realität erreicht durch deine Positionierung eine außergewöhnlich hohe Wirkung.";
     }
   }
 
   else {
     if (s <= 4) {
-      category = "Leicht realitätsseitig";
-      effect = "Die Realität liegt auf der Skala leicht über deiner Ausrichtung. Prüfe die Passung deiner positiven Umsetzung.";
+      category = "Leicht realitätsseitige Differenz";
+      effect = "Die Realität liegt auf der Skala leicht über deiner gewünschten Ausrichtung. Deine eigene Positionierung weist weiterhin in Bezugsrichtung.";
     }
     else if (s <= 9) {
-      category = "Realitätsseitig";
-      effect = "Die Realität liegt über deiner Ausrichtung, während deine Umsetzung positiv gerichtet bleibt.";
+      category = "Realitätsseitige Differenz";
+      effect = "Die Realität liegt auf der Skala über deiner gewünschten Ausrichtung, während deine eigene Positionierung in Bezugsrichtung weist.";
     }
     else if (s <= 14) {
-      category = "Klar realitätsseitig";
-      effect = "Zwischen Realität und Ausrichtung besteht eine erkennbare Differenz.";
+      category = "Klare realitätsseitige Differenz";
+      effect = "Zwischen wahrgenommener Realität und gewünschter Ausrichtung besteht eine klare Differenz. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 29) {
-      category = "Deutlich realitätsseitig";
-      effect = "Die Realität liegt deutlich über deiner gesetzten Ausrichtung. Prüfe, ob diese Ausrichtung noch passend gewählt ist.";
+      category = "Deutliche realitätsseitige Differenz";
+      effect = "Die wahrgenommene Realität liegt deutlich über deiner gewünschten Ausrichtung. Deine eigene Positionierung weist weiterhin in Bezugsrichtung.";
     }
     else if (s <= 49) {
-      category = "Stark realitätsseitig";
-      effect = "Die Differenz zugunsten der Realität ist groß, während deine Umsetzung positiv gerichtet bleibt.";
+      category = "Starke realitätsseitige Differenz";
+      effect = "Die Differenz zwischen wahrgenommener Realität und gewünschter Ausrichtung ist groß. Deine eigene Positionierung weist in Bezugsrichtung.";
     }
     else if (s <= 64) {
-      category = "Sehr stark realitätsseitig";
-      effect = "Zwischen Realität und Ausrichtung besteht eine große wirksame Differenz.";
+      category = "Sehr starke realitätsseitige Differenz";
+      effect = "Zwischen wahrgenommener Realität und gewünschter Ausrichtung besteht eine große wirksame Differenz.";
     }
     else if (s <= 79) {
-      category = "Intensiv realitätsseitig";
-      effect = "Die Realität liegt sehr deutlich über deiner gesetzten Ausrichtung.";
+      category = "Intensive realitätsseitige Differenz";
+      effect = "Die wahrgenommene Realität liegt auf der Skala sehr deutlich über deiner gewünschten Ausrichtung.";
     }
     else {
-      category = "Extrem realitätsseitig";
-      effect = "Die wirksame Differenz zwischen Realität und deiner gesetzten Ausrichtung ist außergewöhnlich groß.";
+      category = "Extreme realitätsseitige Differenz";
+      effect = "Die wirksame Differenz zwischen wahrgenommener Realität und gewünschter Ausrichtung ist außergewöhnlich groß.";
     }
   }
 }
-
 
 
 //.............................................................................
@@ -2321,39 +2334,46 @@ if (lageCode === "P0P") {
 
 if (lageCode === "0P0") {
 
- let spannung = (I - R);
-     // immer negativ
+    let spannung = (I - R);
+    // immer negativ
     let s = Math.abs(spannung);         // 0–10
 
     if (s <= 2) {
-        category = "Leicht orientierungslos";
-        effect = "Du bist in einer guten Realität, aber ohne klares Ideal und Rückgrat bleibt Deine Wirkung gering";
+        category = "Leicht gerichtete Realität bei offener Ausrichtung";
+        effect = "Die wahrgenommene Realität weist leicht in Bezugsrichtung, während deine gewünschte Ausrichtung und deine eigene Positionierung offen oder neutral bleiben.";
 
     } else if (s <= 4) {
-        category = "Orientierungslos";
-        effect = "Du hast gute Bedingungen, aber ohne innere Richtung fehlt Dir klare Wirkung";
+        category = "Gerichtete Realität bei offener Ausrichtung";
+        effect = "Die wahrgenommene Realität weist erkennbar in Bezugsrichtung, während deine gewünschte Ausrichtung und deine eigene Positionierung offen oder neutral bleiben.";
 
     } else if (s <= 6) {
-        category = "Deutlich orientierungslos";
-        effect = "Du nutzt die gute Realität nicht, weil Dir Orientierung und Umsetzung fehlen";
+        category = "Deutlich gerichtete Realität bei offener Ausrichtung";
+        effect = "Die wahrgenommene Realität weist deutlich in Bezugsrichtung. Deine gewünschte Ausrichtung und deine eigene Positionierung bleiben offen oder neutral.";
 
     } else if (s <= 8) {
-        category = "Stark orientierungslos";
-        effect = "Du bleibst trotz guter Voraussetzungen deutlich unter Deinen Möglichkeiten";
+        category = "Stark gerichtete Realität bei offener Ausrichtung";
+        effect = "Die wahrgenommene Realität weist stark in Bezugsrichtung, während deine gewünschte Ausrichtung und deine eigene Positionierung offen oder neutral bleiben.";
 
     } else {
-        category = "Verloren im Positiven";
-        effect = "Du bist in einer sehr guten Realität, aber ohne Ideal und Rückgrat fehlt Dir komplett die Führung";
+        category = "Sehr stark gerichtete Realität bei offener Ausrichtung";
+        effect = "Die wahrgenommene Realität weist sehr stark in Bezugsrichtung. Deine gewünschte Ausrichtung und deine eigene Positionierung bleiben dabei offen oder neutral.";
     }
+
+    lageText = "Ideal: neutral / offen, Realität: in Bezugsrichtung, Rückgrat: neutral / offen";
 }
 
 
+
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //.............................................................................
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
 
 if (lageCode === "PP0") {
 
@@ -2447,43 +2467,51 @@ if (lageCode === "PP0") {
 }
 
 
+
+
+
 //.............................................................................
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
+
 
 
 if (lageCode === "PN0") {
 
-lageText = "Ideal: positiv, Realität: negativ, Rückgrat: neutral";
+lageText = "Ideal: in Bezugsrichtung, Realität: entgegen der Bezugsrichtung, Rückgrat: neutral / offen";
 
 // delta und spannung bereits global definiert
 // delta = Math.abs(I - R), Wertebereich: 2 bis 20
 
 if (delta <= 2) {
-    category = "Minimal gelähmt";
-    effect = "Ein positives Ideal trifft auf leichte Belastung, ohne Rückgrat entsteht kaum Bewegung.";
+    category = "Minimale offene Richtungsdifferenz";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen in unterschiedliche Richtungen. Die Differenz ist gering und deine eigene Positionierung bleibt neutral oder offen.";
 } else if (delta <= 4) {
-    category = "Leicht gelähmt";
-    effect = "Du siehst, was richtig wäre, kannst es aber unter leichtem Druck nicht umsetzen.";
+    category = "Leichte offene Richtungsdifferenz";
+    effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht eine leichte Gegenläufigkeit. Deine eigene Positionierung bleibt neutral oder offen.";
 } else if (delta <= 6) {
-    category = "Gelähmt";
-    effect = "Positives Ideal und negative Realität erzeugen Spannung, ohne Rückgrat bleibt sie ungelöst.";
+    category = "Offene Richtungsdifferenz";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen gegeneinander. Eine eigene gerichtete Positionierung zeigt sich aktuell nicht.";
 } else if (delta <= 8) {
-    category = "Spürbar gelähmt";
-    effect = "Der Druck der negativen Realität überwiegt – dein positives Ideal kommt nicht zum Tragen.";
+    category = "Spürbare offene Richtungsdifferenz";
+    effect = "Die Gegenläufigkeit zwischen gewünschter Ausrichtung und wahrgenommener Realität ist spürbar, während deine eigene Positionierung neutral oder offen bleibt.";
 } else if (delta <= 10) {
-    category = "Deutlich gelähmt";
-    effect = "Du weißt, was zu tun wäre – aber ohne Rückgrat bleibst du unter Druck handlungsunfähig.";
+    category = "Deutliche offene Richtungsdifferenz";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen deutlich in unterschiedlichen Richtungen. Deine eigene Positionierung bleibt offen.";
 } else if (delta <= 14) {
-    category = "Stark gelähmt";
-    effect = "Die Spannung zwischen positivem Ideal und negativer Realität ist hoch – ohne Rückgrat keine Auflösung.";
+    category = "Starke offene Richtungsdifferenz";
+    effect = "Die Richtungsdifferenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist stark ausgeprägt. Eine eigene gerichtete Positionierung zeigt sich nicht.";
 } else if (delta <= 18) {
-    category = "Massiv gelähmt";
-    effect = "Ein starkes positives Ideal trifft auf schwere Belastung, ohne Rückgrat ist keine Wirkung möglich.";
+    category = "Sehr starke offene Richtungsdifferenz";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen sehr weit auseinander, während deine eigene Positionierung neutral oder offen bleibt.";
 } else {
-    category = "Vollständig gelähmt";
-    effect = "Maximale Spannung zwischen Ideal und Realität, ohne Rückgrat ist jede Handlung blockiert.";
+    category = "Maximale offene Richtungsdifferenz";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen innerhalb des Modells nahezu maximal in entgegengesetzten Richtungen. Deine eigene Positionierung bleibt neutral oder offen.";
 }
 }
 
@@ -2498,36 +2526,36 @@ if (lageCode === "P0N") {
 // max 20
 
 if (delta <= 2) {
-    category = "Leicht festgehalten";
-    effect = "Du hast ein positives Ideal, gerätst unter Belastung aber nur leicht ins Stocken.";
+    category = "Leichte Gegenposition bei offener Realität";
+    effect = "Deine gewünschte Ausrichtung weist in Bezugsrichtung, während die Realität offen oder neutral ist und deine eigene Positionierung leicht entgegen der Bezugsrichtung weist.";
 
 } else if (delta <= 4) {
-    category = "Spürbar festgehalten";
-    effect = "Du hast eine gute Richtung, kommst aber nur schwer in Bewegung.";
+    category = "Erkennbare Gegenposition bei offener Realität";
+    effect = "Bei offener oder neutraler Realität unterscheiden sich gewünschte Ausrichtung und eigene Positionierung erkennbar in ihrer Richtung.";
 
 } else if (delta <= 6) {
-    category = "Festgehalten";
-    effect = "Du hast eine gute Richtung, kannst sie unter Druck aber nicht durchsetzen.";
+    category = "Klare Gegenposition bei offener Realität";
+    effect = "Deine gewünschte Ausrichtung weist in Bezugsrichtung, deine eigene Positionierung dagegen klar entgegen der Bezugsrichtung.";
 
 } else if (delta <= 8) {
-    category = "Deutlich festgehalten";
-    effect = "Du bleibst mit deiner positiven Ausrichtung unter Belastung spürbar stecken.";
+    category = "Deutliche Gegenposition bei offener Realität";
+    effect = "Bei offener oder neutraler Realität besteht eine deutliche Gegenläufigkeit zwischen gewünschter Ausrichtung und eigener Positionierung.";
 
 } else if (delta <= 10) {
-    category = "Stark festgehalten";
-    effect = "Du kannst deine gute Richtung unter negativer Realität kaum noch bewegen.";
+    category = "Starke Gegenposition bei offener Realität";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung weisen bei offener Realität deutlich in unterschiedliche Richtungen.";
 
 } else if (delta <= 14) {
-    category = "Blockiert";
-    effect = "Du hältst ein starkes Ideal, kommst aber praktisch nicht mehr voran.";
+    category = "Sehr starke Gegenposition bei offener Realität";
+    effect = "Die Gegenläufigkeit zwischen gewünschter Ausrichtung und eigener Positionierung ist bei offener oder neutraler Realität sehr stark ausgeprägt.";
 
 } else if (delta <= 18) {
-    category = "Tief blockiert";
-    effect = "Du bleibst mit deinem positiven Ideal unter Druck fast vollständig unbeweglich.";
+    category = "Intensive Gegenposition bei offener Realität";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung liegen bei offener Realität sehr weit in unterschiedlichen Richtungen.";
 
 } else {
-    category = "Erstarrt unter Druck";
-    effect = "Du bleibst mit deinem positiven Ideal unter maximaler Belastung vollständig blockiert.";
+    category = "Maximale Gegenposition bei offener Realität";
+    effect = "Die Gegenläufigkeit zwischen gewünschter Ausrichtung und eigener Positionierung erreicht bei offener oder neutraler Realität innerhalb dieses Modells eine maximale Ausprägung.";
 }
 
 }
@@ -2541,43 +2569,43 @@ if (delta <= 2) {
 
 if (lageCode === "0PP") {
 
-  lageText = "Ideal: neutral, Realität: positiv, Rückgrat: positiv";
+  lageText = "Ideal: neutral / offen, Realität: in Bezugsrichtung, Rückgrat: in Bezugsrichtung";
 
   const spannung = I - R;
   const H = spannung * G;
   const s = Math.abs(H);
 
   if (s <= 4) {
-    category = "Leicht positiv reagierend";
-    effect = "Bei neutraler eigener Ausrichtung erlebst du die Realität positiv und reagierst leicht in positive Richtung.";
+    category = "Leicht gemeinsame Bezugsrichtung";
+    effect = "Bei offener gewünschter Ausrichtung weisen wahrgenommene Realität und eigene Positionierung leicht gemeinsam in Bezugsrichtung.";
   }
   else if (s <= 9) {
-    category = "Positiv reagierend";
-    effect = "Bei neutraler Ausrichtung reagierst du erkennbar positiv auf die positiv erlebte Realität.";
+    category = "Gemeinsame Bezugsrichtung";
+    effect = "Bei offener gewünschter Ausrichtung weisen wahrgenommene Realität und eigene Positionierung erkennbar gemeinsam in Bezugsrichtung.";
   }
   else if (s <= 14) {
-    category = "Klar positiv reagierend";
-    effect = "Deine positive Reaktion auf die positiv erlebte Realität ist klar ausgeprägt.";
+    category = "Klare gemeinsame Bezugsrichtung";
+    effect = "Wahrgenommene Realität und eigene Positionierung weisen klar in Bezugsrichtung, während deine gewünschte Ausrichtung offen bleibt.";
   }
   else if (s <= 29) {
-    category = "Deutlich positiv reagierend";
-    effect = "Obwohl deine eigene Ausrichtung neutral ist, reagierst du deutlich positiv auf die aktuelle Realität.";
+    category = "Deutliche gemeinsame Bezugsrichtung";
+    effect = "Bei offener gewünschter Ausrichtung weisen Realität und eigene Positionierung deutlich gemeinsam in Bezugsrichtung.";
   }
   else if (s <= 49) {
-    category = "Stark positiv reagierend";
-    effect = "Deine Reaktion auf die positiv erlebte Realität ist stark positiv gerichtet.";
+    category = "Starke gemeinsame Bezugsrichtung";
+    effect = "Wahrgenommene Realität und eigene Positionierung weisen stark gemeinsam in Bezugsrichtung.";
   }
   else if (s <= 64) {
-    category = "Sehr stark positiv reagierend";
-    effect = "Bei neutraler Ausrichtung reagierst du mit hoher Intensität positiv auf die Realität.";
+    category = "Sehr starke gemeinsame Bezugsrichtung";
+    effect = "Bei offener gewünschter Ausrichtung weisen Realität und eigene Positionierung mit hoher Intensität gemeinsam in Bezugsrichtung.";
   }
   else if (s <= 79) {
-    category = "Intensiv positiv reagierend";
-    effect = "Die positive Reaktionsrichtung ist bei neutraler eigener Ausrichtung sehr stark ausgeprägt.";
+    category = "Intensive gemeinsame Bezugsrichtung";
+    effect = "Die gemeinsame Richtung von wahrgenommener Realität und eigener Positionierung ist sehr stark ausgeprägt.";
   }
   else {
-    category = "Extrem positiv reagierend";
-    effect = "Deine positive Reaktion auf die positiv erlebte Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
+    category = "Extreme gemeinsame Bezugsrichtung";
+    effect = "Die gemeinsame Ausrichtung von wahrgenommener Realität und eigener Positionierung in Bezugsrichtung erreicht eine außergewöhnlich hohe Intensität.";
   }
 }
 
@@ -2591,43 +2619,43 @@ if (lageCode === "0PP") {
 
 if (lageCode === "0PN") {
 
-  lageText = "Ideal: neutral, Realität: positiv, Rückgrat: negativ";
+  lageText = "Ideal: neutral / offen, Realität: in Bezugsrichtung, Rückgrat: entgegen der Bezugsrichtung";
 
   const spannung = I - R;
   const H = spannung * G;
   const s = Math.abs(H);
 
   if (s <= 4) {
-    category = "Leicht negativ reagierend";
-    effect = "Bei neutraler eigener Ausrichtung erlebst du die Realität positiv, reagierst jedoch leicht in negative Richtung.";
+    category = "Leichte Gegenposition zur Realität";
+    effect = "Bei offener gewünschter Ausrichtung weist die Realität in Bezugsrichtung, während deine eigene Positionierung leicht entgegen der Bezugsrichtung weist.";
   }
   else if (s <= 9) {
-    category = "Negativ reagierend";
-    effect = "Deine Reaktion weist bei positiv erlebter Realität in negative Richtung. Prüfe, wodurch diese Gegenrichtung entsteht.";
+    category = "Gegenposition zur Realität";
+    effect = "Bei offener gewünschter Ausrichtung weisen wahrgenommene Realität und eigene Positionierung erkennbar in unterschiedliche Richtungen.";
   }
   else if (s <= 14) {
-    category = "Klar negativ reagierend";
-    effect = "Die negative Reaktionsrichtung gegenüber der positiv erlebten Realität ist klar erkennbar.";
+    category = "Klare Gegenposition zur Realität";
+    effect = "Die wahrgenommene Realität weist in Bezugsrichtung, während deine eigene Positionierung klar entgegen der Bezugsrichtung weist.";
   }
   else if (s <= 29) {
-    category = "Deutlich negativ reagierend";
-    effect = "Bei neutraler eigener Ausrichtung reagierst du deutlich negativ auf eine positiv erlebte Realität.";
+    category = "Deutliche Gegenposition zur Realität";
+    effect = "Bei offener gewünschter Ausrichtung besteht eine deutliche Gegenläufigkeit zwischen Realität und eigener Positionierung.";
   }
   else if (s <= 49) {
-    category = "Stark negativ reagierend";
-    effect = "Die negative Reaktionsrichtung gegenüber der positiv erlebten Realität ist stark ausgeprägt.";
+    category = "Starke Gegenposition zur Realität";
+    effect = "Wahrgenommene Realität und eigene Positionierung weisen stark in unterschiedliche Richtungen.";
   }
   else if (s <= 64) {
-    category = "Sehr stark negativ reagierend";
-    effect = "Du reagierst mit hoher Intensität negativ auf die positiv erlebte Realität. Prüfe diese Gegenläufigkeit bewusst.";
+    category = "Sehr starke Gegenposition zur Realität";
+    effect = "Die Gegenläufigkeit zwischen wahrgenommener Realität und eigener Positionierung ist sehr stark ausgeprägt.";
   }
   else if (s <= 79) {
-    category = "Intensiv negativ reagierend";
-    effect = "Die negative Reaktionsrichtung bei positiv erlebter Realität ist sehr stark ausgeprägt.";
+    category = "Intensive Gegenposition zur Realität";
+    effect = "Bei offener gewünschter Ausrichtung ist die Gegenposition zur wahrgenommenen Realität mit sehr hoher Intensität ausgeprägt.";
   }
   else {
-    category = "Extrem negativ reagierend";
-    effect = "Die negative Reaktionsrichtung gegenüber der positiv erlebten Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
+    category = "Extreme Gegenposition zur Realität";
+    effect = "Die Gegenläufigkeit zwischen wahrgenommener Realität und eigener Positionierung erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
   }
 }
 
@@ -2641,10 +2669,10 @@ if (lageCode === "0PN") {
 
 if (lageCode === "00P") {
 
-  lageText = "Ideal: neutral, Realität: neutral, Rückgrat: positiv";
+  lageText = "Ideal: neutral / offen, Realität: neutral / offen, Rückgrat: in Bezugsrichtung";
 
-  category = "Positive Reaktionsbereitschaft bei neutraler Lage";
-  effect = "Ideal und Realität sind neutral bewertet. Deine Reaktionsrichtung ist positiv, ohne dass daraus in dieser Konstellation eine Spannung zwischen Ideal und Realität entsteht.";
+  category = "Positionierung bei offener Lage";
+  effect = "Gewünschte Ausrichtung und wahrgenommene Realität sind neutral oder offen. Deine eigene Positionierung weist in Bezugsrichtung, ohne dass daraus eine Differenz zwischen Ideal und Realität entsteht.";
 }
 
 
@@ -2652,6 +2680,8 @@ if (lageCode === "00P") {
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
 
 
 //.............................................................................
@@ -2662,11 +2692,14 @@ if (lageCode === "00P") {
 
 if (lageCode === "00N") {
 
-  lageText = "Ideal: neutral, Realität: neutral, Rückgrat: negativ";
+  lageText = "Ideal: neutral / offen, Realität: neutral / offen, Rückgrat: entgegen der Bezugsrichtung";
 
-  category = "Negative Reaktionsrichtung bei neutraler Lage";
-  effect = "Ideal und Realität sind neutral bewertet. Deine Reaktionsrichtung ist negativ, ohne dass daraus in dieser Konstellation eine Spannung zwischen Ideal und Realität entsteht.";
+  category = "Gegenpositionierung bei offener Lage";
+  effect = "Gewünschte Ausrichtung und wahrgenommene Realität sind neutral oder offen. Deine eigene Positionierung weist entgegen der Bezugsrichtung, ohne dass daraus eine Differenz zwischen Ideal und Realität entsteht.";
 }
+
+
+
 
 //.............................................................................
 //.............................................................................
@@ -2676,45 +2709,46 @@ if (lageCode === "00N") {
 
 if (lageCode === "0NP") {
 
-  lageText = "Ideal: neutral, Realität: negativ, Rückgrat: positiv";
+  lageText = "Ideal: neutral / offen, Realität: entgegen der Bezugsrichtung, Rückgrat: in Bezugsrichtung";
 
   const spannung = I - R;
   const H = spannung * G;
   const s = Math.abs(H);
 
   if (s <= 4) {
-    category = "Leicht positiv reagierend";
-    effect = "Bei neutraler eigener Ausrichtung reagierst du leicht positiv auf die negativ erlebte Realität.";
+    category = "Leichte Gegenposition zur Realität";
+    effect = "Bei offener gewünschter Ausrichtung weist die Realität entgegen der Bezugsrichtung, während deine eigene Positionierung leicht in Bezugsrichtung weist.";
   }
   else if (s <= 9) {
-    category = "Positiv reagierend";
-    effect = "Deine Reaktion auf die negativ erlebte Realität weist erkennbar in positive Richtung.";
+    category = "Gegenposition zur Realität";
+    effect = "Wahrgenommene Realität und eigene Positionierung weisen bei offener gewünschter Ausrichtung erkennbar in unterschiedliche Richtungen.";
   }
   else if (s <= 14) {
-    category = "Klar positiv reagierend";
-    effect = "Bei neutraler eigener Ausrichtung ist deine positive Reaktionsrichtung klar ausgeprägt.";
+    category = "Klare Gegenposition zur Realität";
+    effect = "Die Realität weist entgegen der Bezugsrichtung, während deine eigene Positionierung klar in Bezugsrichtung weist.";
   }
   else if (s <= 29) {
-    category = "Deutlich positiv reagierend";
-    effect = "Du reagierst deutlich positiv auf die negativ erlebte Realität, ohne zuvor eine eigene positive oder negative Ausrichtung gesetzt zu haben.";
+    category = "Deutliche Gegenposition zur Realität";
+    effect = "Bei offener gewünschter Ausrichtung besteht eine deutliche Gegenläufigkeit zwischen wahrgenommener Realität und eigener Positionierung.";
   }
   else if (s <= 49) {
-    category = "Stark positiv reagierend";
-    effect = "Die positive Reaktionsrichtung gegenüber der negativ erlebten Realität ist stark ausgeprägt.";
+    category = "Starke Gegenposition zur Realität";
+    effect = "Die Gegenläufigkeit zwischen wahrgenommener Realität und eigener Positionierung ist stark ausgeprägt.";
   }
   else if (s <= 64) {
-    category = "Sehr stark positiv reagierend";
-    effect = "Du reagierst mit hoher Intensität positiv auf die negativ erlebte Realität.";
+    category = "Sehr starke Gegenposition zur Realität";
+    effect = "Deine eigene Positionierung weist mit hoher Intensität in Bezugsrichtung, während die Realität entgegen der Bezugsrichtung weist.";
   }
   else if (s <= 79) {
-    category = "Intensiv positiv reagierend";
-    effect = "Die positive Reaktionsrichtung bei negativ erlebter Realität ist sehr stark ausgeprägt.";
+    category = "Intensive Gegenposition zur Realität";
+    effect = "Die Gegenläufigkeit zwischen Realität und eigener Positionierung ist bei offener gewünschter Ausrichtung sehr stark ausgeprägt.";
   }
   else {
-    category = "Extrem positiv reagierend";
-    effect = "Die positive Reaktionsrichtung gegenüber der negativ erlebten Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
+    category = "Extreme Gegenposition zur Realität";
+    effect = "Die Gegenläufigkeit zwischen wahrgenommener Realität und eigener Positionierung erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
   }
 }
+
 
 
 //.............................................................................
@@ -2725,54 +2759,54 @@ if (lageCode === "0NP") {
 
 if (lageCode === "0N0") {
 
-lageText = "Ideal: neutral, Realität: negativ, Rückgrat: neutral";
+lageText = "Ideal: neutral / offen, Realität: entgegen der Bezugsrichtung, Rückgrat: neutral / offen";
 
 const rAbs = Math.abs(R);   // 1 bis 10
 
 // ==========================================
-// EINZIG REALER FALL → NEGATIVE REALITÄT OHNE GEGENWIRKUNG
+// EINZIG REALER FALL
 // BEWERTUNG NUR ÜBER REALITÄT
 // ==========================================
 
 if (rAbs === 1) {
-    category = "Leicht negativ vorhanden";
-    effect = "Eine leichte negative Situation ist vorhanden und bleibt unverändert.";
+    category = "Minimal entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität weist minimal entgegen der Bezugsrichtung, während gewünschte Ausrichtung und eigene Positionierung offen bleiben.";
 
 } else if (rAbs === 2) {
-    category = "Negativ vorhanden";
-    effect = "Eine negative Lage besteht, ohne dass eine Veränderung eintritt.";
+    category = "Leicht entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität weist leicht entgegen der Bezugsrichtung. Gewünschte Ausrichtung und eigene Positionierung bleiben neutral oder offen.";
 
 } else if (rAbs === 3) {
-    category = "Negativ anhaltend";
-    effect = "Die negative Situation bleibt bestehen.";
+    category = "Entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität weist erkennbar entgegen der Bezugsrichtung, während die beiden anderen Ebenen offen bleiben.";
 
 } else if (rAbs === 4) {
-    category = "Spürbar negativ anhaltend";
-    effect = "Die negative Lage zeigt Wirkung und bleibt unverändert.";
+    category = "Spürbar entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität weist spürbar entgegen der Bezugsrichtung. Eine eigene gerichtete Positionierung zeigt sich nicht.";
 
 } else if (rAbs === 5) {
-    category = "Deutlich negativ anhaltend";
-    effect = "Die negative Situation verfestigt sich durch ausbleibende Veränderung.";
+    category = "Deutlich entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität weist deutlich entgegen der Bezugsrichtung, während gewünschte Ausrichtung und eigene Positionierung offen bleiben.";
 
 } else if (rAbs === 6) {
-    category = "Negativ verfestigt";
-    effect = "Die negative Lage wird zunehmend stabil.";
+    category = "Klar entgegen gerichtete Realität";
+    effect = "Die Gegenrichtung der wahrgenommenen Realität ist klar ausgeprägt.";
 
 } else if (rAbs === 7) {
-    category = "Stark negativ verfestigt";
-    effect = "Die negative Situation prägt die Lage deutlich und bleibt bestehen.";
+    category = "Stark entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität weist stark entgegen der Bezugsrichtung, während gewünschte Ausrichtung und Positionierung offen bleiben.";
 
 } else if (rAbs === 8) {
-    category = "Dominant negativ";
-    effect = "Die negative Realität bestimmt die Situation vollständig.";
+    category = "Sehr stark entgegen gerichtete Realität";
+    effect = "Die Gegenrichtung der wahrgenommenen Realität ist sehr stark ausgeprägt.";
 
 } else if (rAbs === 9) {
-    category = "Massiv negativ";
-    effect = "Die negative Lage ist stark ausgeprägt und bleibt unverändert.";
+    category = "Intensiv entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität weist mit sehr hoher Intensität entgegen der Bezugsrichtung.";
 
 } else {
-    category = "Vollständig negativ verfestigt";
-    effect = "Die negative Situation ist maximal ausgeprägt und bleibt bestehen.";
+    category = "Maximal entgegen gerichtete Realität";
+    effect = "Die wahrgenommene Realität erreicht den maximalen Wert entgegen der Bezugsrichtung, während gewünschte Ausrichtung und eigene Positionierung offen bleiben.";
 }
 
 }
@@ -2787,45 +2821,46 @@ if (rAbs === 1) {
 
 if (lageCode === "0NN") {
 
-  lageText = "Ideal: neutral, Realität: negativ, Rückgrat: negativ";
+  lageText = "Ideal: neutral / offen, Realität: entgegen der Bezugsrichtung, Rückgrat: entgegen der Bezugsrichtung";
 
   const spannung = I - R;
   const H = spannung * G;
   const s = Math.abs(H);
 
   if (s <= 4) {
-    category = "Leicht negativ reagierend";
-    effect = "Bei neutraler eigener Ausrichtung reagierst du leicht negativ auf die negativ erlebte Realität.";
+    category = "Leichte gemeinsame Gegenrichtung";
+    effect = "Bei offener gewünschter Ausrichtung weisen Realität und eigene Positionierung leicht gemeinsam entgegen der Bezugsrichtung.";
   }
   else if (s <= 9) {
-    category = "Negativ reagierend";
-    effect = "Deine Reaktion auf die negativ erlebte Realität weist erkennbar in negative Richtung.";
+    category = "Gemeinsame Gegenrichtung";
+    effect = "Bei offener gewünschter Ausrichtung weisen wahrgenommene Realität und eigene Positionierung gemeinsam entgegen der Bezugsrichtung.";
   }
   else if (s <= 14) {
-    category = "Klar negativ reagierend";
-    effect = "Bei neutraler eigener Ausrichtung ist deine negative Reaktionsrichtung klar ausgeprägt.";
+    category = "Klare gemeinsame Gegenrichtung";
+    effect = "Realität und eigene Positionierung weisen klar gemeinsam entgegen der Bezugsrichtung.";
   }
   else if (s <= 29) {
-    category = "Deutlich negativ reagierend";
-    effect = "Du reagierst deutlich negativ auf die negativ erlebte Realität.";
+    category = "Deutliche gemeinsame Gegenrichtung";
+    effect = "Bei offener gewünschter Ausrichtung ist die gemeinsame Gegenrichtung von Realität und eigener Positionierung deutlich ausgeprägt.";
   }
   else if (s <= 49) {
-    category = "Stark negativ reagierend";
-    effect = "Die negative Reaktionsrichtung gegenüber der negativ erlebten Realität ist stark ausgeprägt.";
+    category = "Starke gemeinsame Gegenrichtung";
+    effect = "Wahrgenommene Realität und eigene Positionierung weisen stark gemeinsam entgegen der Bezugsrichtung.";
   }
   else if (s <= 64) {
-    category = "Sehr stark negativ reagierend";
-    effect = "Du reagierst mit hoher Intensität negativ auf die bereits negativ erlebte Realität.";
+    category = "Sehr starke gemeinsame Gegenrichtung";
+    effect = "Die gemeinsame Gegenrichtung von Realität und eigener Positionierung ist mit hoher Intensität ausgeprägt.";
   }
   else if (s <= 79) {
-    category = "Intensiv negativ reagierend";
-    effect = "Die negative Reaktionsrichtung bei negativ erlebter Realität ist sehr stark ausgeprägt.";
+    category = "Intensive gemeinsame Gegenrichtung";
+    effect = "Bei offener gewünschter Ausrichtung weisen Realität und eigene Positionierung mit sehr hoher Intensität gemeinsam entgegen der Bezugsrichtung.";
   }
   else {
-    category = "Extrem negativ reagierend";
-    effect = "Die negative Reaktionsrichtung gegenüber der negativ erlebten Realität erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
+    category = "Extreme gemeinsame Gegenrichtung";
+    effect = "Die gemeinsame Gegenrichtung von wahrgenommener Realität und eigener Positionierung erreicht eine außergewöhnlich hohe Intensität.";
   }
 }
+
 
 
 
@@ -2838,92 +2873,94 @@ if (lageCode === "0NN") {
 
 if (lageCode === "NP0") {
 
-  lageText = "Ideal: negativ, Realität: positiv, Rückgrat: neutral";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: in Bezugsrichtung, Rückgrat: neutral / offen";
 
   const spannung = I - R;
   const delta = Math.abs(spannung);
 
   if (delta <= 2) {
     category = "Leichte offene Gegenläufigkeit";
-    effect = "Negative Ausrichtung und positiv erlebte Realität unterscheiden sich leicht; aktuell erfolgt keine gerichtete Umsetzung.";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen leicht in unterschiedliche Richtungen; deine eigene Positionierung bleibt neutral oder offen.";
   }
   else if (delta <= 4) {
     category = "Offene Gegenläufigkeit";
-    effect = "Zwischen negativer Ausrichtung und positiver Realität besteht eine erkennbare Differenz bei neutraler Umsetzung.";
+    effect = "Zwischen gewünschter Ausrichtung entgegen der Bezugsrichtung und wahrgenommener Realität in Bezugsrichtung besteht eine erkennbare Differenz.";
   }
   else if (delta <= 6) {
     category = "Erkennbare offene Gegenläufigkeit";
-    effect = "Ausrichtung und Realität unterscheiden sich deutlich, während deine Umsetzung neutral bleibt.";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität unterscheiden sich deutlich, während deine eigene Positionierung offen bleibt.";
   }
   else if (delta <= 8) {
     category = "Deutliche offene Gegenläufigkeit";
-    effect = "Negative Ausrichtung und positive Realität stehen deutlich auseinander; eine Umsetzungsrichtung zeigt sich aktuell nicht.";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen deutlich gegeneinander. Eine eigene gerichtete Positionierung zeigt sich aktuell nicht.";
   }
   else if (delta <= 10) {
     category = "Starke offene Gegenläufigkeit";
-    effect = "Zwischen negativer Ausrichtung und positiver Realität besteht eine starke Differenz bei neutraler Umsetzung.";
+    effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht eine starke Richtungsdifferenz bei offener eigener Positionierung.";
   }
   else if (delta <= 14) {
     category = "Sehr starke offene Gegenläufigkeit";
-    effect = "Ausrichtung und Realität liegen weit auseinander, während die Umsetzung neutral bleibt.";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen weit in unterschiedlichen Richtungen, während deine Positionierung offen bleibt.";
   }
   else if (delta <= 18) {
     category = "Intensive offene Gegenläufigkeit";
-    effect = "Die Differenz zwischen negativer Ausrichtung und positiver Realität ist sehr groß; aktuell erfolgt keine gerichtete Umsetzung.";
+    effect = "Die Richtungsdifferenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist sehr groß.";
   }
   else {
     category = "Maximale offene Gegenläufigkeit";
-    effect = "Negative Ausrichtung und positiv erlebte Realität liegen nahezu maximal auseinander, während die Umsetzung neutral bleibt.";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen nahezu maximal in entgegengesetzten Richtungen, während deine eigene Positionierung neutral oder offen bleibt.";
   }
 }
 
 
+
 //.............................................................................
 //.............................................................................
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
 
 
 
 if (lageCode === "N0P") {
 
-  lageText = "Ideal: negativ, Realität: neutral, Rückgrat: positiv";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: neutral / offen, Rückgrat: in Bezugsrichtung";
 
   const spannung = I - R;
   const H = spannung * G;
   const s = Math.abs(H);
 
   if (s <= 4) {
-    category = "Leicht negativ gerichtet";
-    effect = "Deine Ausrichtung ist negativ und deine Umsetzung folgt dieser Richtung gegenüber einer neutral bewerteten Realität.";
+    category = "Leichte Gegenposition zum Ideal";
+    effect = "Deine gewünschte Ausrichtung weist entgegen der Bezugsrichtung, während deine eigene Positionierung leicht in Bezugsrichtung weist. Die Realität bleibt neutral oder offen.";
   }
   else if (s <= 9) {
-    category = "Negativ gerichtet";
-    effect = "Du setzt deine negative Ausrichtung gegenüber der neutral bewerteten Realität erkennbar um.";
+    category = "Gegenposition zum Ideal";
+    effect = "Bei neutraler oder offener Realität weisen gewünschte Ausrichtung und eigene Positionierung erkennbar in unterschiedliche Richtungen.";
   }
   else if (s <= 14) {
-    category = "Klar negativ gerichtet";
-    effect = "Die Umsetzung deiner negativen Ausrichtung ist klar ausgeprägt.";
+    category = "Klare Gegenposition zum Ideal";
+    effect = "Deine eigene Positionierung weist klar in Bezugsrichtung und damit entgegen deiner gewünschten Ausrichtung.";
   }
   else if (s <= 29) {
-    category = "Deutlich negativ gerichtet";
-    effect = "Deine Umsetzung folgt deutlich deiner negativen Ausrichtung gegenüber der neutralen Realität.";
+    category = "Deutliche Gegenposition zum Ideal";
+    effect = "Bei offener Realität besteht eine deutliche Gegenläufigkeit zwischen gewünschter Ausrichtung und eigener Positionierung.";
   }
   else if (s <= 49) {
-    category = "Stark negativ gerichtet";
-    effect = "Die negative Umsetzungsrichtung ist stark ausgeprägt.";
+    category = "Starke Gegenposition zum Ideal";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung weisen stark in unterschiedliche Richtungen.";
   }
   else if (s <= 64) {
-    category = "Sehr stark negativ gerichtet";
-    effect = "Du setzt deine negative Ausrichtung mit hoher Intensität um.";
+    category = "Sehr starke Gegenposition zum Ideal";
+    effect = "Deine eigene Positionierung weist mit hoher Intensität in Bezugsrichtung und damit entgegen deiner gewünschten Ausrichtung.";
   }
   else if (s <= 79) {
-    category = "Intensiv negativ gerichtet";
-    effect = "Die Umsetzung deiner negativen Ausrichtung ist sehr stark ausgeprägt.";
+    category = "Intensive Gegenposition zum Ideal";
+    effect = "Die Gegenläufigkeit zwischen gewünschter Ausrichtung und eigener Positionierung ist sehr stark ausgeprägt.";
   }
   else {
-    category = "Extrem negativ gerichtet";
-    effect = "Die Umsetzung deiner negativen Ausrichtung erreicht gegenüber der neutral bewerteten Realität eine außergewöhnlich hohe Intensität.";
+    category = "Extreme Gegenposition zum Ideal";
+    effect = "Die Gegenläufigkeit zwischen gewünschter Ausrichtung und eigener Positionierung erreicht innerhalb dieses Modells eine außergewöhnlich hohe Intensität.";
   }
 }
 
@@ -2936,43 +2973,44 @@ if (lageCode === "N0P") {
 
 if (lageCode === "N00") {
 
-  lageText = "Ideal: negativ, Realität: neutral, Rückgrat: neutral";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: neutral / offen, Rückgrat: neutral / offen";
 
   const delta = Math.abs(I);
 
   if (delta <= 1) {
-    category = "Minimal negative Ausrichtung";
-    effect = "Eine leicht negative Ausrichtung steht einer neutral bewerteten Realität gegenüber; die Umsetzung bleibt neutral.";
+    category = "Minimal entgegen gerichtete Ausrichtung";
+    effect = "Deine gewünschte Ausrichtung weist minimal entgegen der Bezugsrichtung, während Realität und eigene Positionierung neutral oder offen bleiben.";
   }
   else if (delta <= 2) {
-    category = "Leicht negative Ausrichtung";
-    effect = "Deine Ausrichtung ist leicht negativ, während Realität und Umsetzung neutral bleiben.";
+    category = "Leicht entgegen gerichtete Ausrichtung";
+    effect = "Deine gewünschte Ausrichtung weist leicht entgegen der Bezugsrichtung. Realität und eigene Positionierung bleiben offen.";
   }
   else if (delta <= 3) {
-    category = "Negative Ausrichtung";
-    effect = "Eine negative Ausrichtung ist erkennbar; aktuell erfolgt keine gerichtete Umsetzung.";
+    category = "Entgegen gerichtete Ausrichtung";
+    effect = "Deine gewünschte Ausrichtung weist erkennbar entgegen der Bezugsrichtung; aktuell erfolgt keine gerichtete eigene Positionierung.";
   }
   else if (delta <= 5) {
-    category = "Erkennbare negative Ausrichtung";
-    effect = "Deine negative Ausrichtung unterscheidet sich erkennbar von der neutral bewerteten Realität.";
+    category = "Erkennbar entgegen gerichtete Ausrichtung";
+    effect = "Deine gewünschte Ausrichtung weist erkennbar entgegen der Bezugsrichtung, während die wahrgenommene Realität neutral oder offen bleibt.";
   }
   else if (delta <= 6) {
-    category = "Deutliche negative Ausrichtung";
-    effect = "Die negative Ausrichtung ist deutlich ausgeprägt, während die Umsetzung neutral bleibt.";
+    category = "Deutlich entgegen gerichtete Ausrichtung";
+    effect = "Die gewünschte Ausrichtung entgegen der Bezugsrichtung ist deutlich ausgeprägt, während Realität und eigene Positionierung offen bleiben.";
   }
   else if (delta <= 7) {
-    category = "Starke negative Ausrichtung";
-    effect = "Deine negative Ausrichtung ist stark ausgeprägt; eine gerichtete Umsetzung zeigt sich aktuell nicht.";
+    category = "Stark entgegen gerichtete Ausrichtung";
+    effect = "Deine gewünschte Ausrichtung weist stark entgegen der Bezugsrichtung; eine gerichtete eigene Positionierung zeigt sich aktuell nicht.";
   }
   else if (delta <= 9) {
-    category = "Sehr starke negative Ausrichtung";
-    effect = "Die negative Ausrichtung ist sehr deutlich, während Realität und Umsetzung neutral bewertet sind.";
+    category = "Sehr stark entgegen gerichtete Ausrichtung";
+    effect = "Die gewünschte Gegenrichtung ist sehr deutlich ausgeprägt, während Realität und eigene Positionierung neutral oder offen bleiben.";
   }
   else {
-    category = "Maximale negative Ausrichtung";
-    effect = "Deine negative Ausrichtung erreicht den höchsten negativen Skalenwert, während Realität und Umsetzung neutral bleiben.";
+    category = "Maximal entgegen gerichtete Ausrichtung";
+    effect = "Deine gewünschte Ausrichtung erreicht den maximalen Skalenwert entgegen der Bezugsrichtung, während Realität und eigene Positionierung offen bleiben.";
   }
 }
+
 
 
 //.............................................................................
@@ -2983,41 +3021,41 @@ if (lageCode === "N00") {
 
 if (lageCode === "N0N") {
 
-  lageText = "Ideal: negativ, Realität: neutral, Rückgrat: negativ";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: neutral / offen, Rückgrat: entgegen der Bezugsrichtung";
 
   const s = Math.abs(H);
 
   if (s <= 4) {
-    category = "Leichte Korrekturbewegung";
-    effect = "Deine Reaktion weist leicht gegen deine negative Ausrichtung bei neutral bewerteter Realität.";
+    category = "Leichte gemeinsame Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung weisen leicht gemeinsam entgegen der Bezugsrichtung, während die Realität neutral oder offen bleibt.";
   }
   else if (s <= 9) {
-    category = "Erkennbare Korrekturbewegung";
-    effect = "Du reagierst erkennbar gegen deine eigene negative Ausrichtung.";
+    category = "Gemeinsame Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung weisen gemeinsam entgegen der Bezugsrichtung.";
   }
   else if (s <= 14) {
-    category = "Klare Korrekturbewegung";
-    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist klar ausgeprägt.";
+    category = "Klare gemeinsame Gegenrichtung";
+    effect = "Die gemeinsame Gegenrichtung von gewünschter Ausrichtung und eigener Positionierung ist klar ausgeprägt.";
   }
   else if (s <= 29) {
-    category = "Deutliche Korrekturbewegung";
-    effect = "Deine Reaktion weist deutlich gegen deine negative Ausrichtung. Prüfe, welche alternative Richtung sich daraus ergibt.";
+    category = "Deutliche gemeinsame Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung weisen deutlich gemeinsam entgegen der Bezugsrichtung, während die Realität offen bleibt.";
   }
   else if (s <= 49) {
-    category = "Starke Korrekturbewegung";
-    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung ist stark ausgeprägt.";
+    category = "Starke gemeinsame Gegenrichtung";
+    effect = "Die gemeinsame Gegenrichtung von gewünschter Ausrichtung und eigener Positionierung ist stark ausgeprägt.";
   }
   else if (s <= 64) {
-    category = "Sehr starke Korrekturbewegung";
-    effect = "Du reagierst mit hoher Intensität gegen deine eigene negative Ausrichtung.";
+    category = "Sehr starke gemeinsame Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und eigene Positionierung weisen mit hoher Intensität gemeinsam entgegen der Bezugsrichtung.";
   }
   else if (s <= 79) {
-    category = "Intensive Korrekturbewegung";
-    effect = "Die Gegenbewegung zur negativen Ausrichtung ist sehr stark ausgeprägt.";
+    category = "Intensive gemeinsame Gegenrichtung";
+    effect = "Die gemeinsame Gegenrichtung von gewünschter Ausrichtung und eigener Positionierung ist sehr stark ausgeprägt.";
   }
   else {
-    category = "Maximale Korrekturbewegung";
-    effect = "Die Gegenbewegung zu deiner negativen Ausrichtung erreicht innerhalb dieses Modells eine maximale Intensität.";
+    category = "Maximale gemeinsame Gegenrichtung";
+    effect = "Die gemeinsame Gegenrichtung von gewünschter Ausrichtung und eigener Positionierung erreicht innerhalb dieses Modells eine maximale Intensität.";
   }
 }
 
@@ -3030,13 +3068,13 @@ if (lageCode === "N0N") {
 
 if (lageCode === "000") {
 
-  lageText = "Ideal: neutral, Realität: neutral, Rückgrat: neutral";
+  lageText = "Ideal: neutral / offen, Realität: neutral / offen, Rückgrat: neutral / offen";
 
   const spannung = I - R;
 
   if (spannung === 0) {
-    category = "Neutraler Ausgangspunkt";
-    effect = "Ideal, Realität und Umsetzung sind neutral bewertet. In dieser Konstellation entsteht innerhalb der Formel keine Spannung.";
+    category = "Offener Ausgangspunkt";
+    effect = "Gewünschte Ausrichtung, wahrgenommene Realität und eigene Positionierung sind neutral oder offen. In dieser Konstellation entsteht innerhalb der Formel keine Richtungsdifferenz.";
   }
   else {
     category = "Theoretischer Zustand";
@@ -3053,54 +3091,57 @@ if (lageCode === "000") {
 
 if (lageCode === "NN0") {
 
-  lageText = "Ideal: negativ, Realität: negativ, Rückgrat: neutral";
+  lageText = "Ideal: entgegen der Bezugsrichtung, Realität: entgegen der Bezugsrichtung, Rückgrat: neutral / offen";
 
   const spannung = I - R;
   const delta = Math.abs(spannung);
 
   if (spannung === 0) {
-    category = "Negativ übereinstimmend neutral";
-    effect = "Negative Ausrichtung und negativ erlebte Realität stimmen auf der Skala überein. Aktuell erfolgt keine gerichtete Umsetzung.";
+    category = "Übereinstimmende Gegenrichtung bei offener Positionierung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität stimmen auf der Skala entgegen der Bezugsrichtung überein. Deine eigene Positionierung bleibt neutral oder offen.";
   }
   else if (delta <= 2) {
-    category = "Leichte offene Differenz";
-    effect = "Zwischen negativer Ausrichtung und negativ erlebter Realität besteht eine geringe Differenz bei neutraler Umsetzung.";
+    category = "Leichte offene Differenz in Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität weisen beide entgegen der Bezugsrichtung, unterscheiden sich jedoch leicht in ihrer Stärke.";
   }
   else if (delta <= 4) {
-    category = "Offene Differenz";
-    effect = "Ausrichtung und Realität unterscheiden sich erkennbar innerhalb des negativen Bereichs; die Umsetzung bleibt neutral.";
+    category = "Offene Differenz in Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität unterscheiden sich erkennbar innerhalb ihrer gemeinsamen Gegenrichtung; deine Positionierung bleibt offen.";
   }
   else if (delta <= 6) {
-    category = "Erkennbare offene Differenz";
-    effect = "Zwischen negativer Ausrichtung und negativer Realität besteht eine erkennbare Differenz ohne gerichtete Umsetzung.";
+    category = "Erkennbare offene Differenz in Gegenrichtung";
+    effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht innerhalb der gemeinsamen Gegenrichtung eine erkennbare Differenz.";
   }
   else if (delta <= 8) {
-    category = "Deutliche offene Differenz";
-    effect = "Ausrichtung und Realität unterscheiden sich deutlich, während aktuell keine Umsetzungsrichtung erkennbar ist.";
+    category = "Deutliche offene Differenz in Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität unterscheiden sich deutlich, obwohl beide entgegen der Bezugsrichtung weisen.";
   }
   else if (delta <= 10) {
-    category = "Starke offene Differenz";
-    effect = "Die Differenz zwischen negativer Ausrichtung und negativ erlebter Realität ist stark ausgeprägt; die Umsetzung bleibt neutral.";
+    category = "Starke offene Differenz in Gegenrichtung";
+    effect = "Die Differenz zwischen gewünschter Ausrichtung und wahrgenommener Realität ist innerhalb ihrer gemeinsamen Gegenrichtung stark ausgeprägt.";
   }
   else if (delta <= 14) {
-    category = "Sehr starke offene Differenz";
-    effect = "Ausrichtung und Realität liegen innerhalb des negativen Bereichs weit auseinander.";
+    category = "Sehr starke offene Differenz in Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen innerhalb der gemeinsamen Gegenrichtung weit auseinander.";
   }
   else if (delta <= 18) {
-    category = "Intensive offene Differenz";
-    effect = "Zwischen negativer Ausrichtung und negativer Realität besteht eine sehr große Differenz bei neutraler Umsetzung.";
+    category = "Intensive offene Differenz in Gegenrichtung";
+    effect = "Zwischen gewünschter Ausrichtung und wahrgenommener Realität besteht innerhalb der gemeinsamen Gegenrichtung eine sehr große Differenz.";
   }
   else {
-    category = "Maximale offene Differenz";
-    effect = "Negative Ausrichtung und negativ erlebte Realität liegen innerhalb ihres Wertebereichs nahezu maximal auseinander; die Umsetzung bleibt neutral.";
+    category = "Maximale offene Differenz in Gegenrichtung";
+    effect = "Gewünschte Ausrichtung und wahrgenommene Realität liegen innerhalb ihrer gemeinsamen Gegenrichtung nahezu maximal auseinander; deine eigene Positionierung bleibt neutral oder offen.";
   }
 }
 
 
 
+
+
 //"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 //"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 //"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 
 //.............................................................................
@@ -3130,9 +3171,22 @@ const grad = gradText(s);
 
 
 
+
+
+
+
+
+
+
+
+
+
 /* =========================================================
    Deutung Deutung
 ========================================================= */
+
+
+
 
 
 if (lageCode === "PPP") {
@@ -3329,12 +3383,14 @@ if (lageCode === "PPP") {
   }
 }
 
-	
+
+
 
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-	
+
+
 
 if (lageCode === "PPN") {
 
@@ -5294,13 +5350,29 @@ if (kategorie) {
 }
 
 
-	
+
+
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
 if (wirkung) {
   wirkung.textContent = "Wirkung: " + effect;
   wirkung.style.setProperty("dispplay", "none", "important"); 
 }
 
-	
+
+
+
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
+
+
 
 const lageEl = ensureLageElement();
 if (lageEl) {
@@ -5583,7 +5655,8 @@ sondern zur strukturierten Selbstreflexion.
 <hr>
 
 
-	
+
+
 <h3>🧩 Ich-Ehrlichkeitssystem – mehrere Situationen gemeinsam betrachten</h3>
 
 <p>
@@ -5633,9 +5706,6 @@ Nicht: „Wer bin ich?“ – sondern:<br>
 
 <hr>
 
-
-
-	
 <h3>🛠 Praktischer Nutzen</h3>
 
 <ul>
@@ -6927,9 +6997,6 @@ function saveForEvaluation() {
 
 
 
-
-
-
 function getSavedEvaluations() {
   return JSON.parse(localStorage.getItem("hf_evaluations") || "[]");
 }
@@ -6950,14 +7017,22 @@ function deleteSavedEvaluation(index) {
   showSavedEvaluations();
 }
 
+
+
+
 function exportSavedAsJSON() {
   const saved = getSavedEvaluations();
+
   if (!saved.length) {
     alert("Keine gespeicherten Auswertungen vorhanden.");
     return;
   }
 
-  const blob = new Blob([JSON.stringify(saved, null, 2)], { type: "application/json" });
+  const blob = new Blob(
+    [JSON.stringify(saved, null, 2)],
+    { type: "application/json" }
+  );
+
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement("a");
@@ -6968,7 +7043,8 @@ function exportSavedAsJSON() {
   URL.revokeObjectURL(url);
 }
 
-	
+
+
 /* ================= Export ================= */
 /* ================= Export ================= */
 
@@ -7028,10 +7104,8 @@ function exportSavedAsCSV() {
 }
 
 /* ================================== */
-/* ================================== */
 
 
-	
 function showSavedEvaluations() {
   const saved = getSavedEvaluations();
   const modal = document.getElementById("savedModal");
@@ -7073,7 +7147,8 @@ function showSavedEvaluations() {
         <div><strong>Name:</strong> ${name}</div>
         <div><strong>Lage:</strong> ${item.lage || "–"}</div>
         <div><strong>Kategorie:</strong> ${item.kategorie || "–"}</div>
-             
+
+      
         
         <div><strong>Deutung:</strong> ${item.deutung || "–"}</div>
 <div><strong>Szenario:</strong> ${item.szenario || "–"}</div>
@@ -7168,10 +7243,16 @@ document.addEventListener("DOMContentLoaded", function () {
       <option value="">— bitte auswählen —</option>
     </select>
 
+
+
+
+
     <label>Leitfrage</label>
     <select id="szn-leitfrage" disabled>
       <option value="">— Leitfrage wählen —</option>
     </select>
+
+
 
     <label>Zusammengefasster Text</label>
     <textarea id="szn-out" readonly></textarea>
@@ -7215,10 +7296,13 @@ const out = document.getElementById("szn-out");
 
 
 
-	
-	
+
+
 /* ================= KATALOG ================= */
 /* ================= KATALOG ================= */
+
+
+
 
 const KATALOG = {
 
@@ -7383,6 +7467,8 @@ const KATALOG = {
 ]
 
 };
+
+
 
 
 
@@ -14029,6 +14115,8 @@ setInterval(updateDateTime, 1000);
 </script>
 
 
+
+
 <!-- =========================================================
      EXCEL-EXPORT FÜR GESPEICHERTE HALTUNGSANALYSEN
      Kompletten Block direkt VOR </body> einfügen
@@ -14164,11 +14252,14 @@ setInterval(updateDateTime, 1000);
 
     });
 
+
     /* -------------------------------------------------------
        Arbeitsblatt erzeugen
     ------------------------------------------------------- */
+
     const worksheet =
       XLSX.utils.json_to_sheet(excelData);
+
 
     /* -------------------------------------------------------
        Spaltenbreiten festlegen
@@ -14190,7 +14281,9 @@ setInterval(updateDateTime, 1000);
       { wch: 35 },  // Wirkung
       { wch: 18 },  // Lage
       { wch: 55 }   // Deutung
+
     ];
+
 
     /* -------------------------------------------------------
        Autofilter über komplette Tabelle
@@ -14208,9 +14301,7 @@ setInterval(updateDateTime, 1000);
         })
       };
 
-    }
-
-    /* -------------------------------------------------------
+    }   /* -------------------------------------------------------
        Arbeitsmappe erzeugen
     ------------------------------------------------------- */
 
@@ -14234,6 +14325,7 @@ setInterval(updateDateTime, 1000);
     );
   }
 
+
   /* ---------------------------------------------------------
      4. Button nach Laden der Seite erzeugen
   --------------------------------------------------------- */
@@ -14248,6 +14340,7 @@ setInterval(updateDateTime, 1000);
   } else {
 
     createExcelButton();
+
   }
 
 })();
@@ -14255,7 +14348,9 @@ setInterval(updateDateTime, 1000);
 
 
 
-	
+
+
+
 
 <!-- =========================================================
      WINNIS HALTUNGSFORMEL
@@ -14341,6 +14436,7 @@ setInterval(updateDateTime, 1000);
   border-radius:12px;
 }
 
+
 /* ===== Smartphone ===== */
 
 @media (max-width:640px){
@@ -14366,6 +14462,7 @@ setInterval(updateDateTime, 1000);
 }
 
 </style>
+
 
 <script>
 (function(){
@@ -14393,6 +14490,7 @@ setInterval(updateDateTime, 1000);
     return;
   }
 
+
   /* =====================================================
      Kartencontainer erzeugen
   ===================================================== */
@@ -14401,6 +14499,7 @@ setInterval(updateDateTime, 1000);
     document.createElement("div");
 
   box.id = "winni-leitfragen-box";
+
 
   /*
      Container direkt an die Stelle des bisherigen
@@ -14412,12 +14511,14 @@ setInterval(updateDateTime, 1000);
     leitfrage
   );
 
+
   /*
      Original-Dropdown NICHT löschen.
      Es bleibt für die bestehende App-Logik vorhanden.
   */
 
   leitfrage.style.display = "none";
+
 
   /* =====================================================
      Nur Frage anzeigen
@@ -14443,14 +14544,17 @@ setInterval(updateDateTime, 1000);
       .split("| Szenario:")[0]
       .trim();
 
+
     sichtbar =
       sichtbar.replace(
         /^(\d+\.\d+)\s+Frage:\s*/i,
         "$1  "
       );
 
+
     return sichtbar;
   }
+
 
   /* =====================================================
      Karten aus dem ORIGINAL-Dropdown aufbauen
@@ -14459,6 +14563,7 @@ setInterval(updateDateTime, 1000);
   function baueKarten(){
 
     box.innerHTML = "";
+
 
     /*
        Wichtig:
@@ -14482,6 +14587,7 @@ setInterval(updateDateTime, 1000);
 
       });
 
+
     if(optionen.length === 0){
 
       box.innerHTML =
@@ -14492,15 +14598,18 @@ setInterval(updateDateTime, 1000);
       return;
     }
 
+
     optionen.forEach(function(opt){
 
       const karte =
         document.createElement("button");
 
+
       karte.type = "button";
 
       karte.className =
         "winni-leitfrage";
+
 
       karte.textContent =
         kurzeFrage(opt.textContent || opt.value);
@@ -14524,9 +14633,11 @@ setInterval(updateDateTime, 1000);
 
             });
 
+
           /* neue Auswahl markieren */
 
           karte.classList.add("aktiv");
+
 
           /* ---------------------------------------------
              Original-Dropdown synchronisieren
@@ -14534,6 +14645,7 @@ setInterval(updateDateTime, 1000);
 
           leitfrage.value =
             opt.value;
+
 
           /*
              Originales Change-Ereignis auslösen.
@@ -14572,6 +14684,7 @@ setInterval(updateDateTime, 1000);
         }
       );
 
+
       box.appendChild(
         karte
       );
@@ -14579,6 +14692,8 @@ setInterval(updateDateTime, 1000);
     });
 
   }
+
+
   /* =====================================================
      Rubrikwechsel
 
@@ -14598,6 +14713,7 @@ setInterval(updateDateTime, 1000);
     }
   );
 
+
   /* =====================================================
      Zusätzliche Absicherung
 
@@ -14614,12 +14730,14 @@ setInterval(updateDateTime, 1000);
       }
     );
 
+
   observer.observe(
     leitfrage,
     {
       childList:true
     }
   );
+
 
   /* =====================================================
      Beim Öffnen / Laden einmal initialisieren
@@ -14630,20 +14748,22 @@ setInterval(updateDateTime, 1000);
     50
   );
 
+
   console.log(
     "Winni Leitfragen-Karten V3 aktiv"
   );
 
 })();
 </script>
+
 <!-- ===== ENDE WINNI LEITFRAGEN-KARTEN V3 ===== -->
 
 
 
-	
-	
+
 
 </body>
 </html>
+
 
 
