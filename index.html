@@ -3911,10 +3911,6 @@ if (lageCode === "PNN" && H < 0) {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
-
-
-
-
 /* =========================================================
    NPP
    Ideal negativ / Realität positiv / Rückgrat positiv
@@ -4028,6 +4024,10 @@ if (lageCode === "NPN") {
     }
 }
 
+
+	
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
@@ -4043,42 +4043,37 @@ if (lageCode === "NNP") {
     const s = Math.abs(H);
 
     if (s <= 4) {
-        deutung = "Ideal und Realität liegen beide im negativen Bereich und relativ nah beieinander. Deine Reaktion ist positiv ausgerichtet und setzt damit einen leichten Gegenakzent zur negativen Lage.";
+        deutung = "Ideal und Realität liegen beide im negativen Bereich und relativ nah beieinander. Deine positive Reaktion unterstützt deine negative Ausrichtung leicht.";
     }
-
     else if (s <= 9) {
-        deutung = "Du bewertest sowohl Ideal als auch Realität negativ. Deine positive Reaktion weist jedoch in eine andere Richtung und erzeugt dadurch eine erkennbare Gegenspannung.";
+        deutung = "Du bewertest sowohl Ideal als auch Realität negativ. Deine positive Reaktion unterstützt deine negative Ausrichtung erkennbar.";
     }
 
     else if (s <= 14) {
-        deutung = "Die negative Ausrichtung und die negative Realität stehen einer positiven Reaktion gegenüber. Dadurch entsteht ein deutlicher Gegensatz innerhalb deiner Bewertung.";
+        deutung = "Ideal und Realität liegen im negativen Bereich. Deine positive Reaktion unterstützt dabei deutlich deine eigene negative Ausrichtung.";
     }
-
     else if (s <= 29) {
-        deutung = "Ideal und Realität sind negativ, während deine Reaktion positiv ausgerichtet ist. Die positive Reaktion hebt sich damit deutlich von deiner sonst negativen Bewertung ab.";
+        deutung = "Ideal und Realität sind negativ, während deine positive Reaktion deine negative Ausrichtung deutlich unterstützt.";
     }
 
     else if (s <= 49) {
-        deutung = "Deine negative Vorstellung und die negativ erlebte Realität stehen einer deutlich positiven Reaktion gegenüber. Die daraus entstehende Spannung ist entsprechend groß.";
+        deutung = "Deine negative Vorstellung und die negativ erlebte Realität werden durch deine positive Reaktion stark in dieser negativen Ausrichtung unterstützt.";
     }
-
     else if (s <= 64) {
-        deutung = "Ideal und Realität liegen deutlich im negativen Bereich. Gleichzeitig weist deine Reaktion stark in die positive Richtung.";
+        deutung = "Ideal und Realität liegen deutlich im negativen Bereich. Deine positive Reaktion unterstützt und festigt deine negative Ausrichtung sehr stark.";
     }
 
     else if (s <= 79) {
-        deutung = "Die negative Bewertung von Ideal und Realität und deine positive Reaktion liegen sehr weit auseinander. Deine Haltung setzt damit einen starken Gegenpol.";
+        deutung = "Die negative Bewertung von Ideal und Realität wird durch deine positive Reaktion sehr stark unterstützt. Deine negative Ausrichtung wird dadurch deutlich gefestigt.";
     }
-
     else {
-        deutung = "Ideal und Realität werden sehr negativ bewertet, während deine Reaktion sehr stark positiv ausgerichtet ist. Dadurch entsteht eine außergewöhnlich hohe Gegenspannung.";
+        deutung = "Ideal und Realität werden sehr negativ bewertet. Deine sehr starke positive Reaktion unterstützt und festigt diese negative Ausrichtung mit außergewöhnlich hoher Intensität.";
     }
 }
 
 
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-
 
 
 
@@ -5116,17 +5111,8 @@ if (lageCode === "NP0") {
 
 
 
-
-
-
-
-
-
-
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-
-
 
 
 /* =========================================================
@@ -5139,35 +5125,31 @@ if (lageCode === "N0P") {
     const s = Math.abs(H);
 
     if (s <= 4) {
-        deutung = "Du hast eine negative Vorstellung, während die Realität neutral ist. Deine positive Reaktion steht dieser negativen Ausrichtung leicht entgegen.";
+        deutung = "Du hast eine negative Vorstellung, während die Realität neutral ist. Deine positive Reaktion unterstützt diese negative Ausrichtung leicht.";
     }
-
     else if (s <= 9) {
-        deutung = "Dein Ideal ist negativ und die Realität neutral. Deine positive Reaktion bildet dazu einen erkennbaren Gegenpol.";
+        deutung = "Dein Ideal ist negativ und die Realität neutral. Deine positive Reaktion unterstützt diese negative Ausrichtung erkennbar.";
     }
 
     else if (s <= 14) {
-        deutung = "Die negative Vorstellung steht einer neutralen Realität und einer positiven Reaktion gegenüber. Dadurch entsteht eine deutliche Spannung zwischen Ausrichtung und Haltung.";
+        deutung = "Dein negatives Ideal trifft auf eine neutrale Realität. Deine positive Reaktion unterstützt dabei deutlich deine eigene negative Ausrichtung.";
     }
-
     else if (s <= 29) {
-        deutung = "Deine negative Ausrichtung und deine positive Reaktion liegen deutlich auseinander, während die Realität selbst neutral bleibt.";
+        deutung = "Deine negative Ausrichtung wird durch deine positive Reaktion deutlich unterstützt, während die Realität selbst neutral bleibt.";
     }
 
     else if (s <= 49) {
-        deutung = "Du hast eine deutlich negative Vorstellung, reagierst jedoch positiv darauf. Die neutrale Realität steht zwischen diesen beiden Richtungen.";
+        deutung = "Du hast eine deutlich negative Vorstellung. Deine positive Reaktion unterstützt und festigt diese Ausrichtung, während die Realität neutral bleibt.";
     }
-
     else if (s <= 64) {
-        deutung = "Zwischen deiner negativen Vorstellung und deiner positiven Reaktion besteht eine sehr große Spannung. Die Realität bleibt dabei neutral.";
+        deutung = "Deine negative Vorstellung wird durch deine positive Reaktion sehr stark unterstützt. Die Realität bleibt dabei neutral.";
     }
 
     else if (s <= 79) {
-        deutung = "Dein negatives Ideal und deine positive Reaktion liegen sehr weit auseinander. Die neutrale Realität gibt selbst keine zusätzliche Richtung vor.";
+        deutung = "Dein negatives Ideal wird durch deine positive Reaktion sehr stark gefestigt. Die neutrale Realität gibt selbst keine zusätzliche Richtung vor.";
     }
-
     else {
-        deutung = "Eine sehr negative Vorstellung steht einer sehr stark positiven Reaktion gegenüber, während die Realität neutral bleibt. Damit entsteht eine außergewöhnlich hohe Gegenspannung.";
+        deutung = "Eine sehr negative Vorstellung wird durch eine sehr starke positive Reaktion unterstützt und gefestigt, während die Realität neutral bleibt.";
     }
 }
 
@@ -5237,38 +5219,39 @@ if (lageCode === "N0N") {
     const s = Math.abs(H);
 
     if (s <= 4) {
-        deutung = "Deine Vorstellung ist negativ, während die Realität neutral bleibt. Deine Reaktion weist ebenfalls leicht in die negative Richtung.";
+        deutung = "Deine Vorstellung ist negativ, während die Realität neutral bleibt. Deine negative Reaktion wirkt dieser negativen Ausrichtung leicht entgegen.";
     }
 
     else if (s <= 9) {
-        deutung = "Du hast eine negative Vorstellung bei neutraler Realität und reagierst ebenfalls negativ. Dadurch wird deine negative Ausrichtung erkennbar wirksam.";
+        deutung = "Du hast eine negative Vorstellung bei neutraler Realität. Deine negative Reaktion wirkt dieser eigenen negativen Ausrichtung erkennbar entgegen.";
     }
 
     else if (s <= 14) {
-        deutung = "Dein negatives Ideal trifft auf eine neutrale Realität. Deine negative Reaktion folgt dabei deutlich deiner eigenen Ausrichtung.";
+        deutung = "Dein negatives Ideal trifft auf eine neutrale Realität. Deine negative Reaktion wirkt dabei deutlich deiner eigenen negativen Ausrichtung entgegen.";
     }
 
     else if (s <= 29) {
-        deutung = "Die Realität bleibt neutral, während sowohl deine Vorstellung als auch deine Reaktion deutlich negativ ausgerichtet sind.";
+        deutung = "Die Realität bleibt neutral, während deine negative Reaktion deiner eigenen negativen Ausrichtung deutlich entgegenwirkt.";
     }
 
     else if (s <= 49) {
-        deutung = "Deine negative Vorstellung und deine negative Reaktion bilden einen deutlichen Gegensatz zur neutralen Realität.";
+        deutung = "Deine negative Vorstellung trifft auf eine deutlich entgegenwirkende negative Reaktion. Dadurch entsteht eine starke Gegenbewegung zu deiner eigenen negativen Ausrichtung.";
     }
 
     else if (s <= 64) {
-        deutung = "Die Realität gibt keine Richtung vor, während Ideal und Reaktion stark negativ ausgerichtet sind.";
+        deutung = "Die Realität gibt keine Richtung vor, während deine negative Reaktion deiner eigenen negativen Ausrichtung sehr stark entgegenwirkt.";
     }
 
     else if (s <= 79) {
-        deutung = "Zwischen der neutralen Realität und deiner stark negativen Vorstellung und Reaktion besteht eine sehr deutliche Spannung.";
+        deutung = "Deine negative Reaktion wirkt deiner stark negativen Vorstellung sehr deutlich entgegen. Bei neutraler Realität entsteht damit eine starke Korrekturbewegung zur eigenen Ausrichtung.";
     }
 
     else {
-        deutung = "Deine Vorstellung und deine Reaktion sind sehr stark negativ ausgerichtet, während die Realität neutral bleibt. Dadurch entsteht eine außergewöhnlich große Differenz zwischen innerer Ausrichtung und tatsächlicher Situation.";
+        deutung = "Deine sehr starke negative Reaktion wirkt deiner sehr negativen eigenen Ausrichtung außergewöhnlich stark entgegen, während die Realität neutral bleibt.";
     }
 }
 
+	
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
@@ -5374,10 +5357,6 @@ if (wirkung) {
 
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-
-
-
-
 
 
 
