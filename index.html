@@ -14669,10 +14669,11 @@ setInterval(updateDateTime, 1000);
 
 
 
-	
 
 	
-	<script>
+	
+
+<script>
 document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================================================
@@ -14693,6 +14694,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
+
   /* =========================================================
      2. DOPPELTES EINFÜGEN VERHINDERN
      ========================================================= */
@@ -14703,7 +14705,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================================================
-     3. DEN KLEINSTEN VERTIEFUNGSBEREICH FINDEN
+     3. KLEINSTEN VERTIEFUNGSBEREICH FINDEN
      ========================================================= */
 
   const kandidaten = Array.from(
@@ -14732,6 +14734,7 @@ document.addEventListener("DOMContentLoaded", function () {
            kleinster.getBoundingClientRect().height
            ? aktuell
            : kleinster;
+
   });
 
 
@@ -14747,6 +14750,7 @@ document.addEventListener("DOMContentLoaded", function () {
   box.style.paddingTop = "10px";
   box.style.borderTop = "1px solid rgba(21,159,211,0.25)";
   box.style.textAlign = "center";
+
 
   box.innerHTML = `
 
@@ -14774,11 +14778,13 @@ document.addEventListener("DOMContentLoaded", function () {
       rel="noopener noreferrer"
 
       style="
-        display:block;
-        width:100%;
-        box-sizing:border-box;
+        display:inline-block;
+        width:auto;
+        min-width:220px;
+        max-width:280px;
 
-        padding:9px 12px;
+        box-sizing:border-box;
+        padding:9px 18px;
 
         background:#159fd3;
         color:#ffffff;
@@ -14799,6 +14805,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   `;
 
+
   /* =========================================================
      5. DIREKT IN DAS VERTIEFUNGSFELD EINFÜGEN
      ========================================================= */
@@ -14807,6 +14814,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
 
 
 
