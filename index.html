@@ -14478,7 +14478,6 @@ setInterval(updateDateTime, 1000);
     return sichtbar;
   }
 
-
   /* =====================================================
      Karten aus dem ORIGINAL-Dropdown aufbauen
   ===================================================== */
@@ -14510,7 +14509,6 @@ setInterval(updateDateTime, 1000);
 
       });
 
-
     if(optionen.length === 0){
 
       box.innerHTML =
@@ -14520,7 +14518,6 @@ setInterval(updateDateTime, 1000);
 
       return;
     }
-
 
     optionen.forEach(function(opt){
 
@@ -14536,7 +14533,6 @@ setInterval(updateDateTime, 1000);
 
       karte.textContent =
         kurzeFrage(opt.textContent || opt.value);
-
 
       /* =================================================
          Klick auf Leitfrage
@@ -14561,14 +14557,12 @@ setInterval(updateDateTime, 1000);
 
           karte.classList.add("aktiv");
 
-
           /* ---------------------------------------------
              Original-Dropdown synchronisieren
           --------------------------------------------- */
 
           leitfrage.value =
             opt.value;
-
 
           /*
              Originales Change-Ereignis auslösen.
@@ -14585,7 +14579,6 @@ setInterval(updateDateTime, 1000);
               }
             )
           );
-
 
           /* ---------------------------------------------
              Sicherheits-Fallback für Textausgabe
@@ -14607,7 +14600,6 @@ setInterval(updateDateTime, 1000);
         }
       );
 
-
       box.appendChild(
         karte
       );
@@ -14615,7 +14607,6 @@ setInterval(updateDateTime, 1000);
     });
 
   }
-
 
   /* =====================================================
      Rubrikwechsel
@@ -14636,7 +14627,6 @@ setInterval(updateDateTime, 1000);
     }
   );
 
-
   /* =====================================================
      Zusätzliche Absicherung
 
@@ -14653,14 +14643,12 @@ setInterval(updateDateTime, 1000);
       }
     );
 
-
   observer.observe(
     leitfrage,
     {
       childList:true
     }
   );
-
 
   /* =====================================================
      Beim Öffnen / Laden einmal initialisieren
@@ -14670,7 +14658,6 @@ setInterval(updateDateTime, 1000);
     baueKarten,
     50
   );
-
 
   console.log(
     "Winni Leitfragen-Karten V3 aktiv"
@@ -14683,12 +14670,146 @@ setInterval(updateDateTime, 1000);
 
 
 
+	
+
+
+	
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =========================================================
+     1. BISHERIGEN HILFE-BUTTON AUSBLENDEN
+     ========================================================= */
+
+  const bedienelemente = Array.from(
+    document.querySelectorAll("button, a, input[type='button']")
+  );
+
+  const hilfeButton = bedienelemente.find(el => {
+    const text = (el.textContent || el.value || "").trim();
+    return text === "Hilfe" ||
+           text === "❓ Hilfe" ||
+           text === "ℹ️ Hilfe";
+  });
+
+  if (hilfeButton) {
+    hilfeButton.style.display = "none";
+  }
+
+  /* =========================================================
+     2. VORHANDENEN VERTIEFUNGSBEREICH SUCHEN
+     ========================================================= */
+
+  const elemente = Array.from(
+    document.querySelectorAll("div, p")
+  );
+
+  const vertiefung = elemente.find(el => {
+    const text = el.textContent || "";
+
+    return (
+      text.includes("Vertiefung:") &&
+      text.includes("Leitfaden für Kreativköpfe") &&
+      !Array.from(el.children).some(child =>
+        (child.textContent || "").includes("Vertiefung:")
+      )
+    );
+  });
+
+  if (!vertiefung) {
+    console.warn("Vertiefungsbereich wurde nicht gefunden.");
+    return;
+  }
+
+  /* =========================================================
+     3. DOPPELTES EINFÜGEN VERHINDERN
+     ========================================================= */
+
+  if (document.getElementById("begleitheft-haltungsformel")) {
+    return;
+  }
+
+  /* =========================================================
+     4. BEGLEITHEFT-BUTTON ERZEUGEN
+     ========================================================= */
+
+  const begleitBox = document.createElement("div");
+
+  begleitBox.id = "begleitheft-haltungsformel";
+
+  begleitBox.style.marginTop = "16px";
+  begleitBox.style.paddingTop = "14px";
+  begleitBox.style.borderTop = "1px solid rgba(21,159,211,0.25)";
+
+  begleitBox.innerHTML = `
+
+    <div style="
+      font-size:1.05rem;
+      font-weight:700;
+      color:#167ba5;
+      margin-bottom:5px;
+      text-align:center;
+    ">
+      📖 Begleitheft zur Haltungsformel
+    </div>
+
+    <div style="
+      font-size:0.92rem;
+      line-height:1.4;
+      color:#475569;
+      margin-bottom:12px;
+      text-align:center;
+    ">
+      Ideal, Realität und Rückgrat verständlich erklärt
+    </div>
+
+    <a
+      href="Winnis_Haltungsformel_Begleitheft.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+
+      style="
+        display:block;
+        width:100%;
+        box-sizing:border-box;
+
+        padding:13px 16px;
+
+        background:#159fd3;
+        color:#ffffff;
+
+        text-decoration:none;
+        text-align:center;
+
+        font-size:1rem;
+        font-weight:700;
+
+        border-radius:12px;
+
+        box-shadow:
+          0 3px 8px rgba(0,0,0,0.12);
+      "
+    >
+      📄 Begleitheft öffnen / drucken
+    </a>
+
+  `;
+
+  /* =========================================================
+     5. DIREKT IN DEN VORHANDENEN VERTIEFUNGS-KASTEN EINFÜGEN
+     ========================================================= */
+
+  vertiefung.appendChild(begleitBox);
+
+});
+</script>
+
+
 
 
 </body>
 </html>
-
-
 
 
 
