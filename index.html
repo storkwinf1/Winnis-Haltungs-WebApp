@@ -14670,137 +14670,104 @@ setInterval(updateDateTime, 1000);
 
 
 
-	
 
 
 	
 
+	
+	
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* =========================================================
-     1. BISHERIGEN HILFE-BUTTON AUSBLENDEN
-     ========================================================= */
+  /* Hilfe-Button ausblenden */
+  document.querySelectorAll("button, a").forEach(function(el) {
+    const text = (el.textContent || "").trim();
 
-  const bedienelemente = Array.from(
-    document.querySelectorAll("button, a, input[type='button']")
-  );
-
-  const hilfeButton = bedienelemente.find(el => {
-    const text = (el.textContent || el.value || "").trim();
-    return text === "Hilfe" ||
-           text === "❓ Hilfe" ||
-           text === "ℹ️ Hilfe";
+    if (
+      text === "Hilfe" ||
+      text === "❓ Hilfe" ||
+      text === "ℹ️ Hilfe"
+    ) {
+      el.style.display = "none";
+    }
   });
 
-  if (hilfeButton) {
-    hilfeButton.style.display = "none";
-  }
-
-  /* =========================================================
-     2. VORHANDENEN VERTIEFUNGSBEREICH SUCHEN
-     ========================================================= */
-
-  const elemente = Array.from(
-    document.querySelectorAll("div, p")
-  );
-
-  const vertiefung = elemente.find(el => {
-    const text = el.textContent || "";
-
-    return (
-      text.includes("Vertiefung:") &&
-      text.includes("Leitfaden für Kreativköpfe") &&
-      !Array.from(el.children).some(child =>
-        (child.textContent || "").includes("Vertiefung:")
-      )
-    );
-  });
-
-  if (!vertiefung) {
-    console.warn("Vertiefungsbereich wurde nicht gefunden.");
-    return;
-  }
-
-  /* =========================================================
-     3. DOPPELTES EINFÜGEN VERHINDERN
-     ========================================================= */
-
+  /* Doppeltes Einfügen verhindern */
   if (document.getElementById("begleitheft-haltungsformel")) {
     return;
   }
 
-  /* =========================================================
-     4. BEGLEITHEFT-BUTTON ERZEUGEN
-     ========================================================= */
 
-  const begleitBox = document.createElement("div");
+  /* Vertiefung anhand des sichtbaren Textes suchen */
+  const alleElemente = Array.from(
+    document.querySelectorAll("div, p, section, aside")
+  );
 
-  begleitBox.id = "begleitheft-haltungsformel";
+  const vertiefungText = alleElemente.find(function(el) {
+    const text = (el.textContent || "").trim();
 
-  begleitBox.style.marginTop = "16px";
-  begleitBox.style.paddingTop = "14px";
-  begleitBox.style.borderTop = "1px solid rgba(21,159,211,0.25)";
+    return (
+      text.includes("Vertiefung:") &&
+      text.includes("Kreativköpfe")
+    );
+  });
 
-  begleitBox.innerHTML = `
+  if (!vertiefungText) {
+    console.warn("Vertiefungsbereich nicht gefunden.");
+    return;
+  }
 
+
+  /* Begleitheft-Box erstellen */
+  const box = document.createElement("div");
+
+  box.id = "begleitheft-haltungsformel";
+
+  box.style.marginTop = "14px";
+  box.style.padding = "14px";
+  box.style.borderRadius = "12px";
+  box.style.background = "#f4fbfd";
+  box.style.border = "1px solid #159fd3";
+  box.style.textAlign = "center";
+
+  box.innerHTML = `
     <div style="
-      font-size:1.05rem;
       font-weight:700;
+      font-size:1.05rem;
       color:#167ba5;
       margin-bottom:5px;
-      text-align:center;
     ">
       📖 Begleitheft zur Haltungsformel
     </div>
 
     <div style="
       font-size:0.92rem;
-      line-height:1.4;
       color:#475569;
       margin-bottom:12px;
-      text-align:center;
     ">
       Ideal, Realität und Rückgrat verständlich erklärt
     </div>
 
     <a
-      href="Winnis_Haltungsformel_Begleitheft.pdf"
+      href="./Winnis_Haltungsformel_Begleitheft.pdf"
       target="_blank"
       rel="noopener noreferrer"
-
       style="
         display:block;
-        width:100%;
-        box-sizing:border-box;
-
         padding:13px 16px;
-
         background:#159fd3;
         color:#ffffff;
-
         text-decoration:none;
-        text-align:center;
-
-        font-size:1rem;
         font-weight:700;
-
-        border-radius:12px;
-
-        box-shadow:
-          0 3px 8px rgba(0,0,0,0.12);
+        border-radius:10px;
       "
     >
       📄 Begleitheft öffnen / drucken
     </a>
-
   `;
 
-  /* =========================================================
-     5. DIREKT IN DEN VORHANDENEN VERTIEFUNGS-KASTEN EINFÜGEN
-     ========================================================= */
-
-  vertiefung.appendChild(begleitBox);
+  /* Direkt NACH dem vorhandenen Vertiefungs-Element einsetzen */
+  vertiefungText.insertAdjacentElement("afterend", box);
 
 });
 </script>
