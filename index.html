@@ -2495,42 +2495,43 @@ if (delta <= 2) {
 
 if (lageCode === "P0N") {
 
-// max 20
+const delta = Math.abs(H);
 
-if (delta <= 2) {
-    category = "Leicht festgehalten";
+if (delta <= 4) {
+    category = "Leicht gegenläufig";
     effect = "Du hast ein positives Ideal, gerätst unter Belastung aber nur leicht ins Stocken.";
 
-} else if (delta <= 4) {
-    category = "Spürbar festgehalten";
+} else if (delta <= 9) {
+    category = "Gegenläufig";
     effect = "Du hast eine gute Richtung, kommst aber nur schwer in Bewegung.";
 
-} else if (delta <= 6) {
-    category = "Festgehalten";
+} else if (delta <= 14) {
+    category = "Klar gegenläufig ";
     effect = "Du hast eine gute Richtung, kannst sie unter Druck aber nicht durchsetzen.";
 
-} else if (delta <= 8) {
-    category = "Deutlich festgehalten";
+} else if (delta <= 29) {
+    category = "Deutlich gegenläufig ";
     effect = "Du bleibst mit deiner positiven Ausrichtung unter Belastung spürbar stecken.";
 
-} else if (delta <= 10) {
-    category = "Stark festgehalten";
+} else if (delta <= 49) {
+    category = "Stark gegenläufig";
     effect = "Du kannst deine gute Richtung unter negativer Realität kaum noch bewegen.";
 
-} else if (delta <= 14) {
-    category = "Blockiert";
+} else if (delta <= 64) {
+    category = "Sehr stark gegenläufig";
     effect = "Du hältst ein starkes Ideal, kommst aber praktisch nicht mehr voran.";
 
-} else if (delta <= 18) {
-    category = "Tief blockiert";
+} else if (delta <= 79) {
+    category = "Intensiv gegenläufig";
     effect = "Du bleibst mit deinem positiven Ideal unter Druck fast vollständig unbeweglich.";
 
 } else {
-    category = "Erstarrt unter Druck";
+    category = "Extrem gegenläufig";
     effect = "Du bleibst mit deinem positiven Ideal unter maximaler Belastung vollständig blockiert.";
 }
 
 }
+
 
 
 //.............................................................................
