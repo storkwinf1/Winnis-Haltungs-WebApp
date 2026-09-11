@@ -2450,12 +2450,6 @@ if (lageCode === "PP0") {
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-
-
-
-
-
-
 if (lageCode === "PN0") {
 
 lageText = "Ideal: positiv, Realität: negativ, Rückgrat: neutral";
@@ -2464,31 +2458,34 @@ lageText = "Ideal: positiv, Realität: negativ, Rückgrat: neutral";
 // delta = Math.abs(I - R), Wertebereich: 2 bis 20
 
 if (delta <= 2) {
-    category = "Minimal gelähmt";
+    category = "Leichte offene Differenz";
     effect = "Ein positives Ideal trifft auf leichte Belastung, ohne Rückgrat entsteht kaum Bewegung.";
 } else if (delta <= 4) {
-    category = "Leicht gelähmt";
+    category = "Offene Differenz";
     effect = "Du siehst, was richtig wäre, kannst es aber unter leichtem Druck nicht umsetzen.";
 } else if (delta <= 6) {
-    category = "Gelähmt";
+    category = "Erkennbare offene Differenz";
     effect = "Positives Ideal und negative Realität erzeugen Spannung, ohne Rückgrat bleibt sie ungelöst.";
 } else if (delta <= 8) {
-    category = "Spürbar gelähmt";
+    category = "Deutliche offene Differenz";
     effect = "Der Druck der negativen Realität überwiegt – dein positives Ideal kommt nicht zum Tragen.";
 } else if (delta <= 10) {
-    category = "Deutlich gelähmt";
+    category = "Starke offene Differenz ";
     effect = "Du weißt, was zu tun wäre – aber ohne Rückgrat bleibst du unter Druck handlungsunfähig.";
 } else if (delta <= 14) {
-    category = "Stark gelähmt";
+    category = "Sehr starke offene Differenz";
     effect = "Die Spannung zwischen positivem Ideal und negativer Realität ist hoch – ohne Rückgrat keine Auflösung.";
 } else if (delta <= 18) {
-    category = "Massiv gelähmt";
+    category = "Intensive offene Differenz";
     effect = "Ein starkes positives Ideal trifft auf schwere Belastung, ohne Rückgrat ist keine Wirkung möglich.";
 } else {
-    category = "Vollständig gelähmt";
+    category = "Maximale offene Differenz";
     effect = "Maximale Spannung zwischen Ideal und Realität, ohne Rückgrat ist jede Handlung blockiert.";
 }
 }
+
+
+
 
 //.............................................................................
 //.............................................................................
