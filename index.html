@@ -287,8 +287,9 @@ header{
   background-repeat:no-repeat;
 }
 
+
 /* =========================================================
-   WINNIS HALTUNGSFORMEL
+   HAUPTÜBERSCHRIFT
    ========================================================= */
 
 header h1{
@@ -310,14 +311,15 @@ header h1{
     0 0 12px rgba(0,0,0,.30);
 }
 
+
 header h1 + h1{
   margin-top:6px;
-
   font-size:clamp(25px,3.4vw,38px);
 }
 
+
 /* =========================================================
-   KURZER ERKLÄRUNGSTEXT
+   ERKLÄRUNGSTEXT
    ========================================================= */
 
 header > p{
@@ -337,6 +339,7 @@ header > p{
   text-shadow:
     0 2px 5px rgba(0,0,0,.80);
 }
+
 
 /* =========================================================
    KLARHEIT BEGINNT ...
@@ -362,10 +365,55 @@ header > strong{
     0 2px 5px rgba(0,0,0,.85);
 }
 
+
+/* =========================================================
+   NEUE WEGE BEGINNEN IN DIR
+   Jetzt unabhängig vom Hintergrundbild
+   ========================================================= */
+
+header .neue-wege{
+  position:absolute;
+
+  right:35px;
+  bottom:28px;
+
+  z-index:8;
+
+  width:auto;
+
+  margin:0;
+  padding:0;
+
+  background:none !important;
+  border:none !important;
+  box-shadow:none !important;
+
+  color:rgba(255,255,255,.88) !important;
+
+  font-family:
+    "Segoe Script",
+    "Brush Script MT",
+    cursive;
+
+  font-size:clamp(25px,3vw,42px);
+  font-weight:600;
+  font-style:italic;
+
+  line-height:1.05;
+
+  text-align:right;
+
+  transform:rotate(-5deg);
+
+  text-shadow:
+    0 2px 5px rgba(0,0,0,.55);
+
+  pointer-events:none;
+}
+
+
 /* =========================================================
    EINFÜHRUNGSTEXT
-   Kein weißer Kasten mehr.
-   Bild bleibt sichtbar.
    ========================================================= */
 
 header > div[style*="background-color"]{
@@ -399,7 +447,6 @@ header > div[style*="background-color"]{
     0 0 8px rgba(0,0,0,.50);
 }
 
-/* Text im Einführungsbereich ebenfalls weiß */
 
 header > div[style*="background-color"] strong{
   color:#fff !important;
@@ -409,6 +456,7 @@ header > div[style*="background-color"] strong{
     0 0 8px rgba(0,0,0,.50);
 }
 
+
 /* =========================================================
    LICHTEFFEKT
    ========================================================= */
@@ -417,6 +465,7 @@ header .ray{
   z-index:1;
   opacity:.08;
 }
+
 
 /* =========================================================
    TRENNLINIEN
@@ -432,6 +481,7 @@ header > hr{
   border-top:1px solid rgba(255,255,255,.55);
 }
 
+
 /* =========================================================
    SMARTPHONE
    ========================================================= */
@@ -442,12 +492,6 @@ header > hr{
     min-height:auto;
 
     padding:22px 12px 22px;
-
-    /*
-       Wichtig:
-       Auf dem Handy wird das Bild weiterhin gefüllt,
-       aber etwas weiter nach rechts positioniert.
-    */
 
     background:
       linear-gradient(
@@ -461,16 +505,15 @@ header > hr{
     background-size:cover;
 
     /*
-       68 % statt 50 % (center).
-       Dadurch zeigen wir mehr vom rechten Bildbereich.
+       Wir müssen das Bild jetzt NICHT mehr
+       wegen des Schriftzuges nach rechts verschieben.
     */
 
-    background-position:68% top;
+    background-position:center top;
 
     background-repeat:no-repeat;
   }
 
-  /* Hauptüberschrift */
 
   header h1{
     max-width:100%;
@@ -484,15 +527,12 @@ header > hr{
     line-height:1.1;
   }
 
-  /* zweite Überschrift */
 
   header h1 + h1{
     margin-top:5px;
-
     font-size:23px;
   }
 
-  /* Erklärung */
 
   header > p{
     max-width:96%;
@@ -505,7 +545,6 @@ header > hr{
     line-height:1.35;
   }
 
-  /* WARUM */
 
   header > strong{
     max-width:96%;
@@ -519,7 +558,6 @@ header > hr{
     line-height:1.3;
   }
 
-  /* Einführungstext */
 
   header > div[style*="background-color"]{
     max-width:100%;
@@ -544,7 +582,33 @@ header > hr{
       0 2px 4px rgba(0,0,0,.95),
       0 0 7px rgba(0,0,0,.55);
   }
+
+
+  /* ---------------------------------------------------------
+     NEUE WEGE – HANDY
+     --------------------------------------------------------- */
+
+  header .neue-wege{
+    right:18px;
+    bottom:18px;
+
+    max-width:260px;
+
+    font-size:27px;
+    line-height:1.05;
+
+    text-align:right;
+
+    transform:rotate(-5deg);
+
+    color:rgba(255,255,255,.90) !important;
+
+    text-shadow:
+      0 2px 5px rgba(0,0,0,.65);
+  }
+
 }
+
 
 /* =========================================================
    SEHR SCHMALE HANDYS
@@ -555,14 +619,8 @@ header > hr{
   header{
     padding-left:10px;
     padding-right:10px;
-
-    /*
-       Bei sehr schmalen Displays noch etwas weiter
-       Richtung rechte Bildhälfte.
-    */
-
-    background-position:72% top;
   }
+
 
   header h1{
     font-size:25px;
@@ -573,9 +631,11 @@ header > hr{
     font-size:21px;
   }
 
+
   header > p{
     font-size:.91rem;
   }
+
 
   header > strong{
     font-size:.95rem;
@@ -587,7 +647,19 @@ header > hr{
 
     font-size:.91rem;
   }
+
+
+  header .neue-wege{
+    right:14px;
+    bottom:16px;
+
+    max-width:220px;
+
+    font-size:24px;
+  }
+
 }
+
 
 
 
@@ -694,7 +766,7 @@ button[type="submit"]{ /* ensure no implicit submit behavior */ }
 <p>Kostenlose Reflexionshilfe: Vergleiche Ideal und Realität, reflektiere dein eigenes Handeln und prüfe dein Bauchgefühl bewusster.</p>
 
 <strong>💡Klarheit beginnt nicht beim <i>WIE</i>, sondern beim <i>WARUM</i>💡</strong>
-
+<div class="neue-wege">Neue Wege beginnen in dir.</div>
 <hr/>
 <hr/>
 <hr/>
