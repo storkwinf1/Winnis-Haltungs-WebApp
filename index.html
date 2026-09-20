@@ -276,9 +276,9 @@ header{
   background:
     linear-gradient(
       180deg,
-      rgba(14,165,233,.35) 0%,
-      rgba(14,165,233,.12) 45%,
-      rgba(14,165,233,.18) 100%
+      rgba(14,165,233,.30) 0%,
+      rgba(14,165,233,.08) 45%,
+      rgba(14,165,233,.14) 100%
     ),
     url("haltung-berge.png");
 
@@ -287,17 +287,16 @@ header{
   background-repeat:no-repeat;
 }
 
-
-/* =========================================
-   HAUPTÜBERSCHRIFT
-   ========================================= */
+/* =========================================================
+   WINNIS HALTUNGSFORMEL
+   ========================================================= */
 
 header h1{
   position:relative;
   z-index:3;
 
   margin:0 auto;
-  max-width:900px;
+  max-width:950px;
 
   text-align:center;
 
@@ -307,10 +306,9 @@ header h1{
   color:#fff;
 
   text-shadow:
-    0 2px 5px rgba(0,0,0,.75),
+    0 2px 5px rgba(0,0,0,.80),
     0 0 12px rgba(0,0,0,.30);
 }
-
 
 header h1 + h1{
   margin-top:6px;
@@ -318,10 +316,9 @@ header h1 + h1{
   font-size:clamp(25px,3.4vw,38px);
 }
 
-
-/* =========================================
-   UNTERTITEL
-   ========================================= */
+/* =========================================================
+   KURZER ERKLÄRUNGSTEXT
+   ========================================================= */
 
 header > p{
   position:relative;
@@ -338,13 +335,12 @@ header > p{
   color:#fff;
 
   text-shadow:
-    0 2px 5px rgba(0,0,0,.75);
+    0 2px 5px rgba(0,0,0,.80);
 }
 
-
-/* =========================================
-   "KLARHEIT BEGINNT..."
-   ========================================= */
+/* =========================================================
+   KLARHEIT BEGINNT ...
+   ========================================================= */
 
 header > strong{
   position:relative;
@@ -363,32 +359,26 @@ header > strong{
   font-size:1.08rem;
 
   text-shadow:
-    0 2px 5px rgba(0,0,0,.80);
+    0 2px 5px rgba(0,0,0,.85);
 }
 
-
-/* =========================================
+/* =========================================================
    EINFÜHRUNGSTEXT
-   Der vorhandene Text bleibt erhalten.
-   Der weiße Kasten verschwindet optisch.
-   ========================================= */
+   Kein weißer Kasten mehr.
+   Bild bleibt sichtbar.
+   ========================================================= */
 
 header > div[style*="background-color"]{
   position:relative;
   z-index:4;
 
-  max-width:1050px;
+  max-width:1100px;
 
   margin:48px auto 0;
 
   padding:22px 28px !important;
 
-  /*
-     Fast transparenter Hintergrund.
-     Dadurch bleibt die Landschaft sichtbar.
-  */
-
-  background:rgba(255,255,255,.16) !important;
+  background:rgba(20,45,65,.18) !important;
 
   color:#fff !important;
 
@@ -397,57 +387,54 @@ header > div[style*="background-color"]{
 
   box-shadow:none !important;
 
-  backdrop-filter:blur(2px);
-  -webkit-backdrop-filter:blur(2px);
+  backdrop-filter:blur(1.5px);
+  -webkit-backdrop-filter:blur(1.5px);
 
   text-align:center;
 
   line-height:1.5;
 
   text-shadow:
-    0 1px 3px rgba(0,0,0,.85),
-    0 2px 8px rgba(0,0,0,.45);
+    0 2px 4px rgba(0,0,0,.95),
+    0 0 8px rgba(0,0,0,.50);
 }
 
-
-/* Alle Texte im bisherigen Kasten weiß */
+/* Text im Einführungsbereich ebenfalls weiß */
 
 header > div[style*="background-color"] strong{
   color:#fff !important;
 
   text-shadow:
-    0 1px 3px rgba(0,0,0,.85),
-    0 2px 8px rgba(0,0,0,.45);
+    0 2px 4px rgba(0,0,0,.95),
+    0 0 8px rgba(0,0,0,.50);
 }
 
-
-/* =========================================
+/* =========================================================
    LICHTEFFEKT
-   ========================================= */
+   ========================================================= */
 
 header .ray{
   z-index:1;
-  opacity:.12;
+  opacity:.08;
 }
 
-
-/* =========================================
-   TRENNLINIEN DEZENTER
-   ========================================= */
+/* =========================================================
+   TRENNLINIEN
+   ========================================================= */
 
 header > hr{
   position:relative;
   z-index:2;
 
-  opacity:.20;
+  opacity:.15;
 
   border:0;
-  border-top:1px solid rgba(255,255,255,.60);
+  border-top:1px solid rgba(255,255,255,.55);
 }
 
-/* =========================================
+/* =========================================================
    SMARTPHONE
-   ========================================= */
+   ========================================================= */
 
 @media(max-width:640px){
 
@@ -456,26 +443,48 @@ header > hr{
 
     padding:22px 12px 22px;
 
+    /*
+       Wichtig:
+       Auf dem Handy wird das Bild weiterhin gefüllt,
+       aber etwas weiter nach rechts positioniert.
+    */
+
     background:
       linear-gradient(
         180deg,
-        rgba(14,165,233,.30) 0%,
-        rgba(14,165,233,.10) 45%,
-        rgba(14,165,233,.18) 100%
+        rgba(14,165,233,.26) 0%,
+        rgba(14,165,233,.06) 45%,
+        rgba(14,165,233,.12) 100%
       ),
       url("haltung-berge.png");
 
     background-size:cover;
-    background-position:center top;
+
+    /*
+       68 % statt 50 % (center).
+       Dadurch zeigen wir mehr vom rechten Bildbereich.
+    */
+
+    background-position:68% top;
+
     background-repeat:no-repeat;
   }
 
+  /* Hauptüberschrift */
 
   header h1{
+    max-width:100%;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    text-align:center;
+
     font-size:28px;
     line-height:1.1;
   }
 
+  /* zweite Überschrift */
 
   header h1 + h1{
     margin-top:5px;
@@ -483,39 +492,103 @@ header > hr{
     font-size:23px;
   }
 
+  /* Erklärung */
 
   header > p{
     max-width:96%;
 
-    margin-top:12px;
+    margin:12px auto 6px;
+
+    text-align:center;
 
     font-size:.95rem;
     line-height:1.35;
   }
 
+  /* WARUM */
 
   header > strong{
     max-width:96%;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    text-align:center;
 
     font-size:.98rem;
     line-height:1.3;
   }
 
+  /* Einführungstext */
 
   header > div[style*="background-color"]{
-    margin-top:40px;
+    max-width:100%;
+
+    margin:42px auto 0;
 
     padding:17px 12px !important;
 
-    background:rgba(255,255,255,.14) !important;
+    background:rgba(20,45,65,.16) !important;
 
     border:none !important;
     border-radius:14px !important;
 
+    box-shadow:none !important;
+
+    text-align:center;
+
     font-size:.94rem;
     line-height:1.45;
+
+    text-shadow:
+      0 2px 4px rgba(0,0,0,.95),
+      0 0 7px rgba(0,0,0,.55);
   }
 }
+
+/* =========================================================
+   SEHR SCHMALE HANDYS
+   ========================================================= */
+
+@media(max-width:400px){
+
+  header{
+    padding-left:10px;
+    padding-right:10px;
+
+    /*
+       Bei sehr schmalen Displays noch etwas weiter
+       Richtung rechte Bildhälfte.
+    */
+
+    background-position:72% top;
+  }
+
+  header h1{
+    font-size:25px;
+  }
+
+
+  header h1 + h1{
+    font-size:21px;
+  }
+
+  header > p{
+    font-size:.91rem;
+  }
+
+  header > strong{
+    font-size:.95rem;
+  }
+
+
+  header > div[style*="background-color"]{
+    padding:15px 9px !important;
+
+    font-size:.91rem;
+  }
+}
+
 
 
 	
