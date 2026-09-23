@@ -15220,43 +15220,34 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
     'use strict';
 
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const XLINK_NS = 'http://www.w3.org/1999/xlink';
+
     /* =========================================================
        DOPPELRING
 
        INNERER RING:
-       Spannung aus:
+       Spannung aus dem Rechenweg:
        (Ideal - Realität): X
 
        ÄUSSERER RING:
-       Rückgrat direkt aus:
+       Rückgrat aus dem Rechenweg:
        Rückgrat: X
 
-       INNERER TEXT:
-       "Spannung" gebogen
+       BESCHRIFTUNG:
+       Spannung        = innen bei 6 Uhr
+       Rückgrat ±Wert  = AUSSEN bei 6 Uhr
 
-       ÄUSSERER TEXT:
-       "Rückgrat +5"
-       bzw.
-       "Rückgrat -5"
-       gebogen
-
-       Spannung:
+       SPANNUNG:
        Grün -> Gelb -> Orange -> Rot
 
-       Rückgrat:
+       RÜCKGRAT:
        positiv = Blau
        negativ = Bordeaux
        neutral = Grau
     ========================================================= */
 
-    const SVG_NS =
-'http://www.w3.org/2000/svg';
-
-    const XLINK_NS =
-'http://www.w3.org/1999/xlink';
-
     const MAX_TENSION = 20;
-
     const FALLBACK_MAX_BACKBONE = 10;
 
     const SIZE = 62;
@@ -15273,7 +15264,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const INNER_CIRCUMFERENCE =
         2 * Math.PI * INNER_RADIUS;
-
 
     let ringContainer = null;
 
@@ -15332,6 +15322,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 justify-content: center !important;
                 flex: 0 0 auto !important;
                 vertical-align: middle !important;
+                overflow: visible !important;
+            }
+
+            [data-haltungs-doppelring="true"] svg {
+                overflow: visible !important;
             }
 
             @media (max-width: 600px) {
@@ -15347,7 +15342,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 [data-haltungs-doppelring="true"] {
                     width: 56px !important;
-                    height: 56px !important;
+                    height: 60px !important;
                     min-width: 56px !important;
                     flex: 0 0 56px !important;
                 }
@@ -15366,7 +15361,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 [data-haltungs-doppelring="true"] {
                     width: 52px !important;
-                    height: 52px !important;
+                    height: 57px !important;
                     min-width: 52px !important;
                     flex: 0 0 52px !important;
                 }
@@ -15422,7 +15417,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================================
-       SPANNUNG DIREKT AUS DEM RECHENWEG
+       SPANNUNG AUS DEM RECHENWEG
     ========================================================= */
 
     function readTensionFromCalculation() {
@@ -15438,7 +15433,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let bestValue = null;
         let bestLength = Infinity;
 
-
         for (const element of elements) {
 
             if (
@@ -15452,11 +15446,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const text =
-                String(
-                    element.textContent || ''
-                )
-                .replace(/\s+/g, ' ')
-                .trim();
+                String(element.textContent || '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
 
             if (!text) {
                 continue;
@@ -15478,11 +15470,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-
         const value =
-            parseNumber(
-                bestValue
-            );
+            parseNumber(bestValue);
 
         if (value === null) {
             return 0;
@@ -15497,16 +15486,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================================
-       RÜCKGRAT DIREKT AUS DEM RECHENWEG
-
-       Erkennt insbesondere:
-
-       Rückgrat: 5
-       Rückgrat: -5
-       Rückgrat: −5
-
-       zusätzlich auch:
-       Rückgrat (5)
+       RÜCKGRAT AUS DEM RECHENWEG
     ========================================================= */
 
     function readBackboneFromCalculation() {
@@ -15518,16 +15498,13 @@ document.addEventListener("DOMContentLoaded", function () {
             /R[uü]ckgrat\s*\(\s*([+\-–−]?\s*\d+(?:[.,]\d+)?)\s*\)/i
         ];
 
-
         const elements =
             document.querySelectorAll(
                 'span,small,p,div,td,li,code,pre'
             );
 
-
         let bestValue = null;
         let bestLength = Infinity;
-
 
         for (const element of elements) {
 
@@ -15541,28 +15518,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 continue;
             }
 
-
             const text =
-                String(
-                    element.textContent || ''
-                )
-                .replace(/\s+/g, ' ')
-                .trim();
-
+                String(element.textContent || '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
 
             if (!text) {
                 continue;
             }
 
-
-            for (
-                const pattern
-                of patterns
-            ) {
+            for (const pattern of patterns) {
 
                 const match =
                     text.match(pattern);
-
 
                 if (
                     match &&
@@ -15578,12 +15546,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-
         const value =
-            parseNumber(
-                bestValue
-            );
-
+            parseNumber(bestValue);
 
         return value === null
             ? 0
@@ -15592,7 +15556,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================================
-       MAXIMUM DES RÜCKGRATS AUTOMATISCH ERMITTELN
+       MAXIMUM RÜCKGRAT
     ========================================================= */
 
     function getBackboneMaximum() {
@@ -15602,15 +15566,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 'input[type="range"]'
             );
 
-
-        for (
-            const slider
-            of sliders
-        ) {
+        for (const slider of sliders) {
 
             let node =
                 slider.parentElement;
-
 
             for (
                 let depth = 0;
@@ -15619,11 +15578,8 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 const text =
-                    String(
-                        node.textContent || ''
-                    )
-                    .toLowerCase();
-
+                    String(node.textContent || '')
+                        .toLowerCase();
 
                 if (
                     text.includes('rückgrat') ||
@@ -15631,15 +15587,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 ) {
 
                     const min =
-                        parseNumber(
-                            slider.min
-                        );
+                        parseNumber(slider.min);
 
                     const max =
-                        parseNumber(
-                            slider.max
-                        );
-
+                        parseNumber(slider.max);
 
                     if (
                         min !== null &&
@@ -15654,12 +15605,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
 
-
                 node =
                     node.parentElement;
             }
         }
-
 
         return FALLBACK_MAX_BACKBONE;
     }
@@ -15673,32 +15622,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const stops = [
 
-            {
-                value: 0,
-                color: [45, 165, 80]
-            },
+            { value: 0,  color: [45, 165, 80] },
+            { value: 5,  color: [125, 195, 75] },
+            { value: 10, color: [225, 190, 45] },
+            { value: 15, color: [235, 125, 35] },
+            { value: 20, color: [195, 55, 45] }
 
-            {
-                value: 5,
-                color: [125, 195, 75]
-            },
-
-            {
-                value: 10,
-                color: [225, 190, 45]
-            },
-
-            {
-                value: 15,
-                color: [235, 125, 35]
-            },
-
-            {
-                value: 20,
-                color: [195, 55, 45]
-            }
         ];
-
 
         value =
             clamp(
@@ -15707,15 +15637,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 MAX_TENSION
             );
 
-
-        let start =
-            stops[0];
-
-        let end =
-            stops[
-                stops.length - 1
-            ];
-
+        let start = stops[0];
+        let end = stops[stops.length - 1];
 
         for (
             let i = 0;
@@ -15728,28 +15651,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 value <= stops[i + 1].value
             ) {
 
-                start =
-                    stops[i];
-
-                end =
-                    stops[i + 1];
+                start = stops[i];
+                end = stops[i + 1];
 
                 break;
             }
         }
 
-
         const range =
             end.value -
             start.value || 1;
 
-
         const factor =
-            (
-                value -
-                start.value
-            ) / range;
-
+            (value - start.value) /
+            range;
 
         const r =
             Math.round(
@@ -15757,9 +15672,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 (
                     end.color[0] -
                     start.color[0]
-                ) * factor
+                ) *
+                factor
             );
-
 
         const g =
             Math.round(
@@ -15767,9 +15682,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 (
                     end.color[1] -
                     start.color[1]
-                ) * factor
+                ) *
+                factor
             );
-
 
         const b =
             Math.round(
@@ -15777,9 +15692,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 (
                     end.color[2] -
                     start.color[2]
-                ) * factor
+                ) *
+                factor
             );
-
 
         return (
             'rgb(' +
@@ -15797,16 +15712,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function getBackboneColor(value) {
 
         if (value > 0) {
-
             return 'rgb(55,115,190)';
         }
 
-
         if (value < 0) {
-
             return 'rgb(170,60,75)';
         }
-
 
         return 'rgb(145,145,145)';
     }
@@ -15831,9 +15742,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /* =====================================================
+        /* -----------------------------------------------------
            INNERER RING = SPANNUNG
-        ===================================================== */
+        ----------------------------------------------------- */
 
         const tensionRatio =
             clamp(
@@ -15842,7 +15753,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 0,
                 1
             );
-
 
         tensionCircle
             .style
@@ -15855,7 +15765,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     )
                 );
 
-
         tensionCircle
             .style
             .stroke =
@@ -15864,13 +15773,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-        /* =====================================================
+        /* -----------------------------------------------------
            ÄUSSERER RING = RÜCKGRAT
-        ===================================================== */
+        ----------------------------------------------------- */
 
         const maxBackbone =
             getBackboneMaximum();
-
 
         const backboneRatio =
             clamp(
@@ -15879,7 +15787,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 0,
                 1
             );
-
 
         backboneCircle
             .style
@@ -15892,7 +15799,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     )
                 );
 
-
         backboneCircle
             .style
             .stroke =
@@ -15901,15 +15807,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-        /* =====================================================
+        /* -----------------------------------------------------
            SPANNUNGSZAHL
-        ===================================================== */
+        ----------------------------------------------------- */
 
         const roundedTension =
             Math.round(
                 tension * 10
             ) / 10;
-
 
         tensionValueText.textContent =
             Number.isInteger(
@@ -15922,15 +15827,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     .toFixed(1);
 
 
-        /* =====================================================
-           RÜCKGRAT ALS GEBOGENER TEXT
-        ===================================================== */
+        /* -----------------------------------------------------
+           RÜCKGRAT-TEXT
+        ----------------------------------------------------- */
 
         const roundedBackbone =
             Math.round(
                 backbone * 10
             ) / 10;
-
 
         let displayBackbone =
             Number.isInteger(
@@ -15942,7 +15846,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 : roundedBackbone
                     .toFixed(1);
 
-
         if (
             roundedBackbone > 0
         ) {
@@ -15952,28 +15855,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayBackbone;
         }
 
-
         backboneTextPath.textContent =
             'Rückgrat ' +
             displayBackbone;
-
-
-        const backboneColor =
-            getBackboneColor(
-                backbone
-            );
-
 
         const parentText =
             backboneTextPath
                 .parentNode;
 
-
         if (parentText) {
 
             parentText.setAttribute(
                 'fill',
-                backboneColor
+                getBackboneColor(
+                    backbone
+                )
             );
         }
     }
@@ -15997,28 +15893,22 @@ document.addEventListener("DOMContentLoaded", function () {
             );
         }
 
-
         const startTension =
             displayedTension;
 
-
         const startBackbone =
             displayedBackbone;
-
 
         const tensionDifference =
             targetTension -
             startTension;
 
-
         const backboneDifference =
             targetBackbone -
             startBackbone;
 
-
         const duration =
             350;
-
 
         const startTime =
             performance.now();
@@ -16037,7 +15927,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     1
                 );
 
-
             const eased =
                 1 -
                 Math.pow(
@@ -16046,24 +15935,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     3
                 );
 
-
             displayedTension =
                 startTension +
                 tensionDifference *
                 eased;
-
 
             displayedBackbone =
                 startBackbone +
                 backboneDifference *
                 eased;
 
-
             renderRings(
                 displayedTension,
                 displayedBackbone
             );
-
 
             if (
                 progress < 1
@@ -16079,22 +15964,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayedTension =
                     targetTension;
 
-
                 displayedBackbone =
                     targetBackbone;
-
 
                 renderRings(
                     targetTension,
                     targetBackbone
                 );
 
-
-                animationId =
-                    null;
+                animationId = null;
             }
         }
-
 
         animationId =
             requestAnimationFrame(
@@ -16104,7 +15984,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================================
-       AKTUALISIEREN
+       AKTUALISIERUNG
     ========================================================= */
 
     function updateRings() {
@@ -16112,10 +15992,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const tension =
             readTensionFromCalculation();
 
-
         const backbone =
             readBackboneFromCalculation();
-
 
         animateTo(
             tension,
@@ -16126,23 +16004,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function scheduleUpdate() {
 
-        if (
-            updatePending
-        ) {
+        if (updatePending) {
             return;
         }
 
-
         updatePending =
             true;
-
 
         requestAnimationFrame(
             function () {
 
                 updatePending =
                     false;
-
 
                 updateRings();
             }
@@ -16161,17 +16034,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const line =
             hElement.parentElement;
 
-
         if (!line) {
             return null;
         }
-
 
         line.setAttribute(
             'data-haltungswert-komplettzeile',
             'true'
         );
-
 
         return line;
     }
@@ -16189,7 +16059,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-
         if (
             document.querySelector(
                 '[data-haltungs-doppelring="true"]'
@@ -16198,15 +16067,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-
         createResponsiveStyle();
-
 
         const completeLine =
             prepareCompleteLine(
                 hElement
             );
-
 
         if (!completeLine) {
             return;
@@ -16222,16 +16088,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 'span'
             );
 
-
         ringContainer.setAttribute(
             'data-haltungs-doppelring',
             'true'
         );
 
-
         Object.assign(
             ringContainer.style,
             {
+
                 display:
                     'inline-flex',
 
@@ -16245,7 +16110,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     SIZE + 'px',
 
                 height:
-                    SIZE + 'px',
+                    '68px',
 
                 minWidth:
                     SIZE + 'px',
@@ -16259,10 +16124,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     'middle',
 
                 lineHeight:
-                    '1'
+                    '1',
+
+                overflow:
+                    'visible'
+
             }
         );
-
 
         hElement.insertAdjacentElement(
             'afterend',
@@ -16280,18 +16148,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 'svg'
             );
 
-
         svg.setAttribute(
             'width',
             String(SIZE)
         );
 
-
         svg.setAttribute(
             'height',
             String(SIZE)
         );
-
 
         svg.setAttribute(
             'viewBox',
@@ -16301,22 +16166,20 @@ document.addEventListener("DOMContentLoaded", function () {
             SIZE
         );
 
-
         svg.setAttribute(
             'role',
             'img'
         );
-
 
         svg.setAttribute(
             'aria-label',
             'Spannung und Rückgrat'
         );
 
-
         Object.assign(
             svg.style,
             {
+
                 display:
                     'block',
 
@@ -16328,6 +16191,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 overflow:
                     'visible'
+
             }
         );
 
@@ -16343,10 +16207,13 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-        /*
-            INNERER TEXTBOGEN:
-            Spannung
-        */
+        /* -----------------------------------------------------
+           INNERER TEXTPFAD
+           SPANNUNG
+
+           Bleibt innerhalb des inneren Rings,
+           unten bei 6 Uhr.
+        ----------------------------------------------------- */
 
         const tensionArc =
             document.createElementNS(
@@ -16354,22 +16221,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 'path'
             );
 
-
         const tensionPathId =
             'doppelring-spannung-pfad';
-
 
         tensionArc.setAttribute(
             'id',
             tensionPathId
         );
 
-
         tensionArc.setAttribute(
             'd',
-            'M 15 31 A 16 16 0 0 1 47 31'
+            'M 16 31 A 15 15 0 0 0 46 31'
         );
-
 
         tensionArc.setAttribute(
             'fill',
@@ -16377,12 +16240,20 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        /*
-            ÄUSSERER TEXTBOGEN:
-            Rückgrat + Zahl
+        /* -----------------------------------------------------
+           ÄUSSERER TEXTPFAD
+           RÜCKGRAT
 
-            Etwas größerer Radius.
-        */
+           WICHTIGE ÄNDERUNG:
+
+           Radius = 32
+
+           Der eigentliche äußere Ring hat
+           Radius 28.
+
+           Damit liegt die Beschriftung
+           eindeutig AUSSERHALB des Rings.
+        ----------------------------------------------------- */
 
         const backboneArc =
             document.createElementNS(
@@ -16390,22 +16261,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 'path'
             );
 
-
         const backbonePathId =
             'doppelring-rueckgrat-pfad';
-
 
         backboneArc.setAttribute(
             'id',
             backbonePathId
         );
 
-
         backboneArc.setAttribute(
             'd',
-            'M 6 31 A 25 25 0 0 1 56 31'
+            'M -1 31 A 32 32 0 0 0 63 31'
         );
-
 
         backboneArc.setAttribute(
             'fill',
@@ -16417,11 +16284,9 @@ document.addEventListener("DOMContentLoaded", function () {
             tensionArc
         );
 
-
         defs.appendChild(
             backboneArc
         );
-
 
         svg.appendChild(
             defs
@@ -16438,18 +16303,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 'circle'
             );
 
-
         outerBackground.setAttribute(
             'cx',
             String(CENTER)
         );
 
-
         outerBackground.setAttribute(
             'cy',
             String(CENTER)
         );
-
 
         outerBackground.setAttribute(
             'r',
@@ -16458,18 +16320,15 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         );
 
-
         outerBackground.setAttribute(
             'fill',
             'none'
         );
 
-
         outerBackground.setAttribute(
             'stroke',
             'rgba(120,120,120,0.16)'
         );
-
 
         outerBackground.setAttribute(
             'stroke-width',
@@ -16489,18 +16348,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 'circle'
             );
 
-
         backboneCircle.setAttribute(
             'cx',
             String(CENTER)
         );
 
-
         backboneCircle.setAttribute(
             'cy',
             String(CENTER)
         );
-
 
         backboneCircle.setAttribute(
             'r',
@@ -16509,12 +16365,10 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         );
 
-
         backboneCircle.setAttribute(
             'fill',
             'none'
         );
-
 
         backboneCircle.setAttribute(
             'stroke-width',
@@ -16523,12 +16377,10 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         );
 
-
         backboneCircle.setAttribute(
             'stroke-linecap',
             'round'
         );
-
 
         backboneCircle.setAttribute(
             'transform',
@@ -16539,7 +16391,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ')'
         );
 
-
         backboneCircle
             .style
             .strokeDasharray =
@@ -16547,14 +16398,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     OUTER_CIRCUMFERENCE
                 );
 
-
         backboneCircle
             .style
             .strokeDashoffset =
                 String(
                     OUTER_CIRCUMFERENCE
                 );
-
 
         backboneCircle
             .style
@@ -16572,18 +16421,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 'circle'
             );
 
-
         innerBackground.setAttribute(
             'cx',
             String(CENTER)
         );
 
-
         innerBackground.setAttribute(
             'cy',
             String(CENTER)
         );
-
 
         innerBackground.setAttribute(
             'r',
@@ -16592,18 +16438,15 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         );
 
-
         innerBackground.setAttribute(
             'fill',
             'none'
         );
 
-
         innerBackground.setAttribute(
             'stroke',
             'rgba(120,120,120,0.18)'
         );
-
 
         innerBackground.setAttribute(
             'stroke-width',
@@ -16623,18 +16466,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 'circle'
             );
 
-
         tensionCircle.setAttribute(
             'cx',
             String(CENTER)
         );
 
-
         tensionCircle.setAttribute(
             'cy',
             String(CENTER)
         );
-
 
         tensionCircle.setAttribute(
             'r',
@@ -16643,12 +16483,10 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         );
 
-
         tensionCircle.setAttribute(
             'fill',
             'none'
         );
-
 
         tensionCircle.setAttribute(
             'stroke-width',
@@ -16657,12 +16495,10 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         );
 
-
         tensionCircle.setAttribute(
             'stroke-linecap',
             'round'
         );
-
 
         tensionCircle.setAttribute(
             'transform',
@@ -16673,14 +16509,12 @@ document.addEventListener("DOMContentLoaded", function () {
             ')'
         );
 
-
         tensionCircle
             .style
             .strokeDasharray =
                 String(
                     INNER_CIRCUMFERENCE
                 );
-
 
         tensionCircle
             .style
@@ -16689,7 +16523,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     INNER_CIRCUMFERENCE
                 );
 
-
         tensionCircle
             .style
             .stroke =
@@ -16697,8 +16530,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* =====================================================
-           ÄUSSERER GEBOGENER TEXT:
-           RÜCKGRAT + ZAHL
+           RÜCKGRAT
+           AUSSERHALB DES KREISES / 6 UHR
         ===================================================== */
 
         const backboneText =
@@ -16707,36 +16540,37 @@ document.addEventListener("DOMContentLoaded", function () {
                 'text'
             );
 
-
         backboneText.setAttribute(
             'fill',
             '#777'
         );
-
 
         backboneText.setAttribute(
             'font-size',
             '5.8'
         );
 
-
         backboneText.setAttribute(
             'font-weight',
             '600'
         );
-
 
         backboneText.setAttribute(
             'font-family',
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
         );
 
+        /*
+           Positive Verschiebung nach unten.
+
+           Dadurch liegt die Schrift sichtbar
+           außerhalb des äußeren Rings.
+        */
 
         backboneText.setAttribute(
-            'letter-spacing',
-            '0.05'
+            'dy',
+            '2.3'
         );
-
 
         backboneTextPath =
             document.createElementNS(
@@ -16744,13 +16578,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 'textPath'
             );
 
-
         backboneTextPath.setAttribute(
             'href',
             '#' +
             backbonePathId
         );
-
 
         backboneTextPath.setAttributeNS(
             XLINK_NS,
@@ -16759,22 +16591,18 @@ document.addEventListener("DOMContentLoaded", function () {
             backbonePathId
         );
 
-
         backboneTextPath.setAttribute(
             'startOffset',
             '50%'
         );
-
 
         backboneTextPath.setAttribute(
             'text-anchor',
             'middle'
         );
 
-
         backboneTextPath.textContent =
             'Rückgrat 0';
-
 
         backboneText.appendChild(
             backboneTextPath
@@ -16782,8 +16610,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* =====================================================
-           INNERER GEBOGENER TEXT:
            SPANNUNG
+           INNERHALB DES RINGS / 6 UHR
         ===================================================== */
 
         const tensionText =
@@ -16792,36 +16620,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 'text'
             );
 
-
         tensionText.setAttribute(
             'fill',
             '#666'
         );
 
-
         tensionText.setAttribute(
             'font-size',
-            '6.1'
+            '6'
         );
-
 
         tensionText.setAttribute(
             'font-weight',
             '500'
         );
 
-
         tensionText.setAttribute(
             'font-family',
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
         );
 
-
         tensionText.setAttribute(
-            'letter-spacing',
-            '0.1'
+            'dy',
+            '-1.1'
         );
-
 
         const tensionTextPath =
             document.createElementNS(
@@ -16829,13 +16651,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 'textPath'
             );
 
-
         tensionTextPath.setAttribute(
             'href',
             '#' +
             tensionPathId
         );
-
 
         tensionTextPath.setAttributeNS(
             XLINK_NS,
@@ -16844,22 +16664,18 @@ document.addEventListener("DOMContentLoaded", function () {
             tensionPathId
         );
 
-
         tensionTextPath.setAttribute(
             'startOffset',
             '50%'
         );
-
 
         tensionTextPath.setAttribute(
             'text-anchor',
             'middle'
         );
 
-
         tensionTextPath.textContent =
             'Spannung';
-
 
         tensionText.appendChild(
             tensionTextPath
@@ -16867,7 +16683,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* =====================================================
-           SPANNUNGSZAHL MITTIG
+           SPANNUNGSZAHL
         ===================================================== */
 
         tensionValueText =
@@ -16876,54 +16692,45 @@ document.addEventListener("DOMContentLoaded", function () {
                 'text'
             );
 
-
         tensionValueText.setAttribute(
             'x',
             String(CENTER)
         );
 
-
         tensionValueText.setAttribute(
             'y',
-            '36'
+            '25'
         );
-
 
         tensionValueText.setAttribute(
             'text-anchor',
             'middle'
         );
 
-
         tensionValueText.setAttribute(
             'dominant-baseline',
             'central'
         );
-
 
         tensionValueText.setAttribute(
             'fill',
             '#404040'
         );
 
-
         tensionValueText.setAttribute(
             'font-size',
             '12'
         );
-
 
         tensionValueText.setAttribute(
             'font-weight',
             '700'
         );
 
-
         tensionValueText.setAttribute(
             'font-family',
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
         );
-
 
         tensionValueText.textContent =
             '0';
@@ -16937,36 +16744,29 @@ document.addEventListener("DOMContentLoaded", function () {
             outerBackground
         );
 
-
         svg.appendChild(
             backboneCircle
         );
-
 
         svg.appendChild(
             innerBackground
         );
 
-
         svg.appendChild(
             tensionCircle
         );
-
-
-        svg.appendChild(
-            backboneText
-        );
-
 
         svg.appendChild(
             tensionText
         );
 
-
         svg.appendChild(
             tensionValueText
         );
 
+        svg.appendChild(
+            backboneText
+        );
 
         ringContainer.appendChild(
             svg
@@ -16977,19 +16777,13 @@ document.addEventListener("DOMContentLoaded", function () {
            START
         ===================================================== */
 
-        displayedTension =
-            0;
-
-
-        displayedBackbone =
-            0;
-
+        displayedTension = 0;
+        displayedBackbone = 0;
 
         renderRings(
             0,
             0
         );
-
 
         requestAnimationFrame(
             function () {
@@ -17010,7 +16804,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     let relevant =
                         false;
 
-
                     for (
                         const mutation
                         of mutations
@@ -17018,7 +16811,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         let target =
                             mutation.target;
-
 
                         if (
                             target &&
@@ -17029,7 +16821,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             target =
                                 target.parentNode;
                         }
-
 
                         if (
                             ringContainer &&
@@ -17048,13 +16839,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             continue;
                         }
 
-
                         relevant =
                             true;
 
                         break;
                     }
-
 
                     if (relevant) {
 
@@ -17063,10 +16852,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             );
 
-
         observer.observe(
             document.body,
             {
+
                 childList:
                     true,
 
@@ -17075,6 +16864,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 subtree:
                     true
+
             }
         );
 
@@ -17124,7 +16914,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 'H'
             );
 
-
         if (hElement) {
 
             createDoubleRing(
@@ -17133,7 +16922,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             return;
         }
-
 
         const waitingObserver =
             new MutationObserver(
@@ -17144,12 +16932,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             'H'
                         );
 
-
                     if (found) {
 
                         waitingObserver
                             .disconnect();
-
 
                         createDoubleRing(
                             found
@@ -17158,15 +16944,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             );
 
-
         waitingObserver.observe(
             document.documentElement,
             {
+
                 childList:
                     true,
 
                 subtree:
                     true
+
             }
         );
     }
@@ -17181,8 +16968,7 @@ document.addEventListener("DOMContentLoaded", function () {
             'DOMContentLoaded',
             start,
             {
-                once:
-                    true
+                once: true
             }
         );
 
@@ -17193,8 +16979,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 })();
 </script>
-
-
 
 
 
