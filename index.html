@@ -15064,9 +15064,6 @@ setInterval(updateDateTime, 1000);
 
 
 
-
-
-	
 	
 
 <script>
@@ -15212,6 +15209,965 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+
+
+<script>
+(function () {
+    'use strict';
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+    const MAX_TENSION = 20;
+
+    /* etwas größer wegen gebogenem Text */
+    const SIZE = 54;
+    const STROKE_WIDTH = 4;
+
+    const RADIUS = (SIZE - STROKE_WIDTH) / 2;
+    const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+    let ringContainer = null;
+    let progressCircle = null;
+    let valueText = null;
+
+    let displayedValue = 0;
+    let animationId = null;
+    let updatePending = false;
+
+
+    /* =========================================
+       Hilfsfunktionen
+    ========================================= */
+
+    function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+    }
+
+
+    function parseNumber(value) {
+
+        if (value === null || value === undefined) {
+            return null;
+        }
+
+        const normalized =
+            String(value)
+                .trim()
+                .replace(',', '.');
+
+        const number = Number(normalized);
+
+        return Number.isFinite(number)
+            ? number
+            : null;
+    }
+
+
+    /* =========================================
+       Spannung aus Rechenweg lesen
+
+       Quelle:
+       (Ideal - Realität): X
+    ========================================= */
+
+    function readTensionFromCalculation() {
+
+        const pattern =
+            /\(\s*Ideal\s*[-–−]\s*Realit[aä]t\s*\)\s*:\s*(-?\d+(?:[.,]\d+)?)/i;
+
+        const selectors = [
+            'span',
+            'small',
+            'p',
+            'div',
+            'td',
+            'li',
+            'code',
+            'pre'
+        ];
+
+        const elements =
+            document.querySelectorAll(
+                selectors.join(',')
+            );
+
+        let bestMatch = null;
+        let bestLength = Infinity;
+
+
+        for (const element of elements) {
+
+            if (
+                ringContainer &&
+                (
+                    element === ringContainer ||
+                    ringContainer.contains(element)
+                )
+            ) {
+                continue;
+            }
+
+            const text =
+                String(element.textContent || '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+
+            if (!text) {
+                continue;
+            }
+
+            const match =
+                text.match(pattern);
+
+            if (!match) {
+                continue;
+            }
+
+            /*
+                Möglichst genau die
+                Rechenweg-Zeile verwenden
+            */
+
+            if (text.length < bestLength) {
+
+                bestLength =
+                    text.length;
+
+                bestMatch =
+                    match[1];
+            }
+        }
+
+
+        if (bestMatch !== null) {
+
+            const value =
+                parseNumber(bestMatch);
+
+            if (value !== null) {
+
+                return clamp(
+                    Math.abs(value),
+                    0,
+                    MAX_TENSION
+                );
+            }
+        }
+
+
+        return 0;
+    }
+    /* =========================================
+       Farbverlauf
+       Grün -> Hellgrün -> Gelb -> Orange -> Rot
+    ========================================= */
+
+    function getColor(value) {
+
+        const stops = [
+            { value: 0,  color: [45, 165, 80] },
+            { value: 5,  color: [125, 195, 75] },
+            { value: 10, color: [225, 190, 45] },
+            { value: 15, color: [235, 125, 35] },
+            { value: 20, color: [195, 55, 45] }
+        ];
+
+        value =
+            clamp(
+                value,
+                0,
+                MAX_TENSION
+            );
+
+        let start = stops[0];
+        let end = stops[stops.length - 1];
+
+        for (
+            let i = 0;
+            i < stops.length - 1;
+            i++
+        ) {
+
+            if (
+                value >= stops[i].value &&
+                value <= stops[i + 1].value
+            ) {
+
+                start = stops[i];
+                end = stops[i + 1];
+
+                break;
+            }
+        }
+
+        const range =
+            end.value - start.value;
+
+        const factor =
+            range === 0
+                ? 0
+                : (value - start.value) / range;
+
+        const r =
+            Math.round(
+                start.color[0] +
+                (end.color[0] - start.color[0]) *
+                factor
+            );
+
+        const g =
+            Math.round(
+                start.color[1] +
+                (end.color[1] - start.color[1]) *
+                factor
+            );
+
+        const b =
+            Math.round(
+                start.color[2] +
+                (end.color[2] - start.color[2]) *
+                factor
+            );
+
+        return (
+            'rgb(' +
+            r + ',' +
+            g + ',' +
+            b + ')'
+        );
+    }
+    /* =========================================
+       Ring darstellen
+    ========================================= */
+
+    function renderRing(value) {
+
+        if (
+            !progressCircle ||
+            !valueText
+        ) {
+            return;
+        }
+
+        const ratio =
+            clamp(
+                value / MAX_TENSION,
+                0,
+                1
+            );
+
+        const offset =
+            CIRCUMFERENCE *
+            (1 - ratio);
+
+        progressCircle
+            .style
+            .strokeDashoffset =
+                String(offset);
+
+        progressCircle
+            .style
+            .stroke =
+                getColor(value);
+
+
+        const rounded =
+            Math.round(
+                value * 10
+            ) / 10;
+
+        valueText.textContent =
+            Number.isInteger(rounded)
+                ? String(rounded)
+                : rounded.toFixed(1);
+    }
+    /* =========================================
+       Animation
+    ========================================= */
+
+    function animateTo(targetValue) {
+
+        targetValue =
+            clamp(
+                targetValue,
+                0,
+                MAX_TENSION
+            );
+
+        if (animationId !== null) {
+            cancelAnimationFrame(animationId);
+        }
+
+        const startValue =
+            displayedValue;
+
+        const difference =
+            targetValue - startValue;
+
+        const duration = 350;
+
+        const startTime =
+            performance.now();
+
+
+        function step(now) {
+
+            const progress =
+                clamp(
+                    (now - startTime) / duration,
+                    0,
+                    1
+                );
+
+            const eased =
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
+
+            displayedValue =
+                startValue +
+                difference * eased;
+
+            renderRing(displayedValue);
+
+            if (progress < 1) {
+
+                animationId =
+                    requestAnimationFrame(step);
+
+            } else {
+
+                displayedValue =
+                    targetValue;
+
+                renderRing(targetValue);
+
+                animationId =
+                    null;
+            }
+        }
+
+        animationId =
+            requestAnimationFrame(step);
+    }
+    /* =========================================
+       Aktualisieren
+    ========================================= */
+
+    function updateRing() {
+
+        const tension =
+            readTensionFromCalculation();
+
+        animateTo(tension);
+    }
+    function scheduleUpdate() {
+
+        if (updatePending) {
+            return;
+        }
+
+        updatePending = true;
+
+        requestAnimationFrame(
+            function () {
+
+                updatePending = false;
+
+                updateRing();
+            }
+        );
+    }
+    /* =========================================
+       Ring erzeugen
+    ========================================= */
+
+    function createRing(hElement) {
+
+        if (!hElement) {
+            return;
+        }
+
+        if (
+            document.querySelector(
+                '[data-haltungs-spannungsring="true"]'
+            )
+        ) {
+            return;
+        }
+        /* =====================================
+           Haltungswert + Ring zusammenhalten
+           auch auf dem Handy
+        ===================================== */
+
+        const wrapper =
+            document.createElement('span');
+
+        wrapper.setAttribute(
+            'data-haltungswert-spannung-wrapper',
+            'true'
+        );
+
+        Object.assign(
+            wrapper.style,
+            {
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                gap: '7px',
+                whiteSpace: 'nowrap',
+                flexWrap: 'nowrap',
+                verticalAlign: 'middle'
+            }
+        );
+        hElement
+            .parentNode
+            .insertBefore(
+                wrapper,
+                hElement
+            );
+        wrapper.appendChild(hElement);
+
+
+        /* =====================================
+           Ringcontainer
+        ===================================== */
+
+        ringContainer =
+            document.createElement('span');
+
+        ringContainer.setAttribute(
+            'data-haltungs-spannungsring',
+            'true'
+        );
+
+        Object.assign(
+            ringContainer.style,
+            {
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: SIZE + 'px',
+                height: SIZE + 'px',
+                minWidth: SIZE + 'px',
+                flex: '0 0 ' + SIZE + 'px',
+                verticalAlign: 'middle',
+                lineHeight: '1'
+            }
+        );
+        /* =====================================
+           SVG
+        ===================================== */
+        const svg =
+            document.createElementNS(
+                SVG_NS,
+                'svg'
+            );
+
+        svg.setAttribute(
+            'width',
+            String(SIZE)
+        );
+
+        svg.setAttribute(
+            'height',
+            String(SIZE)
+        );
+
+        svg.setAttribute(
+            'viewBox',
+            '0 0 ' +
+            SIZE +
+            ' ' +
+            SIZE
+        );
+
+        svg.setAttribute(
+            'role',
+            'img'
+        );
+
+        svg.setAttribute(
+            'aria-label',
+            'Aktuelle Spannung'
+        );
+
+        Object.assign(
+            svg.style,
+            {
+                display: 'block',
+                width: SIZE + 'px',
+                height: SIZE + 'px',
+                overflow: 'visible'
+            }
+        );
+        /* =====================================
+           Definition für gebogenen Text
+        ===================================== */
+        const defs =
+            document.createElementNS(
+                SVG_NS,
+                'defs'
+            );
+
+        const textPath =
+            document.createElementNS(
+                SVG_NS,
+                'path'
+            );
+
+        textPath.setAttribute(
+            'id',
+            'spannungsRingTextPfad'
+        );
+
+        /*
+            Oberer Innenbogen.
+
+            Start links oben,
+            Verlauf nach rechts oben.
+        */
+
+        textPath.setAttribute(
+            'd',
+            'M 10 27 A 17 17 0 0 1 44 27'
+        );
+
+        textPath.setAttribute(
+            'fill',
+            'none'
+        );
+
+        defs.appendChild(textPath);
+
+        svg.appendChild(defs);
+        /* =====================================
+           Grauer Hintergrundring
+        ===================================== */
+        const backgroundCircle =
+            document.createElementNS(
+                SVG_NS,
+                'circle'
+            );
+
+        backgroundCircle.setAttribute(
+            'cx',
+            String(SIZE / 2)
+        );
+
+        backgroundCircle.setAttribute(
+            'cy',
+            String(SIZE / 2)
+        );
+
+        backgroundCircle.setAttribute(
+            'r',
+            String(RADIUS)
+        );
+
+        backgroundCircle.setAttribute(
+            'fill',
+            'none'
+        );
+
+        backgroundCircle.setAttribute(
+            'stroke',
+            'rgba(120,120,120,0.22)'
+        );
+
+        backgroundCircle.setAttribute(
+            'stroke-width',
+            String(STROKE_WIDTH)
+        );
+        /* =====================================
+           Farbiger Spannungsring
+        ===================================== */
+        progressCircle =
+            document.createElementNS(
+                SVG_NS,
+                'circle'
+            );
+
+        progressCircle.setAttribute(
+            'cx',
+            String(SIZE / 2)
+        );
+
+        progressCircle.setAttribute(
+            'cy',
+            String(SIZE / 2)
+        );
+
+        progressCircle.setAttribute(
+            'r',
+            String(RADIUS)
+        );
+
+        progressCircle.setAttribute(
+            'fill',
+            'none'
+        );
+
+        progressCircle.setAttribute(
+            'stroke-width',
+            String(STROKE_WIDTH)
+        );
+
+        progressCircle.setAttribute(
+            'stroke-linecap',
+            'round'
+        );
+
+        progressCircle.setAttribute(
+            'transform',
+            'rotate(-90 ' +
+            (SIZE / 2) +
+            ' ' +
+            (SIZE / 2) +
+            ')'
+        );
+        progressCircle
+            .style
+            .strokeDasharray =
+                String(CIRCUMFERENCE);
+
+        progressCircle
+            .style
+            .strokeDashoffset =
+                String(CIRCUMFERENCE);
+
+        progressCircle
+            .style
+            .stroke =
+                getColor(0);
+
+
+        /* =====================================
+           Gebogener Text "Spannung"
+        ===================================== */
+
+        const curvedText =
+            document.createElementNS(
+                SVG_NS,
+                'text'
+            );
+        curvedText.setAttribute(
+            'fill',
+            '#666'
+        );
+
+        curvedText.setAttribute(
+            'font-size',
+            '6.3'
+        );
+
+        curvedText.setAttribute(
+            'font-weight',
+            '500'
+        );
+        curvedText.setAttribute(
+            'font-family',
+            'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
+        );
+
+        curvedText.setAttribute(
+            'letter-spacing',
+            '0.15'
+        );
+
+        const curvedTextPath =
+            document.createElementNS(
+                SVG_NS,
+                'textPath'
+            );
+
+        /*
+            Moderne Variante
+        */
+
+        curvedTextPath.setAttribute(
+            'href',
+            '#spannungsRingTextPfad'
+        );
+
+        /*
+            Fallback für ältere Browser
+        */
+        curvedTextPath.setAttributeNS(
+'http://www.w3.org/1999/xlink',
+            'xlink:href',
+            '#spannungsRingTextPfad'
+        );
+        curvedTextPath.setAttribute(
+            'startOffset',
+            '50%'
+        );
+
+        curvedTextPath.setAttribute(
+            'text-anchor',
+            'middle'
+        );
+
+        curvedTextPath.textContent =
+            'Spannung';
+
+        curvedText.appendChild(
+            curvedTextPath
+        );
+        /* =====================================
+           Spannungszahl zentral
+        ===================================== */
+
+        valueText =
+            document.createElementNS(
+                SVG_NS,
+                'text'
+            );
+
+        valueText.setAttribute(
+            'x',
+            String(SIZE / 2)
+        );
+
+        valueText.setAttribute(
+            'y',
+            '33'
+        );
+
+        valueText.setAttribute(
+            'text-anchor',
+            'middle'
+        );
+
+        valueText.setAttribute(
+            'dominant-baseline',
+            'central'
+        );
+
+        valueText.setAttribute(
+            'fill',
+            '#444'
+        );
+
+        valueText.setAttribute(
+            'font-size',
+            '12'
+        );
+
+        valueText.setAttribute(
+            'font-weight',
+            '700'
+        );
+        valueText.setAttribute(
+            'font-family',
+            'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
+        );
+
+        valueText.textContent = '0';
+        /* =====================================
+           Zusammensetzen
+        ===================================== */
+        svg.appendChild(
+            backgroundCircle
+        );
+        svg.appendChild(
+            progressCircle
+        );
+
+        svg.appendChild(
+            curvedText
+        );
+
+        svg.appendChild(
+            valueText
+        );
+
+        ringContainer.appendChild(svg);
+
+        wrapper.appendChild(
+            ringContainer
+        );
+        /* =====================================
+           Startwert
+        ===================================== */
+        displayedValue = 0;
+        renderRing(0);
+        requestAnimationFrame(
+            function () {
+                updateRing();
+            }
+        );
+
+        /* =====================================
+           Rechenweg beobachten
+        ===================================== */
+        const observer =
+            new MutationObserver(
+                function (mutations) {
+
+                    let relevant = false;
+
+                    for (
+                        const mutation
+                        of mutations
+                    ) {
+
+                        let target =
+                            mutation.target;
+
+                        if (
+                            target &&
+                            target.nodeType !==
+                            Node.ELEMENT_NODE
+                        ) {
+
+                            target =
+                                target.parentNode;
+                        }
+
+                        /*
+                            Änderungen im eigenen
+                            Ring ignorieren
+                        */
+
+                        if (
+                            ringContainer &&
+                            target &&
+                            (
+                                target ===
+                                    ringContainer ||
+
+                                ringContainer
+                                    .contains(target)
+                            )
+                        ) {
+
+                            continue;
+                        }
+
+                        relevant = true;
+
+                        break;
+                    }
+
+                    if (relevant) {
+                        scheduleUpdate();
+                    }
+                }
+            );
+        observer.observe(
+            document.body,
+            {
+                childList: true,
+                characterData: true,
+                subtree: true
+            }
+        );
+        /* =====================================
+           Slideränderungen erkennen
+
+           Die Zahl selbst kommt trotzdem
+           weiterhin ausschließlich aus
+           dem Rechenweg.
+        ===================================== */
+        document.addEventListener(
+            'input',
+            function () {
+
+                requestAnimationFrame(
+                    function () {
+
+                        requestAnimationFrame(
+                            scheduleUpdate
+                        );
+                    }
+                );
+            },
+            true
+        );
+
+        document.addEventListener(
+            'change',
+            function () {
+
+                requestAnimationFrame(
+                    scheduleUpdate
+                );
+            },
+            true
+        );
+    }
+
+    /* =========================================
+       Auf #H warten
+    ========================================= */
+    function start() {
+
+        const hElement =
+            document.getElementById('H');
+
+        if (hElement) {
+
+            createRing(hElement);
+
+            return;
+        }
+        const waitingObserver =
+            new MutationObserver(
+                function () {
+
+                    const found =
+                        document.getElementById(
+                            'H'
+                        );
+                    if (found) {
+
+                        waitingObserver.disconnect();
+
+                        createRing(found);
+                    }
+                }
+            );
+
+        waitingObserver.observe(
+            document.documentElement,
+            {
+                childList: true,
+                subtree: true
+            }
+        );
+    }
+    /* =========================================
+       Start
+    ========================================= */
+    if (
+        document.readyState ===
+        'loading'
+    ) {
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            start,
+            {
+                once: true
+            }
+        );
+
+    } else {
+
+        start();
+    }
+})();
+</script>
+
+
+
+
+
+
+	
 
 
 
