@@ -15217,14 +15217,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
+    /* =========================================================
+       SPANNUNGSRING – MOBILE FINALVERSION
+
+       Spannung wird ausschließlich aus dem Rechenweg gelesen:
+
+       (Ideal - Realität): X
+
+       Beispiel:
+       Ideal -10
+       Realität 7
+
+       Rechenweg:
+       (Ideal - Realität): -17
+
+       -> Spannung = 17
+
+       WICHTIG:
+       Beschriftung + Haltungswert + Spannungsring
+       bleiben auch auf dem Smartphone in EINER Zeile.
+    ========================================================= */
+
     const MAX_TENSION = 20;
 
-    /* etwas größer wegen gebogenem Text */
     const SIZE = 54;
     const STROKE_WIDTH = 4;
 
-    const RADIUS = (SIZE - STROKE_WIDTH) / 2;
-    const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+    const RADIUS =
+        (SIZE - STROKE_WIDTH) / 2;
+
+    const CIRCUMFERENCE =
+        2 * Math.PI * RADIUS;
 
     let ringContainer = null;
     let progressCircle = null;
@@ -15235,18 +15258,125 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
     let updatePending = false;
 
 
-    /* =========================================
+    /* =========================================================
+       MOBILE CSS AUTOMATISCH ERZEUGEN
+    ========================================================= */
+
+    function createResponsiveStyle() {
+
+        if (
+            document.getElementById(
+                'spannungsring-responsive-style'
+            )
+        ) {
+            return;
+        }
+
+        const style =
+            document.createElement('style');
+
+        style.id =
+            'spannungsring-responsive-style';
+
+        style.textContent = `
+
+            [data-haltungswert-komplettzeile="true"] {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                flex-wrap: nowrap !important;
+                white-space: nowrap !important;
+                gap: 6px !important;
+            }
+
+            [data-haltungswert-komplettzeile="true"] #H {
+                white-space: nowrap !important;
+                flex: 0 0 auto !important;
+            }
+
+            [data-haltungs-spannungsring="true"] {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex: 0 0 auto !important;
+                vertical-align: middle !important;
+            }
+
+
+            @media (max-width: 600px) {
+
+                [data-haltungswert-komplettzeile="true"] {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: flex-start !important;
+                    flex-wrap: nowrap !important;
+                    white-space: nowrap !important;
+                    gap: 5px !important;
+                    width: 100% !important;
+                }
+
+                [data-haltungswert-komplettzeile="true"] #H {
+                    white-space: nowrap !important;
+                    flex-shrink: 0 !important;
+                }
+
+                [data-haltungs-spannungsring="true"] {
+                    width: 48px !important;
+                    height: 48px !important;
+                    min-width: 48px !important;
+                    flex: 0 0 48px !important;
+                }
+
+                [data-haltungs-spannungsring="true"] svg {
+                    width: 48px !important;
+                    height: 48px !important;
+                    display: block !important;
+                }
+            }
+
+
+            @media (max-width: 380px) {
+
+                [data-haltungswert-komplettzeile="true"] {
+                    gap: 4px !important;
+                }
+
+                [data-haltungs-spannungsring="true"] {
+                    width: 44px !important;
+                    height: 44px !important;
+                    min-width: 44px !important;
+                    flex: 0 0 44px !important;
+                }
+
+                [data-haltungs-spannungsring="true"] svg {
+                    width: 44px !important;
+                    height: 44px !important;
+                }
+            }
+        `;
+
+        document.head.appendChild(style);
+    }
+
+
+    /* =========================================================
        Hilfsfunktionen
-    ========================================= */
+    ========================================================= */
 
     function clamp(value, min, max) {
-        return Math.max(min, Math.min(max, value));
+        return Math.max(
+            min,
+            Math.min(max, value)
+        );
     }
 
 
     function parseNumber(value) {
 
-        if (value === null || value === undefined) {
+        if (
+            value === null ||
+            value === undefined
+        ) {
             return null;
         }
 
@@ -15255,7 +15385,8 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 .trim()
                 .replace(',', '.');
 
-        const number = Number(normalized);
+        const number =
+            Number(normalized);
 
         return Number.isFinite(number)
             ? number
@@ -15263,12 +15394,9 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
     }
 
 
-    /* =========================================
-       Spannung aus Rechenweg lesen
-
-       Quelle:
-       (Ideal - Realität): X
-    ========================================= */
+    /* =========================================================
+       SPANNUNG AUS DEM RECHENWEG LESEN
+    ========================================================= */
 
     function readTensionFromCalculation() {
 
@@ -15307,28 +15435,39 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 continue;
             }
 
+
             const text =
-                String(element.textContent || '')
-                    .replace(/\s+/g, ' ')
-                    .trim();
+                String(
+                    element.textContent || ''
+                )
+                .replace(/\s+/g, ' ')
+                .trim();
+
 
             if (!text) {
                 continue;
             }
 
+
             const match =
                 text.match(pattern);
+
 
             if (!match) {
                 continue;
             }
 
+
             /*
-                Möglichst genau die
-                Rechenweg-Zeile verwenden
+                Das kleinste passende Element
+                entspricht normalerweise genau
+                der Rechenweg-Zeile.
             */
 
-            if (text.length < bestLength) {
+            if (
+                text.length <
+                bestLength
+            ) {
 
                 bestLength =
                     text.length;
@@ -15339,12 +15478,19 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         }
 
 
-        if (bestMatch !== null) {
+        if (
+            bestMatch !== null
+        ) {
 
             const value =
-                parseNumber(bestMatch);
+                parseNumber(
+                    bestMatch
+                );
 
-            if (value !== null) {
+
+            if (
+                value !== null
+            ) {
 
                 return clamp(
                     Math.abs(value),
@@ -15357,20 +15503,49 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
         return 0;
     }
-    /* =========================================
-       Farbverlauf
-       Grün -> Hellgrün -> Gelb -> Orange -> Rot
-    ========================================= */
+
+
+    /* =========================================================
+       FARBVERLAUF
+
+       Grün
+       -> Hellgrün
+       -> Gelb
+       -> Orange
+       -> Rot
+    ========================================================= */
 
     function getColor(value) {
 
         const stops = [
-            { value: 0,  color: [45, 165, 80] },
-            { value: 5,  color: [125, 195, 75] },
-            { value: 10, color: [225, 190, 45] },
-            { value: 15, color: [235, 125, 35] },
-            { value: 20, color: [195, 55, 45] }
+
+            {
+                value: 0,
+                color: [45, 165, 80]
+            },
+
+            {
+                value: 5,
+                color: [125, 195, 75]
+            },
+
+            {
+                value: 10,
+                color: [225, 190, 45]
+            },
+
+            {
+                value: 15,
+                color: [235, 125, 35]
+            },
+
+            {
+                value: 20,
+                color: [195, 55, 45]
+            }
+
         ];
+
 
         value =
             clamp(
@@ -15379,8 +15554,15 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 MAX_TENSION
             );
 
-        let start = stops[0];
-        let end = stops[stops.length - 1];
+
+        let start =
+            stops[0];
+
+        let end =
+            stops[
+                stops.length - 1
+            ];
+
 
         for (
             let i = 0;
@@ -15393,41 +15575,60 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 value <= stops[i + 1].value
             ) {
 
-                start = stops[i];
-                end = stops[i + 1];
+                start =
+                    stops[i];
+
+                end =
+                    stops[i + 1];
 
                 break;
             }
         }
 
+
         const range =
-            end.value - start.value;
+            end.value -
+            start.value;
+
 
         const factor =
             range === 0
                 ? 0
-                : (value - start.value) / range;
+                : (
+                    value -
+                    start.value
+                  ) / range;
+
 
         const r =
             Math.round(
                 start.color[0] +
-                (end.color[0] - start.color[0]) *
-                factor
+                (
+                    end.color[0] -
+                    start.color[0]
+                ) * factor
             );
+
 
         const g =
             Math.round(
                 start.color[1] +
-                (end.color[1] - start.color[1]) *
-                factor
+                (
+                    end.color[1] -
+                    start.color[1]
+                ) * factor
             );
+
 
         const b =
             Math.round(
                 start.color[2] +
-                (end.color[2] - start.color[2]) *
-                factor
+                (
+                    end.color[2] -
+                    start.color[2]
+                ) * factor
             );
+
 
         return (
             'rgb(' +
@@ -15436,9 +15637,11 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             b + ')'
         );
     }
-    /* =========================================
-       Ring darstellen
-    ========================================= */
+
+
+    /* =========================================================
+       RING DARSTELLEN
+    ========================================================= */
 
     function renderRing(value) {
 
@@ -15449,6 +15652,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             return;
         }
 
+
         const ratio =
             clamp(
                 value / MAX_TENSION,
@@ -15456,14 +15660,17 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 1
             );
 
+
         const offset =
             CIRCUMFERENCE *
             (1 - ratio);
+
 
         progressCircle
             .style
             .strokeDashoffset =
                 String(offset);
+
 
         progressCircle
             .style
@@ -15476,14 +15683,17 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 value * 10
             ) / 10;
 
+
         valueText.textContent =
             Number.isInteger(rounded)
                 ? String(rounded)
                 : rounded.toFixed(1);
     }
-    /* =========================================
-       Animation
-    ========================================= */
+
+
+    /* =========================================================
+       ANIMATION
+    ========================================================= */
 
     function animateTo(targetValue) {
 
@@ -15494,17 +15704,29 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 MAX_TENSION
             );
 
-        if (animationId !== null) {
-            cancelAnimationFrame(animationId);
+
+        if (
+            animationId !== null
+        ) {
+
+            cancelAnimationFrame(
+                animationId
+            );
         }
+
 
         const startValue =
             displayedValue;
 
-        const difference =
-            targetValue - startValue;
 
-        const duration = 350;
+        const difference =
+            targetValue -
+            startValue;
+
+
+        const duration =
+            350;
+
 
         const startTime =
             performance.now();
@@ -15514,10 +15736,14 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
             const progress =
                 clamp(
-                    (now - startTime) / duration,
+                    (
+                        now -
+                        startTime
+                    ) / duration,
                     0,
                     1
                 );
+
 
             const eased =
                 1 -
@@ -15526,69 +15752,141 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                     3
                 );
 
+
             displayedValue =
                 startValue +
-                difference * eased;
+                difference *
+                eased;
 
-            renderRing(displayedValue);
 
-            if (progress < 1) {
+            renderRing(
+                displayedValue
+            );
+
+
+            if (
+                progress < 1
+            ) {
 
                 animationId =
-                    requestAnimationFrame(step);
+                    requestAnimationFrame(
+                        step
+                    );
 
             } else {
 
                 displayedValue =
                     targetValue;
 
-                renderRing(targetValue);
+
+                renderRing(
+                    targetValue
+                );
+
 
                 animationId =
                     null;
             }
         }
 
+
         animationId =
-            requestAnimationFrame(step);
+            requestAnimationFrame(
+                step
+            );
     }
-    /* =========================================
-       Aktualisieren
-    ========================================= */
+
+
+    /* =========================================================
+       AKTUALISIERUNG
+    ========================================================= */
 
     function updateRing() {
 
         const tension =
             readTensionFromCalculation();
 
-        animateTo(tension);
+
+        animateTo(
+            tension
+        );
     }
+
+
     function scheduleUpdate() {
 
         if (updatePending) {
             return;
         }
 
-        updatePending = true;
+
+        updatePending =
+            true;
+
 
         requestAnimationFrame(
             function () {
 
-                updatePending = false;
+                updatePending =
+                    false;
+
 
                 updateRing();
             }
         );
     }
-    /* =========================================
-       Ring erzeugen
-    ========================================= */
+
+
+    /* =========================================================
+       H-WERT-ZEILE FINDEN UND FIXIEREN
+    ========================================================= */
+
+    function prepareCompleteLine(hElement) {
+
+        /*
+            Entscheidend:
+
+            Wir verwenden NICHT mehr nur
+            #H + Ring als Gruppe.
+
+            Stattdessen wird das vorhandene
+            Elternelement, in dem bereits
+
+            "Interner Haltungswert:"
+
+            und #H stehen, als komplette
+            gemeinsame Zeile verwendet.
+        */
+
+        const line =
+            hElement.parentElement;
+
+
+        if (!line) {
+            return null;
+        }
+
+
+        line.setAttribute(
+            'data-haltungswert-komplettzeile',
+            'true'
+        );
+
+
+        return line;
+    }
+
+
+    /* =========================================================
+       RING ERZEUGEN
+    ========================================================= */
 
     function createRing(hElement) {
 
         if (!hElement) {
             return;
         }
+
 
         if (
             document.querySelector(
@@ -15597,84 +15895,113 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         ) {
             return;
         }
-        /* =====================================
-           Haltungswert + Ring zusammenhalten
-           auch auf dem Handy
-        ===================================== */
 
-        const wrapper =
-            document.createElement('span');
 
-        wrapper.setAttribute(
-            'data-haltungswert-spannung-wrapper',
-            'true'
-        );
+        createResponsiveStyle();
 
-        Object.assign(
-            wrapper.style,
-            {
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'flex-start',
-                gap: '7px',
-                whiteSpace: 'nowrap',
-                flexWrap: 'nowrap',
-                verticalAlign: 'middle'
-            }
-        );
-        hElement
-            .parentNode
-            .insertBefore(
-                wrapper,
+
+        const completeLine =
+            prepareCompleteLine(
                 hElement
             );
-        wrapper.appendChild(hElement);
 
 
-        /* =====================================
+        if (!completeLine) {
+            return;
+        }
+
+
+        /* =====================================================
            Ringcontainer
-        ===================================== */
+
+           WICHTIG:
+           Kein zusätzlicher Wrapper mehr um #H.
+
+           Ring kommt DIREKT hinter #H.
+        ===================================================== */
 
         ringContainer =
-            document.createElement('span');
+            document.createElement(
+                'span'
+            );
+
 
         ringContainer.setAttribute(
             'data-haltungs-spannungsring',
             'true'
         );
 
+
         Object.assign(
             ringContainer.style,
             {
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: SIZE + 'px',
-                height: SIZE + 'px',
-                minWidth: SIZE + 'px',
-                flex: '0 0 ' + SIZE + 'px',
-                verticalAlign: 'middle',
-                lineHeight: '1'
+
+                display:
+                    'inline-flex',
+
+                alignItems:
+                    'center',
+
+                justifyContent:
+                    'center',
+
+                width:
+                    SIZE + 'px',
+
+                height:
+                    SIZE + 'px',
+
+                minWidth:
+                    SIZE + 'px',
+
+                flex:
+                    '0 0 ' +
+                    SIZE +
+                    'px',
+
+                verticalAlign:
+                    'middle',
+
+                lineHeight:
+                    '1'
+
             }
         );
-        /* =====================================
+
+
+        /*
+            Ring unmittelbar hinter
+            dem Haltungswert einsetzen.
+        */
+
+        hElement.insertAdjacentElement(
+            'afterend',
+            ringContainer
+        );
+
+
+        /* =====================================================
            SVG
-        ===================================== */
+        ===================================================== */
+
         const svg =
             document.createElementNS(
                 SVG_NS,
                 'svg'
             );
 
+
         svg.setAttribute(
             'width',
             String(SIZE)
         );
 
+
         svg.setAttribute(
             'height',
             String(SIZE)
         );
+
 
         svg.setAttribute(
             'viewBox',
@@ -15684,141 +16011,196 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             SIZE
         );
 
+
         svg.setAttribute(
             'role',
             'img'
         );
+
 
         svg.setAttribute(
             'aria-label',
             'Aktuelle Spannung'
         );
 
+
         Object.assign(
             svg.style,
             {
-                display: 'block',
-                width: SIZE + 'px',
-                height: SIZE + 'px',
-                overflow: 'visible'
+
+                display:
+                    'block',
+
+                width:
+                    SIZE + 'px',
+
+                height:
+                    SIZE + 'px',
+
+                overflow:
+                    'visible'
+
             }
         );
-        /* =====================================
-           Definition für gebogenen Text
-        ===================================== */
+
+
+        /* =====================================================
+           TEXTBOGEN
+        ===================================================== */
+
         const defs =
             document.createElementNS(
                 SVG_NS,
                 'defs'
             );
 
-        const textPath =
+
+        const textArc =
             document.createElementNS(
                 SVG_NS,
                 'path'
             );
 
-        textPath.setAttribute(
-            'id',
-            'spannungsRingTextPfad'
-        );
 
         /*
-            Oberer Innenbogen.
-
-            Start links oben,
-            Verlauf nach rechts oben.
+            Eigene eindeutige ID,
+            falls die Seite mehrfach
+            verwendet wird.
         */
 
-        textPath.setAttribute(
+        const pathId =
+            'spannungsRingTextPfad';
+
+
+        textArc.setAttribute(
+            'id',
+            pathId
+        );
+
+
+        /*
+            Innerer oberer Bogen.
+        */
+
+        textArc.setAttribute(
             'd',
             'M 10 27 A 17 17 0 0 1 44 27'
         );
 
-        textPath.setAttribute(
+
+        textArc.setAttribute(
             'fill',
             'none'
         );
 
-        defs.appendChild(textPath);
 
-        svg.appendChild(defs);
-        /* =====================================
-           Grauer Hintergrundring
-        ===================================== */
+        defs.appendChild(
+            textArc
+        );
+
+
+        svg.appendChild(
+            defs
+        );
+
+
+        /* =====================================================
+           Grauer Grundring
+        ===================================================== */
+
         const backgroundCircle =
             document.createElementNS(
                 SVG_NS,
                 'circle'
             );
 
+
         backgroundCircle.setAttribute(
             'cx',
             String(SIZE / 2)
         );
+
 
         backgroundCircle.setAttribute(
             'cy',
             String(SIZE / 2)
         );
 
+
         backgroundCircle.setAttribute(
             'r',
             String(RADIUS)
         );
 
+
         backgroundCircle.setAttribute(
             'fill',
             'none'
         );
+
 
         backgroundCircle.setAttribute(
             'stroke',
             'rgba(120,120,120,0.22)'
         );
 
+
         backgroundCircle.setAttribute(
             'stroke-width',
             String(STROKE_WIDTH)
         );
-        /* =====================================
+
+
+        /* =====================================================
            Farbiger Spannungsring
-        ===================================== */
+        ===================================================== */
+
         progressCircle =
             document.createElementNS(
                 SVG_NS,
                 'circle'
             );
 
+
         progressCircle.setAttribute(
             'cx',
             String(SIZE / 2)
         );
+
 
         progressCircle.setAttribute(
             'cy',
             String(SIZE / 2)
         );
 
+
         progressCircle.setAttribute(
             'r',
             String(RADIUS)
         );
+
 
         progressCircle.setAttribute(
             'fill',
             'none'
         );
 
+
         progressCircle.setAttribute(
             'stroke-width',
             String(STROKE_WIDTH)
         );
 
+
         progressCircle.setAttribute(
             'stroke-linecap',
             'round'
         );
+
+
+        /*
+            Start bei 12 Uhr.
+        */
 
         progressCircle.setAttribute(
             'transform',
@@ -15828,15 +16210,23 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             (SIZE / 2) +
             ')'
         );
+
+
         progressCircle
             .style
             .strokeDasharray =
-                String(CIRCUMFERENCE);
+                String(
+                    CIRCUMFERENCE
+                );
+
 
         progressCircle
             .style
             .strokeDashoffset =
-                String(CIRCUMFERENCE);
+                String(
+                    CIRCUMFERENCE
+                );
+
 
         progressCircle
             .style
@@ -15844,38 +16234,46 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 getColor(0);
 
 
-        /* =====================================
-           Gebogener Text "Spannung"
-        ===================================== */
+        /* =====================================================
+           "Spannung" gebogen
+        ===================================================== */
 
         const curvedText =
             document.createElementNS(
                 SVG_NS,
                 'text'
             );
+
+
         curvedText.setAttribute(
             'fill',
             '#666'
         );
+
 
         curvedText.setAttribute(
             'font-size',
             '6.3'
         );
 
+
         curvedText.setAttribute(
             'font-weight',
             '500'
         );
+
+
         curvedText.setAttribute(
             'font-family',
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
         );
 
+
         curvedText.setAttribute(
             'letter-spacing',
             '0.15'
         );
+
 
         const curvedTextPath =
             document.createElementNS(
@@ -15883,42 +16281,44 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 'textPath'
             );
 
-        /*
-            Moderne Variante
-        */
 
         curvedTextPath.setAttribute(
             'href',
-            '#spannungsRingTextPfad'
+            '#' + pathId
         );
 
-        /*
-            Fallback für ältere Browser
-        */
+
         curvedTextPath.setAttributeNS(
 'http://www.w3.org/1999/xlink',
             'xlink:href',
-            '#spannungsRingTextPfad'
+            '#' + pathId
         );
+
+
         curvedTextPath.setAttribute(
             'startOffset',
             '50%'
         );
+
 
         curvedTextPath.setAttribute(
             'text-anchor',
             'middle'
         );
 
+
         curvedTextPath.textContent =
             'Spannung';
+
 
         curvedText.appendChild(
             curvedTextPath
         );
-        /* =====================================
-           Spannungszahl zentral
-        ===================================== */
+
+
+        /* =====================================================
+           Spannungszahl
+        ===================================================== */
 
         valueText =
             document.createElementNS(
@@ -15926,88 +16326,120 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 'text'
             );
 
+
         valueText.setAttribute(
             'x',
             String(SIZE / 2)
         );
+
 
         valueText.setAttribute(
             'y',
             '33'
         );
 
+
         valueText.setAttribute(
             'text-anchor',
             'middle'
         );
+
 
         valueText.setAttribute(
             'dominant-baseline',
             'central'
         );
 
+
         valueText.setAttribute(
             'fill',
             '#444'
         );
+
 
         valueText.setAttribute(
             'font-size',
             '12'
         );
 
+
         valueText.setAttribute(
             'font-weight',
             '700'
         );
+
+
         valueText.setAttribute(
             'font-family',
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
         );
 
-        valueText.textContent = '0';
-        /* =====================================
+
+        valueText.textContent =
+            '0';
+
+
+        /* =====================================================
            Zusammensetzen
-        ===================================== */
+        ===================================================== */
+
         svg.appendChild(
             backgroundCircle
         );
+
+
         svg.appendChild(
             progressCircle
         );
+
 
         svg.appendChild(
             curvedText
         );
 
+
         svg.appendChild(
             valueText
         );
 
-        ringContainer.appendChild(svg);
 
-        wrapper.appendChild(
-            ringContainer
+        ringContainer.appendChild(
+            svg
         );
-        /* =====================================
-           Startwert
-        ===================================== */
-        displayedValue = 0;
-        renderRing(0);
+
+
+        /* =====================================================
+           STARTWERT
+        ===================================================== */
+
+        displayedValue =
+            0;
+
+
+        renderRing(
+            0
+        );
+
+
         requestAnimationFrame(
             function () {
+
                 updateRing();
             }
         );
 
-        /* =====================================
-           Rechenweg beobachten
-        ===================================== */
+
+        /* =====================================================
+           ÄNDERUNGEN BEOBACHTEN
+        ===================================================== */
+
         const observer =
             new MutationObserver(
                 function (mutations) {
 
-                    let relevant = false;
+                    let relevant =
+                        false;
+
 
                     for (
                         const mutation
@@ -16016,6 +16448,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
                         let target =
                             mutation.target;
+
 
                         if (
                             target &&
@@ -16027,9 +16460,10 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                                 target.parentNode;
                         }
 
+
                         /*
-                            Änderungen im eigenen
-                            Ring ignorieren
+                            Eigene Ringänderungen
+                            ignorieren.
                         */
 
                         if (
@@ -16040,38 +16474,55 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                                     ringContainer ||
 
                                 ringContainer
-                                    .contains(target)
+                                    .contains(
+                                        target
+                                    )
                             )
                         ) {
 
                             continue;
                         }
 
-                        relevant = true;
+
+                        relevant =
+                            true;
 
                         break;
                     }
 
+
                     if (relevant) {
+
                         scheduleUpdate();
                     }
                 }
             );
+
+
         observer.observe(
             document.body,
             {
-                childList: true,
-                characterData: true,
-                subtree: true
+
+                childList:
+                    true,
+
+                characterData:
+                    true,
+
+                subtree:
+                    true
+
             }
         );
-        /* =====================================
-           Slideränderungen erkennen
 
-           Die Zahl selbst kommt trotzdem
-           weiterhin ausschließlich aus
-           dem Rechenweg.
-        ===================================== */
+
+        /* =====================================================
+           SLIDERÄNDERUNGEN
+
+           Die Spannung selbst wird weiterhin
+           ausschließlich aus dem Rechenweg gelesen.
+        ===================================================== */
+
         document.addEventListener(
             'input',
             function () {
@@ -16088,6 +16539,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             true
         );
 
+
         document.addEventListener(
             'change',
             function () {
@@ -16100,20 +16552,29 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         );
     }
 
-    /* =========================================
-       Auf #H warten
-    ========================================= */
+
+    /* =========================================================
+       AUF #H WARTEN
+    ========================================================= */
+
     function start() {
 
         const hElement =
-            document.getElementById('H');
+            document.getElementById(
+                'H'
+            );
+
 
         if (hElement) {
 
-            createRing(hElement);
+            createRing(
+                hElement
+            );
 
             return;
         }
+
+
         const waitingObserver =
             new MutationObserver(
                 function () {
@@ -16122,26 +16583,41 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                         document.getElementById(
                             'H'
                         );
+
+
                     if (found) {
 
-                        waitingObserver.disconnect();
+                        waitingObserver
+                            .disconnect();
 
-                        createRing(found);
+
+                        createRing(
+                            found
+                        );
                     }
                 }
             );
 
+
         waitingObserver.observe(
             document.documentElement,
             {
-                childList: true,
-                subtree: true
+
+                childList:
+                    true,
+
+                subtree:
+                    true
+
             }
         );
     }
-    /* =========================================
-       Start
-    ========================================= */
+
+
+    /* =========================================================
+       START
+    ========================================================= */
+
     if (
         document.readyState ===
         'loading'
@@ -16151,7 +16627,8 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             'DOMContentLoaded',
             start,
             {
-                once: true
+                once:
+                    true
             }
         );
 
@@ -16159,15 +16636,11 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
         start();
     }
+
 })();
 </script>
 
 
-
-
-
-
-	
 
 
 
