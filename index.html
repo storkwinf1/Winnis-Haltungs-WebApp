@@ -15197,76 +15197,108 @@ document.addEventListener("DOMContentLoaded", function () {
     </a>
 
   `;
-
-
   /* =========================================================
      5. DIREKT IN DAS VERTIEFUNGSFELD EINFÜGEN
      ========================================================= */
 
   vertiefung.appendChild(box);
-
 });
 </script>
 
 
 
 
+
+
+
+
+
+
+	
+
 <script>
 (function () {
     'use strict';
 
-const SVG_NS = 'http://www.w3.org/2000/svg';
-
     /* =========================================================
-       SPANNUNGSRING – MOBILE FINALVERSION
+       DOPPELRING
 
-       Spannung wird ausschließlich aus dem Rechenweg gelesen:
-
+       INNERER RING:
+       Spannung aus:
        (Ideal - Realität): X
 
-       Beispiel:
-       Ideal -10
-       Realität 7
+       ÄUSSERER RING:
+       Rückgrat direkt aus:
+       Rückgrat: X
 
-       Rechenweg:
-       (Ideal - Realität): -17
+       INNERER TEXT:
+       "Spannung" gebogen
 
-       -> Spannung = 17
+       ÄUSSERER TEXT:
+       "Rückgrat +5"
+       bzw.
+       "Rückgrat -5"
+       gebogen
 
-       WICHTIG:
-       Beschriftung + Haltungswert + Spannungsring
-       bleiben auch auf dem Smartphone in EINER Zeile.
+       Spannung:
+       Grün -> Gelb -> Orange -> Rot
+
+       Rückgrat:
+       positiv = Blau
+       negativ = Bordeaux
+       neutral = Grau
     ========================================================= */
+
+    const SVG_NS =
+'http://www.w3.org/2000/svg';
+
+    const XLINK_NS =
+'http://www.w3.org/1999/xlink';
 
     const MAX_TENSION = 20;
 
-    const SIZE = 54;
-    const STROKE_WIDTH = 4;
+    const FALLBACK_MAX_BACKBONE = 10;
 
-    const RADIUS =
-        (SIZE - STROKE_WIDTH) / 2;
+    const SIZE = 62;
+    const CENTER = SIZE / 2;
 
-    const CIRCUMFERENCE =
-        2 * Math.PI * RADIUS;
+    const OUTER_RADIUS = 28;
+    const INNER_RADIUS = 21;
+
+    const OUTER_STROKE = 4;
+    const INNER_STROKE = 4;
+
+    const OUTER_CIRCUMFERENCE =
+        2 * Math.PI * OUTER_RADIUS;
+
+    const INNER_CIRCUMFERENCE =
+        2 * Math.PI * INNER_RADIUS;
+
 
     let ringContainer = null;
-    let progressCircle = null;
-    let valueText = null;
 
-    let displayedValue = 0;
+    let tensionCircle = null;
+    let backboneCircle = null;
+
+    let tensionValueText = null;
+    let backboneTextPath = null;
+
+    let displayedTension = 0;
+    let displayedBackbone = 0;
+
     let animationId = null;
     let updatePending = false;
 
 
     /* =========================================================
-       MOBILE CSS AUTOMATISCH ERZEUGEN
+       RESPONSIVE CSS
     ========================================================= */
 
     function createResponsiveStyle() {
 
         if (
             document.getElementById(
-                'spannungsring-responsive-style'
+                'doppelring-responsive-style'
             )
         ) {
             return;
@@ -15276,7 +15308,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             document.createElement('style');
 
         style.id =
-            'spannungsring-responsive-style';
+            'doppelring-responsive-style';
 
         style.textContent = `
 
@@ -15294,7 +15326,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 flex: 0 0 auto !important;
             }
 
-            [data-haltungs-spannungsring="true"] {
+            [data-haltungs-doppelring="true"] {
                 display: inline-flex !important;
                 align-items: center !important;
                 justify-content: center !important;
@@ -15302,55 +15334,46 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 vertical-align: middle !important;
             }
 
-
             @media (max-width: 600px) {
 
                 [data-haltungswert-komplettzeile="true"] {
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: flex-start !important;
-                    flex-wrap: nowrap !important;
-                    white-space: nowrap !important;
-                    gap: 5px !important;
+                    gap: 4px !important;
                     width: 100% !important;
                 }
 
                 [data-haltungswert-komplettzeile="true"] #H {
-                    white-space: nowrap !important;
                     flex-shrink: 0 !important;
                 }
 
-                [data-haltungs-spannungsring="true"] {
-                    width: 48px !important;
-                    height: 48px !important;
-                    min-width: 48px !important;
-                    flex: 0 0 48px !important;
+                [data-haltungs-doppelring="true"] {
+                    width: 56px !important;
+                    height: 56px !important;
+                    min-width: 56px !important;
+                    flex: 0 0 56px !important;
                 }
 
-                [data-haltungs-spannungsring="true"] svg {
-                    width: 48px !important;
-                    height: 48px !important;
-                    display: block !important;
+                [data-haltungs-doppelring="true"] svg {
+                    width: 56px !important;
+                    height: 56px !important;
                 }
             }
-
 
             @media (max-width: 380px) {
 
                 [data-haltungswert-komplettzeile="true"] {
-                    gap: 4px !important;
+                    gap: 3px !important;
                 }
 
-                [data-haltungs-spannungsring="true"] {
-                    width: 44px !important;
-                    height: 44px !important;
-                    min-width: 44px !important;
-                    flex: 0 0 44px !important;
+                [data-haltungs-doppelring="true"] {
+                    width: 52px !important;
+                    height: 52px !important;
+                    min-width: 52px !important;
+                    flex: 0 0 52px !important;
                 }
 
-                [data-haltungs-spannungsring="true"] svg {
-                    width: 44px !important;
-                    height: 44px !important;
+                [data-haltungs-doppelring="true"] svg {
+                    width: 52px !important;
+                    height: 52px !important;
                 }
             }
         `;
@@ -15360,10 +15383,11 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
     /* =========================================================
-       Hilfsfunktionen
+       HILFSFUNKTIONEN
     ========================================================= */
 
     function clamp(value, min, max) {
+
         return Math.max(
             min,
             Math.min(max, value)
@@ -15380,13 +15404,16 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             return null;
         }
 
-        const normalized =
+        const text =
             String(value)
                 .trim()
-                .replace(',', '.');
+                .replace(',', '.')
+                .replace(/−/g, '-')
+                .replace(/–/g, '-')
+                .replace(/\s+/g, '');
 
         const number =
-            Number(normalized);
+            Number(text);
 
         return Number.isFinite(number)
             ? number
@@ -15395,31 +15422,110 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
     /* =========================================================
-       SPANNUNG AUS DEM RECHENWEG LESEN
+       SPANNUNG DIREKT AUS DEM RECHENWEG
     ========================================================= */
 
     function readTensionFromCalculation() {
 
         const pattern =
-            /\(\s*Ideal\s*[-–−]\s*Realit[aä]t\s*\)\s*:\s*(-?\d+(?:[.,]\d+)?)/i;
-
-        const selectors = [
-            'span',
-            'small',
-            'p',
-            'div',
-            'td',
-            'li',
-            'code',
-            'pre'
-        ];
+            /\(\s*Ideal\s*[-–−]\s*Realit[aä]t\s*\)\s*:\s*([+\-–−]?\s*\d+(?:[.,]\d+)?)/i;
 
         const elements =
             document.querySelectorAll(
-                selectors.join(',')
+                'span,small,p,div,td,li,code,pre'
             );
 
-        let bestMatch = null;
+        let bestValue = null;
+        let bestLength = Infinity;
+
+
+        for (const element of elements) {
+
+            if (
+                ringContainer &&
+                (
+                    element === ringContainer ||
+                    ringContainer.contains(element)
+                )
+            ) {
+                continue;
+            }
+
+            const text =
+                String(
+                    element.textContent || ''
+                )
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            if (!text) {
+                continue;
+            }
+
+            const match =
+                text.match(pattern);
+
+            if (
+                match &&
+                text.length < bestLength
+            ) {
+
+                bestLength =
+                    text.length;
+
+                bestValue =
+                    match[1];
+            }
+        }
+
+
+        const value =
+            parseNumber(
+                bestValue
+            );
+
+        if (value === null) {
+            return 0;
+        }
+
+        return clamp(
+            Math.abs(value),
+            0,
+            MAX_TENSION
+        );
+    }
+
+
+    /* =========================================================
+       RÜCKGRAT DIREKT AUS DEM RECHENWEG
+
+       Erkennt insbesondere:
+
+       Rückgrat: 5
+       Rückgrat: -5
+       Rückgrat: −5
+
+       zusätzlich auch:
+       Rückgrat (5)
+    ========================================================= */
+
+    function readBackboneFromCalculation() {
+
+        const patterns = [
+
+            /R[uü]ckgrat\s*:\s*([+\-–−]?\s*\d+(?:[.,]\d+)?)/i,
+
+            /R[uü]ckgrat\s*\(\s*([+\-–−]?\s*\d+(?:[.,]\d+)?)\s*\)/i
+        ];
+
+
+        const elements =
+            document.querySelectorAll(
+                'span,small,p,div,td,li,code,pre'
+            );
+
+
+        let bestValue = null;
         let bestLength = Infinity;
 
 
@@ -15449,73 +15555,121 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             }
 
 
-            const match =
-                text.match(pattern);
-
-
-            if (!match) {
-                continue;
-            }
-
-
-            /*
-                Das kleinste passende Element
-                entspricht normalerweise genau
-                der Rechenweg-Zeile.
-            */
-
-            if (
-                text.length <
-                bestLength
+            for (
+                const pattern
+                of patterns
             ) {
 
-                bestLength =
-                    text.length;
+                const match =
+                    text.match(pattern);
 
-                bestMatch =
-                    match[1];
+
+                if (
+                    match &&
+                    text.length < bestLength
+                ) {
+
+                    bestLength =
+                        text.length;
+
+                    bestValue =
+                        match[1];
+                }
             }
         }
 
 
-        if (
-            bestMatch !== null
-        ) {
-
-            const value =
-                parseNumber(
-                    bestMatch
-                );
+        const value =
+            parseNumber(
+                bestValue
+            );
 
 
-            if (
-                value !== null
-            ) {
-
-                return clamp(
-                    Math.abs(value),
-                    0,
-                    MAX_TENSION
-                );
-            }
-        }
-
-
-        return 0;
+        return value === null
+            ? 0
+            : value;
     }
 
 
     /* =========================================================
-       FARBVERLAUF
-
-       Grün
-       -> Hellgrün
-       -> Gelb
-       -> Orange
-       -> Rot
+       MAXIMUM DES RÜCKGRATS AUTOMATISCH ERMITTELN
     ========================================================= */
 
-    function getColor(value) {
+    function getBackboneMaximum() {
+
+        const sliders =
+            document.querySelectorAll(
+                'input[type="range"]'
+            );
+
+
+        for (
+            const slider
+            of sliders
+        ) {
+
+            let node =
+                slider.parentElement;
+
+
+            for (
+                let depth = 0;
+                depth < 6 && node;
+                depth++
+            ) {
+
+                const text =
+                    String(
+                        node.textContent || ''
+                    )
+                    .toLowerCase();
+
+
+                if (
+                    text.includes('rückgrat') ||
+                    text.includes('ruckgrat')
+                ) {
+
+                    const min =
+                        parseNumber(
+                            slider.min
+                        );
+
+                    const max =
+                        parseNumber(
+                            slider.max
+                        );
+
+
+                    if (
+                        min !== null &&
+                        max !== null
+                    ) {
+
+                        return Math.max(
+                            Math.abs(min),
+                            Math.abs(max),
+                            1
+                        );
+                    }
+                }
+
+
+                node =
+                    node.parentElement;
+            }
+        }
+
+
+        return FALLBACK_MAX_BACKBONE;
+    }
+
+
+    /* =========================================================
+       SPANNUNGSFARBE
+    ========================================================= */
+
+    function getTensionColor(value) {
 
         const stops = [
 
@@ -15543,7 +15697,6 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                 value: 20,
                 color: [195, 55, 45]
             }
-
         ];
 
 
@@ -15588,16 +15741,14 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
         const range =
             end.value -
-            start.value;
+            start.value || 1;
 
 
         const factor =
-            range === 0
-                ? 0
-                : (
-                    value -
-                    start.value
-                  ) / range;
+            (
+                value -
+                start.value
+            ) / range;
 
 
         const r =
@@ -15640,54 +15791,191 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
     /* =========================================================
-       RING DARSTELLEN
+       RÜCKGRAT-FARBE
     ========================================================= */
 
-    function renderRing(value) {
+    function getBackboneColor(value) {
+
+        if (value > 0) {
+
+            return 'rgb(55,115,190)';
+        }
+
+
+        if (value < 0) {
+
+            return 'rgb(170,60,75)';
+        }
+
+
+        return 'rgb(145,145,145)';
+    }
+
+
+    /* =========================================================
+       RINGE DARSTELLEN
+    ========================================================= */
+
+    function renderRings(
+        tension,
+        backbone
+    ) {
 
         if (
-            !progressCircle ||
-            !valueText
+            !tensionCircle ||
+            !backboneCircle ||
+            !tensionValueText ||
+            !backboneTextPath
         ) {
             return;
         }
 
 
-        const ratio =
+        /* =====================================================
+           INNERER RING = SPANNUNG
+        ===================================================== */
+
+        const tensionRatio =
             clamp(
-                value / MAX_TENSION,
+                tension /
+                MAX_TENSION,
                 0,
                 1
             );
 
 
-        const offset =
-            CIRCUMFERENCE *
-            (1 - ratio);
-
-
-        progressCircle
+        tensionCircle
             .style
             .strokeDashoffset =
-                String(offset);
+                String(
+                    INNER_CIRCUMFERENCE *
+                    (
+                        1 -
+                        tensionRatio
+                    )
+                );
 
 
-        progressCircle
+        tensionCircle
             .style
             .stroke =
-                getColor(value);
+                getTensionColor(
+                    tension
+                );
 
 
-        const rounded =
+        /* =====================================================
+           ÄUSSERER RING = RÜCKGRAT
+        ===================================================== */
+
+        const maxBackbone =
+            getBackboneMaximum();
+
+
+        const backboneRatio =
+            clamp(
+                Math.abs(backbone) /
+                maxBackbone,
+                0,
+                1
+            );
+
+
+        backboneCircle
+            .style
+            .strokeDashoffset =
+                String(
+                    OUTER_CIRCUMFERENCE *
+                    (
+                        1 -
+                        backboneRatio
+                    )
+                );
+
+
+        backboneCircle
+            .style
+            .stroke =
+                getBackboneColor(
+                    backbone
+                );
+
+
+        /* =====================================================
+           SPANNUNGSZAHL
+        ===================================================== */
+
+        const roundedTension =
             Math.round(
-                value * 10
+                tension * 10
             ) / 10;
 
 
-        valueText.textContent =
-            Number.isInteger(rounded)
-                ? String(rounded)
-                : rounded.toFixed(1);
+        tensionValueText.textContent =
+            Number.isInteger(
+                roundedTension
+            )
+                ? String(
+                    roundedTension
+                  )
+                : roundedTension
+                    .toFixed(1);
+
+
+        /* =====================================================
+           RÜCKGRAT ALS GEBOGENER TEXT
+        ===================================================== */
+
+        const roundedBackbone =
+            Math.round(
+                backbone * 10
+            ) / 10;
+
+
+        let displayBackbone =
+            Number.isInteger(
+                roundedBackbone
+            )
+                ? String(
+                    roundedBackbone
+                  )
+                : roundedBackbone
+                    .toFixed(1);
+
+
+        if (
+            roundedBackbone > 0
+        ) {
+
+            displayBackbone =
+                '+' +
+                displayBackbone;
+        }
+
+
+        backboneTextPath.textContent =
+            'Rückgrat ' +
+            displayBackbone;
+
+
+        const backboneColor =
+            getBackboneColor(
+                backbone
+            );
+
+
+        const parentText =
+            backboneTextPath
+                .parentNode;
+
+
+        if (parentText) {
+
+            parentText.setAttribute(
+                'fill',
+                backboneColor
+            );
+        }
     }
 
 
@@ -15695,15 +15983,10 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
        ANIMATION
     ========================================================= */
 
-    function animateTo(targetValue) {
-
-        targetValue =
-            clamp(
-                targetValue,
-                0,
-                MAX_TENSION
-            );
-
+    function animateTo(
+        targetTension,
+        targetBackbone
+    ) {
 
         if (
             animationId !== null
@@ -15715,13 +15998,22 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         }
 
 
-        const startValue =
-            displayedValue;
+        const startTension =
+            displayedTension;
 
 
-        const difference =
-            targetValue -
-            startValue;
+        const startBackbone =
+            displayedBackbone;
+
+
+        const tensionDifference =
+            targetTension -
+            startTension;
+
+
+        const backboneDifference =
+            targetBackbone -
+            startBackbone;
 
 
         const duration =
@@ -15739,7 +16031,8 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                     (
                         now -
                         startTime
-                    ) / duration,
+                    ) /
+                    duration,
                     0,
                     1
                 );
@@ -15748,19 +16041,27 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             const eased =
                 1 -
                 Math.pow(
-                    1 - progress,
+                    1 -
+                    progress,
                     3
                 );
 
 
-            displayedValue =
-                startValue +
-                difference *
+            displayedTension =
+                startTension +
+                tensionDifference *
                 eased;
 
 
-            renderRing(
-                displayedValue
+            displayedBackbone =
+                startBackbone +
+                backboneDifference *
+                eased;
+
+
+            renderRings(
+                displayedTension,
+                displayedBackbone
             );
 
 
@@ -15775,12 +16076,17 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
             } else {
 
-                displayedValue =
-                    targetValue;
+                displayedTension =
+                    targetTension;
 
 
-                renderRing(
-                    targetValue
+                displayedBackbone =
+                    targetBackbone;
+
+
+                renderRings(
+                    targetTension,
+                    targetBackbone
                 );
 
 
@@ -15798,24 +16104,31 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
     /* =========================================================
-       AKTUALISIERUNG
+       AKTUALISIEREN
     ========================================================= */
 
-    function updateRing() {
+    function updateRings() {
 
         const tension =
             readTensionFromCalculation();
 
 
+        const backbone =
+            readBackboneFromCalculation();
+
+
         animateTo(
-            tension
+            tension,
+            backbone
         );
     }
 
 
     function scheduleUpdate() {
 
-        if (updatePending) {
+        if (
+            updatePending
+        ) {
             return;
         }
 
@@ -15831,32 +16144,19 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                     false;
 
 
-                updateRing();
+                updateRings();
             }
         );
     }
 
 
     /* =========================================================
-       H-WERT-ZEILE FINDEN UND FIXIEREN
+       KOMPLETTE H-WERT-ZEILE
     ========================================================= */
 
-    function prepareCompleteLine(hElement) {
-
-        /*
-            Entscheidend:
-
-            Wir verwenden NICHT mehr nur
-            #H + Ring als Gruppe.
-
-            Stattdessen wird das vorhandene
-            Elternelement, in dem bereits
-
-            "Interner Haltungswert:"
-
-            und #H stehen, als komplette
-            gemeinsame Zeile verwendet.
-        */
+    function prepareCompleteLine(
+        hElement
+    ) {
 
         const line =
             hElement.parentElement;
@@ -15878,10 +16178,12 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
     /* =========================================================
-       RING ERZEUGEN
+       DOPPELRING ERZEUGEN
     ========================================================= */
 
-    function createRing(hElement) {
+    function createDoubleRing(
+        hElement
+    ) {
 
         if (!hElement) {
             return;
@@ -15890,7 +16192,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
         if (
             document.querySelector(
-                '[data-haltungs-spannungsring="true"]'
+                '[data-haltungs-doppelring="true"]'
             )
         ) {
             return;
@@ -15912,12 +16214,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
         /* =====================================================
-           Ringcontainer
-
-           WICHTIG:
-           Kein zusätzlicher Wrapper mehr um #H.
-
-           Ring kommt DIREKT hinter #H.
+           CONTAINER
         ===================================================== */
 
         ringContainer =
@@ -15927,7 +16224,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
         ringContainer.setAttribute(
-            'data-haltungs-spannungsring',
+            'data-haltungs-doppelring',
             'true'
         );
 
@@ -15935,7 +16232,6 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         Object.assign(
             ringContainer.style,
             {
-
                 display:
                     'inline-flex',
 
@@ -15964,15 +16260,9 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
                 lineHeight:
                     '1'
-
             }
         );
 
-
-        /*
-            Ring unmittelbar hinter
-            dem Haltungswert einsetzen.
-        */
 
         hElement.insertAdjacentElement(
             'afterend',
@@ -16020,14 +16310,13 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
         svg.setAttribute(
             'aria-label',
-            'Aktuelle Spannung'
+            'Spannung und Rückgrat'
         );
 
 
         Object.assign(
             svg.style,
             {
-
                 display:
                     'block',
 
@@ -16039,13 +16328,12 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
                 overflow:
                     'visible'
-
             }
         );
 
 
         /* =====================================================
-           TEXTBOGEN
+           TEXT-PFADE
         ===================================================== */
 
         const defs =
@@ -16055,47 +16343,83 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
             );
 
 
-        const textArc =
+        /*
+            INNERER TEXTBOGEN:
+            Spannung
+        */
+
+        const tensionArc =
             document.createElementNS(
                 SVG_NS,
                 'path'
             );
 
 
-        /*
-            Eigene eindeutige ID,
-            falls die Seite mehrfach
-            verwendet wird.
-        */
-
-        const pathId =
-            'spannungsRingTextPfad';
+        const tensionPathId =
+            'doppelring-spannung-pfad';
 
 
-        textArc.setAttribute(
+        tensionArc.setAttribute(
             'id',
-            pathId
+            tensionPathId
+        );
+
+
+        tensionArc.setAttribute(
+            'd',
+            'M 15 31 A 16 16 0 0 1 47 31'
+        );
+
+
+        tensionArc.setAttribute(
+            'fill',
+            'none'
         );
 
 
         /*
-            Innerer oberer Bogen.
+            ÄUSSERER TEXTBOGEN:
+            Rückgrat + Zahl
+
+            Etwas größerer Radius.
         */
 
-        textArc.setAttribute(
-            'd',
-            'M 10 27 A 17 17 0 0 1 44 27'
+        const backboneArc =
+            document.createElementNS(
+                SVG_NS,
+                'path'
+            );
+
+
+        const backbonePathId =
+            'doppelring-rueckgrat-pfad';
+
+
+        backboneArc.setAttribute(
+            'id',
+            backbonePathId
         );
 
 
-        textArc.setAttribute(
+        backboneArc.setAttribute(
+            'd',
+            'M 6 31 A 25 25 0 0 1 56 31'
+        );
+
+
+        backboneArc.setAttribute(
             'fill',
             'none'
         );
 
 
         defs.appendChild(
-            textArc
+            tensionArc
+        );
+
+
+        defs.appendChild(
+            backboneArc
         );
 
 
@@ -16105,301 +16429,542 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
         /* =====================================================
-           Grauer Grundring
+           ÄUSSERER HINTERGRUNDRING
         ===================================================== */
 
-        const backgroundCircle =
+        const outerBackground =
             document.createElementNS(
                 SVG_NS,
                 'circle'
             );
 
 
-        backgroundCircle.setAttribute(
+        outerBackground.setAttribute(
             'cx',
-            String(SIZE / 2)
+            String(CENTER)
         );
 
 
-        backgroundCircle.setAttribute(
+        outerBackground.setAttribute(
             'cy',
-            String(SIZE / 2)
+            String(CENTER)
         );
 
 
-        backgroundCircle.setAttribute(
+        outerBackground.setAttribute(
             'r',
-            String(RADIUS)
+            String(
+                OUTER_RADIUS
+            )
         );
 
 
-        backgroundCircle.setAttribute(
+        outerBackground.setAttribute(
             'fill',
             'none'
         );
 
 
-        backgroundCircle.setAttribute(
+        outerBackground.setAttribute(
             'stroke',
-            'rgba(120,120,120,0.22)'
+            'rgba(120,120,120,0.16)'
         );
 
 
-        backgroundCircle.setAttribute(
+        outerBackground.setAttribute(
             'stroke-width',
-            String(STROKE_WIDTH)
+            String(
+                OUTER_STROKE
+            )
         );
 
 
         /* =====================================================
-           Farbiger Spannungsring
+           ÄUSSERER RÜCKGRAT-RING
         ===================================================== */
 
-        progressCircle =
+        backboneCircle =
             document.createElementNS(
                 SVG_NS,
                 'circle'
             );
 
 
-        progressCircle.setAttribute(
+        backboneCircle.setAttribute(
             'cx',
-            String(SIZE / 2)
+            String(CENTER)
         );
 
 
-        progressCircle.setAttribute(
+        backboneCircle.setAttribute(
             'cy',
-            String(SIZE / 2)
+            String(CENTER)
         );
 
 
-        progressCircle.setAttribute(
+        backboneCircle.setAttribute(
             'r',
-            String(RADIUS)
+            String(
+                OUTER_RADIUS
+            )
         );
 
 
-        progressCircle.setAttribute(
+        backboneCircle.setAttribute(
             'fill',
             'none'
         );
 
 
-        progressCircle.setAttribute(
+        backboneCircle.setAttribute(
             'stroke-width',
-            String(STROKE_WIDTH)
+            String(
+                OUTER_STROKE
+            )
         );
 
 
-        progressCircle.setAttribute(
+        backboneCircle.setAttribute(
             'stroke-linecap',
             'round'
         );
 
 
-        /*
-            Start bei 12 Uhr.
-        */
-
-        progressCircle.setAttribute(
+        backboneCircle.setAttribute(
             'transform',
             'rotate(-90 ' +
-            (SIZE / 2) +
+            CENTER +
             ' ' +
-            (SIZE / 2) +
+            CENTER +
             ')'
         );
 
 
-        progressCircle
+        backboneCircle
             .style
             .strokeDasharray =
                 String(
-                    CIRCUMFERENCE
+                    OUTER_CIRCUMFERENCE
                 );
 
 
-        progressCircle
+        backboneCircle
             .style
             .strokeDashoffset =
                 String(
-                    CIRCUMFERENCE
+                    OUTER_CIRCUMFERENCE
                 );
 
 
-        progressCircle
+        backboneCircle
             .style
             .stroke =
-                getColor(0);
+                getBackboneColor(0);
 
 
         /* =====================================================
-           "Spannung" gebogen
+           INNERER HINTERGRUNDRING
         ===================================================== */
 
-        const curvedText =
+        const innerBackground =
+            document.createElementNS(
+                SVG_NS,
+                'circle'
+            );
+
+
+        innerBackground.setAttribute(
+            'cx',
+            String(CENTER)
+        );
+
+
+        innerBackground.setAttribute(
+            'cy',
+            String(CENTER)
+        );
+
+
+        innerBackground.setAttribute(
+            'r',
+            String(
+                INNER_RADIUS
+            )
+        );
+
+
+        innerBackground.setAttribute(
+            'fill',
+            'none'
+        );
+
+
+        innerBackground.setAttribute(
+            'stroke',
+            'rgba(120,120,120,0.18)'
+        );
+
+
+        innerBackground.setAttribute(
+            'stroke-width',
+            String(
+                INNER_STROKE
+            )
+        );
+
+
+        /* =====================================================
+           INNERER SPANNUNGSRING
+        ===================================================== */
+
+        tensionCircle =
+            document.createElementNS(
+                SVG_NS,
+                'circle'
+            );
+
+
+        tensionCircle.setAttribute(
+            'cx',
+            String(CENTER)
+        );
+
+
+        tensionCircle.setAttribute(
+            'cy',
+            String(CENTER)
+        );
+
+
+        tensionCircle.setAttribute(
+            'r',
+            String(
+                INNER_RADIUS
+            )
+        );
+
+
+        tensionCircle.setAttribute(
+            'fill',
+            'none'
+        );
+
+
+        tensionCircle.setAttribute(
+            'stroke-width',
+            String(
+                INNER_STROKE
+            )
+        );
+
+
+        tensionCircle.setAttribute(
+            'stroke-linecap',
+            'round'
+        );
+
+
+        tensionCircle.setAttribute(
+            'transform',
+            'rotate(-90 ' +
+            CENTER +
+            ' ' +
+            CENTER +
+            ')'
+        );
+
+
+        tensionCircle
+            .style
+            .strokeDasharray =
+                String(
+                    INNER_CIRCUMFERENCE
+                );
+
+
+        tensionCircle
+            .style
+            .strokeDashoffset =
+                String(
+                    INNER_CIRCUMFERENCE
+                );
+
+
+        tensionCircle
+            .style
+            .stroke =
+                getTensionColor(0);
+
+
+        /* =====================================================
+           ÄUSSERER GEBOGENER TEXT:
+           RÜCKGRAT + ZAHL
+        ===================================================== */
+
+        const backboneText =
             document.createElementNS(
                 SVG_NS,
                 'text'
             );
 
 
-        curvedText.setAttribute(
+        backboneText.setAttribute(
             'fill',
-            '#666'
+            '#777'
         );
 
 
-        curvedText.setAttribute(
+        backboneText.setAttribute(
             'font-size',
-            '6.3'
+            '5.8'
         );
 
 
-        curvedText.setAttribute(
+        backboneText.setAttribute(
             'font-weight',
-            '500'
+            '600'
         );
 
 
-        curvedText.setAttribute(
+        backboneText.setAttribute(
             'font-family',
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
         );
 
 
-        curvedText.setAttribute(
+        backboneText.setAttribute(
             'letter-spacing',
-            '0.15'
+            '0.05'
         );
 
 
-        const curvedTextPath =
+        backboneTextPath =
             document.createElementNS(
                 SVG_NS,
                 'textPath'
             );
 
 
-        curvedTextPath.setAttribute(
+        backboneTextPath.setAttribute(
             'href',
-            '#' + pathId
+            '#' +
+            backbonePathId
         );
 
 
-        curvedTextPath.setAttributeNS(
-'http://www.w3.org/1999/xlink',
+        backboneTextPath.setAttributeNS(
+            XLINK_NS,
             'xlink:href',
-            '#' + pathId
+            '#' +
+            backbonePathId
         );
 
 
-        curvedTextPath.setAttribute(
+        backboneTextPath.setAttribute(
             'startOffset',
             '50%'
         );
 
 
-        curvedTextPath.setAttribute(
+        backboneTextPath.setAttribute(
             'text-anchor',
             'middle'
         );
 
 
-        curvedTextPath.textContent =
-            'Spannung';
+        backboneTextPath.textContent =
+            'Rückgrat 0';
 
 
-        curvedText.appendChild(
-            curvedTextPath
+        backboneText.appendChild(
+            backboneTextPath
         );
 
 
         /* =====================================================
-           Spannungszahl
+           INNERER GEBOGENER TEXT:
+           SPANNUNG
         ===================================================== */
 
-        valueText =
+        const tensionText =
             document.createElementNS(
                 SVG_NS,
                 'text'
             );
 
 
-        valueText.setAttribute(
-            'x',
-            String(SIZE / 2)
-        );
-
-
-        valueText.setAttribute(
-            'y',
-            '33'
-        );
-
-
-        valueText.setAttribute(
-            'text-anchor',
-            'middle'
-        );
-
-
-        valueText.setAttribute(
-            'dominant-baseline',
-            'central'
-        );
-
-
-        valueText.setAttribute(
+        tensionText.setAttribute(
             'fill',
-            '#444'
+            '#666'
         );
 
 
-        valueText.setAttribute(
+        tensionText.setAttribute(
             'font-size',
-            '12'
+            '6.1'
         );
 
 
-        valueText.setAttribute(
+        tensionText.setAttribute(
             'font-weight',
-            '700'
+            '500'
         );
 
 
-        valueText.setAttribute(
+        tensionText.setAttribute(
             'font-family',
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
         );
 
 
-        valueText.textContent =
+        tensionText.setAttribute(
+            'letter-spacing',
+            '0.1'
+        );
+
+
+        const tensionTextPath =
+            document.createElementNS(
+                SVG_NS,
+                'textPath'
+            );
+
+
+        tensionTextPath.setAttribute(
+            'href',
+            '#' +
+            tensionPathId
+        );
+
+
+        tensionTextPath.setAttributeNS(
+            XLINK_NS,
+            'xlink:href',
+            '#' +
+            tensionPathId
+        );
+
+
+        tensionTextPath.setAttribute(
+            'startOffset',
+            '50%'
+        );
+
+
+        tensionTextPath.setAttribute(
+            'text-anchor',
+            'middle'
+        );
+
+
+        tensionTextPath.textContent =
+            'Spannung';
+
+
+        tensionText.appendChild(
+            tensionTextPath
+        );
+
+
+        /* =====================================================
+           SPANNUNGSZAHL MITTIG
+        ===================================================== */
+
+        tensionValueText =
+            document.createElementNS(
+                SVG_NS,
+                'text'
+            );
+
+
+        tensionValueText.setAttribute(
+            'x',
+            String(CENTER)
+        );
+
+
+        tensionValueText.setAttribute(
+            'y',
+            '36'
+        );
+
+
+        tensionValueText.setAttribute(
+            'text-anchor',
+            'middle'
+        );
+
+
+        tensionValueText.setAttribute(
+            'dominant-baseline',
+            'central'
+        );
+
+
+        tensionValueText.setAttribute(
+            'fill',
+            '#404040'
+        );
+
+
+        tensionValueText.setAttribute(
+            'font-size',
+            '12'
+        );
+
+
+        tensionValueText.setAttribute(
+            'font-weight',
+            '700'
+        );
+
+
+        tensionValueText.setAttribute(
+            'font-family',
+            'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif'
+        );
+
+
+        tensionValueText.textContent =
             '0';
 
 
         /* =====================================================
-           Zusammensetzen
+           ZUSAMMENSETZEN
         ===================================================== */
 
         svg.appendChild(
-            backgroundCircle
+            outerBackground
         );
 
 
         svg.appendChild(
-            progressCircle
+            backboneCircle
         );
 
 
         svg.appendChild(
-            curvedText
+            innerBackground
         );
 
 
         svg.appendChild(
-            valueText
+            tensionCircle
+        );
+
+
+        svg.appendChild(
+            backboneText
+        );
+
+
+        svg.appendChild(
+            tensionText
+        );
+
+
+        svg.appendChild(
+            tensionValueText
         );
 
 
@@ -16409,14 +16974,19 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
         /* =====================================================
-           STARTWERT
+           START
         ===================================================== */
 
-        displayedValue =
+        displayedTension =
             0;
 
 
-        renderRing(
+        displayedBackbone =
+            0;
+
+
+        renderRings(
+            0,
             0
         );
 
@@ -16424,13 +16994,13 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         requestAnimationFrame(
             function () {
 
-                updateRing();
+                updateRings();
             }
         );
 
 
         /* =====================================================
-           ÄNDERUNGEN BEOBACHTEN
+           WEBAPP BEOBACHTEN
         ===================================================== */
 
         const observer =
@@ -16460,11 +17030,6 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                                 target.parentNode;
                         }
 
-
-                        /*
-                            Eigene Ringänderungen
-                            ignorieren.
-                        */
 
                         if (
                             ringContainer &&
@@ -16502,7 +17067,6 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         observer.observe(
             document.body,
             {
-
                 childList:
                     true,
 
@@ -16511,16 +17075,12 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
                 subtree:
                     true
-
             }
         );
 
 
         /* =====================================================
            SLIDERÄNDERUNGEN
-
-           Die Spannung selbst wird weiterhin
-           ausschließlich aus dem Rechenweg gelesen.
         ===================================================== */
 
         document.addEventListener(
@@ -16554,7 +17114,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 
     /* =========================================================
-       AUF #H WARTEN
+       START
     ========================================================= */
 
     function start() {
@@ -16567,7 +17127,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
         if (hElement) {
 
-            createRing(
+            createDoubleRing(
                 hElement
             );
 
@@ -16591,7 +17151,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
                             .disconnect();
 
 
-                        createRing(
+                        createDoubleRing(
                             found
                         );
                     }
@@ -16602,21 +17162,15 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
         waitingObserver.observe(
             document.documentElement,
             {
-
                 childList:
                     true,
 
                 subtree:
                     true
-
             }
         );
     }
 
-
-    /* =========================================================
-       START
-    ========================================================= */
 
     if (
         document.readyState ===
@@ -16639,6 +17193,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 })();
 </script>
+
 
 
 
