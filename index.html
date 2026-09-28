@@ -1834,6 +1834,9 @@ function update(){
   const R = +realEl.value;
   const G = +ruckEl.value;
 
+const box = document.getElementById('wasJetztBox');
+if (box) box.style.display = 'none';
+
 let intensitaet = "";
 
 if (Math.abs(G) <= 3) {
@@ -9055,9 +9058,6 @@ btn.innerHTML = '<span style="font-size:32px; vertical-align:middle; margin-righ
   }
 }
 
-
-
-
   // Klick-Event
   btn.addEventListener('click', function(){
     const I = parseInt(document.getElementById('ideal').value) || 0;
@@ -9074,14 +9074,14 @@ btn.innerHTML = '<span style="font-size:32px; vertical-align:middle; margin-righ
     box.style.display = 'block';
 
     // Nach 8 Sekunden ausblenden
-    setTimeout(()=>{ box.style.display = 'none'; }, 8000);
+    setTimeout(()=>{ box.style.display = 'none'; }, 999999999);
   });
+
 
 })();
 </script>
 
-
-
+	
 
 <!-- SPANNUNGSVERLAUF -->
 <div id="spannungsverlaufBox" style="
